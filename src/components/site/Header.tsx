@@ -47,7 +47,7 @@ const Header = () => {
             <div className="text-[11px] text-muted-foreground">Пн-Пт 9:00 – 18:00</div>
           </div>
           <Button className="rounded-lg font-semibold" onClick={() => setCalcOpen(true)}>
-            Получить расчёт
+            Калькулятор стоимости
           </Button>
         </div>
 
