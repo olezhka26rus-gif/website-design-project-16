@@ -1,4 +1,5 @@
 import Icon from '@/components/ui/icon';
+import VkIcon from '@/components/icons/VkIcon';
 
 const Footer = () => {
   return (
@@ -39,7 +40,7 @@ const Footer = () => {
           <p className="text-sm mb-4">Пн-Пт 9:00 – 18:00</p>
           <div className="flex gap-3">
             <a href="https://vk.com/region_logistik" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
-              <Icon name="MessageCircle" size={18} />
+              <VkIcon size={18} />
             </a>
             <a href="https://t.me/region_logistik" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
               <Icon name="Send" size={18} />

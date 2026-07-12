@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import Calculator from './Calculator';
+import VkIcon from '@/components/icons/VkIcon';
 
 const CtaForm = () => {
   const { toast } = useToast();
@@ -41,7 +42,7 @@ const CtaForm = () => {
               <Icon name="Phone" size={18} /> +7 (915) 397-70-87
             </a>
             <a href="https://vk.com/region_logistik" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold">
-              <Icon name="MessageCircle" size={18} /> ВКонтакте
+              <VkIcon size={18} /> ВКонтакте
             </a>
             <a href="https://t.me/region_logistik" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold">
               <Icon name="Send" size={18} /> Telegram
