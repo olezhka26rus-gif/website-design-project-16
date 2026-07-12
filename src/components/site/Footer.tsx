@@ -35,8 +35,8 @@ const Footer = () => {
 
         <div>
           <h4 className="text-white font-display font-bold mb-4">Контакты</h4>
-          <a href="tel:88003016980" className="block text-white font-display font-bold text-lg mb-1">8 (800) 301-69-80</a>
-          <p className="text-sm mb-4">Ежедневно 9:00 – 21:00</p>
+          <a href="tel:+79153977087" className="block text-white font-display font-bold text-lg mb-1">+7 (915) 397-70-87</a>
+          <p className="text-sm mb-4">Пн-Пт 9:00 – 18:00</p>
           <div className="flex gap-3">
             <a href="#" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
               <Icon name="MessageCircle" size={18} />

@@ -37,8 +37,8 @@ const CtaForm = () => {
             Оставьте заявку и получите расчёт стоимости вашего автомобиля в течение 15 минут.
           </p>
           <div className="flex flex-wrap gap-6 mt-8">
-            <a href="tel:88003016980" className="flex items-center gap-2 font-semibold">
-              <Icon name="Phone" size={18} /> 8 (800) 301-69-80
+            <a href="tel:+79153977087" className="flex items-center gap-2 font-semibold">
+              <Icon name="Phone" size={18} /> +7 (915) 397-70-87
             </a>
             <a href="#" className="flex items-center gap-2 font-semibold">
               <Icon name="MessageCircle" size={18} /> WhatsApp
