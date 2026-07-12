@@ -19,14 +19,12 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-[72px]">
-        <a href="#top" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-display font-black text-xl">
-            R
-          </div>
-          <div className="leading-none">
-            <div className="font-display font-extrabold text-lg tracking-tight">REGION</div>
-            <div className="text-[10px] tracking-[0.3em] text-muted-foreground">LOGISTIK</div>
-          </div>
+        <a href="#top" className="flex items-center">
+          <img
+            src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/bucket/f3e958f1-99ac-4f04-83cc-7fb354c3e05d.png"
+            alt="REGION LOGISTIK"
+            className="h-10 w-auto"
+          />
         </a>
 
         <nav className="hidden lg:flex items-center gap-6">

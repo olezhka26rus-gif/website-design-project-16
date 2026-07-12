@@ -5,10 +5,8 @@ const Footer = () => {
     <footer className="bg-foreground text-white/70">
       <div className="container py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center text-white font-display font-black text-xl">
-              R
-            </div>
+          <div className="flex items-center gap-3 mb-4">
+            <img src="/logo-mark.png" alt="" className="h-10 w-auto" />
             <div className="leading-none text-white">
               <div className="font-display font-extrabold text-lg">REGION</div>
               <div className="text-[10px] tracking-[0.3em] text-white/50">LOGISTIK</div>
