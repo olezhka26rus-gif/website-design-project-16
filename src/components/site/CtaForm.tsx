@@ -40,8 +40,8 @@ const CtaForm = () => {
             <a href="tel:+79153977087" className="flex items-center gap-2 font-semibold">
               <Icon name="Phone" size={18} /> +7 (915) 397-70-87
             </a>
-            <a href="#" className="flex items-center gap-2 font-semibold">
-              <Icon name="MessageCircle" size={18} /> WhatsApp
+            <a href="https://vk.com/region_logistik" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold">
+              <Icon name="MessageCircle" size={18} /> ВКонтакте
             </a>
             <a href="https://t.me/region_logistik" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold">
               <Icon name="Send" size={18} /> Telegram
