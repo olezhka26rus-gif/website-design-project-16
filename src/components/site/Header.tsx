@@ -4,11 +4,11 @@ import Icon from '@/components/ui/icon';
 import Calculator from './Calculator';
 
 const navLinks = [
-  { label: 'Китай', href: '#catalog' },
-  { label: 'Япония', href: '#catalog' },
-  { label: 'Корея', href: '#catalog' },
-  { label: 'Европа', href: '#catalog' },
-  { label: 'США', href: '#catalog' },
+  { label: 'Китай', href: '#catalog-china' },
+  { label: 'Япония', href: '#catalog-japan' },
+  { label: 'Корея', href: '#catalog-korea' },
+  { label: 'Европа', href: '#catalog-europe' },
+  { label: 'США', href: '#catalog-usa' },
   { label: 'Кейсы', href: '#cases' },
   { label: 'Отзывы', href: '#reviews' },
   { label: 'Контакты', href: '#cta' },
@@ -17,6 +17,14 @@ const navLinks = [
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#catalog-')) {
+      e.preventDefault();
+      window.location.hash = href;
+      document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
@@ -34,6 +42,7 @@ const Header = () => {
             <a
               key={link.label}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
             >
               {link.label}
@@ -63,7 +72,10 @@ const Header = () => {
               <a
                 key={link.label}
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => {
+                  setOpen(false);
+                  handleNavClick(e, link.href);
+                }}
                 className="text-base font-medium py-1"
               >
                 {link.label}
