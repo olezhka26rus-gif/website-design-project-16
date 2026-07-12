@@ -78,9 +78,8 @@ const Catalog = () => {
   return (
     <section id="catalog" className="py-16 bg-white">
       <div className="container">
-        <div className="flex items-end justify-between mb-6 flex-wrap gap-4">
+        <div className="mb-6">
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl">Популярные автомобили</h2>
-          <a href="#cta" className="text-primary text-sm font-semibold hover:underline">Смотреть все</a>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-8">

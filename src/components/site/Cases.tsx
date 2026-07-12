@@ -55,9 +55,8 @@ const Cases = () => {
   return (
     <section id="cases" className="py-16 bg-secondary/50">
       <div className="container">
-        <div className="flex items-end justify-between mb-8">
+        <div className="mb-8">
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl">Последние доставленные автомобили</h2>
-          <a href="#cta" className="text-primary text-sm font-semibold hover:underline">Смотреть все кейсы</a>
         </div>
 
         <div className="grid md:grid-cols-3 gap-5">
