@@ -19,7 +19,7 @@ def handler(event: dict, context) -> dict:
                 'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Password',
                 'Access-Control-Max-Age': '86400'
             },
-            'body': ''  # cors
+            'body': ''
         }
 
     dsn = os.environ['DATABASE_URL']
@@ -58,7 +58,7 @@ def handler(event: dict, context) -> dict:
             return {
                 'statusCode': 401,
                 'headers': {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'},
-                'body': json.dumps({'error': 'Neverniy parol'})
+                'body': json.dumps({'error': 'Неверный пароль'})
             }
 
         cur.execute(

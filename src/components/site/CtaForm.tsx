@@ -5,14 +5,16 @@ import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import Calculator from './Calculator';
 import VkIcon from '@/components/icons/VkIcon';
+import func2url from '@/func2url.json';
 
 const CtaForm = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: '', phone: '', car: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [calcOpen, setCalcOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const next: Record<string, string> = {};
     if (!form.name.trim()) next.name = 'Укажите имя';
@@ -20,11 +22,27 @@ const CtaForm = () => {
     setErrors(next);
     if (Object.keys(next).length) return;
 
-    toast({
-      title: 'Заявка отправлена!',
-      description: 'Свяжемся с вами в течение 15 минут.',
-    });
-    setForm({ name: '', phone: '', car: '' });
+    setLoading(true);
+    try {
+      await fetch(func2url.leads, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...form, source: 'form' }),
+      });
+      toast({
+        title: 'Заявка отправлена!',
+        description: 'Свяжемся с вами в течение 15 минут.',
+      });
+      setForm({ name: '', phone: '', car: '' });
+    } catch {
+      toast({
+        title: 'Ошибка отправки',
+        description: 'Попробуйте позвонить нам напрямую.',
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -83,8 +101,8 @@ const CtaForm = () => {
               onChange={(e) => setForm({ ...form, car: e.target.value })}
               className="h-12"
             />
-            <Button type="submit" size="lg" className="w-full h-12 font-semibold text-base">
-              Получить расчёт
+            <Button type="submit" size="lg" className="w-full h-12 font-semibold text-base" disabled={loading}>
+              {loading ? 'Отправляем...' : 'Получить расчёт'}
             </Button>
             <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Icon name="Lock" size={13} />
