@@ -23,7 +23,7 @@ const Header = () => {
           <img
             src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/bucket/f3e958f1-99ac-4f04-83cc-7fb354c3e05d.png"
             alt="REGION LOGISTIK"
-            className="h-10 w-auto"
+            className="h-14 sm:h-16 w-auto"
           />
         </a>
 
