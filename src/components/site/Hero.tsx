@@ -12,8 +12,31 @@ const countries = [
 const Hero = () => {
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-to-b from-secondary/60 to-white">
-      <div className="container grid lg:grid-cols-2 gap-8 items-center py-14 lg:py-20">
-        <div className="animate-fade-in">
+      <div className="hidden lg:block absolute inset-y-0 right-0 w-[62%] animate-fade-in-right">
+        <img
+          src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/f337970c-692d-4553-acd7-14a1fb19fd6e.jpg"
+          alt="Премиальный автомобиль"
+          className="w-full h-full object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background)) 8%, transparent 45%), linear-gradient(0deg, hsl(var(--background)) 0%, transparent 25%)',
+          }}
+        />
+      </div>
+
+      <div className="lg:hidden -mx-4 mb-6 animate-fade-in">
+        <img
+          src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/f337970c-692d-4553-acd7-14a1fb19fd6e.jpg"
+          alt="Премиальный автомобиль"
+          className="w-full h-56 sm:h-72 object-cover"
+        />
+      </div>
+
+      <div className="container relative py-14 lg:py-24">
+        <div className="max-w-xl animate-fade-in">
           <p className="text-primary font-semibold text-sm tracking-[0.2em] uppercase mb-4">
             Автомобили со всего мира
           </p>
@@ -54,15 +77,6 @@ const Hero = () => {
               Более 500 автомобилей<br />доставлено клиентам
             </p>
           </div>
-        </div>
-
-        <div className="relative animate-fade-in-right">
-          <div className="absolute -inset-4 bg-primary/5 rounded-[2rem] blur-2xl" />
-          <img
-            src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/f337970c-692d-4553-acd7-14a1fb19fd6e.jpg"
-            alt="Премиальный автомобиль"
-            className="relative rounded-2xl shadow-2xl w-full object-cover aspect-[4/3]"
-          />
         </div>
       </div>
     </section>
