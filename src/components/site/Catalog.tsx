@@ -1,6 +1,6 @@
 const cars = [
   { brand: 'BMW', price: 'от 3 200 000 ₽', image: 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/3e8c520d-1270-4f3a-9563-eadb0bfb702d.jpg' },
-  { brand: 'Toyota', price: 'от 2 400 000 ₽', image: 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/b27ad5aa-3dff-4643-b7cc-981002f1330c.jpg' },
+  { brand: 'Toyota', price: 'от 2 400 000 ₽', image: '/cars/toyota.jpg' },
   { brand: 'Kia', price: 'от 1 800 000 ₽', image: 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/2649f099-f695-459c-80bf-83b335aaeb64.jpg' },
   { brand: 'Hyundai', price: 'от 1 700 000 ₽', image: 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/ee9d1a81-88f7-4783-bfef-c37a16736161.jpg' },
   { brand: 'Lexus', price: 'от 3 500 000 ₽', image: 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/99f513a9-be1d-46d9-8eee-435c3ad7da04.jpg' },

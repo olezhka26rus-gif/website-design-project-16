@@ -8,6 +8,7 @@ const cases = [
     ourPrice: '4 590 000 ₽',
     save: '860 000 ₽',
     days: '32 дня',
+    image: 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/590da637-8a4a-4754-9ede-b1ee7ca2dfc9.jpg',
   },
   {
     name: 'Toyota Land Cruiser 300 2022',
@@ -18,6 +19,7 @@ const cases = [
     ourPrice: '5 850 000 ₽',
     save: '1 100 000 ₽',
     days: '38 дней',
+    image: 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/b5fe642a-2903-467c-b8b0-032f07f52454.jpg',
   },
   {
     name: 'Kia Carnival 2023',
@@ -28,6 +30,7 @@ const cases = [
     ourPrice: '3 520 000 ₽',
     save: '580 000 ₽',
     days: '27 дней',
+    image: 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/04c0f0c9-ec17-4107-8109-5cd348666493.jpg',
   },
 ];
 
@@ -62,7 +65,9 @@ const Cases = () => {
             <div key={c.name} className="rounded-2xl bg-white border border-border p-6 hover-lift">
               <h3 className="font-display font-bold text-lg">{c.name}</h3>
               <p className="text-sm text-muted-foreground mb-4">{c.spec}</p>
-              <div className="h-32 rounded-xl bg-secondary flex items-center justify-center text-5xl mb-4">🚗</div>
+              <div className="h-32 rounded-xl bg-secondary overflow-hidden mb-4">
+                <img src={c.image} alt={c.name} className="w-full h-full object-cover" loading="lazy" />
+              </div>
               <Row label="Страна:" value={c.country} />
               <Row label="Цена за рубежом:" value={c.priceAbroad} />
               <Row label="Цена в России:" value={c.priceRu} />
