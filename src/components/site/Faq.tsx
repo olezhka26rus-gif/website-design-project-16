@@ -34,7 +34,7 @@ const faqs = [
 
 const Faq = () => {
   return (
-    <section className="py-16 bg-secondary/50">
+    <section id="faq" className="py-16 bg-secondary/50">
       <div className="container">
         <h2 className="font-display font-extrabold text-2xl sm:text-3xl mb-10">Часто задаваемые вопросы</h2>
         <div className="grid md:grid-cols-2 md:gap-x-10">
