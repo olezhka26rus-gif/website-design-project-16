@@ -43,7 +43,7 @@ const CtaForm = () => {
             <a href="#" className="flex items-center gap-2 font-semibold">
               <Icon name="MessageCircle" size={18} /> WhatsApp
             </a>
-            <a href="#" className="flex items-center gap-2 font-semibold">
+            <a href="https://t.me/region_logistik" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 font-semibold">
               <Icon name="Send" size={18} /> Telegram
             </a>
           </div>

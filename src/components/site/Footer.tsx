@@ -41,7 +41,7 @@ const Footer = () => {
             <a href="#" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
               <Icon name="MessageCircle" size={18} />
             </a>
-            <a href="#" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
+            <a href="https://t.me/region_logistik" target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
               <Icon name="Send" size={18} />
             </a>
           </div>
