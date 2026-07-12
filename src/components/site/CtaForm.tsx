@@ -3,11 +3,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import Calculator from './Calculator';
 
 const CtaForm = () => {
   const { toast } = useToast();
   const [form, setForm] = useState({ name: '', phone: '', car: '' });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [calcOpen, setCalcOpen] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -45,6 +47,13 @@ const CtaForm = () => {
               <Icon name="Send" size={18} /> Telegram
             </a>
           </div>
+          <button
+            onClick={() => setCalcOpen(true)}
+            className="flex items-center gap-2 mt-6 font-semibold underline underline-offset-4 hover:no-underline"
+          >
+            <Icon name="Calculator" size={18} />
+            Открыть калькулятор стоимости
+          </button>
         </div>
 
         <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-6 sm:p-8 text-foreground shadow-2xl">
@@ -83,6 +92,8 @@ const CtaForm = () => {
           </div>
         </form>
       </div>
+
+      <Calculator open={calcOpen} onOpenChange={setCalcOpen} />
     </section>
   );
 };

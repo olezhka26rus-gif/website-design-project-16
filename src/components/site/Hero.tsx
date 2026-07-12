@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import Calculator from './Calculator';
 
 const countries = [
   { flag: '🇨🇳', name: 'Китай' },
@@ -10,6 +12,8 @@ const countries = [
 ];
 
 const Hero = () => {
+  const [calcOpen, setCalcOpen] = useState(false);
+
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-to-b from-secondary/60 to-white">
       <div className="container grid lg:grid-cols-2 gap-8 items-center py-14 lg:py-20">
@@ -35,8 +39,12 @@ const Hero = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mt-8">
-            <Button asChild size="lg" className="rounded-lg font-semibold h-14 px-8 text-base hover-lift">
-              <a href="#cta">Получить бесплатный расчёт</a>
+            <Button
+              size="lg"
+              className="rounded-lg font-semibold h-14 px-8 text-base hover-lift"
+              onClick={() => setCalcOpen(true)}
+            >
+              Получить бесплатный расчёт
             </Button>
             <div className="text-sm text-muted-foreground leading-tight">
               Ответим в течение<br />
@@ -65,6 +73,8 @@ const Hero = () => {
           />
         </div>
       </div>
+
+      <Calculator open={calcOpen} onOpenChange={setCalcOpen} />
     </section>
   );
 };

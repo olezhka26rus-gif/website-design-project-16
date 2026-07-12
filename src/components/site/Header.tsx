@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import Calculator from './Calculator';
 
 const navLinks = [
   { label: 'Китай', href: '#catalog' },
@@ -15,6 +16,7 @@ const navLinks = [
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [calcOpen, setCalcOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
@@ -44,8 +46,8 @@ const Header = () => {
             <a href="tel:88003016980" className="font-display font-bold text-base">8 (800) 301-69-80</a>
             <div className="text-[11px] text-muted-foreground">Ежедневно 9:00 – 21:00</div>
           </div>
-          <Button asChild className="rounded-lg font-semibold">
-            <a href="#cta">Получить расчёт</a>
+          <Button className="rounded-lg font-semibold" onClick={() => setCalcOpen(true)}>
+            Получить расчёт
           </Button>
         </div>
 
@@ -67,12 +69,20 @@ const Header = () => {
                 {link.label}
               </a>
             ))}
-            <Button asChild className="mt-2 rounded-lg font-semibold">
-              <a href="#cta" onClick={() => setOpen(false)}>Получить расчёт</a>
+            <Button
+              className="mt-2 rounded-lg font-semibold"
+              onClick={() => {
+                setOpen(false);
+                setCalcOpen(true);
+              }}
+            >
+              Получить расчёт
             </Button>
           </nav>
         </div>
       )}
+
+      <Calculator open={calcOpen} onOpenChange={setCalcOpen} />
     </header>
   );
 };
