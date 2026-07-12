@@ -12,9 +12,9 @@ const countries = [
 const Hero = () => {
   return (
     <section id="top" className="relative overflow-hidden bg-gradient-to-b from-secondary/60 to-white">
-      <div className="hidden lg:block absolute inset-y-0 right-0 w-[62%] animate-fade-in-right">
+      <div className="hidden lg:block absolute inset-y-0 right-0 w-[68%] animate-fade-in-right">
         <img
-          src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/f337970c-692d-4553-acd7-14a1fb19fd6e.jpg"
+          src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/678a7afe-d1ec-4366-b5bf-294e4f2edf8d.jpg"
           alt="Премиальный автомобиль"
           className="w-full h-full object-cover"
         />
@@ -22,16 +22,22 @@ const Hero = () => {
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background)) 8%, transparent 45%), linear-gradient(0deg, hsl(var(--background)) 0%, transparent 25%)',
+              'linear-gradient(90deg, hsl(var(--background)) 0%, hsl(var(--background)) 18%, transparent 55%), linear-gradient(0deg, hsl(var(--background)) 0%, transparent 20%), linear-gradient(180deg, hsl(var(--background)) 0%, transparent 15%)',
           }}
         />
       </div>
 
-      <div className="lg:hidden -mx-4 mb-6 animate-fade-in">
+      <div className="lg:hidden -mx-4 mb-6 animate-fade-in relative">
         <img
-          src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/f337970c-692d-4553-acd7-14a1fb19fd6e.jpg"
+          src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/678a7afe-d1ec-4366-b5bf-294e4f2edf8d.jpg"
           alt="Премиальный автомобиль"
           className="w-full h-56 sm:h-72 object-cover"
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(0deg, hsl(var(--background)) 0%, transparent 30%)',
+          }}
         />
       </div>
 
