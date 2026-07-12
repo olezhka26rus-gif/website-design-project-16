@@ -2,11 +2,11 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const countries = [
-  { flag: '🇨🇳', name: 'Китай' },
-  { flag: '🇯🇵', name: 'Япония' },
-  { flag: '🇰🇷', name: 'Корея' },
-  { flag: '🇪🇺', name: 'Европа' },
-  { flag: '🇺🇸', name: 'США' },
+  { code: 'cn', name: 'Китай' },
+  { code: 'jp', name: 'Япония' },
+  { code: 'kr', name: 'Корея' },
+  { code: 'eu', name: 'Европа' },
+  { code: 'us', name: 'США' },
 ];
 
 const Hero = () => {
@@ -57,7 +57,12 @@ const Hero = () => {
           <div className="flex flex-wrap gap-x-6 gap-y-3 mt-7">
             {countries.map((c) => (
               <div key={c.name} className="flex items-center gap-2 text-sm font-medium">
-                <span className="text-lg">{c.flag}</span>
+                <img
+                  src={`https://flagcdn.com/w40/${c.code}.png`}
+                  srcSet={`https://flagcdn.com/w80/${c.code}.png 2x`}
+                  alt={c.name}
+                  className="w-6 h-6 rounded-full object-cover border border-border"
+                />
                 {c.name}
               </div>
             ))}
@@ -74,9 +79,9 @@ const Hero = () => {
           </div>
 
           <div className="flex items-center gap-3 mt-8">
-            <div className="flex text-primary">
+            <div className="flex text-amber-400">
               {Array.from({ length: 5 }).map((_, i) => (
-                <Icon key={i} name="Star" size={18} className="fill-primary" />
+                <Icon key={i} name="Star" size={18} className="fill-amber-400" />
               ))}
             </div>
             <p className="text-sm text-muted-foreground">
