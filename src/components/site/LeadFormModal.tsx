@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -16,14 +16,19 @@ interface LeadFormModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   source?: string;
+  defaultCar?: string;
 }
 
-const LeadFormModal = ({ open, onOpenChange, source = 'blog' }: LeadFormModalProps) => {
+const LeadFormModal = ({ open, onOpenChange, source = 'blog', defaultCar = '' }: LeadFormModalProps) => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: '', phone: '', car: '' });
+  const [form, setForm] = useState({ name: '', phone: '', car: defaultCar });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
+
+  useEffect(() => {
+    if (open) setForm((f) => ({ ...f, car: defaultCar }));
+  }, [open, defaultCar]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

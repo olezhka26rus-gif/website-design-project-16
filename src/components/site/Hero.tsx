@@ -48,7 +48,7 @@ const Hero = () => {
             Автомобили со всего мира
           </p>
           <h1 className="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl leading-[1.05] tracking-tight">
-            Автомобиль мечты<br />ближе, чем кажется.
+            Найдём авто мечты<br />и доставим под ключ
           </h1>
           <p className="mt-6 text-muted-foreground text-lg max-w-md">
             Подберём, проверим и доставим автомобиль из любой страны мира.
