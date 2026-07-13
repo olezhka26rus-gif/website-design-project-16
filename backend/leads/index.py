@@ -1,6 +1,45 @@
 import json
 import os
+import urllib.request
+import urllib.parse
 import psycopg2
+
+TELEGRAM_USERNAME = 'rabotaRGL'
+
+
+def send_telegram_notification(name: str, phone: str, car: str) -> None:
+    """Отправляет уведомление о новой заявке в Telegram пользователю TELEGRAM_USERNAME"""
+    token = os.environ.get('TELEGRAM_BOT_TOKEN')
+    if not token:
+        return
+
+    try:
+        updates_url = f'https://api.telegram.org/bot{token}/getUpdates'
+        with urllib.request.urlopen(updates_url, timeout=5) as resp:
+            updates = json.loads(resp.read())
+
+        chat_id = None
+        for result in updates.get('result', []):
+            msg = result.get('message') or result.get('my_chat_member') or {}
+            frm = msg.get('from', {})
+            username = frm.get('username', '')
+            if username.lower() == TELEGRAM_USERNAME.lower():
+                chat_id = frm.get('id')
+
+        if not chat_id:
+            return
+
+        text = (
+            'Новая заявка с сайта!\n\n'
+            f'Имя: {name}\n'
+            f'Телефон: {phone}\n'
+            f'Автомобиль: {car or "не указан"}'
+        )
+        send_url = f'https://api.telegram.org/bot{token}/sendMessage'
+        data = urllib.parse.urlencode({'chat_id': chat_id, 'text': text}).encode()
+        urllib.request.urlopen(urllib.request.Request(send_url, data=data), timeout=5)
+    except Exception:
+        pass
 
 
 def handler(event: dict, context) -> dict:
@@ -41,6 +80,8 @@ def handler(event: dict, context) -> dict:
         conn.commit()
         cur.close()
         conn.close()
+
+        send_telegram_notification(name, phone, car)
 
         return {
             'statusCode': 200,
@@ -93,4 +134,3 @@ def handler(event: dict, context) -> dict:
         'headers': {'Access-Control-Allow-Origin': '*', 'Content-Type': 'application/json'},
         'body': json.dumps({'error': 'Method not allowed'})
     }
-
