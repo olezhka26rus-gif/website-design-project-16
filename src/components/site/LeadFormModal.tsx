@@ -113,7 +113,10 @@ const LeadFormModal = ({ open, onOpenChange, source = 'blog', defaultCar = '' }:
             </Button>
             <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Icon name="Lock" size={13} />
-              Ваши данные защищены и не передаются третьим лицам
+              Нажимая на кнопку, вы соглашаетесь с{' '}
+              <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">
+                политикой конфиденциальности
+              </a>
             </p>
           </form>
         ) : (

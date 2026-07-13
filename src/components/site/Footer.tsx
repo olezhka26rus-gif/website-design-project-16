@@ -72,7 +72,12 @@ const Footer = () => {
       <div className="border-t border-white/10">
         <div className="container py-5 flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between text-xs text-white/50">
           <span>© {new Date().getFullYear()} ООО «РЕГИОНЛОГИСТИК». Все права защищены.</span>
-          <span>Вся информация на сайте предоставлена для ознакомления и не является публичной офертой.</span>
+          <span className="flex flex-wrap gap-x-4 gap-y-1">
+            <span>Вся информация на сайте предоставлена для ознакомления и не является публичной офертой.</span>
+            <a href="/privacy" className="hover:text-primary transition-colors underline underline-offset-2">
+              Политика конфиденциальности
+            </a>
+          </span>
         </div>
       </div>
     </footer>
