@@ -19,7 +19,7 @@ const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
       <DialogContent className="max-w-md overflow-hidden p-0 gap-0">
         <div className="relative h-32 sm:h-36 shrink-0">
           <img
-            src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/678a7afe-d1ec-4366-b5bf-294e4f2edf8d.jpg"
+            src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/bf8a1bb9-ee18-4cd1-a383-641b94df59ed.jpg"
             alt=""
             className="absolute inset-0 w-full h-full object-cover"
           />
