@@ -11,8 +11,8 @@ import LeadFormModal from '@/components/site/LeadFormModal';
 import { CarModel, CarVariant } from '@/data/catalogCars';
 
 const VIEW_TABS = [
-  { label: 'Экстерьер', icon: 'Car' },
-  { label: 'Салон', icon: 'Armchair' },
+  { label: 'Сбоку', icon: 'Car' },
+  { label: 'Спереди', icon: 'ArrowUp' },
 ];
 
 const SPEC_ROWS: { key: keyof CarVariant['specs']; label: string; icon: string }[] = [
@@ -45,7 +45,7 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
 
   if (!carModel || !selectedVariant) return null;
 
-  const image = activeView === 0 ? selectedVariant.sideImage : selectedVariant.interiorImage;
+  const image = activeView === 0 ? selectedVariant.sideImage : selectedVariant.frontImage;
 
   return (
     <>
