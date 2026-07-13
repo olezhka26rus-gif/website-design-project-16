@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import Calculator from './Calculator';
@@ -13,12 +14,14 @@ const CtaForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [calcOpen, setCalcOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const next: Record<string, string> = {};
     if (!form.name.trim()) next.name = 'Укажите имя';
     if (!/^[\d\s+()-]{10,}$/.test(form.phone)) next.phone = 'Укажите телефон';
+    if (!consent) next.consent = 'Необходимо согласие на обработку данных';
     setErrors(next);
     if (Object.keys(next).length) return;
 
@@ -34,6 +37,7 @@ const CtaForm = () => {
         description: 'Свяжемся с вами в течение 15 минут.',
       });
       setForm({ name: '', phone: '', car: '' });
+      setConsent(false);
     } catch {
       toast({
         title: 'Ошибка отправки',
@@ -101,15 +105,29 @@ const CtaForm = () => {
               onChange={(e) => setForm({ ...form, car: e.target.value })}
               className="h-12"
             />
+            <div>
+              <label className="flex items-start gap-2 text-xs text-muted-foreground cursor-pointer">
+                <Checkbox
+                  checked={consent}
+                  onCheckedChange={(v) => setConsent(v === true)}
+                  className="mt-0.5"
+                />
+                <span>
+                  Я согласен с{' '}
+                  <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">
+                    политикой конфиденциальности
+                  </a>{' '}
+                  и даю согласие на обработку персональных данных
+                </span>
+              </label>
+              {errors.consent && <p className="text-primary text-xs mt-1">{errors.consent}</p>}
+            </div>
             <Button type="submit" size="lg" className="w-full h-12 font-semibold text-base" disabled={loading}>
               {loading ? 'Отправляем...' : 'Получить расчёт'}
             </Button>
             <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Icon name="Lock" size={13} />
-              Нажимая на кнопку, вы соглашаетесь с{' '}
-              <a href="/privacy" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary transition-colors">
-                политикой конфиденциальности
-              </a>
+              Ваши данные защищены и не передаются третьим лицам
             </p>
           </div>
         </form>
