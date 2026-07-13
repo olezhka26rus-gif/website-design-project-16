@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <footer className="bg-foreground text-white/70">
-      <div className="container py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container py-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-8">
         <div>
           <a href="/" className="flex items-center gap-3 mb-4 w-fit">
             <img src="/logo-mark.png" alt="" className="h-10 w-auto" />
@@ -33,6 +33,7 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-display font-bold mb-4">Компания</h4>
           <ul className="space-y-2 text-sm">
+            <li><a href={anchor('#about')} className="hover:text-primary transition-colors">О компании</a></li>
             <li><a href={anchor('#cases')} className="hover:text-primary transition-colors">Кейсы</a></li>
             <li><a href={anchor('#reviews')} className="hover:text-primary transition-colors">Отзывы</a></li>
             <li><a href="/blog" className="hover:text-primary transition-colors">Блог</a></li>
@@ -53,10 +54,25 @@ const Footer = () => {
             </a>
           </div>
         </div>
+
+        <div>
+          <h4 className="text-white font-display font-bold mb-4">Реквизиты</h4>
+          <ul className="space-y-1.5 text-xs leading-relaxed">
+            <li className="text-white/90 font-semibold">ООО «РЕГИОНЛОГИСТИК»</li>
+            <li>ИНН 2508143154</li>
+            <li>ОГРН 1222500012140</li>
+            <li>Руководитель: Яриз Пётр Васильевич</li>
+            <li className="pt-1.5">
+              Юридический адрес: г. Москва, Очаковское шоссе, 34,
+              БЦ «WEST PARK», офис а605
+            </li>
+          </ul>
+        </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="container py-5 text-xs text-white/50">
-          © {new Date().getFullYear()} REGION LOGISTIK. Все права защищены.
+        <div className="container py-5 flex flex-col sm:flex-row gap-2 sm:gap-6 justify-between text-xs text-white/50">
+          <span>© {new Date().getFullYear()} ООО «РЕГИОНЛОГИСТИК». Все права защищены.</span>
+          <span>Вся информация на сайте предоставлена для ознакомления и не является публичной офертой.</span>
         </div>
       </div>
     </footer>
