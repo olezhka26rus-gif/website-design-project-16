@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import Calculator from './Calculator';
+import ContactsModal from './ContactsModal';
 
 const navLinks = [
   { label: 'Китай', href: '#catalog-china' },
@@ -13,17 +14,23 @@ const navLinks = [
   { label: 'Кейсы', href: '#cases' },
   { label: 'Отзывы', href: '#reviews' },
   { label: 'Блог', href: '/blog' },
-  { label: 'Контакты', href: '#cta' },
+  { label: 'Контакты', href: '#contacts' },
 ];
 
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
+  const [contactsOpen, setContactsOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href === '#contacts') {
+      e.preventDefault();
+      setContactsOpen(true);
+      return;
+    }
     if (href.startsWith('#')) {
       e.preventDefault();
       if (!isHome) {
@@ -108,6 +115,7 @@ const Header = () => {
       )}
 
       <Calculator open={calcOpen} onOpenChange={setCalcOpen} />
+      <ContactsModal open={contactsOpen} onOpenChange={setContactsOpen} />
     </header>
   );
 };
