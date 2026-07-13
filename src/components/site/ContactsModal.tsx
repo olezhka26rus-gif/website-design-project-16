@@ -16,25 +16,24 @@ interface ContactsModalProps {
 const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-md overflow-hidden p-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-10"
-          style={{
-            backgroundImage:
-              "url('https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/678a7afe-d1ec-4366-b5bf-294e4f2edf8d.jpg')",
-          }}
-        />
-        <div className="absolute inset-0 bg-white/85" />
-
-        <div className="relative p-6 sm:p-8">
-          <DialogHeader>
-            <DialogTitle className="font-display text-xl">Свяжитесь с нами</DialogTitle>
-            <DialogDescription>
+      <DialogContent className="max-w-md overflow-hidden p-0 gap-0">
+        <div className="relative h-32 sm:h-36 shrink-0">
+          <img
+            src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/678a7afe-d1ec-4366-b5bf-294e4f2edf8d.jpg"
+            alt=""
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" />
+          <DialogHeader className="relative h-full justify-end p-5 sm:p-6">
+            <DialogTitle className="font-display text-xl text-white">Свяжитесь с нами</DialogTitle>
+            <DialogDescription className="text-white/85">
               Выберите удобный способ связи — ответим в течение 15 минут.
             </DialogDescription>
           </DialogHeader>
+        </div>
 
-          <div className="mt-6 space-y-3">
+        <div className="p-6 sm:p-8 bg-background">
+          <div className="space-y-3">
             <a
               href="tel:+79153977087"
               className="flex items-center gap-3 rounded-xl bg-white border border-border p-4 hover-lift"
