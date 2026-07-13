@@ -1,18 +1,23 @@
+import { useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import VkIcon from '@/components/icons/VkIcon';
 
 const Footer = () => {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+  const anchor = (hash: string) => (isHome ? hash : `/${hash}`);
+
   return (
     <footer className="bg-foreground text-white/70">
       <div className="container py-12 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <div>
-          <div className="flex items-center gap-3 mb-4">
+          <a href="/" className="flex items-center gap-3 mb-4 w-fit">
             <img src="/logo-mark.png" alt="" className="h-10 w-auto" />
             <div className="leading-none text-white">
               <div className="font-display font-extrabold text-lg">REGION</div>
               <div className="text-[10px] tracking-[0.3em] text-white/50">LOGISTIK</div>
             </div>
-          </div>
+          </a>
           <p className="text-sm">Подбор, проверка и доставка автомобилей со всего мира под ключ.</p>
         </div>
 
@@ -20,7 +25,7 @@ const Footer = () => {
           <h4 className="text-white font-display font-bold mb-4">Страны</h4>
           <ul className="space-y-2 text-sm">
             {['Китай', 'Япония', 'Корея', 'Европа', 'США'].map((c) => (
-              <li key={c}><a href="#catalog" className="hover:text-primary transition-colors">{c}</a></li>
+              <li key={c}><a href={anchor('#catalog')} className="hover:text-primary transition-colors">{c}</a></li>
             ))}
           </ul>
         </div>
@@ -28,10 +33,10 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-display font-bold mb-4">Компания</h4>
           <ul className="space-y-2 text-sm">
-            <li><a href="#cases" className="hover:text-primary transition-colors">Кейсы</a></li>
-            <li><a href="#reviews" className="hover:text-primary transition-colors">Отзывы</a></li>
+            <li><a href={anchor('#cases')} className="hover:text-primary transition-colors">Кейсы</a></li>
+            <li><a href={anchor('#reviews')} className="hover:text-primary transition-colors">Отзывы</a></li>
             <li><a href="/blog" className="hover:text-primary transition-colors">Блог</a></li>
-            <li><a href="#cta" className="hover:text-primary transition-colors">Контакты</a></li>
+            <li><a href={anchor('#cta')} className="hover:text-primary transition-colors">Контакты</a></li>
           </ul>
         </div>
 

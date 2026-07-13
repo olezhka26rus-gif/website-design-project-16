@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import Calculator from './Calculator';
@@ -18,19 +19,30 @@ const navLinks = [
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#catalog-')) {
+    if (href.startsWith('#')) {
       e.preventDefault();
+      if (!isHome) {
+        navigate(`/${href}`);
+        return;
+      }
       window.location.hash = href;
-      document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
+      if (href.startsWith('#catalog-')) {
+        document.getElementById('catalog')?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        document.getElementById(href.slice(1))?.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-[72px]">
-        <a href="#top" className="flex items-center">
+        <a href="/" className="flex items-center">
           <img
             src="https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/bucket/f3e958f1-99ac-4f04-83cc-7fb354c3e05d.png"
             alt="REGION LOGISTIK"
@@ -42,7 +54,7 @@ const Header = () => {
           {navLinks.map((link) => (
             <a
               key={link.label}
-              href={link.href}
+              href={link.href.startsWith('#') && !isHome ? `/${link.href}` : link.href}
               onClick={(e) => handleNavClick(e, link.href)}
               className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
             >
@@ -72,7 +84,7 @@ const Header = () => {
             {navLinks.map((link) => (
               <a
                 key={link.label}
-                href={link.href}
+                href={link.href.startsWith('#') && !isHome ? `/${link.href}` : link.href}
                 onClick={(e) => {
                   setOpen(false);
                   handleNavClick(e, link.href);
