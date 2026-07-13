@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Link, useParams } from 'react-router-dom';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
+import LeadFormModal from '@/components/site/LeadFormModal';
 import Icon from '@/components/ui/icon';
 import { articles } from '@/data/articles';
 import NotFound from './NotFound';
@@ -9,6 +11,7 @@ import NotFound from './NotFound';
 const Article = () => {
   const { slug } = useParams();
   const article = articles.find((a) => a.slug === slug);
+  const [formOpen, setFormOpen] = useState(false);
 
   if (!article) return <NotFound />;
 
@@ -70,16 +73,18 @@ const Article = () => {
           <p className="font-display font-semibold text-center sm:text-left">
             Хотите рассчитать стоимость доставки своего автомобиля?
           </p>
-          <a
-            href="/#cta"
+          <button
+            onClick={() => setFormOpen(true)}
             className="whitespace-nowrap rounded-lg bg-primary text-primary-foreground font-semibold px-5 py-2.5 hover:opacity-90 transition-opacity"
           >
             Получить расчёт
-          </a>
+          </button>
         </div>
       </main>
 
       <Footer />
+
+      <LeadFormModal open={formOpen} onOpenChange={setFormOpen} source={`blog:${article.slug}`} />
     </div>
   );
 };
