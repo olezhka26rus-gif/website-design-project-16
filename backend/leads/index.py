@@ -15,8 +15,10 @@ def send_telegram_notification(name: str, phone: str, car: str) -> None:
 
     try:
         updates_url = f'https://api.telegram.org/bot{token}/getUpdates'
-        with urllib.request.urlopen(updates_url, timeout=5) as resp:
+        with urllib.request.urlopen(updates_url, timeout=15) as resp:
             updates = json.loads(resp.read())
+
+        print(f'DEBUG telegram updates: {json.dumps(updates)}', flush=True)
 
         chat_id = None
         for result in updates.get('result', []):
@@ -25,6 +27,8 @@ def send_telegram_notification(name: str, phone: str, car: str) -> None:
             username = frm.get('username', '')
             if username.lower() == TELEGRAM_USERNAME.lower():
                 chat_id = frm.get('id')
+
+        print(f'DEBUG resolved chat_id: {chat_id}', flush=True)
 
         if not chat_id:
             return
@@ -37,9 +41,10 @@ def send_telegram_notification(name: str, phone: str, car: str) -> None:
         )
         send_url = f'https://api.telegram.org/bot{token}/sendMessage'
         data = urllib.parse.urlencode({'chat_id': chat_id, 'text': text}).encode()
-        urllib.request.urlopen(urllib.request.Request(send_url, data=data), timeout=5)
-    except Exception:
-        pass
+        send_resp = urllib.request.urlopen(urllib.request.Request(send_url, data=data), timeout=15)
+        print(f'DEBUG send status: {send_resp.status}', flush=True)
+    except Exception as e:
+        print(f'DEBUG telegram error: {repr(e)}', flush=True)
 
 
 def handler(event: dict, context) -> dict:
