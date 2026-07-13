@@ -30,6 +30,7 @@ const Footer = () => {
           <ul className="space-y-2 text-sm">
             <li><a href="#cases" className="hover:text-primary transition-colors">Кейсы</a></li>
             <li><a href="#reviews" className="hover:text-primary transition-colors">Отзывы</a></li>
+            <li><a href="/blog" className="hover:text-primary transition-colors">Блог</a></li>
             <li><a href="#cta" className="hover:text-primary transition-colors">Контакты</a></li>
           </ul>
         </div>
