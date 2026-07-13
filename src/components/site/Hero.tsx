@@ -2,11 +2,11 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const countries = [
-  { code: 'cn', name: 'Китай' },
-  { code: 'jp', name: 'Япония' },
-  { code: 'kr', name: 'Корея' },
-  { code: 'eu', name: 'Европа' },
-  { code: 'us', name: 'США' },
+  { flag: '🇨🇳', name: 'Китай' },
+  { flag: '🇯🇵', name: 'Япония' },
+  { flag: '🇰🇷', name: 'Корея' },
+  { flag: '🇪🇺', name: 'Европа' },
+  { flag: '🇺🇸', name: 'США' },
 ];
 
 const Hero = () => {
@@ -57,12 +57,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-x-6 gap-y-3 mt-7">
             {countries.map((c) => (
               <div key={c.name} className="flex items-center gap-2 text-sm font-medium">
-                <img
-                  src={`https://flagcdn.com/w40/${c.code}.png`}
-                  srcSet={`https://flagcdn.com/w80/${c.code}.png 2x`}
-                  alt={c.name}
-                  className="w-6 h-6 rounded-full object-cover border border-border"
-                />
+                <span className="text-xl leading-none">{c.flag}</span>
                 {c.name}
               </div>
             ))}
