@@ -23,8 +23,19 @@ const CAR_VIEWS = [
   { label: 'Салон', icon: 'Armchair' },
 ];
 
+const bodyImages: Record<string, string> = {
+  'Седан': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/80ac2fa1-1b48-4787-b886-08d136a3a58e.jpg',
+  'Кроссовер': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/ddb038c1-f915-4856-937d-8e3b74ce4ab2.jpg',
+  'Универсал': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/2650e492-a7ab-4586-9a57-4a02880bf537.jpg',
+  'Внедорожник': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/35e16f97-bd93-4f45-92f1-ef1ce3f5f2af.jpg',
+  'Хэтчбек': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/9ecb0700-2e91-4edf-b370-723a1a3ed767.jpg',
+  'Купе': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/cc819687-09af-4769-86a0-cd1162d2dc07.jpg',
+  'Пикап': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/1faad728-cd27-4b0a-b4d9-f6a8f179c9af.jpg',
+  'Лифтбек': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/767a1333-47e5-46e2-8c10-efdd44cd26fb.jpg',
+};
+
 const genericViews = [
-  'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/9b355845-e866-4d39-99d4-85afbe38f2d2.jpg',
+  '',
   'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/48e3ceeb-85e0-45c7-ab43-c02291dc6994.jpg',
   'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/d64d1eea-6c24-4394-bc1a-e67c7737e419.jpg',
   'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/7697174c-abf9-47a7-9c3b-906da5681d8d.jpg',
@@ -50,7 +61,8 @@ const CarDetailModal = ({ car, open, onOpenChange }: CarDetailModalProps) => {
 
   if (!car) return null;
 
-  const views = [car.image, ...genericViews.slice(1)];
+  const sideView = bodyImages[selectedBody] ?? car.image;
+  const views = [sideView, ...genericViews.slice(1)];
 
   return (
     <>
@@ -99,7 +111,10 @@ const CarDetailModal = ({ car, open, onOpenChange }: CarDetailModalProps) => {
                   {car.bodyTypes.map((body) => (
                     <button
                       key={body}
-                      onClick={() => setSelectedBody(body)}
+                      onClick={() => {
+                        setSelectedBody(body);
+                        setActiveView(0);
+                      }}
                       className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
                         selectedBody === body
                           ? 'bg-primary text-primary-foreground border-primary'
