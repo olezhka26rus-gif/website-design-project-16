@@ -8,85 +8,69 @@ import {
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import LeadFormModal from '@/components/site/LeadFormModal';
+import { CarModel, CarVariant } from '@/data/catalogCars';
 
-export interface CarData {
-  brand: string;
-  price: string;
-  image: string;
-  bodyTypes: string[];
-}
-
-const CAR_VIEWS = [
-  { label: 'Сбоку', icon: 'Car' },
-  { label: 'Спереди', icon: 'ArrowUp' },
-  { label: 'Сзади', icon: 'ArrowDown' },
+const VIEW_TABS = [
+  { label: 'Экстерьер', icon: 'Car' },
   { label: 'Салон', icon: 'Armchair' },
 ];
 
-const bodyImages: Record<string, string> = {
-  'Седан': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/80ac2fa1-1b48-4787-b886-08d136a3a58e.jpg',
-  'Кроссовер': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/ddb038c1-f915-4856-937d-8e3b74ce4ab2.jpg',
-  'Универсал': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/2650e492-a7ab-4586-9a57-4a02880bf537.jpg',
-  'Внедорожник': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/35e16f97-bd93-4f45-92f1-ef1ce3f5f2af.jpg',
-  'Хэтчбек': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/9ecb0700-2e91-4edf-b370-723a1a3ed767.jpg',
-  'Купе': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/cc819687-09af-4769-86a0-cd1162d2dc07.jpg',
-  'Пикап': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/1faad728-cd27-4b0a-b4d9-f6a8f179c9af.jpg',
-  'Лифтбек': 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/767a1333-47e5-46e2-8c10-efdd44cd26fb.jpg',
-};
-
-const genericViews = [
-  '',
-  'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/48e3ceeb-85e0-45c7-ab43-c02291dc6994.jpg',
-  'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/d64d1eea-6c24-4394-bc1a-e67c7737e419.jpg',
-  'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files/7697174c-abf9-47a7-9c3b-906da5681d8d.jpg',
+const SPEC_ROWS: { key: keyof CarVariant['specs']; label: string; icon: string }[] = [
+  { key: 'engine', label: 'Двигатель', icon: 'Fuel' },
+  { key: 'power', label: 'Мощность', icon: 'Gauge' },
+  { key: 'drive', label: 'Привод', icon: 'MoveHorizontal' },
+  { key: 'transmission', label: 'Коробка', icon: 'Cog' },
+  { key: 'year', label: 'Год выпуска', icon: 'Calendar' },
+  { key: 'consumption', label: 'Расход', icon: 'Droplet' },
 ];
 
 interface CarDetailModalProps {
-  car: CarData | null;
+  carModel: CarModel | null;
+  initialVariant?: CarVariant | null;
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-const CarDetailModal = ({ car, open, onOpenChange }: CarDetailModalProps) => {
+const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDetailModalProps) => {
   const [activeView, setActiveView] = useState(0);
-  const [selectedBody, setSelectedBody] = useState('');
+  const [selectedVariant, setSelectedVariant] = useState<CarVariant | null>(null);
   const [leadOpen, setLeadOpen] = useState(false);
 
   useEffect(() => {
-    if (car) {
+    if (carModel) {
       setActiveView(0);
-      setSelectedBody(car.bodyTypes[0] ?? '');
+      setSelectedVariant(initialVariant ?? carModel.variants[0]);
     }
-  }, [car]);
+  }, [carModel, initialVariant]);
 
-  if (!car) return null;
+  if (!carModel || !selectedVariant) return null;
 
-  const sideView = bodyImages[selectedBody] ?? car.image;
-  const views = [sideView, ...genericViews.slice(1)];
+  const image = activeView === 0 ? selectedVariant.sideImage : selectedVariant.interiorImage;
 
   return (
     <>
       <Dialog open={open} onOpenChange={onOpenChange}>
         <DialogContent className="max-w-3xl p-0 overflow-hidden">
           <DialogHeader className="p-6 pb-0">
-            <DialogTitle className="font-display text-2xl">{car.brand}</DialogTitle>
+            <DialogTitle className="font-display text-2xl">{selectedVariant.model}</DialogTitle>
           </DialogHeader>
 
           <div className="grid sm:grid-cols-2 gap-6 p-6 pt-4">
             <div>
               <div className="rounded-xl overflow-hidden bg-secondary h-64 sm:h-72">
                 <img
-                  src={views[activeView]}
-                  alt={`${car.brand} — ${CAR_VIEWS[activeView].label}`}
+                  key={image}
+                  src={image}
+                  alt={`${selectedVariant.model} — ${VIEW_TABS[activeView].label}`}
                   className="w-full h-full object-cover animate-fade-in"
                 />
               </div>
-              <div className="grid grid-cols-4 gap-2 mt-3">
-                {CAR_VIEWS.map((view, i) => (
+              <div className="grid grid-cols-2 gap-2 mt-3">
+                {VIEW_TABS.map((view, i) => (
                   <button
                     key={view.label}
                     onClick={() => setActiveView(i)}
-                    className={`flex flex-col items-center gap-1 py-2 rounded-lg border text-xs font-medium transition-colors ${
+                    className={`flex items-center justify-center gap-1.5 py-2 rounded-lg border text-xs font-medium transition-colors ${
                       activeView === i
                         ? 'bg-primary text-primary-foreground border-primary'
                         : 'bg-white text-foreground/70 border-border hover:border-primary'
@@ -97,10 +81,21 @@ const CarDetailModal = ({ car, open, onOpenChange }: CarDetailModalProps) => {
                   </button>
                 ))}
               </div>
+
+              <div className="grid grid-cols-2 gap-x-4 gap-y-2 mt-5 text-sm">
+                {SPEC_ROWS.map((row) => (
+                  <div key={row.key} className="flex items-center gap-2 text-muted-foreground">
+                    <Icon name={row.icon} size={14} className="shrink-0" />
+                    <span className="truncate">
+                      {row.label}: <span className="text-foreground font-medium">{selectedVariant.specs[row.key]}</span>
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div className="flex flex-col">
-              <div className="text-2xl font-display font-extrabold text-primary">{car.price}</div>
+              <div className="text-2xl font-display font-extrabold text-primary">{selectedVariant.price}</div>
               <p className="text-sm text-muted-foreground mt-1">
                 Цена под ключ с учётом доставки и таможенного оформления
               </p>
@@ -108,20 +103,20 @@ const CarDetailModal = ({ car, open, onOpenChange }: CarDetailModalProps) => {
               <div className="mt-6">
                 <div className="text-sm font-semibold mb-2">Выберите кузов</div>
                 <div className="flex flex-wrap gap-2">
-                  {car.bodyTypes.map((body) => (
+                  {carModel.variants.map((variant) => (
                     <button
-                      key={body}
+                      key={variant.model}
                       onClick={() => {
-                        setSelectedBody(body);
+                        setSelectedVariant(variant);
                         setActiveView(0);
                       }}
                       className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
-                        selectedBody === body
+                        selectedVariant.model === variant.model
                           ? 'bg-primary text-primary-foreground border-primary'
                           : 'bg-white text-foreground/80 border-border hover:border-primary'
                       }`}
                     >
-                      {body}
+                      {variant.bodyType}
                     </button>
                   ))}
                 </div>
@@ -133,7 +128,7 @@ const CarDetailModal = ({ car, open, onOpenChange }: CarDetailModalProps) => {
                   className="w-full h-12 font-semibold text-base hover-lift"
                   onClick={() => setLeadOpen(true)}
                 >
-                  Получить расчёт на {car.brand}
+                  Получить расчёт на {selectedVariant.model}
                 </Button>
                 <p className="flex items-center gap-1.5 text-xs text-muted-foreground mt-3">
                   <Icon name="Lock" size={13} />
@@ -149,7 +144,7 @@ const CarDetailModal = ({ car, open, onOpenChange }: CarDetailModalProps) => {
         open={leadOpen}
         onOpenChange={setLeadOpen}
         source="catalog"
-        defaultCar={`${car.brand} (${selectedBody})`}
+        defaultCar={`${selectedVariant.model} (${selectedVariant.bodyType})`}
       />
     </>
   );
