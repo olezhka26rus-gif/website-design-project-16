@@ -1,12 +1,13 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import CountryFlag, { CountryCode } from '@/components/site/CountryFlag';
 
-const countries = [
-  { flag: '🇨🇳', name: 'Китай' },
-  { flag: '🇯🇵', name: 'Япония' },
-  { flag: '🇰🇷', name: 'Корея' },
-  { flag: '🇪🇺', name: 'Европа' },
-  { flag: '🇺🇸', name: 'США' },
+const countries: { code: CountryCode; name: string }[] = [
+  { code: 'china', name: 'Китай' },
+  { code: 'japan', name: 'Япония' },
+  { code: 'korea', name: 'Корея' },
+  { code: 'europe', name: 'Европа' },
+  { code: 'usa', name: 'США' },
 ];
 
 const Hero = () => {
@@ -57,7 +58,7 @@ const Hero = () => {
           <div className="flex flex-wrap gap-x-6 gap-y-3 mt-7">
             {countries.map((c) => (
               <div key={c.name} className="flex items-center gap-2 text-sm font-medium">
-                <span className="text-xl leading-none">{c.flag}</span>
+                <CountryFlag country={c.code} className="w-6 h-auto rounded-[3px] shadow-sm" />
                 {c.name}
               </div>
             ))}

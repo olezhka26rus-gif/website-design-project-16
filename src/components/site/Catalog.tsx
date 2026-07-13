@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import CountryFlag from '@/components/site/CountryFlag';
 
 type CountryKey = 'china' | 'japan' | 'korea' | 'europe' | 'usa';
 
@@ -10,12 +11,12 @@ const hashToCountry: Record<string, CountryKey> = {
   '#catalog-usa': 'usa',
 };
 
-const countryTabs: { key: CountryKey; label: string; flag: string }[] = [
-  { key: 'china', label: 'Китай', flag: '🇨🇳' },
-  { key: 'japan', label: 'Япония', flag: '🇯🇵' },
-  { key: 'korea', label: 'Корея', flag: '🇰🇷' },
-  { key: 'europe', label: 'Европа', flag: '🇪🇺' },
-  { key: 'usa', label: 'США', flag: '🇺🇸' },
+const countryTabs: { key: CountryKey; label: string }[] = [
+  { key: 'china', label: 'Китай' },
+  { key: 'japan', label: 'Япония' },
+  { key: 'korea', label: 'Корея' },
+  { key: 'europe', label: 'Европа' },
+  { key: 'usa', label: 'США' },
 ];
 
 const carsByCountry: Record<CountryKey, { brand: string; price: string; image: string }[]> = {
@@ -93,7 +94,7 @@ const Catalog = () => {
                   : 'bg-white text-foreground/80 border-border hover:border-primary'
               }`}
             >
-              <span className="mr-1.5">{tab.flag}</span>
+              <CountryFlag country={tab.key} className="inline-block w-5 h-auto rounded-[2px] mr-1.5 -mt-0.5" />
               {tab.label}
             </button>
           ))}

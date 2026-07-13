@@ -1,8 +1,22 @@
-const cases = [
+import CountryFlag, { CountryCode } from '@/components/site/CountryFlag';
+
+const cases: {
+  name: string;
+  spec: string;
+  countryCode: CountryCode;
+  countryName: string;
+  priceAbroad: string;
+  priceRu: string;
+  ourPrice: string;
+  save: string;
+  days: string;
+  image: string;
+}[] = [
   {
     name: 'BMW X5 2023',
     spec: '3.0d xDrive M Sport',
-    country: '🇰🇷 Корея',
+    countryCode: 'korea',
+    countryName: 'Корея',
     priceAbroad: '4 150 000 ₽',
     priceRu: '5 450 000 ₽',
     ourPrice: '4 590 000 ₽',
@@ -13,7 +27,8 @@ const cases = [
   {
     name: 'Toyota Land Cruiser 300 2022',
     spec: '3.3d AT',
-    country: '🇯🇵 Япония',
+    countryCode: 'japan',
+    countryName: 'Япония',
     priceAbroad: '5 250 000 ₽',
     priceRu: '6 950 000 ₽',
     ourPrice: '5 850 000 ₽',
@@ -24,7 +39,8 @@ const cases = [
   {
     name: 'Kia Carnival 2023',
     spec: '2.2d Signature',
-    country: '🇰🇷 Корея',
+    countryCode: 'korea',
+    countryName: 'Корея',
     priceAbroad: '3 050 000 ₽',
     priceRu: '4 100 000 ₽',
     ourPrice: '3 520 000 ₽',
@@ -67,7 +83,13 @@ const Cases = () => {
               <div className="h-32 rounded-xl bg-secondary overflow-hidden mb-4">
                 <img src={c.image} alt={c.name} className="w-full h-full object-cover" loading="lazy" />
               </div>
-              <Row label="Страна:" value={c.country} />
+              <div className="flex items-center justify-between py-1.5 text-sm border-b border-border/60">
+                <span className="text-muted-foreground">Страна:</span>
+                <span className="font-semibold flex items-center gap-1.5">
+                  <CountryFlag country={c.countryCode} className="w-5 h-auto rounded-[2px]" />
+                  {c.countryName}
+                </span>
+              </div>
               <Row label="Цена за рубежом:" value={c.priceAbroad} />
               <Row label="Цена в России:" value={c.priceRu} />
               <Row label="Наша цена:" value={c.ourPrice} accent="red" />

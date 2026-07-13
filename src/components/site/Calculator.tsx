@@ -16,13 +16,14 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import Icon from '@/components/ui/icon';
+import CountryFlag, { CountryCode } from '@/components/site/CountryFlag';
 
-const countries = [
-  { value: 'china', label: '🇨🇳 Китай', delivery: 180000 },
-  { value: 'japan', label: '🇯🇵 Япония', delivery: 220000 },
-  { value: 'korea', label: '🇰🇷 Корея', delivery: 160000 },
-  { value: 'europe', label: '🇪🇺 Европа', delivery: 260000 },
-  { value: 'usa', label: '🇺🇸 США', delivery: 320000 },
+const countries: { value: CountryCode; label: string; delivery: number }[] = [
+  { value: 'china', label: 'Китай', delivery: 180000 },
+  { value: 'japan', label: 'Япония', delivery: 220000 },
+  { value: 'korea', label: 'Корея', delivery: 160000 },
+  { value: 'europe', label: 'Европа', delivery: 260000 },
+  { value: 'usa', label: 'США', delivery: 320000 },
 ];
 
 const ageBands = [
@@ -125,7 +126,12 @@ const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
                 </SelectTrigger>
                 <SelectContent>
                   {countries.map((c) => (
-                    <SelectItem key={c.value} value={c.value}>{c.label}</SelectItem>
+                    <SelectItem key={c.value} value={c.value}>
+                      <span className="flex items-center gap-2">
+                        <CountryFlag country={c.value} className="w-5 h-auto rounded-[2px]" />
+                        {c.label}
+                      </span>
+                    </SelectItem>
                   ))}
                 </SelectContent>
               </Select>
