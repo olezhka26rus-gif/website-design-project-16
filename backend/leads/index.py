@@ -1,52 +1,39 @@
 import json
 import os
-import urllib.request
-import urllib.parse
+import smtplib
+from email.mime.text import MIMEText
 import psycopg2
 
-TELEGRAM_USERNAME = 'rabotaRGL'
+NOTIFY_EMAIL = 'rgklients@mail.ru'
 
 
-def send_telegram_notification(name: str, phone: str, car: str) -> None:
-    """Отправляет уведомление о новой заявке в Telegram пользователю TELEGRAM_USERNAME"""
-    token = os.environ.get('TELEGRAM_BOT_TOKEN')
-    if not token:
-        print('TELEGRAM DEBUG: TELEGRAM_BOT_TOKEN is not set')
+def send_email_notification(name: str, phone: str, car: str, source: str) -> None:
+    """Отправляет уведомление о новой заявке на email NOTIFY_EMAIL через SMTP Mail.ru"""
+    login = os.environ.get('SMTP_EMAIL')
+    password = os.environ.get('SMTP_APP_PASSWORD')
+    if not login or not password:
+        print('EMAIL DEBUG: SMTP_EMAIL or SMTP_APP_PASSWORD is not set')
         return
 
     try:
-        updates_url = f'https://api.telegram.org/bot{token}/getUpdates'
-        with urllib.request.urlopen(updates_url, timeout=15) as resp:
-            updates = json.loads(resp.read())
-
-        print(f'TELEGRAM DEBUG: getUpdates response ok={updates.get("ok")}, result_count={len(updates.get("result", []))}')
-
-        chat_id = None
-        for result in updates.get('result', []):
-            msg = result.get('message') or result.get('my_chat_member') or {}
-            frm = msg.get('from', {})
-            username = frm.get('username', '')
-            print(f'TELEGRAM DEBUG: found username in updates: "{username}"')
-            if username.lower() == TELEGRAM_USERNAME.lower():
-                chat_id = frm.get('id')
-
-        if not chat_id:
-            print(f'TELEGRAM DEBUG: chat_id not found for username "{TELEGRAM_USERNAME}". Bot needs a fresh message from this user (send /start to the bot).')
-            return
-
-        print(f'TELEGRAM DEBUG: sending message to chat_id={chat_id}')
         text = (
-            'Новая заявка с сайта!\n\n'
+            'Новая заявка с сайта rlogistik.ru!\n\n'
             f'Имя: {name}\n'
             f'Телефон: {phone}\n'
-            f'Автомобиль: {car or "не указан"}'
+            f'Автомобиль: {car or "не указан"}\n'
+            f'Источник: {source}'
         )
-        send_url = f'https://api.telegram.org/bot{token}/sendMessage'
-        data = urllib.parse.urlencode({'chat_id': chat_id, 'text': text}).encode()
-        with urllib.request.urlopen(urllib.request.Request(send_url, data=data), timeout=15) as send_resp:
-            print(f'TELEGRAM DEBUG: sendMessage response status={send_resp.status}')
+        msg = MIMEText(text, 'plain', 'utf-8')
+        msg['Subject'] = f'Новая заявка с сайта: {name}'
+        msg['From'] = login
+        msg['To'] = NOTIFY_EMAIL
+
+        with smtplib.SMTP_SSL('smtp.mail.ru', 465, timeout=15) as server:
+            server.login(login, password)
+            server.sendmail(login, [NOTIFY_EMAIL], msg.as_string())
+        print(f'EMAIL DEBUG: notification sent to {NOTIFY_EMAIL}')
     except Exception as e:
-        print(f'TELEGRAM DEBUG: exception occurred: {type(e).__name__}: {e}')
+        print(f'EMAIL DEBUG: exception occurred: {type(e).__name__}: {e}')
 
 
 def handler(event: dict, context) -> dict:
@@ -88,7 +75,7 @@ def handler(event: dict, context) -> dict:
         cur.close()
         conn.close()
 
-        send_telegram_notification(name, phone, car)
+        send_email_notification(name, phone, car, source)
 
         return {
             'statusCode': 200,
