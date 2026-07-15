@@ -11,6 +11,7 @@ def send_telegram_notification(name: str, phone: str, car: str) -> None:
     """Отправляет уведомление о новой заявке в Telegram пользователю TELEGRAM_USERNAME"""
     token = os.environ.get('TELEGRAM_BOT_TOKEN')
     if not token:
+        print('TELEGRAM DEBUG: TELEGRAM_BOT_TOKEN is not set')
         return
 
     try:
@@ -18,17 +19,22 @@ def send_telegram_notification(name: str, phone: str, car: str) -> None:
         with urllib.request.urlopen(updates_url, timeout=15) as resp:
             updates = json.loads(resp.read())
 
+        print(f'TELEGRAM DEBUG: getUpdates response ok={updates.get("ok")}, result_count={len(updates.get("result", []))}')
+
         chat_id = None
         for result in updates.get('result', []):
             msg = result.get('message') or result.get('my_chat_member') or {}
             frm = msg.get('from', {})
             username = frm.get('username', '')
+            print(f'TELEGRAM DEBUG: found username in updates: "{username}"')
             if username.lower() == TELEGRAM_USERNAME.lower():
                 chat_id = frm.get('id')
 
         if not chat_id:
+            print(f'TELEGRAM DEBUG: chat_id not found for username "{TELEGRAM_USERNAME}". Bot needs a fresh message from this user (send /start to the bot).')
             return
 
+        print(f'TELEGRAM DEBUG: sending message to chat_id={chat_id}')
         text = (
             'Новая заявка с сайта!\n\n'
             f'Имя: {name}\n'
@@ -37,9 +43,10 @@ def send_telegram_notification(name: str, phone: str, car: str) -> None:
         )
         send_url = f'https://api.telegram.org/bot{token}/sendMessage'
         data = urllib.parse.urlencode({'chat_id': chat_id, 'text': text}).encode()
-        urllib.request.urlopen(urllib.request.Request(send_url, data=data), timeout=15)
-    except Exception:
-        pass
+        with urllib.request.urlopen(urllib.request.Request(send_url, data=data), timeout=15) as send_resp:
+            print(f'TELEGRAM DEBUG: sendMessage response status={send_resp.status}')
+    except Exception as e:
+        print(f'TELEGRAM DEBUG: exception occurred: {type(e).__name__}: {e}')
 
 
 def handler(event: dict, context) -> dict:
