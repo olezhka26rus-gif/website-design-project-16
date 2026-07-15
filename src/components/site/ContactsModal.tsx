@@ -7,6 +7,7 @@ import {
 } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 import VkIcon from '@/components/icons/VkIcon';
+import { trackGoal, goals } from '@/lib/analytics';
 
 interface ContactsModalProps {
   open: boolean;
@@ -36,6 +37,7 @@ const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
           <div className="space-y-3">
             <a
               href="tel:+79153977087"
+              onClick={() => trackGoal(goals.PHONE_CLICK)}
               className="flex items-center gap-3 rounded-xl bg-white border border-border p-4 hover-lift"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -51,6 +53,7 @@ const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
               href="https://t.me/region_logistik"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackGoal(goals.TELEGRAM_CLICK)}
               className="flex items-center gap-3 rounded-xl bg-white border border-border p-4 hover-lift"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -63,9 +66,26 @@ const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
             </a>
 
             <a
+              href="https://wa.me/79153977087"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => trackGoal(goals.WHATSAPP_CLICK)}
+              className="flex items-center gap-3 rounded-xl bg-white border border-border p-4 hover-lift"
+            >
+              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Icon name="MessageCircle" size={20} className="text-primary" />
+              </div>
+              <div>
+                <div className="font-semibold">WhatsApp</div>
+                <div className="text-xs text-muted-foreground">+7 (915) 397-70-87</div>
+              </div>
+            </a>
+
+            <a
               href="https://vk.com/region_logistik"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackGoal(goals.VK_CLICK)}
               className="flex items-center gap-3 rounded-xl bg-white border border-border p-4 hover-lift"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
@@ -79,7 +99,10 @@ const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
 
             <a
               href="#cta"
-              onClick={() => onOpenChange(false)}
+              onClick={() => {
+                trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Оставить заявку (модалка контактов)' });
+                onOpenChange(false);
+              }}
               className="flex items-center gap-3 rounded-xl bg-primary text-primary-foreground p-4 hover:opacity-90 transition-opacity"
             >
               <div className="w-10 h-10 rounded-lg bg-white/15 flex items-center justify-center shrink-0">

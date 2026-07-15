@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import CountryFlag, { CountryCode } from '@/components/site/CountryFlag';
+import { trackGoal, goals } from '@/lib/analytics';
 
 const countries: { code: CountryCode; name: string }[] = [
   { code: 'china', name: 'Китай' },
@@ -66,7 +67,9 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5 mt-8">
             <Button asChild size="lg" className="rounded-lg font-semibold h-14 px-8 text-base hover-lift">
-              <a href="#cta">Получить бесплатный расчёт</a>
+              <a href="#cta" onClick={() => trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Получить бесплатный расчёт (Hero)' })}>
+                Получить бесплатный расчёт
+              </a>
             </Button>
             <div className="text-sm text-muted-foreground leading-tight">
               Ответим в течение<br />

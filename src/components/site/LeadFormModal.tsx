@@ -12,6 +12,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import func2url from '@/func2url.json';
+import { trackGoal, goals } from '@/lib/analytics';
 
 interface LeadFormModalProps {
   open: boolean;
@@ -49,6 +50,7 @@ const LeadFormModal = ({ open, onOpenChange, source = 'blog', defaultCar = '' }:
         body: JSON.stringify({ ...form, source }),
       });
       setSent(true);
+      trackGoal(goals.LEAD_FORM_SUBMIT, { source });
       toast({
         title: 'Заявка отправлена!',
         description: 'Свяжемся с вами в течение 15 минут.',

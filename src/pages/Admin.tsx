@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -67,6 +68,10 @@ const Admin = () => {
   if (!authed) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-secondary/40 px-4">
+        <Helmet>
+          <title>Вход в админку | Region Logistik</title>
+          <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <form onSubmit={handleLogin} className="bg-white rounded-2xl shadow-xl p-8 w-full max-w-sm">
           <h1 className="font-display font-bold text-xl mb-6 text-center">Вход в админку</h1>
           <Input
@@ -86,6 +91,10 @@ const Admin = () => {
 
   return (
     <div className="min-h-screen bg-secondary/20 py-10">
+      <Helmet>
+        <title>Заявки клиентов | Region Logistik</title>
+        <meta name="robots" content="noindex, nofollow" />
+      </Helmet>
       <div className="container">
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
           <h1 className="font-display font-extrabold text-2xl">Заявки клиентов</h1>

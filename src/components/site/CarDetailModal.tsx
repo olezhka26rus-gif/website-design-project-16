@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import LeadFormModal from '@/components/site/LeadFormModal';
 import { CarModel, CarVariant } from '@/data/catalogCars';
+import { trackGoal, goals } from '@/lib/analytics';
 
 const VIEW_TABS = [
   { label: 'Сбоку', icon: 'Car' },
@@ -126,7 +127,10 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                 <Button
                   size="lg"
                   className="w-full h-12 font-semibold text-base hover-lift"
-                  onClick={() => setLeadOpen(true)}
+                  onClick={() => {
+                    trackGoal(goals.CTA_BUTTON_CLICK, { label: `Получить расчёт на ${selectedVariant.model}` });
+                    setLeadOpen(true);
+                  }}
                 >
                   Получить расчёт на {selectedVariant.model}
                 </Button>

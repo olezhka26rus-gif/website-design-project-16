@@ -6,6 +6,7 @@ import Footer from '@/components/site/Footer';
 import LeadFormModal from '@/components/site/LeadFormModal';
 import Icon from '@/components/ui/icon';
 import { articles } from '@/data/articles';
+import { trackGoal, goals } from '@/lib/analytics';
 import NotFound from './NotFound';
 
 const Article = () => {
@@ -74,7 +75,10 @@ const Article = () => {
             Хотите рассчитать стоимость доставки своего автомобиля?
           </p>
           <button
-            onClick={() => setFormOpen(true)}
+            onClick={() => {
+              trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Получить расчёт (статья блога)' });
+              setFormOpen(true);
+            }}
             className="whitespace-nowrap rounded-lg bg-primary text-primary-foreground font-semibold px-5 py-2.5 hover:opacity-90 transition-opacity"
           >
             Получить расчёт

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import Calculator from './Calculator';
 import ContactsModal from './ContactsModal';
+import { trackGoal, goals } from '@/lib/analytics';
 
 const navLinks = [
   { label: 'Китай', href: '#catalog-china' },
@@ -72,10 +73,22 @@ const Header = () => {
 
         <div className="hidden md:flex items-center gap-5">
           <div className="text-right leading-tight">
-            <a href="tel:+79153977087" className="font-display font-bold text-base">+7 (915) 397-70-87</a>
+            <a
+              href="tel:+79153977087"
+              onClick={() => trackGoal(goals.PHONE_CLICK)}
+              className="font-display font-bold text-base"
+            >
+              +7 (915) 397-70-87
+            </a>
             <div className="text-[11px] text-muted-foreground">Пн-Пт 9:00 – 18:00</div>
           </div>
-          <Button className="rounded-lg font-semibold" onClick={() => setCalcOpen(true)}>
+          <Button
+            className="rounded-lg font-semibold"
+            onClick={() => {
+              trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Калькулятор стоимости' });
+              setCalcOpen(true);
+            }}
+          >
             Калькулятор стоимости
           </Button>
         </div>
@@ -104,6 +117,7 @@ const Header = () => {
             <Button
               className="mt-2 rounded-lg font-semibold"
               onClick={() => {
+                trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Получить расчёт (меню)' });
                 setOpen(false);
                 setCalcOpen(true);
               }}

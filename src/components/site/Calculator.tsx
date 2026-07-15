@@ -17,6 +17,7 @@ import {
 } from '@/components/ui/select';
 import Icon from '@/components/ui/icon';
 import CountryFlag, { CountryCode } from '@/components/site/CountryFlag';
+import { trackGoal, goals } from '@/lib/analytics';
 
 const countries: { value: CountryCode; label: string; delivery: number }[] = [
   { value: 'china', label: 'Китай', delivery: 180000 },
@@ -88,6 +89,7 @@ const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
       service: SERVICE_FEE,
       total,
     });
+    trackGoal(goals.CALCULATOR_CALCULATE, { country });
   };
 
   const handleReset = () => {
@@ -205,7 +207,10 @@ const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
               <Button
                 asChild
                 className="flex-1 h-12 font-semibold"
-                onClick={() => onOpenChange(false)}
+                onClick={() => {
+                  trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Оставить заявку (калькулятор)' });
+                  onOpenChange(false);
+                }}
               >
                 <a href="#cta">Оставить заявку</a>
               </Button>
