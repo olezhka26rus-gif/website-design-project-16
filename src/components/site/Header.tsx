@@ -74,11 +74,11 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-5">
           <div className="text-right leading-tight">
             <a
-              href="tel:+79153977087"
+              href="tel:+79106926276"
               onClick={() => trackGoal(goals.PHONE_CLICK)}
               className="font-display font-bold text-base"
             >
-              +7 (915) 397-70-87
+              +7 (910) 692-62-76
             </a>
             <div className="text-[11px] text-muted-foreground">Пн-Пт 9:00 – 18:00</div>
           </div>

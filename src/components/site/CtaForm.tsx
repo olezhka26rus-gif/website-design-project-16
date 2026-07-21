@@ -63,11 +63,11 @@ const CtaForm = () => {
           </p>
           <div className="flex flex-wrap gap-6 mt-8">
             <a
-              href="tel:+79153977087"
+              href="tel:+79106926276"
               onClick={() => trackGoal(goals.PHONE_CLICK)}
               className="flex items-center gap-2 font-semibold"
             >
-              <Icon name="Phone" size={18} /> +7 (915) 397-70-87
+              <Icon name="Phone" size={18} /> +7 (910) 692-62-76
             </a>
             <a
               href="https://vk.com/region_logistik"
@@ -88,7 +88,7 @@ const CtaForm = () => {
               <Icon name="Send" size={18} /> Telegram
             </a>
             <a
-              href="https://wa.me/79153977087"
+              href="https://wa.me/79106926276"
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => trackGoal(goals.WHATSAPP_CLICK)}
