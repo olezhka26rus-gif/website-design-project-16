@@ -25,7 +25,7 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-display font-bold mb-4">Страны</h4>
           <ul className="space-y-2 text-sm">
-            {['Китай', 'Япония', 'Корея', 'Европа', 'США'].map((c) => (
+            {['Китай', 'Япония', 'Корея', 'Европа', 'США', 'ОАЭ'].map((c) => (
               <li key={c}><a href={anchor('#catalog')} className="hover:text-primary transition-colors">{c}</a></li>
             ))}
           </ul>
