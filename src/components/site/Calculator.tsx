@@ -25,6 +25,7 @@ const countries: { value: CountryCode; label: string; delivery: number }[] = [
   { value: 'korea', label: 'Корея', delivery: 160000 },
   { value: 'europe', label: 'Европа', delivery: 260000 },
   { value: 'usa', label: 'США', delivery: 320000 },
+  { value: 'uae', label: 'ОАЭ', delivery: 200000 },
 ];
 
 const ageBands = [

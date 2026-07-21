@@ -9,6 +9,7 @@ const countries: { code: CountryCode; name: string }[] = [
   { code: 'korea', name: 'Корея' },
   { code: 'europe', name: 'Европа' },
   { code: 'usa', name: 'США' },
+  { code: 'uae', name: 'ОАЭ' },
 ];
 
 const Hero = () => {

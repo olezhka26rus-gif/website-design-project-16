@@ -1,6 +1,6 @@
-import { CN, JP, KR, EU, US } from 'country-flag-icons/react/3x2';
+import { CN, JP, KR, EU, US, AE } from 'country-flag-icons/react/3x2';
 
-export type CountryCode = 'china' | 'japan' | 'korea' | 'europe' | 'usa';
+export type CountryCode = 'china' | 'japan' | 'korea' | 'europe' | 'usa' | 'uae';
 
 const flagComponents: Record<CountryCode, (props: { className?: string }) => React.JSX.Element> = {
   china: CN,
@@ -8,6 +8,7 @@ const flagComponents: Record<CountryCode, (props: { className?: string }) => Rea
   korea: KR,
   europe: EU,
   usa: US,
+  uae: AE,
 };
 
 interface CountryFlagProps {
