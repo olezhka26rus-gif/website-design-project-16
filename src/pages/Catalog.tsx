@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CountryFlag from '@/components/site/CountryFlag';
+import CarSearch from '@/components/site/CarSearch';
 import Icon from '@/components/ui/icon';
 import { catalogEntries, CountryKey } from '@/data/catalogCars';
 
@@ -78,10 +79,12 @@ const Catalog = () => {
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl mb-3">
           Каталог автомобилей на заказ
         </h1>
-        <p className="text-muted-foreground mb-8 max-w-2xl">
+        <p className="text-muted-foreground mb-6 max-w-2xl">
           Более {catalogEntries.length} моделей из Китая, Японии, Кореи, Европы и США — с характеристиками
           и ориентировочной ценой под ключ. Точную стоимость и фото уточняйте у менеджера.
         </p>
+
+        <CarSearch variant="page" className="mb-8 max-w-xl" />
 
         <div className="flex flex-wrap gap-2 mb-8">
           {countryTabs.map((tab) => (

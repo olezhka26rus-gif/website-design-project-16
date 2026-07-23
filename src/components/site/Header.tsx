@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import Calculator from './Calculator';
 import ContactsModal from './ContactsModal';
+import CarSearch from './CarSearch';
 import { trackGoal, goals } from '@/lib/analytics';
 
 const navLinks = [
@@ -24,6 +25,7 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
   const [contactsOpen, setContactsOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === '/';
@@ -73,7 +75,16 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-5 ml-4">
+          <button
+            onClick={() => setSearchOpen((v) => !v)}
+            aria-label="Поиск автомобиля"
+            className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
+              searchOpen ? 'bg-primary text-primary-foreground' : 'text-foreground/70 hover:bg-secondary'
+            }`}
+          >
+            <Icon name="Search" size={19} />
+          </button>
           <div className="text-right leading-tight">
             <a
               href="tel:+79106926276"
@@ -95,10 +106,21 @@ const Header = () => {
           </Button>
         </div>
 
+        <button className="md:hidden mr-2" onClick={() => setSearchOpen((v) => !v)} aria-label="Поиск автомобиля">
+          <Icon name="Search" size={22} />
+        </button>
         <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Меню">
           <Icon name={open ? 'X' : 'Menu'} size={26} />
         </button>
       </div>
+
+      {searchOpen && (
+        <div className="border-t border-border bg-white animate-fade-in">
+          <div className="container py-3">
+            <CarSearch variant="header" />
+          </div>
+        </div>
+      )}
 
       {open && (
         <div className="lg:hidden border-t border-border bg-white animate-fade-in">
