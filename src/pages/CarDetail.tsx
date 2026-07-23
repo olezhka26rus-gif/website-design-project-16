@@ -175,7 +175,7 @@ const CarDetail = () => {
             <div className="mt-auto pt-6 flex flex-col gap-3">
               <Button
                 size="lg"
-                className="w-full h-12 font-semibold text-base hover-lift"
+                className="w-full min-h-12 h-auto py-3 font-semibold text-base hover-lift whitespace-normal text-center leading-snug"
                 onClick={() => {
                   trackGoal(goals.CTA_BUTTON_CLICK, { label: `Получить расчёт на ${variant.model}` });
                   setLeadOpen(true);
