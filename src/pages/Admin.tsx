@@ -31,6 +31,29 @@ const Admin = () => {
   const [authed, setAuthed] = useState(false);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(false);
+  const [indexing, setIndexing] = useState(false);
+
+  const handleReindex = async () => {
+    setIndexing(true);
+    try {
+      const res = await fetch(func2url.indexnow, {
+        headers: { 'X-Admin-Password': password },
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        toast({
+          title: 'Отправлено в Яндекс',
+          description: `${data.submitted_count} страниц отправлено на переиндексацию через IndexNow`,
+        });
+      } else {
+        toast({ title: 'Ошибка', description: data.error || 'Не удалось отправить', variant: 'destructive' });
+      }
+    } catch {
+      toast({ title: 'Ошибка соединения с сервером IndexNow', variant: 'destructive' });
+    } finally {
+      setIndexing(false);
+    }
+  };
 
   const fetchLeads = async (pwd: string) => {
     setLoading(true);
@@ -98,14 +121,24 @@ const Admin = () => {
       <div className="container">
         <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
           <h1 className="font-display font-extrabold text-2xl">Заявки клиентов</h1>
-          <Button
-            variant="outline"
-            onClick={() => fetchLeads(password)}
-            disabled={loading}
-          >
-            <Icon name="RefreshCw" size={16} />
-            Обновить
-          </Button>
+          <div className="flex items-center gap-3">
+            <Button
+              variant="outline"
+              onClick={handleReindex}
+              disabled={indexing}
+            >
+              <Icon name="Zap" size={16} />
+              {indexing ? 'Отправляем...' : 'Отправить сайт в Яндекс'}
+            </Button>
+            <Button
+              variant="outline"
+              onClick={() => fetchLeads(password)}
+              disabled={loading}
+            >
+              <Icon name="RefreshCw" size={16} />
+              Обновить
+            </Button>
+          </div>
         </div>
 
         <div className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden">
