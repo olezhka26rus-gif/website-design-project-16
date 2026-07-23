@@ -1,31 +1,3 @@
-export type CountryKey = 'china' | 'japan' | 'korea' | 'europe' | 'usa' | 'uae';
-
-export interface CarSpecs {
-  engine: string;
-  power: string;
-  drive: string;
-  transmission: string;
-  year: string;
-  consumption: string;
-}
-
-export interface CarVariant {
-  model: string;
-  bodyType: string;
-  price: string;
-  sideImage: string;
-  frontImage: string;
-  specs: CarSpecs;
-}
-
-export interface CarModel {
-  brand: string;
-  variants: CarVariant[];
-}
-
-const CDN = 'https://cdn.poehali.dev/projects/075c969b-4b51-4419-a74f-b3f2f4b044ae/files';
-
-export const carsByCountry: Record<CountryKey, CarModel[]> = {
 
   china: [
     {
@@ -1286,24 +1258,24 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           model: 'Chevrolet TrailBlazer',
           bodyType: 'Внедорожник',
           price: 'от 2 700 000 ₽',
-          sideImage: `/vehicles/usa-chevrolet-trailblazer-side.jpg`,
-          frontImage: `/vehicles/usa-chevrolet-trailblazer-front.jpg`,
+          sideImage: `${CDN}/eb08fe48-eae5-4870-8220-d7608c29af46.jpg`,
+          frontImage: `${CDN}/eb08fe48-eae5-4870-8220-d7608c29af46.jpg`,
           specs: { engine: '2.0 л Turbo Дизель', power: '184 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '9.5 л/100км' },
         },
         {
           model: 'Chevrolet Orlando',
           bodyType: 'Минивэн',
           price: 'от 1 900 000 ₽',
-          sideImage: `/vehicles/usa-chevrolet-orlando-side.jpg`,
-          frontImage: `/vehicles/usa-chevrolet-orlando-front.jpg`,
+          sideImage: `${CDN}/eb08fe48-eae5-4870-8220-d7608c29af46.jpg`,
+          frontImage: `${CDN}/eb08fe48-eae5-4870-8220-d7608c29af46.jpg`,
           specs: { engine: '1.8 л', power: '141 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2022', consumption: '8.2 л/100км' },
         },
         {
           model: 'Chevrolet Trax',
           bodyType: 'Кроссовер',
           price: 'от 2 200 000 ₽',
-          sideImage: `/vehicles/usa-chevrolet-trax-side.jpg`,
-          frontImage: `/vehicles/usa-chevrolet-trax-front.jpg`,
+          sideImage: `${CDN}/eb08fe48-eae5-4870-8220-d7608c29af46.jpg`,
+          frontImage: `${CDN}/eb08fe48-eae5-4870-8220-d7608c29af46.jpg`,
           specs: { engine: '1.2 л Turbo', power: '137 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '7.0 л/100км' },
         },
       ],
@@ -1315,8 +1287,8 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           model: 'Ram 1500',
           bodyType: 'Пикап',
           price: 'от 5 200 000 ₽',
-          sideImage: `/vehicles/usa-ram-1500-side.jpg`,
-          frontImage: `/vehicles/usa-ram-1500-front.jpg`,
+          sideImage: `${CDN}/eb08fe48-eae5-4870-8220-d7608c29af46.jpg`,
+          frontImage: `${CDN}/eb08fe48-eae5-4870-8220-d7608c29af46.jpg`,
           specs: { engine: '5.7 л V8', power: '395 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '14.5 л/100км' },
         },
       ],
