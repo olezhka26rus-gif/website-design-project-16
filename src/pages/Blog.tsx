@@ -11,19 +11,20 @@ const Blog = () => {
         <title>Блог о доставке автомобилей из-за рубежа | Регион Логистик (Region Logistik)</title>
         <meta
           name="description"
-          content="Полезные статьи о растаможке, доставке, проверке автомобилей из Китая, Японии, Кореи, Европы и США, а также инструкция по калькулятору стоимости авто."
+          content="Полезные статьи о растаможке, доставке, проверке автомобилей из Китая, Японии, Кореи, Европы, США и ОАЭ, а также инструкция по калькулятору стоимости авто."
         />
         <meta
           name="keywords"
-          content="блог о доставке авто, растаможка авто статьи, калькулятор стоимости авто, доставка авто из-за рубежа, Регион Логистик, Region Logistik"
+          content="блог о доставке авто, растаможка авто статьи, калькулятор стоимости авто, доставка авто из-за рубежа, доставка авто из ОАЭ, Регион Логистик, Region Logistik"
         />
         <link rel="canonical" href="https://rlogistik.ru/blog" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Блог о доставке автомобилей из-за рубежа | Регион Логистик" />
         <meta
           property="og:description"
-          content="Полезные статьи о растаможке, доставке и проверке автомобилей из Китая, Японии, Кореи, Европы и США."
+          content="Полезные статьи о растаможке, доставке и проверке автомобилей из Китая, Японии, Кореи, Европы, США и ОАЭ."
         />
+        <meta property="og:image" content="https://rlogistik.ru/logo-mark.png" />
         <meta property="og:url" content="https://rlogistik.ru/blog" />
         <meta property="og:locale" content="ru_RU" />
         <script type="application/ld+json">
