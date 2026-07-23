@@ -62,41 +62,41 @@ const Header = () => {
           />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-5 flex-nowrap min-w-0 overflow-hidden">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href.startsWith('#') && !isHome ? `/${link.href}` : link.href}
               onClick={(e) => handleNavClick(e, link.href)}
-              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
+              className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors whitespace-nowrap"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-5 ml-4">
+        <div className="hidden md:flex items-center gap-5 ml-4 shrink-0">
           <button
             onClick={() => setSearchOpen((v) => !v)}
             aria-label="Поиск автомобиля"
-            className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors ${
+            className={`w-10 h-10 rounded-lg flex items-center justify-center transition-colors shrink-0 ${
               searchOpen ? 'bg-primary text-primary-foreground' : 'text-foreground/70 hover:bg-secondary'
             }`}
           >
             <Icon name="Search" size={19} />
           </button>
-          <div className="text-right leading-tight">
+          <div className="text-right leading-tight shrink-0">
             <a
               href="tel:+79106926276"
               onClick={() => trackGoal(goals.PHONE_CLICK)}
-              className="font-display font-bold text-base"
+              className="font-display font-bold text-base whitespace-nowrap"
             >
               +7 (910) 692-62-76
             </a>
-            <div className="text-[11px] text-muted-foreground">Пн-Пт 9:00 – 18:00</div>
+            <div className="text-[11px] text-muted-foreground whitespace-nowrap">Пн-Пт 9:00 – 18:00</div>
           </div>
           <Button
-            className="rounded-lg font-semibold"
+            className="rounded-lg font-semibold whitespace-nowrap shrink-0"
             onClick={() => {
               trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Калькулятор стоимости' });
               setCalcOpen(true);

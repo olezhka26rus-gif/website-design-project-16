@@ -30,6 +30,17 @@ const SPEC_ROWS: { key: keyof CarVariant['specs']; label: string; icon: string }
   { key: 'consumption', label: 'Расход', icon: 'Droplet' },
 ];
 
+const WHY_ORDER_ITEMS = [
+  'подбор автомобиля под ваш бюджет',
+  'проверка по базам и истории эксплуатации',
+  'фото- и видеоотчёт перед покупкой',
+  'организация выкупа',
+  'международная доставка',
+  'таможенное оформление',
+  'помощь с получением ЭПТС',
+  'доставка до вашего города',
+];
+
 const CarDetail = () => {
   const { country, slug } = useParams();
   const entry = country && slug ? findCatalogEntry(country, slug) : undefined;
@@ -40,6 +51,9 @@ const CarDetail = () => {
 
   const { model, variant, countryName } = entry;
   const countryGen = countryGenitive[countryName] ?? countryName;
+  const fullName = variant.model.toLowerCase().startsWith(model.brand.toLowerCase())
+    ? variant.model
+    : `${model.brand} ${variant.model}`;
   const pageUrl = `https://rlogistik.ru/catalog/${entry.country}/${entry.slug}`;
   const otherVariants = model.variants.filter((v) => v.model !== variant.model);
   const similarModels = catalogEntriesByCountry(entry.country as CountryKey)
@@ -162,9 +176,9 @@ const CarDetail = () => {
             </p>
 
             <p className="text-sm text-foreground/80 leading-relaxed mt-5">
-              {variant.model} — {variant.bodyType.toLowerCase()} под заказ из {countryGenitive[countryName] ?? countryName}.
-              Мы подберём конкретный автомобиль, проверим его историю и техническое состояние,
-              организуем выкуп и доставку под ключ до вашего города.
+              {fullName} доступна для заказа из Китая, Японии, Южной Кореи, Европы, США, ОАЭ и других стран.
+              Мы подберём автомобиль под ваш бюджет и требования, проверим историю эксплуатации, техническое состояние и документы,
+              после чего организуем покупку, доставку и таможенное оформление под ключ до вашего города.
             </p>
 
             <div className="mt-6 p-4 rounded-xl bg-secondary/60 flex items-start gap-2 text-xs text-muted-foreground">
@@ -201,6 +215,20 @@ const CarDetail = () => {
               </p>
             </div>
           </div>
+        </div>
+
+        <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-secondary/50">
+          <h2 className="font-display font-bold text-xl mb-4">
+            Почему стоит заказать {fullName} через Регион Логистик
+          </h2>
+          <ul className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
+            {WHY_ORDER_ITEMS.map((item) => (
+              <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
+                <Icon name="CheckCircle2" size={16} className="text-primary shrink-0 mt-0.5" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
 
         {similarModels.length > 0 && (
