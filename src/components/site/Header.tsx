@@ -106,11 +106,19 @@ const Header = () => {
           </Button>
         </div>
 
-        <button className="md:hidden mr-2" onClick={() => setSearchOpen((v) => !v)} aria-label="Поиск автомобиля">
-          <Icon name="Search" size={22} />
+        <a
+          href="tel:+79106926276"
+          onClick={() => trackGoal(goals.PHONE_CLICK)}
+          aria-label="Позвонить"
+          className="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-primary bg-primary/10 shrink-0"
+        >
+          <Icon name="Phone" size={20} />
+        </a>
+        <button className="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-foreground/70 shrink-0" onClick={() => setSearchOpen((v) => !v)} aria-label="Поиск автомобиля">
+          <Icon name="Search" size={20} />
         </button>
-        <button className="lg:hidden" onClick={() => setOpen(!open)} aria-label="Меню">
-          <Icon name={open ? 'X' : 'Menu'} size={26} />
+        <button className="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center shrink-0" onClick={() => setOpen(!open)} aria-label="Меню">
+          <Icon name={open ? 'X' : 'Menu'} size={24} />
         </button>
       </div>
 
