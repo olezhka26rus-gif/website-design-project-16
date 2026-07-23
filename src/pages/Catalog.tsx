@@ -1,0 +1,148 @@
+import { useState, useMemo } from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import Header from '@/components/site/Header';
+import Footer from '@/components/site/Footer';
+import CountryFlag from '@/components/site/CountryFlag';
+import Icon from '@/components/ui/icon';
+import { catalogEntries, CountryKey } from '@/data/catalogCars';
+
+const countryTabs: { key: CountryKey | 'all'; label: string }[] = [
+  { key: 'all', label: 'Все страны' },
+  { key: 'china', label: 'Китай' },
+  { key: 'japan', label: 'Япония' },
+  { key: 'korea', label: 'Корея' },
+  { key: 'europe', label: 'Европа' },
+  { key: 'usa', label: 'США' },
+];
+
+const Catalog = () => {
+  const [active, setActive] = useState<CountryKey | 'all'>('all');
+
+  const entries = useMemo(
+    () => (active === 'all' ? catalogEntries : catalogEntries.filter((e) => e.country === active)),
+    [active]
+  );
+
+  const pageUrl = 'https://rlogistik.ru/catalog';
+
+  return (
+    <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Каталог автомобилей на заказ из-за рубежа | Регион Логистик (Region Logistik)</title>
+        <meta
+          name="description"
+          content={`Каталог из ${catalogEntries.length}+ моделей автомобилей на заказ из Китая, Японии, Кореи, Европы и США — характеристики, ориентировочные цены и расчёт стоимости под ключ.`}
+        />
+        <meta
+          name="keywords"
+          content="каталог автомобилей на заказ, авто из Китая, авто из Японии, авто из Кореи, авто из Европы, авто из США, купить авто под заказ, Регион Логистик"
+        />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Каталог автомобилей на заказ из-за рубежа | Регион Логистик" />
+        <meta
+          property="og:description"
+          content="Более 100 моделей автомобилей на заказ из Китая, Японии, Кореи, Европы и США с характеристиками и ориентировочными ценами."
+        />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:locale" content="ru_RU" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://rlogistik.ru/' },
+              { '@type': 'ListItem', position: 2, name: 'Каталог', item: pageUrl },
+            ],
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            itemListElement: entries.slice(0, 50).map((e, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              url: `https://rlogistik.ru/catalog/${e.country}/${e.slug}`,
+              name: e.variant.model,
+            })),
+          })}
+        </script>
+      </Helmet>
+
+      <Header />
+
+      <main className="container py-16">
+        <h1 className="font-display font-extrabold text-3xl sm:text-4xl mb-3">
+          Каталог автомобилей на заказ
+        </h1>
+        <p className="text-muted-foreground mb-8 max-w-2xl">
+          Более {catalogEntries.length} моделей из Китая, Японии, Кореи, Европы и США — с характеристиками
+          и ориентировочной ценой под ключ. Точную стоимость и фото уточняйте у менеджера.
+        </p>
+
+        <div className="flex flex-wrap gap-2 mb-8">
+          {countryTabs.map((tab) => (
+            <button
+              key={tab.key}
+              onClick={() => setActive(tab.key)}
+              className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors border ${
+                active === tab.key
+                  ? 'bg-primary text-primary-foreground border-primary'
+                  : 'bg-white text-foreground/80 border-border hover:border-primary'
+              }`}
+            >
+              {tab.key !== 'all' && (
+                <CountryFlag country={tab.key} className="inline-block w-5 h-auto rounded-[2px] mr-1.5 -mt-0.5" />
+              )}
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 animate-fade-in">
+          {entries.map((e) => (
+            <Link
+              key={`${e.country}-${e.slug}`}
+              to={`/catalog/${e.country}/${e.slug}`}
+              className="group rounded-xl border border-border overflow-hidden hover-lift bg-white flex flex-col"
+            >
+              <div className="relative h-36 bg-secondary overflow-hidden">
+                <img
+                  src={e.variant.sideImage}
+                  alt={e.variant.model}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute top-2 left-2 bg-white/90 rounded-full p-1">
+                  <CountryFlag country={e.country} className="w-4 h-auto rounded-[2px]" />
+                </div>
+              </div>
+              <div className="p-3 flex-1 flex flex-col">
+                <div className="font-semibold text-sm truncate">{e.variant.model}</div>
+                <div className="text-xs text-muted-foreground mt-0.5">{e.variant.bodyType} · {e.countryName}</div>
+                <div className="text-sm font-bold text-primary mt-2">{e.variant.price}</div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {entries.length === 0 && (
+          <p className="text-center text-muted-foreground py-16">Модели не найдены</p>
+        )}
+
+        <div className="mt-12 p-6 rounded-2xl bg-secondary/50 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="font-display font-semibold text-center sm:text-left flex items-center gap-2">
+            <Icon name="Info" size={18} className="text-primary shrink-0" />
+            Не нашли нужную модель? Мы подберём и привезём любой автомобиль на заказ.
+          </p>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+};
+
+export default Catalog;

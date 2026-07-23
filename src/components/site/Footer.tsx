@@ -35,6 +35,7 @@ const Footer = () => {
           <h4 className="text-white font-display font-bold mb-4">Компания</h4>
           <ul className="space-y-2 text-sm">
             <li><a href={anchor('#about')} className="hover:text-primary transition-colors">О компании</a></li>
+            <li><a href="/catalog" className="hover:text-primary transition-colors">Каталог авто</a></li>
             <li><a href={anchor('#cases')} className="hover:text-primary transition-colors">Кейсы</a></li>
             <li><a href={anchor('#reviews')} className="hover:text-primary transition-colors">Отзывы</a></li>
             <li><a href="/blog" className="hover:text-primary transition-colors">Блог</a></li>

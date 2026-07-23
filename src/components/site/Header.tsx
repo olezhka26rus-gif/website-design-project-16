@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'Корея', href: '#catalog-korea' },
   { label: 'Европа', href: '#catalog-europe' },
   { label: 'США', href: '#catalog-usa' },
+  { label: 'Каталог', href: '/catalog' },
   { label: 'Кейсы', href: '#cases' },
   { label: 'Отзывы', href: '#reviews' },
   { label: 'Блог', href: '/blog' },
