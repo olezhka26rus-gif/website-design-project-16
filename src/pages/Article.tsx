@@ -25,14 +25,20 @@ const Article = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>{article.title} | Region Logistik</title>
+        <title>{article.title} | Регион Логистик (Region Logistik)</title>
         <meta name="description" content={article.description} />
+        {article.keywords && <meta name="keywords" content={article.keywords} />}
         <link rel="canonical" href={pageUrl} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.description} />
         <meta property="og:image" content={article.cover} />
         <meta property="og:url" content={pageUrl} />
+        <meta property="og:locale" content="ru_RU" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.description} />
+        <meta name="twitter:image" content={article.cover} />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
@@ -41,9 +47,50 @@ const Article = () => {
             description: article.description,
             image: article.cover,
             datePublished: article.date,
-            author: { '@type': 'Organization', name: 'Region Logistik' },
+            dateModified: article.date,
+            author: { '@type': 'Organization', name: 'Регион Логистик' },
+            publisher: { '@type': 'Organization', name: 'Регион Логистик' },
+            mainEntityOfPage: { '@type': 'WebPage', '@id': pageUrl },
           })}
         </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://rlogistik.ru/' },
+              { '@type': 'ListItem', position: 2, name: 'Блог', item: 'https://rlogistik.ru/blog' },
+              { '@type': 'ListItem', position: 3, name: article.title, item: pageUrl },
+            ],
+          })}
+        </script>
+        {article.faq && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: article.faq.map((f) => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
+            })}
+          </script>
+        )}
+        {article.howTo && (
+          <script type="application/ld+json">
+            {JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'HowTo',
+              name: article.howTo.name,
+              step: article.howTo.steps.map((s) => ({
+                '@type': 'HowToStep',
+                name: s.name,
+                text: s.text,
+              })),
+            })}
+          </script>
+        )}
       </Helmet>
 
       <Header />

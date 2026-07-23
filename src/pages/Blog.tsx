@@ -8,12 +8,34 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Блог о доставке автомобилей из-за рубежа | Region Logistik</title>
+        <title>Блог о доставке автомобилей из-за рубежа | Регион Логистик (Region Logistik)</title>
         <meta
           name="description"
-          content="Полезные статьи о растаможке, доставке и проверке автомобилей из Китая, Японии, Кореи, Европы и США."
+          content="Полезные статьи о растаможке, доставке, проверке автомобилей из Китая, Японии, Кореи, Европы и США, а также инструкция по калькулятору стоимости авто."
+        />
+        <meta
+          name="keywords"
+          content="блог о доставке авто, растаможка авто статьи, калькулятор стоимости авто, доставка авто из-за рубежа, Регион Логистик, Region Logistik"
         />
         <link rel="canonical" href="https://rlogistik.ru/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Блог о доставке автомобилей из-за рубежа | Регион Логистик" />
+        <meta
+          property="og:description"
+          content="Полезные статьи о растаможке, доставке и проверке автомобилей из Китая, Японии, Кореи, Европы и США."
+        />
+        <meta property="og:url" content="https://rlogistik.ru/blog" />
+        <meta property="og:locale" content="ru_RU" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://rlogistik.ru/' },
+              { '@type': 'ListItem', position: 2, name: 'Блог', item: 'https://rlogistik.ru/blog' },
+            ],
+          })}
+        </script>
       </Helmet>
 
       <Header />
