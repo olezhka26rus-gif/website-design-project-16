@@ -64,6 +64,7 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                   src={image}
                   alt={`${selectedVariant.model} — ${VIEW_TABS[activeView].label}`}
                   className="w-full h-full object-cover animate-fade-in"
+                  decoding="async"
                 />
               </div>
               <div className="grid grid-cols-2 gap-2 mt-3">

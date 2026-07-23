@@ -137,6 +137,7 @@ const CarDetail = () => {
                 src={variant.sideImage}
                 alt={variant.model}
                 className="w-full h-full object-cover"
+                decoding="async"
               />
             </div>
 

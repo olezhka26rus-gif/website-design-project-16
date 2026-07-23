@@ -99,7 +99,7 @@ const CarSearch = ({ variant = 'page', placeholder = 'Найти автомоб�
                   className="w-full flex items-center gap-3 px-4 py-3 hover:bg-secondary/60 transition-colors text-left border-b border-border last:border-0"
                 >
                   <div className="w-12 h-9 rounded-md overflow-hidden bg-secondary shrink-0">
-                    <img src={e.variant.sideImage} alt={e.variant.model} className="w-full h-full object-cover" />
+                    <img src={e.variant.sideImage} alt={e.variant.model} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="font-semibold text-sm truncate">{e.variant.model}</div>
