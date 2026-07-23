@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import CountryFlag from '@/components/site/CountryFlag';
 import CarDetailModal from '@/components/site/CarDetailModal';
 import Icon from '@/components/ui/icon';
-import { carsByCountry, catalogEntries, CountryKey, CarModel, CarVariant } from '@/data/catalogCars';
+import { carsByCountry, CountryKey, CarModel, CarVariant } from '@/data/catalogCars';
 
 const hashToCountry: Record<string, CountryKey> = {
   '#catalog-china': 'china',
@@ -53,7 +53,7 @@ const Catalog = () => {
             to="/catalog"
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:opacity-80 transition-opacity"
           >
-            Весь каталог — {catalogEntries.length} моделей
+            Смотреть весь каталог
             <Icon name="ArrowRight" size={16} />
           </Link>
         </div>
@@ -118,7 +118,7 @@ const Catalog = () => {
             className="inline-flex items-center gap-2 rounded-lg border border-primary text-primary font-semibold px-6 py-3 hover:bg-primary/5 transition-colors"
           >
             <Icon name="LayoutGrid" size={18} />
-            Смотреть весь каталог — {catalogEntries.length} моделей
+            Смотреть весь каталог
           </Link>
         </div>
       </div>
