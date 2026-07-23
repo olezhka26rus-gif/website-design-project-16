@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import CountryFlag from '@/components/site/CountryFlag';
 import CarDetailModal from '@/components/site/CarDetailModal';
 import Icon from '@/components/ui/icon';
-import { carsByCountry, CountryKey, CarModel, CarVariant } from '@/data/catalogCars';
+import { carsByCountry, catalogEntries, CountryKey, CarModel, CarVariant } from '@/data/catalogCars';
 
 const hashToCountry: Record<string, CountryKey> = {
   '#catalog-china': 'china',
@@ -46,8 +47,15 @@ const Catalog = () => {
   return (
     <section id="catalog" className="py-16 bg-white">
       <div className="container">
-        <div className="mb-6">
+        <div className="mb-6 flex flex-wrap items-end justify-between gap-4">
           <h2 className="font-display font-extrabold text-2xl sm:text-3xl">Популярные автомобили</h2>
+          <Link
+            to="/catalog"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:opacity-80 transition-opacity"
+          >
+            Весь каталог — {catalogEntries.length} моделей
+            <Icon name="ArrowRight" size={16} />
+          </Link>
         </div>
 
         <div className="flex flex-wrap gap-2 mb-8">
@@ -102,6 +110,16 @@ const Catalog = () => {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Link
+            to="/catalog"
+            className="inline-flex items-center gap-2 rounded-lg border border-primary text-primary font-semibold px-6 py-3 hover:bg-primary/5 transition-colors"
+          >
+            <Icon name="LayoutGrid" size={18} />
+            Смотреть весь каталог — {catalogEntries.length} моделей
+          </Link>
         </div>
       </div>
 
