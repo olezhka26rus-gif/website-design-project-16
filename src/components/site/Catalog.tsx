@@ -11,6 +11,7 @@ const hashToCountry: Record<string, CountryKey> = {
   '#catalog-korea': 'korea',
   '#catalog-europe': 'europe',
   '#catalog-usa': 'usa',
+  '#catalog-uae': 'uae',
 };
 
 const countryTabs: { key: CountryKey; label: string }[] = [
@@ -19,6 +20,7 @@ const countryTabs: { key: CountryKey; label: string }[] = [
   { key: 'korea', label: 'Корея' },
   { key: 'europe', label: 'Европа' },
   { key: 'usa', label: 'США' },
+  { key: 'uae', label: 'ОАЭ' },
 ];
 
 const Catalog = () => {

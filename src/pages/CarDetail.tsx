@@ -18,6 +18,7 @@ const countryGenitive: Record<string, string> = {
   Корея: 'Кореи',
   Европа: 'Европы',
   США: 'США',
+  ОАЭ: 'ОАЭ',
 };
 
 const SPEC_ROWS: { key: keyof CarVariant['specs']; label: string; icon: string }[] = [

@@ -1,4 +1,4 @@
-export type CountryKey = 'china' | 'japan' | 'korea' | 'europe' | 'usa';
+export type CountryKey = 'china' | 'japan' | 'korea' | 'europe' | 'usa' | 'uae';
 
 export interface CarSpecs {
   engine: string;
@@ -1342,6 +1342,138 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
       ],
     },
   ],
+  uae: [
+    {
+      brand: 'Rolls-Royce',
+      variants: [
+        {
+          model: 'Rolls-Royce Cullinan',
+          bodyType: 'Внедорожник',
+          price: 'от 42 000 000 ₽',
+          sideImage: `${CDN}/2a0fbe41-ded3-4853-86d0-74e9a5577c86.jpg`,
+          frontImage: `${CDN}/2a0fbe41-ded3-4853-86d0-74e9a5577c86.jpg`,
+          specs: { engine: '6.75 л V12 Twin-Turbo', power: '571 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '17.5 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'Bentley',
+      variants: [
+        {
+          model: 'Bentley Bentayga',
+          bodyType: 'Внедорожник',
+          price: 'от 22 000 000 ₽',
+          sideImage: `${CDN}/57098f39-27f8-4db5-93c0-aceea7f71fd2.jpg`,
+          frontImage: `${CDN}/57098f39-27f8-4db5-93c0-aceea7f71fd2.jpg`,
+          specs: { engine: '4.0 л V8 Twin-Turbo', power: '550 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '13.1 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'Ferrari',
+      variants: [
+        {
+          model: 'Ferrari Roma',
+          bodyType: 'Купе',
+          price: 'от 28 000 000 ₽',
+          sideImage: `${CDN}/73d095e4-86a8-4d73-9189-1154fad688fd.jpg`,
+          frontImage: `${CDN}/73d095e4-86a8-4d73-9189-1154fad688fd.jpg`,
+          specs: { engine: '3.9 л V8 Twin-Turbo', power: '620 л.с.', drive: 'Задний', transmission: 'Робот', year: '2024', consumption: '11.2 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'Lamborghini',
+      variants: [
+        {
+          model: 'Lamborghini Urus',
+          bodyType: 'Внедорожник',
+          price: 'от 31 000 000 ₽',
+          sideImage: `${CDN}/7abc5645-d2f4-4e57-9f90-48281777d57d.jpg`,
+          frontImage: `${CDN}/7abc5645-d2f4-4e57-9f90-48281777d57d.jpg`,
+          specs: { engine: '4.0 л V8 Twin-Turbo', power: '666 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '14.7 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'Mercedes-Maybach',
+      variants: [
+        {
+          model: 'Mercedes-Maybach S-Class',
+          bodyType: 'Седан',
+          price: 'от 19 500 000 ₽',
+          sideImage: `${CDN}/17c356cd-4892-4ad3-be4a-a6a0ebfe49d0.jpg`,
+          frontImage: `${CDN}/17c356cd-4892-4ad3-be4a-a6a0ebfe49d0.jpg`,
+          specs: { engine: '4.0 л V8 Twin-Turbo', power: '496 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.5 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'Nissan',
+      variants: [
+        {
+          model: 'Nissan Patrol Nismo',
+          bodyType: 'Внедорожник',
+          price: 'от 9 800 000 ₽',
+          sideImage: `${CDN}/5f94b2b3-f50d-4b8b-a7c6-1e9d68c2e72a.jpg`,
+          frontImage: `${CDN}/5f94b2b3-f50d-4b8b-a7c6-1e9d68c2e72a.jpg`,
+          specs: { engine: '5.6 л V8', power: '428 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '17.0 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'Toyota',
+      variants: [
+        {
+          model: 'Toyota Land Cruiser 300 VXR',
+          bodyType: 'Внедорожник',
+          price: 'от 11 500 000 ₽',
+          sideImage: `${CDN}/1234f466-1cca-4c72-b1c6-2cd0acc803ac.jpg`,
+          frontImage: `${CDN}/1234f466-1cca-4c72-b1c6-2cd0acc803ac.jpg`,
+          specs: { engine: '3.5 л V6 Twin-Turbo', power: '415 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '12.4 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'Cadillac',
+      variants: [
+        {
+          model: 'Cadillac Escalade',
+          bodyType: 'Внедорожник',
+          price: 'от 13 200 000 ₽',
+          sideImage: `${CDN}/49eb9a77-554f-42ab-a3e4-45033173f396.jpg`,
+          frontImage: `${CDN}/49eb9a77-554f-42ab-a3e4-45033173f396.jpg`,
+          specs: { engine: '6.2 л V8', power: '426 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '15.8 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'BMW',
+      variants: [
+        {
+          model: 'BMW 7 Series',
+          bodyType: 'Седан',
+          price: 'от 14 800 000 ₽',
+          sideImage: `${CDN}/54f5afb8-8327-4793-b8ec-25306d1967ab.jpg`,
+          frontImage: `${CDN}/54f5afb8-8327-4793-b8ec-25306d1967ab.jpg`,
+          specs: { engine: '3.0 л Turbo', power: '381 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '9.0 л/100км' },
+        },
+      ],
+    },
+    {
+      brand: 'Porsche',
+      variants: [
+        {
+          model: 'Porsche Cayenne Turbo GT',
+          bodyType: 'Внедорожник',
+          price: 'от 17 900 000 ₽',
+          sideImage: `${CDN}/c0dd95d9-8452-4cb8-b02e-5a9e4bfa759f.jpg`,
+          frontImage: `${CDN}/c0dd95d9-8452-4cb8-b02e-5a9e4bfa759f.jpg`,
+          specs: { engine: '4.0 л V8 Twin-Turbo', power: '640 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '13.4 л/100км' },
+        },
+      ],
+    },
+  ],
 };
 
 export const countryNames: Record<CountryKey, string> = {
@@ -1350,6 +1482,7 @@ export const countryNames: Record<CountryKey, string> = {
   korea: 'Корея',
   europe: 'Европа',
   usa: 'США',
+  uae: 'ОАЭ',
 };
 
 export interface CatalogEntry {

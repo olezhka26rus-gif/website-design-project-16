@@ -14,6 +14,7 @@ const countryTabs: { key: CountryKey | 'all'; label: string }[] = [
   { key: 'korea', label: 'Корея' },
   { key: 'europe', label: 'Европа' },
   { key: 'usa', label: 'США' },
+  { key: 'uae', label: 'ОАЭ' },
 ];
 
 const Catalog = () => {
