@@ -4,6 +4,7 @@ import { Link, useParams } from 'react-router-dom';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import LeadFormModal from '@/components/site/LeadFormModal';
+import Calculator from '@/components/site/Calculator';
 import Icon from '@/components/ui/icon';
 import { articles } from '@/data/articles';
 import { trackGoal, goals } from '@/lib/analytics';
@@ -13,8 +14,11 @@ const Article = () => {
   const { slug } = useParams();
   const article = articles.find((a) => a.slug === slug);
   const [formOpen, setFormOpen] = useState(false);
+  const [calcOpen, setCalcOpen] = useState(false);
 
   if (!article) return <NotFound />;
+
+  const isCalculatorArticle = article.slug === 'kak-polzovatsya-kalkulyatorom-stoimosti-avto';
 
   const pageUrl = `https://rlogistik.ru/blog/${article.slug}`;
 
@@ -59,6 +63,19 @@ const Article = () => {
           <img src={article.cover} alt={article.title} className="w-full h-full object-cover" />
         </div>
 
+        {isCalculatorArticle && (
+          <button
+            onClick={() => {
+              trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Открыть калькулятор (статья блога)' });
+              setCalcOpen(true);
+            }}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-lg bg-primary text-primary-foreground font-semibold px-5 py-3 mb-8 hover:opacity-90 transition-opacity"
+          >
+            <Icon name="Calculator" size={18} />
+            Открыть калькулятор стоимости
+          </button>
+        )}
+
         <article className="space-y-6">
           {article.content.map((block, i) => (
             <div key={i}>
@@ -74,21 +91,35 @@ const Article = () => {
           <p className="font-display font-semibold text-center sm:text-left">
             Хотите рассчитать стоимость доставки своего автомобиля?
           </p>
-          <button
-            onClick={() => {
-              trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Получить расчёт (статья блога)' });
-              setFormOpen(true);
-            }}
-            className="whitespace-nowrap rounded-lg bg-primary text-primary-foreground font-semibold px-5 py-2.5 hover:opacity-90 transition-opacity"
-          >
-            Получить расчёт
-          </button>
+          <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+            {isCalculatorArticle && (
+              <button
+                onClick={() => {
+                  trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Открыть калькулятор (низ статьи блога)' });
+                  setCalcOpen(true);
+                }}
+                className="whitespace-nowrap rounded-lg border border-primary text-primary font-semibold px-5 py-2.5 hover:bg-primary/5 transition-colors"
+              >
+                Открыть калькулятор
+              </button>
+            )}
+            <button
+              onClick={() => {
+                trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Получить расчёт (статья блога)' });
+                setFormOpen(true);
+              }}
+              className="whitespace-nowrap rounded-lg bg-primary text-primary-foreground font-semibold px-5 py-2.5 hover:opacity-90 transition-opacity"
+            >
+              Получить расчёт
+            </button>
+          </div>
         </div>
       </main>
 
       <Footer />
 
       <LeadFormModal open={formOpen} onOpenChange={setFormOpen} source={`blog:${article.slug}`} />
+      <Calculator open={calcOpen} onOpenChange={setCalcOpen} />
     </div>
   );
 };
