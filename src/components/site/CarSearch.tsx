@@ -24,10 +24,7 @@ const CarSearch = ({ variant = 'page', placeholder = 'Найти автомоб�
   const results = useMemo(() => {
     if (!normalizedQuery) return [];
     return catalogEntries
-      .filter((e) => {
-        const haystack = `${e.model.brand} ${e.variant.model}`.toLowerCase();
-        return haystack.includes(normalizedQuery);
-      })
+      .filter((e) => e.searchIndex.includes(normalizedQuery))
       .slice(0, 8);
   }, [normalizedQuery]);
 

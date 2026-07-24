@@ -1,3 +1,5 @@
+import { brandRu, brandExtraAliases, modelRu } from '@/data/carAliases';
+
 export type CountryKey = 'china' | 'japan' | 'korea' | 'europe' | 'usa' | 'uae';
 
 export interface CarSpecs {
@@ -1492,6 +1494,7 @@ export interface CatalogEntry {
   slug: string;
   model: CarModel;
   variant: CarVariant;
+  searchIndex: string;
 }
 
 const toSlug = (text: string): string =>
@@ -1502,6 +1505,11 @@ const toSlug = (text: string): string =>
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-');
 
+const buildSearchIndex = (brand: string, model: string): string => {
+  const parts = [brand, model, brandRu[brand], modelRu[model], ...(brandExtraAliases[brand] ?? [])];
+  return parts.filter(Boolean).join(' ').toLowerCase();
+};
+
 export const catalogEntries: CatalogEntry[] = (Object.keys(carsByCountry) as CountryKey[]).flatMap((country) =>
   carsByCountry[country].flatMap((model) =>
     model.variants.map((variant) => ({
@@ -1510,6 +1518,7 @@ export const catalogEntries: CatalogEntry[] = (Object.keys(carsByCountry) as Cou
       slug: toSlug(variant.model),
       model,
       variant,
+      searchIndex: buildSearchIndex(model.brand, variant.model),
     }))
   )
 );
