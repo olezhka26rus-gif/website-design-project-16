@@ -111,6 +111,12 @@
   }
 }
 
+@media (max-width: 767px) {
+  body {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom));
+  }
+}
+
 @layer utilities {
   .animation-delay-100 {
     animation-delay: 0.1s;
