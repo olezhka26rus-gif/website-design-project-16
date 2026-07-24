@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Icon from '@/components/ui/icon';
 import {
   Carousel,
@@ -6,6 +7,8 @@ import {
   CarouselPrevious,
   CarouselNext,
 } from '@/components/ui/carousel';
+
+const REVIEW_PREVIEW_LENGTH = 220;
 
 const reviews: { name: string; rating: number; date: string; text: string }[] = [
   {
@@ -70,6 +73,38 @@ const reviews: { name: string; rating: number; date: string; text: string }[] = 
   },
 ];
 
+const ReviewCard = ({ r }: { r: { name: string; rating: number; date: string; text: string } }) => {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = r.text.length > REVIEW_PREVIEW_LENGTH;
+  const displayText = expanded || !isLong ? r.text : `${r.text.slice(0, REVIEW_PREVIEW_LENGTH).trimEnd()}…`;
+
+  return (
+    <div className="h-full rounded-2xl border border-border p-6 hover-lift flex flex-col">
+      <div className="flex items-center gap-3 mb-3">
+        <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-xl shrink-0">👤</div>
+        <div className="min-w-0">
+          <div className="font-display font-bold text-sm truncate">{r.name}</div>
+          <div className="flex text-amber-400">
+            {Array.from({ length: r.rating }).map((_, i) => (
+              <Icon key={i} name="Star" size={13} className="fill-amber-400" />
+            ))}
+          </div>
+        </div>
+      </div>
+      <p className="text-sm text-muted-foreground leading-relaxed mb-2 flex-1 whitespace-pre-line">{displayText}</p>
+      {isLong && (
+        <button
+          onClick={() => setExpanded((v) => !v)}
+          className="text-xs font-semibold text-primary hover:opacity-80 transition-opacity mb-2 text-left w-fit"
+        >
+          {expanded ? 'Свернуть' : 'Читать полностью'}
+        </button>
+      )}
+      <div className="text-xs text-muted-foreground">{r.date}</div>
+    </div>
+  );
+};
+
 const Reviews = () => {
   return (
     <section id="reviews" className="py-16 bg-white">
@@ -101,21 +136,7 @@ const Reviews = () => {
           <CarouselContent>
             {reviews.map((r) => (
               <CarouselItem key={r.name + r.date} className="basis-full sm:basis-1/2 lg:basis-1/3">
-                <div className="h-full rounded-2xl border border-border p-6 hover-lift flex flex-col">
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-xl shrink-0">👤</div>
-                    <div className="min-w-0">
-                      <div className="font-display font-bold text-sm truncate">{r.name}</div>
-                      <div className="flex text-amber-400">
-                        {Array.from({ length: r.rating }).map((_, i) => (
-                          <Icon key={i} name="Star" size={13} className="fill-amber-400" />
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 line-clamp-6 flex-1">{r.text}</p>
-                  <div className="text-xs text-muted-foreground">{r.date}</div>
-                </div>
+                <ReviewCard r={r} />
               </CarouselItem>
             ))}
           </CarouselContent>
