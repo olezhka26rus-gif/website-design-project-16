@@ -51,7 +51,7 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
   return (
     <>
       <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogContent className="max-w-3xl p-0 overflow-hidden">
+        <DialogContent className="max-w-3xl p-0 overflow-y-auto">
           <DialogHeader className="p-6 pb-0">
             <DialogTitle className="font-display text-2xl">{selectedVariant.model}</DialogTitle>
           </DialogHeader>
