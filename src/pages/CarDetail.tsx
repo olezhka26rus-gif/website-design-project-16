@@ -82,6 +82,13 @@ const CarDetail = () => {
         <meta property="og:image" content={variant.sideImage} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:locale" content="ru_RU" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={`${variant.model} на заказ из ${countryGen} | Регион Логистик`} />
+        <meta
+          name="twitter:description"
+          content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${variant.price}.`}
+        />
+        <meta name="twitter:image" content={variant.sideImage} />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

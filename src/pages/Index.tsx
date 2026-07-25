@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import Header from '@/components/site/Header';
 import Hero from '@/components/site/Hero';
 import Catalog from '@/components/site/Catalog';
@@ -11,8 +12,35 @@ import CtaForm from '@/components/site/CtaForm';
 import Footer from '@/components/site/Footer';
 
 const Index = () => {
+  const pageUrl = 'https://rlogistik.ru/';
+
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ</title>
+        <meta
+          name="description"
+          content="Регион Логистик (ООО «РегионЛогистик») — подбор, проверка и доставка автомобилей под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. Более 500 доставленных авто. Расчёт стоимости за 15 минут."
+        />
+        <link rel="canonical" href={pageUrl} />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Регион Логистик (Region Logistik) — авто из-за рубежа под ключ" />
+        <meta
+          property="og:description"
+          content="Подбор, проверка и доставка автомобилей под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. Более 500 доставленных авто."
+        />
+        <meta property="og:image" content="https://rlogistik.ru/logo-mark.png" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:locale" content="ru_RU" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Регион Логистик (Region Logistik) — авто из-за рубежа под ключ" />
+        <meta
+          name="twitter:description"
+          content="Подбор, проверка и доставка автомобилей под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ."
+        />
+        <meta name="twitter:image" content="https://rlogistik.ru/logo-mark.png" />
+      </Helmet>
+
       <Header />
       <main>
         <Hero />

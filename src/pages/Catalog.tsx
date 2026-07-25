@@ -50,6 +50,13 @@ const Catalog = () => {
         <meta property="og:image" content="https://rlogistik.ru/logo-mark.png" />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:locale" content="ru_RU" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Каталог автомобилей на заказ из-за рубежа | Регион Логистик" />
+        <meta
+          name="twitter:description"
+          content={`Более ${catalogEntries.length} моделей автомобилей на заказ из Китая, Японии, Кореи, Европы, США и ОАЭ с характеристиками и ориентировочными ценами.`}
+        />
+        <meta name="twitter:image" content="https://rlogistik.ru/logo-mark.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
