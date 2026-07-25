@@ -55,6 +55,9 @@ const CarDetail = () => {
     ? variant.model
     : `${model.brand} ${variant.model}`;
   const pageUrl = `https://rlogistik.ru/catalog/${entry.country}/${entry.slug}`;
+  const absoluteImage = variant.sideImage.startsWith('http')
+    ? variant.sideImage
+    : `https://rlogistik.ru${variant.sideImage}`;
   const otherVariants = model.variants.filter((v) => v.model !== variant.model);
   const similarModels = catalogEntriesByCountry(entry.country as CountryKey)
     .filter((e) => e.slug !== entry.slug)
@@ -79,7 +82,7 @@ const CarDetail = () => {
           property="og:description"
           content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${variant.price}.`}
         />
-        <meta property="og:image" content={variant.sideImage} />
+        <meta property="og:image" content={absoluteImage} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:locale" content="ru_RU" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -88,13 +91,13 @@ const CarDetail = () => {
           name="twitter:description"
           content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${variant.price}.`}
         />
-        <meta name="twitter:image" content={variant.sideImage} />
+        <meta name="twitter:image" content={absoluteImage} />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Product',
             name: variant.model,
-            image: variant.sideImage,
+            image: absoluteImage,
             description: `${variant.model} (${variant.bodyType}) под заказ из ${countryGen}. ${variant.specs.engine}, ${variant.specs.power}, ${variant.specs.drive} привод, ${variant.specs.transmission}.`,
             brand: { '@type': 'Brand', name: model.brand },
             offers: {
