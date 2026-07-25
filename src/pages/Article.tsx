@@ -8,7 +8,7 @@ import Calculator from '@/components/site/Calculator';
 import Icon from '@/components/ui/icon';
 import { articles } from '@/data/articles';
 import { trackGoal, goals } from '@/lib/analytics';
-import NotFound from './NotFound';
+import NotFoundSeo from './NotFoundSeo';
 
 const Article = () => {
   const { slug } = useParams();
@@ -16,7 +16,7 @@ const Article = () => {
   const [formOpen, setFormOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
 
-  if (!article) return <NotFound />;
+  if (!article) return <NotFoundSeo />;
 
   const isCalculatorArticle = article.slug === 'kak-polzovatsya-kalkulyatorom-stoimosti-avto';
 

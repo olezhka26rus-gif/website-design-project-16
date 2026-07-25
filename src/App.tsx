@@ -14,7 +14,7 @@ import Article from "./pages/Article";
 import Catalog from "./pages/Catalog";
 import CarDetail from "./pages/CarDetail";
 import Privacy from "./pages/Privacy";
-import NotFound from "./pages/NotFound";
+import NotFoundSeo from "./pages/NotFoundSeo";
 
 const queryClient = new QueryClient();
 
@@ -36,7 +36,7 @@ const App = () => (
             <Route path="/catalog/:country/:slug" element={<CarDetail />} />
             <Route path="/privacy" element={<Privacy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFoundSeo />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>

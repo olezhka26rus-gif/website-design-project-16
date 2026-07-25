@@ -10,7 +10,7 @@ import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { findCatalogEntry, catalogEntriesByCountry, CountryKey, CarVariant } from '@/data/catalogCars';
 import { trackGoal, goals } from '@/lib/analytics';
-import NotFound from './NotFound';
+import NotFoundSeo from './NotFoundSeo';
 
 const countryGenitive: Record<string, string> = {
   Китай: 'Китая',
@@ -47,7 +47,7 @@ const CarDetail = () => {
   const [leadOpen, setLeadOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
 
-  if (!entry) return <NotFound />;
+  if (!entry) return <NotFoundSeo />;
 
   const { model, variant, countryName } = entry;
   const countryGen = countryGenitive[countryName] ?? countryName;
