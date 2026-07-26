@@ -11,11 +11,6 @@ import LeadFormModal from '@/components/site/LeadFormModal';
 import { CarModel, CarVariant } from '@/data/catalogCars';
 import { trackGoal, goals } from '@/lib/analytics';
 
-const VIEW_TABS = [
-  { label: 'Сбоку', icon: 'Car' },
-  { label: 'Спереди', icon: 'ArrowUp' },
-];
-
 const SPEC_ROWS: { key: keyof CarVariant['specs']; label: string; icon: string }[] = [
   { key: 'engine', label: 'Двигатель', icon: 'Fuel' },
   { key: 'power', label: 'Мощность', icon: 'Gauge' },
@@ -33,20 +28,16 @@ interface CarDetailModalProps {
 }
 
 const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDetailModalProps) => {
-  const [activeView, setActiveView] = useState(0);
   const [selectedVariant, setSelectedVariant] = useState<CarVariant | null>(null);
   const [leadOpen, setLeadOpen] = useState(false);
 
   useEffect(() => {
     if (carModel) {
-      setActiveView(0);
       setSelectedVariant(initialVariant ?? carModel.variants[0]);
     }
   }, [carModel, initialVariant]);
 
   if (!carModel || !selectedVariant) return null;
-
-  const image = activeView === 0 ? selectedVariant.sideImage : selectedVariant.frontImage;
 
   return (
     <>
@@ -60,28 +51,12 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
             <div>
               <div className="rounded-xl overflow-hidden bg-secondary h-64 sm:h-72">
                 <img
-                  key={image}
-                  src={image}
-                  alt={`${selectedVariant.model} — ${VIEW_TABS[activeView].label}`}
+                  key={selectedVariant.sideImage}
+                  src={selectedVariant.sideImage}
+                  alt={selectedVariant.model}
                   className="w-full h-full object-cover animate-fade-in"
                   decoding="async"
                 />
-              </div>
-              <div className="grid grid-cols-2 gap-2 mt-3">
-                {VIEW_TABS.map((view, i) => (
-                  <button
-                    key={view.label}
-                    onClick={() => setActiveView(i)}
-                    className={`flex items-center justify-center gap-1.5 py-2 rounded-lg border text-xs font-medium transition-colors ${
-                      activeView === i
-                        ? 'bg-primary text-primary-foreground border-primary'
-                        : 'bg-white text-foreground/70 border-border hover:border-primary'
-                    }`}
-                  >
-                    <Icon name={view.icon} size={16} />
-                    {view.label}
-                  </button>
-                ))}
               </div>
 
               <div className="grid grid-cols-2 gap-x-4 gap-y-2 mt-5 text-sm">
@@ -108,10 +83,7 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                   {carModel.variants.map((variant) => (
                     <button
                       key={variant.model}
-                      onClick={() => {
-                        setSelectedVariant(variant);
-                        setActiveView(0);
-                      }}
+                      onClick={() => setSelectedVariant(variant)}
                       className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
                         selectedVariant.model === variant.model
                           ? 'bg-primary text-primary-foreground border-primary'
