@@ -9,6 +9,7 @@ import Calculator from '@/components/site/Calculator';
 import Icon from '@/components/ui/icon';
 import { Button } from '@/components/ui/button';
 import { findCatalogEntry, catalogEntriesByCountry, CountryKey, CarVariant } from '@/data/catalogCars';
+import { brandRu, modelRu, brandExtraAliases } from '@/data/carAliases';
 import { trackGoal, goals } from '@/lib/analytics';
 import NotFoundSeo from './NotFoundSeo';
 
@@ -58,6 +59,16 @@ const CarDetail = () => {
   const absoluteImage = variant.sideImage.startsWith('http')
     ? variant.sideImage
     : `https://rlogistik.ru${variant.sideImage}`;
+  const modelNameRu = modelRu[variant.model];
+  const brandNameRu = brandRu[model.brand];
+  const brandAliasesRu = brandExtraAliases[model.brand] ?? [];
+  const ruKeywordParts = [
+    modelNameRu,
+    brandNameRu && modelNameRu ? `купить ${brandNameRu} ${modelNameRu.replace(`${brandNameRu} `, '')}` : undefined,
+    modelNameRu ? `${modelNameRu} цена` : undefined,
+    modelNameRu ? `заказать ${modelNameRu}` : undefined,
+    ...brandAliasesRu,
+  ].filter(Boolean);
   const otherVariants = model.variants.filter((v) => v.model !== variant.model);
   const similarModels = catalogEntriesByCountry(entry.country as CountryKey)
     .filter((e) => e.slug !== entry.slug)
@@ -73,7 +84,15 @@ const CarDetail = () => {
         />
         <meta
           name="keywords"
-          content={`${variant.model}, купить ${variant.model}, ${variant.model} из ${countryGen}, ${variant.model} цена, заказать ${variant.model}, Регион Логистик`}
+          content={[
+            variant.model,
+            `купить ${variant.model}`,
+            `${variant.model} из ${countryGen}`,
+            `${variant.model} цена`,
+            `заказать ${variant.model}`,
+            ...ruKeywordParts,
+            'Регион Логистик',
+          ].join(', ')}
         />
         <link rel="canonical" href={pageUrl} />
         <meta property="og:type" content="product" />

@@ -7,6 +7,7 @@ import CountryFlag from '@/components/site/CountryFlag';
 import CarSearch from '@/components/site/CarSearch';
 import Icon from '@/components/ui/icon';
 import { catalogEntries, CountryKey } from '@/data/catalogCars';
+import { brandRu } from '@/data/carAliases';
 
 const countryTabs: { key: CountryKey | 'all'; label: string }[] = [
   { key: 'all', label: 'Все страны' },
@@ -28,6 +29,14 @@ const Catalog = () => {
 
   const pageUrl = 'https://rlogistik.ru/catalog';
 
+  const topBrandsRu = Array.from(
+    new Set(
+      catalogEntries
+        .map((e) => brandRu[e.model.brand])
+        .filter((name): name is string => Boolean(name))
+    )
+  ).slice(0, 15);
+
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
@@ -38,7 +47,18 @@ const Catalog = () => {
         />
         <meta
           name="keywords"
-          content="каталог автомобилей на заказ, авто из Китая, авто из Японии, авто из Кореи, авто из Европы, авто из США, авто из ОАЭ, купить авто под заказ, Регион Логистик"
+          content={[
+            'каталог автомобилей на заказ',
+            'авто из Китая',
+            'авто из Японии',
+            'авто из Кореи',
+            'авто из Европы',
+            'авто из США',
+            'авто из ОАЭ',
+            'купить авто под заказ',
+            ...topBrandsRu.map((name) => `${name} на заказ`),
+            'Регион Логистик',
+          ].join(', ')}
         />
         <link rel="canonical" href={pageUrl} />
         <meta property="og:type" content="website" />
