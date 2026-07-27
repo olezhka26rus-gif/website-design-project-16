@@ -52,6 +52,7 @@ const Header = () => {
   };
 
   return (
+    <>
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-[72px]">
         <a href="/" className="flex items-center">
@@ -162,27 +163,28 @@ const Header = () => {
 
       <Calculator open={calcOpen} onOpenChange={setCalcOpen} />
       <ContactsModal open={contactsOpen} onOpenChange={setContactsOpen} />
-
-      {!open && (
-        <div
-          className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-border shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"
-          style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
-        >
-          <div className="container py-2.5">
-            <Button
-              className="w-full h-12 rounded-lg font-semibold gap-2"
-              onClick={() => {
-                trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Калькулятор стоимости (мобильная панель)' });
-                setCalcOpen(true);
-              }}
-            >
-              <Icon name="Calculator" size={18} />
-              Калькулятор стоимости
-            </Button>
-          </div>
-        </div>
-      )}
     </header>
+
+    {!open && (
+      <div
+        className="md:hidden fixed bottom-0 inset-x-0 z-40 bg-white border-t border-border shadow-[0_-4px_16px_rgba(0,0,0,0.06)]"
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      >
+        <div className="container py-2.5">
+          <Button
+            className="w-full h-12 rounded-lg font-semibold gap-2"
+            onClick={() => {
+              trackGoal(goals.CTA_BUTTON_CLICK, { label: 'Калькулятор стоимости (мобильная панель)' });
+              setCalcOpen(true);
+            }}
+          >
+            <Icon name="Calculator" size={18} />
+            Калькулятор стоимости
+          </Button>
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 
