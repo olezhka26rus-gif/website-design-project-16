@@ -68,6 +68,16 @@
 
     <meta name="pp-name" value="website-design-project-16">
       <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
+
+    <script>
+      window.YandexRotorSettings = {
+        WaiterEnabled: true,
+        IsLoaded: function() {
+          var root = document.getElementById('root');
+          return !!(root && root.children.length > 0);
+        }
+      };
+    </script>
   </head>
 
 <body>
