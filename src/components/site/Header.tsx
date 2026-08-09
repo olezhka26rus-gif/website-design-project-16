@@ -5,7 +5,7 @@ import Icon from '@/components/ui/icon';
 import Calculator from './Calculator';
 import ContactsModal from './ContactsModal';
 import CarSearch from './CarSearch';
-import { trackGoal, goals } from '@/lib/analytics';
+import { trackGoal, trackPhoneClick, goals } from '@/lib/analytics';
 
 const navLinks = [
   { label: 'Китай', href: '#catalog-china' },
@@ -89,7 +89,7 @@ const Header = () => {
           <div className="text-right leading-tight shrink-0">
             <a
               href="tel:+79106926276"
-              onClick={() => trackGoal(goals.PHONE_CLICK)}
+              onClick={() => trackPhoneClick('header')}
               className="font-display font-bold text-base whitespace-nowrap"
             >
               +7 (910) 692-62-76
@@ -109,7 +109,7 @@ const Header = () => {
 
         <a
           href="tel:+79106926276"
-          onClick={() => trackGoal(goals.PHONE_CLICK)}
+          onClick={() => trackPhoneClick('header_mobile')}
           aria-label="Позвонить"
           className="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-primary bg-primary/10 shrink-0"
         >

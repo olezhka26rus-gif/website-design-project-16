@@ -1,3 +1,5 @@
+import func2url from '@/func2url.json';
+
 const COUNTER_ID = 110764663;
 
 type YmParams = Record<string, unknown>;
@@ -22,6 +24,36 @@ export const trackPageView = (url: string) => {
 /** Отправляет достижение цели в Яндекс Метрику */
 export const trackGoal = (goal: string, params?: YmParams) => {
   callYm('reachGoal', goal, params);
+};
+
+/** Сохраняет нажатие на номер телефона в базу (для админки) и отправляет цель в Метрику */
+export const trackPhoneClick = (place: string) => {
+  trackGoal(goals.PHONE_CLICK, { place });
+
+  if (typeof window === 'undefined') return;
+
+  const device = /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent) ? 'mobile' : 'desktop';
+  const payload = JSON.stringify({
+    page: window.location.pathname + window.location.search,
+    place,
+    device,
+  });
+
+  try {
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(func2url['phone-clicks'], new Blob([payload], { type: 'application/json' }));
+      return;
+    }
+  } catch {
+    /* пробуем обычным запросом ниже */
+  }
+
+  fetch(func2url['phone-clicks'], {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: payload,
+    keepalive: true,
+  }).catch(() => undefined);
 };
 
 export const goals = {

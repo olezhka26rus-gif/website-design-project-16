@@ -7,7 +7,7 @@ import {
 } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 import VkIcon from '@/components/icons/VkIcon';
-import { trackGoal, goals } from '@/lib/analytics';
+import { trackGoal, trackPhoneClick, goals } from '@/lib/analytics';
 
 interface ContactsModalProps {
   open: boolean;
@@ -37,7 +37,7 @@ const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
           <div className="space-y-3">
             <a
               href="tel:+79106926276"
-              onClick={() => trackGoal(goals.PHONE_CLICK)}
+              onClick={() => trackPhoneClick('contacts_modal')}
               className="flex items-center gap-3 rounded-xl bg-white border border-border p-4 hover-lift"
             >
               <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">

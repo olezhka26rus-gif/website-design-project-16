@@ -7,7 +7,7 @@ import { useToast } from '@/hooks/use-toast';
 import Calculator from './Calculator';
 import VkIcon from '@/components/icons/VkIcon';
 import func2url from '@/func2url.json';
-import { trackGoal, goals } from '@/lib/analytics';
+import { trackGoal, trackPhoneClick, goals } from '@/lib/analytics';
 
 const CtaForm = () => {
   const { toast } = useToast();
@@ -64,7 +64,7 @@ const CtaForm = () => {
           <div className="flex flex-wrap gap-6 mt-8">
             <a
               href="tel:+79106926276"
-              onClick={() => trackGoal(goals.PHONE_CLICK)}
+              onClick={() => trackPhoneClick('cta')}
               className="flex items-center gap-2 font-semibold"
             >
               <Icon name="Phone" size={18} /> +7 (910) 692-62-76

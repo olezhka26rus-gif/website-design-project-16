@@ -1,7 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Icon from '@/components/ui/icon';
 import VkIcon from '@/components/icons/VkIcon';
-import { trackGoal, goals } from '@/lib/analytics';
+import { trackGoal, trackPhoneClick, goals } from '@/lib/analytics';
 
 const Footer = () => {
   const location = useLocation();
@@ -47,7 +47,7 @@ const Footer = () => {
           <h4 className="text-white font-display font-bold mb-4">Контакты</h4>
           <a
             href="tel:+79106926276"
-            onClick={() => trackGoal(goals.PHONE_CLICK)}
+            onClick={() => trackPhoneClick('footer')}
             className="block text-white font-display font-bold text-lg mb-1"
           >
             +7 (910) 692-62-76
