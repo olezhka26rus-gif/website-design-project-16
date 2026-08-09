@@ -2,26 +2,11 @@ import { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import func2url from '@/func2url.json';
-
-interface Lead {
-  id: number;
-  name: string;
-  phone: string;
-  car: string;
-  source: string;
-  created_at: string;
-}
+import LeadCard from '@/components/admin/LeadCard';
+import { Lead, LeadStatus, STATUS_META, STATUS_ORDER } from '@/components/admin/leadStatus';
 
 const STORAGE_KEY = 'admin_password';
 
@@ -32,6 +17,7 @@ const Admin = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(false);
   const [indexing, setIndexing] = useState(false);
+  const [filter, setFilter] = useState<LeadStatus | 'all'>('all');
 
   const handleReindex = async () => {
     setIndexing(true);
@@ -78,6 +64,38 @@ const Admin = () => {
     }
   };
 
+  const patchLead = async (id: number, payload: Record<string, unknown>) => {
+    const res = await fetch(func2url.leads, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json', 'X-Admin-Password': password },
+      body: JSON.stringify({ id, ...payload }),
+    });
+    if (!res.ok) throw new Error('patch failed');
+  };
+
+  const handleChangeStatus = async (id: number, status: LeadStatus) => {
+    const prev = leads;
+    setLeads((ls) => ls.map((l) => (l.id === id ? { ...l, status } : l)));
+    try {
+      await patchLead(id, { status });
+    } catch {
+      setLeads(prev);
+      toast({ title: 'Не удалось сохранить статус', variant: 'destructive' });
+    }
+  };
+
+  const handleSaveNote = async (id: number, note: string) => {
+    const prev = leads;
+    setLeads((ls) => ls.map((l) => (l.id === id ? { ...l, note } : l)));
+    try {
+      await patchLead(id, { note });
+      toast({ title: 'Заметка сохранена' });
+    } catch {
+      setLeads(prev);
+      toast({ title: 'Не удалось сохранить заметку', variant: 'destructive' });
+    }
+  };
+
   useEffect(() => {
     if (password) fetchLeads(password);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -112,73 +130,78 @@ const Admin = () => {
     );
   }
 
+  const counts = STATUS_ORDER.reduce(
+    (acc, s) => ({ ...acc, [s]: leads.filter((l) => l.status === s).length }),
+    {} as Record<LeadStatus, number>
+  );
+  const visible = filter === 'all' ? leads : leads.filter((l) => l.status === filter);
+
   return (
-    <div className="min-h-screen bg-secondary/20 py-10">
+    <div className="min-h-screen bg-secondary/20 py-8">
       <Helmet>
         <title>Заявки клиентов | Region Logistik</title>
         <meta name="robots" content="noindex, nofollow" />
       </Helmet>
       <div className="container">
-        <div className="flex items-center justify-between mb-6 flex-wrap gap-3">
+        <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
           <h1 className="font-display font-extrabold text-2xl">Заявки клиентов</h1>
-          <div className="flex items-center gap-3">
-            <Button
-              variant="outline"
-              onClick={handleReindex}
-              disabled={indexing}
-            >
+          <div className="flex items-center gap-2 flex-wrap">
+            <Button variant="outline" size="sm" onClick={handleReindex} disabled={indexing}>
               <Icon name="Zap" size={16} />
               {indexing ? 'Отправляем...' : 'Отправить сайт в Яндекс'}
             </Button>
-            <Button
-              variant="outline"
-              onClick={() => fetchLeads(password)}
-              disabled={loading}
-            >
+            <Button variant="outline" size="sm" onClick={() => fetchLeads(password)} disabled={loading}>
               <Icon name="RefreshCw" size={16} />
               Обновить
             </Button>
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-border overflow-hidden">
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Дата</TableHead>
-                <TableHead>Имя</TableHead>
-                <TableHead>Телефон</TableHead>
-                <TableHead>Автомобиль</TableHead>
-                <TableHead>Источник</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {leads.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={5} className="text-center text-muted-foreground py-10">
-                    Пока нет заявок
-                  </TableCell>
-                </TableRow>
-              ) : (
-                leads.map((lead) => (
-                  <TableRow key={lead.id}>
-                    <TableCell className="text-sm text-muted-foreground whitespace-nowrap">
-                      {new Date(lead.created_at).toLocaleString('ru-RU')}
-                    </TableCell>
-                    <TableCell className="font-medium">{lead.name}</TableCell>
-                    <TableCell>
-                      <a href={`tel:${lead.phone}`} className="text-primary hover:underline">
-                        {lead.phone}
-                      </a>
-                    </TableCell>
-                    <TableCell>{lead.car || '—'}</TableCell>
-                    <TableCell className="text-sm text-muted-foreground">{lead.source}</TableCell>
-                  </TableRow>
-                ))
-              )}
-            </TableBody>
-          </Table>
+        <div className="flex flex-wrap gap-2 mb-5">
+          <button
+            onClick={() => setFilter('all')}
+            className={`px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+              filter === 'all'
+                ? 'bg-foreground text-background border-foreground'
+                : 'bg-white text-foreground/70 border-border hover:border-foreground/30'
+            }`}
+          >
+            Все · {leads.length}
+          </button>
+          {STATUS_ORDER.map((s) => {
+            const m = STATUS_META[s];
+            const active = filter === s;
+            return (
+              <button
+                key={s}
+                onClick={() => setFilter(s)}
+                className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium border transition-colors ${
+                  active ? m.className : 'bg-white text-foreground/70 border-border hover:border-foreground/30'
+                }`}
+              >
+                <span className={`w-1.5 h-1.5 rounded-full ${m.dot}`} />
+                {m.label} · {counts[s]}
+              </button>
+            );
+          })}
         </div>
+
+        {visible.length === 0 ? (
+          <div className="bg-white rounded-2xl border border-border py-16 text-center text-muted-foreground">
+            {leads.length === 0 ? 'Пока нет заявок' : 'Нет заявок с этим статусом'}
+          </div>
+        ) : (
+          <div className="grid gap-3">
+            {visible.map((lead) => (
+              <LeadCard
+                key={lead.id}
+                lead={lead}
+                onChangeStatus={handleChangeStatus}
+                onSaveNote={handleSaveNote}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

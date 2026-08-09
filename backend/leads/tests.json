@@ -11,6 +11,13 @@
       "method": "GET",
       "path": "/",
       "expectedStatus": 401
+    },
+    {
+      "name": "PATCH without password",
+      "method": "PATCH",
+      "path": "/",
+      "body": {"id": 1, "status": "called"},
+      "expectedStatus": 401
     }
   ]
 }
