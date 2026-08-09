@@ -68,6 +68,8 @@ const Catalog = () => {
           content={`Более ${catalogEntries.length} моделей автомобилей на заказ из Китая, Японии, Кореи, Европы, США и ОАЭ с характеристиками и ориентировочными ценами.`}
         />
         <meta property="og:image" content="https://rlogistik.ru/logo-mark.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:locale" content="ru_RU" />
         <meta name="twitter:card" content="summary_large_image" />

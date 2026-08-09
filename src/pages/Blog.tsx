@@ -25,6 +25,8 @@ const Blog = () => {
           content="Полезные статьи о растаможке, доставке и проверке автомобилей из Китая, Японии, Кореи, Европы, США и ОАЭ."
         />
         <meta property="og:image" content="https://rlogistik.ru/logo-mark.png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
         <meta property="og:url" content="https://rlogistik.ru/blog" />
         <meta property="og:locale" content="ru_RU" />
         <meta name="twitter:card" content="summary_large_image" />
