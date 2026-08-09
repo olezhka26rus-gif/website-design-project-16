@@ -13,6 +13,7 @@ import Blog from "./pages/Blog";
 import Article from "./pages/Article";
 import Catalog from "./pages/Catalog";
 import CarDetail from "./pages/CarDetail";
+import CatalogCollection from "./pages/CatalogCollection";
 import Privacy from "./pages/Privacy";
 import NotFoundSeo from "./pages/NotFoundSeo";
 
@@ -33,6 +34,8 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:slug" element={<Article />} />
             <Route path="/catalog" element={<Catalog />} />
+            <Route path="/catalog/brand/:brand" element={<CatalogCollection mode="brand" />} />
+            <Route path="/catalog/:country" element={<CatalogCollection mode="country" />} />
             <Route path="/catalog/:country/:slug" element={<CarDetail />} />
             <Route path="/privacy" element={<Privacy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

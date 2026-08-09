@@ -33,7 +33,7 @@ async function loadData() {
   const entry = join(outdir, 'entry.mjs');
   writeFileSync(
     entry,
-    `export { catalogEntries } from '${join(ROOT, 'src/data/catalogCars.ts').replace(/\\/g, '/')}';
+    `export { catalogEntries, catalogBrands } from '${join(ROOT, 'src/data/catalogCars.ts').replace(/\\/g, '/')}';
 export { articles } from '${join(ROOT, 'src/data/articles.ts').replace(/\\/g, '/')}';`
   );
   const outfile = join(outdir, 'data.mjs');
@@ -63,8 +63,63 @@ function specList(specs) {
     .join('');
 }
 
-function buildRoutes({ catalogEntries, articles }) {
+function plural(n, one, few, many) {
+  const m10 = n % 10;
+  const m100 = n % 100;
+  if (m100 >= 11 && m100 <= 14) return many;
+  if (m10 === 1) return one;
+  if (m10 >= 2 && m10 <= 4) return few;
+  return many;
+}
+
+function carGrid(entries) {
+  return `<ul>${entries
+    .map(
+      (e) =>
+        `<li><a href="/catalog/${e.country}/${e.slug}">${esc(e.variant.model)} (${esc(
+          e.variant.bodyType
+        )}, ${esc(e.countryName)}) — ${esc(e.variant.price)}</a></li>`
+    )
+    .join('')}</ul>`;
+}
+
+function buildRoutes({ catalogEntries, catalogBrands, articles }) {
   const routes = [];
+
+  const byCountry = {};
+  for (const e of catalogEntries) (byCountry[e.country] ??= []).push(e);
+
+  for (const [country, list] of Object.entries(byCountry)) {
+    const gen = countryGen[country] || country;
+    routes.push({
+      path: `/catalog/${country}`,
+      title: `Автомобили из ${gen} на заказ — ${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} и цены | Регион Логистик`,
+      description: `${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} автомобилей из ${gen} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
+      keywords: `авто из ${gen}, автомобили из ${gen}, купить авто из ${gen}, заказать машину из ${gen}, авто из ${gen} цена, Регион Логистик`,
+      image: abs(list[0].variant.frontImage),
+      ogType: 'website',
+      body: `<h1>Автомобили из ${esc(gen)} на заказ</h1>
+<p>Подбираем и привозим автомобили из ${esc(gen)} под ключ: проверка, выкуп, доставка, растаможка и постановка на учёт. В каталоге ${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} с ориентировочными ценами.</p>
+${carGrid(list)}
+<p><a href="/catalog">Весь каталог автомобилей</a></p>`,
+    });
+  }
+
+  for (const b of catalogBrands) {
+    if (b.entries.length < 4) continue;
+    routes.push({
+      path: `/catalog/brand/${b.slug}`,
+      title: `${b.brand} на заказ из-за рубежа — ${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} и цены | Регион Логистик`,
+      description: `${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} ${b.brand} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
+      keywords: `${b.brand}, ${b.brand} на заказ, купить ${b.brand}, ${b.brand} цена, Регион Логистик`,
+      image: abs(b.entries[0].variant.frontImage),
+      ogType: 'website',
+      body: `<h1>${esc(b.brand)} на заказ из-за рубежа</h1>
+<p>Привозим автомобили ${esc(b.brand)} под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. В каталоге ${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} с характеристиками и ориентировочной ценой.</p>
+${carGrid(b.entries)}
+<p><a href="/catalog">Весь каталог автомобилей</a></p>`,
+    });
+  }
 
   routes.push({
     path: '/catalog',

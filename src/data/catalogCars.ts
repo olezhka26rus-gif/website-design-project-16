@@ -1528,3 +1528,19 @@ export const findCatalogEntry = (country: string, slug: string): CatalogEntry | 
 
 export const catalogEntriesByCountry = (country: CountryKey): CatalogEntry[] =>
   catalogEntries.filter((e) => e.country === country);
+
+export const brandSlug = (brand: string): string => toSlug(brand);
+
+export const catalogBrands: { brand: string; slug: string; entries: CatalogEntry[] }[] = (() => {
+  const map = new Map<string, CatalogEntry[]>();
+  for (const e of catalogEntries) {
+    const list = map.get(e.model.brand) ?? [];
+    list.push(e);
+    map.set(e.model.brand, list);
+  }
+  return Array.from(map.entries())
+    .map(([brand, entries]) => ({ brand, slug: toSlug(brand), entries }))
+    .sort((a, b) => b.entries.length - a.entries.length);
+})();
+
+export const findBrand = (slug: string) => catalogBrands.find((b) => b.slug === slug);

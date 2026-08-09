@@ -6,8 +6,17 @@ import Footer from '@/components/site/Footer';
 import CountryFlag from '@/components/site/CountryFlag';
 import CarSearch from '@/components/site/CarSearch';
 import Icon from '@/components/ui/icon';
-import { catalogEntries, CountryKey } from '@/data/catalogCars';
+import { catalogEntries, catalogBrands, CountryKey } from '@/data/catalogCars';
 import { brandRu } from '@/data/carAliases';
+
+const countryGenitiveLabel: Record<CountryKey, string> = {
+  china: 'Китая',
+  japan: 'Японии',
+  korea: 'Кореи',
+  europe: 'Европы',
+  usa: 'США',
+  uae: 'ОАЭ',
+};
 
 const countryTabs: { key: CountryKey | 'all'; label: string }[] = [
   { key: 'all', label: 'Все страны' },
@@ -165,6 +174,39 @@ const Catalog = () => {
         {entries.length === 0 && (
           <p className="text-center text-muted-foreground py-16">Модели не найдены</p>
         )}
+
+        <section className="mt-14">
+          <h2 className="font-display font-bold text-xl mb-4">Подборки по странам</h2>
+          <div className="flex flex-wrap gap-2 mb-10">
+            {countryTabs
+              .filter((t) => t.key !== 'all')
+              .map((t) => (
+                <Link
+                  key={t.key}
+                  to={`/catalog/${t.key}`}
+                  className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border border-border bg-white hover:border-primary transition-colors"
+                >
+                  <CountryFlag country={t.key as CountryKey} className="w-5 h-auto rounded-[2px]" />
+                  Авто из {countryGenitiveLabel[t.key as CountryKey]}
+                </Link>
+              ))}
+          </div>
+
+          <h2 className="font-display font-bold text-xl mb-4">Популярные марки</h2>
+          <div className="flex flex-wrap gap-2">
+            {catalogBrands
+              .filter((b) => b.entries.length >= 4)
+              .map((b) => (
+                <Link
+                  key={b.slug}
+                  to={`/catalog/brand/${b.slug}`}
+                  className="px-4 py-2 rounded-lg text-sm font-semibold border border-border bg-white hover:border-primary transition-colors"
+                >
+                  {b.brand} · {b.entries.length}
+                </Link>
+              ))}
+          </div>
+        </section>
 
         <div className="mt-12 p-6 rounded-2xl bg-secondary/50 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="font-display font-semibold text-center sm:text-left flex items-center gap-2">
