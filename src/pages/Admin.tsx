@@ -17,7 +17,33 @@ const Admin = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(false);
   const [indexing, setIndexing] = useState(false);
+  const [smsTesting, setSmsTesting] = useState(false);
   const [filter, setFilter] = useState<LeadStatus | 'all'>('all');
+
+  const handleTestSms = async () => {
+    setSmsTesting(true);
+    try {
+      const res = await fetch(func2url.leads, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'X-Admin-Password': password },
+        body: JSON.stringify({ action: 'test_sms' }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        toast({ title: 'SMS отправлено', description: data.message });
+      } else {
+        toast({
+          title: 'SMS не отправилось',
+          description: data.message || data.error,
+          variant: 'destructive',
+        });
+      }
+    } catch {
+      toast({ title: 'Ошибка соединения с сервером', variant: 'destructive' });
+    } finally {
+      setSmsTesting(false);
+    }
+  };
 
   const handleReindex = async () => {
     setIndexing(true);
@@ -146,6 +172,10 @@ const Admin = () => {
         <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
           <h1 className="font-display font-extrabold text-2xl">Заявки клиентов</h1>
           <div className="flex items-center gap-2 flex-wrap">
+            <Button variant="outline" size="sm" onClick={handleTestSms} disabled={smsTesting}>
+              <Icon name="MessageSquare" size={16} />
+              {smsTesting ? 'Отправляем...' : 'Тестовое SMS'}
+            </Button>
             <Button variant="outline" size="sm" onClick={handleReindex} disabled={indexing}>
               <Icon name="Zap" size={16} />
               {indexing ? 'Отправляем...' : 'Отправить сайт в Яндекс'}

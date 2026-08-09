@@ -1,0 +1,1 @@
+UPDATE leads SET status = 'refused', note = 'Служебная запись проверки уведомлений — можно игнорировать' WHERE source = 'selftest';

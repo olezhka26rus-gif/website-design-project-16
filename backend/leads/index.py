@@ -11,31 +11,49 @@ NOTIFY_EMAIL = 'rgklients@mail.ru'
 ALLOWED_STATUSES = ('new', 'called', 'no_answer', 'refused', 'bought')
 
 
-def send_sms_notification(name: str, phone: str, car: str) -> None:
-    """Отправляет SMS о новой заявке на номер SMS_NOTIFY_PHONE через сервис sms.ru"""
+def send_sms(text: str) -> tuple:
+    """Отправляет SMS через sms.ru на номер SMS_NOTIFY_PHONE. Возвращает (успех, понятное сообщение)"""
     api_id = os.environ.get('SMSRU_API_ID')
     to = os.environ.get('SMS_NOTIFY_PHONE')
-    if not api_id or not to:
-        print('SMS DEBUG: SMSRU_API_ID or SMS_NOTIFY_PHONE is not set')
-        return
+    if not api_id:
+        return False, 'Не добавлен ключ SMSRU_API_ID — SMS отправлять нечем'
+    if not to:
+        return False, 'Не указан номер SMS_NOTIFY_PHONE для уведомлений'
 
     try:
-        car_part = f', {car}' if car else ''
-        text = f'Новая заявка: {name}, {phone}{car_part}'[:200]
         params = urllib.parse.urlencode({
             'api_id': api_id,
             'to': to,
-            'msg': text,
+            'msg': text[:200],
             'json': 1,
         })
         req = urllib.request.Request(f'https://sms.ru/sms/send?{params}')
         with urllib.request.urlopen(req, timeout=10) as resp:
             data = json.loads(resp.read().decode('utf-8'))
-        print(f'SMS DEBUG: response status={data.get("status")} code={data.get("status_code")}')
-        if data.get('status') != 'OK':
-            print(f'SMS DEBUG: error text={data.get("status_text")}')
+
+        print(f'SMS DEBUG: status={data.get("status")} code={data.get("status_code")}')
+
+        if data.get('status') == 'OK':
+            numbers = data.get('sms', {})
+            failed = [n for n, v in numbers.items() if v.get('status') != 'OK']
+            if failed:
+                first = numbers[failed[0]]
+                return False, f'Номер {failed[0]}: {first.get("status_text", "не принят")}'
+            balance = data.get('balance')
+            tail = f' Остаток на счёте: {balance} ₽.' if balance is not None else ''
+            return True, f'SMS отправлено на {to}.{tail}'
+
+        return False, data.get('status_text') or 'Сервис sms.ru отклонил запрос'
     except Exception as e:
-        print(f'SMS DEBUG: exception occurred: {type(e).__name__}: {e}')
+        print(f'SMS DEBUG: exception: {type(e).__name__}: {e}')
+        return False, 'Не удалось связаться с сервисом sms.ru'
+
+
+def send_sms_notification(name: str, phone: str, car: str) -> None:
+    """Отправляет SMS о новой заявке на номер SMS_NOTIFY_PHONE"""
+    car_part = f', {car}' if car else ''
+    ok, message = send_sms(f'Новая заявка: {name}, {phone}{car_part}')
+    print(f'SMS DEBUG: notification ok={ok} message={message}')
 
 
 def send_email_notification(name: str, phone: str, car: str, source: str) -> None:
@@ -92,6 +110,24 @@ def handler(event: dict, context) -> dict:
             },
             'body': ''
         }
+
+    if method == 'POST':
+        raw_body = json.loads(event.get('body', '{}'))
+        if raw_body.get('action') == 'test_sms':
+            headers = event.get('headers', {})
+            pwd = headers.get('X-Admin-Password') or headers.get('x-admin-password')
+            if pwd != os.environ.get('ADMIN_PASSWORD'):
+                return {
+                    'statusCode': 401,
+                    'headers': cors_headers(),
+                    'body': json.dumps({'error': 'Неверный пароль'})
+                }
+            ok, message = send_sms('Проверка связи. Уведомления о заявках с сайта rlogistik.ru работают.')
+            return {
+                'statusCode': 200,
+                'headers': cors_headers(),
+                'body': json.dumps({'success': ok, 'message': message})
+            }
 
     dsn = os.environ['DATABASE_URL']
     conn = psycopg2.connect(dsn)
