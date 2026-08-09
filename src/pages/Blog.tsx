@@ -24,9 +24,9 @@ const Blog = () => {
           property="og:description"
           content="Полезные статьи о растаможке, доставке и проверке автомобилей из Китая, Японии, Кореи, Европы, США и ОАЭ."
         />
-        <meta property="og:image" content="https://rlogistik.ru/og-cover.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image" content="https://rlogistik.ru/logo-mark.png" />
+        <meta property="og:image:width" content="452" />
+        <meta property="og:image:height" content="278" />
         <meta property="og:url" content="https://rlogistik.ru/blog" />
         <meta property="og:locale" content="ru_RU" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -35,7 +35,7 @@ const Blog = () => {
           name="twitter:description"
           content="Полезные статьи о растаможке, доставке и проверке автомобилей из Китая, Японии, Кореи, Европы, США и ОАЭ."
         />
-        <meta name="twitter:image" content="https://rlogistik.ru/og-cover.png" />
+        <meta name="twitter:image" content="https://rlogistik.ru/logo-mark.png" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

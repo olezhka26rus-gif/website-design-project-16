@@ -33,9 +33,9 @@ const Index = () => {
           property="og:description"
           content="Подбор, проверка и доставка автомобилей под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. Более 500 доставленных авто."
         />
-        <meta property="og:image" content="https://rlogistik.ru/og-cover.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
+        <meta property="og:image" content="https://rlogistik.ru/logo-mark.png" />
+        <meta property="og:image:width" content="452" />
+        <meta property="og:image:height" content="278" />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:locale" content="ru_RU" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -44,7 +44,7 @@ const Index = () => {
           name="twitter:description"
           content="Подбор, проверка и доставка автомобилей под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ."
         />
-        <meta name="twitter:image" content="https://rlogistik.ru/og-cover.png" />
+        <meta name="twitter:image" content="https://rlogistik.ru/logo-mark.png" />
       </Helmet>
 
       <Header />
