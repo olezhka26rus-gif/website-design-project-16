@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-08-12 10:05">
+<yml_catalog date="2026-08-12 12:05">
   <shop>
     <name>Регион Логистик</name>
     <company>ООО «РегионЛогистик»</company>
@@ -200,12 +200,13 @@
         <set-ids>country-china</set-ids>
         <picture>https://rlogistik.ru/vehicles/china-li-auto-l9-front.webp</picture>
         <picture>https://rlogistik.ru/vehicles/china-li-auto-l9-side.webp</picture>
-        <description>Li Auto L9 — внедорожник, 2024 год, новый автомобиль под заказ из Китая. Двигатель Гибрид, мощность 449 л.с., автомат, полный привод. Ориентировочная цена под ключ от 3 700 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
+        <description>Li Auto L9 — внедорожник, 2024 год, новый автомобиль под заказ из Китая. Двигатель 1.5 л Turbo Гибрид, мощность 449 л.с., автомат, полный привод. Ориентировочная цена под ключ от 3 700 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>
         <param name="Пробег">0</param>
+        <param name="Двигатель, литры">1.5</param>
         <param name="Двигатель, л.с.">449</param>
-        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Двигатель, тип">Турбированный</param>
         <param name="Топливо">Гибрид</param>
         <param name="Коробка передач">Автоматическая</param>
         <param name="Привод">Полный</param>
@@ -289,10 +290,11 @@
         <set-ids>country-china</set-ids>
         <picture>https://rlogistik.ru/vehicles/china-byd-song-plus-front.webp</picture>
         <picture>https://rlogistik.ru/vehicles/china-byd-song-plus-side.webp</picture>
-        <description>BYD Song Plus — кроссовер, 2023 год, новый автомобиль под заказ из Китая. Двигатель Гибрид, мощность 218 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 900 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
+        <description>BYD Song Plus — кроссовер, 2023 год, новый автомобиль под заказ из Китая. Двигатель 1.5 л Гибрид, мощность 218 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 900 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2023</param>
         <param name="Пробег">0</param>
+        <param name="Двигатель, литры">1.5</param>
         <param name="Двигатель, л.с.">218</param>
         <param name="Двигатель, тип">Атмосферный</param>
         <param name="Топливо">Гибрид</param>
@@ -311,10 +313,11 @@
         <set-ids>country-china</set-ids>
         <picture>https://rlogistik.ru/vehicles/china-byd-qin-wagon-front.webp</picture>
         <picture>https://rlogistik.ru/vehicles/china-byd-qin-wagon-side.webp</picture>
-        <description>BYD Qin Wagon — универсал, 2023 год, новый автомобиль под заказ из Китая. Двигатель Гибрид, мощность 163 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 300 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
+        <description>BYD Qin Wagon — универсал, 2023 год, новый автомобиль под заказ из Китая. Двигатель 1.5 л Гибрид, мощность 163 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 300 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2023</param>
         <param name="Пробег">0</param>
+        <param name="Двигатель, литры">1.5</param>
         <param name="Двигатель, л.с.">163</param>
         <param name="Двигатель, тип">Атмосферный</param>
         <param name="Топливо">Гибрид</param>
@@ -402,10 +405,11 @@
         <set-ids>brand-geely,country-china</set-ids>
         <picture>https://rlogistik.ru/vehicles/china-geely-galaxy-starship-7-front.webp</picture>
         <picture>https://rlogistik.ru/vehicles/china-geely-galaxy-starship-7-side.webp</picture>
-        <description>Geely Galaxy Starship 7 — кроссовер, 2024 год, новый автомобиль под заказ из Китая. Двигатель Гибрид, мощность 204 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 900 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
+        <description>Geely Galaxy Starship 7 — кроссовер, 2024 год, новый автомобиль под заказ из Китая. Двигатель 1.5 л Гибрид, мощность 204 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 900 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>
         <param name="Пробег">0</param>
+        <param name="Двигатель, литры">1.5</param>
         <param name="Двигатель, л.с.">204</param>
         <param name="Двигатель, тип">Атмосферный</param>
         <param name="Топливо">Гибрид</param>
@@ -539,10 +543,11 @@
         <set-ids>country-china</set-ids>
         <picture>https://rlogistik.ru/vehicles/china-changan-qiyuan-a06-front.webp</picture>
         <picture>https://rlogistik.ru/vehicles/china-changan-qiyuan-a06-side.webp</picture>
-        <description>Changan Qiyuan A06 — седан, 2024 год, новый автомобиль под заказ из Китая. Двигатель Гибрид, мощность 218 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 000 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
+        <description>Changan Qiyuan A06 — седан, 2024 год, новый автомобиль под заказ из Китая. Двигатель 1.5 л Гибрид, мощность 218 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 000 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>
         <param name="Пробег">0</param>
+        <param name="Двигатель, литры">1.5</param>
         <param name="Двигатель, л.с.">218</param>
         <param name="Двигатель, тип">Атмосферный</param>
         <param name="Топливо">Гибрид</param>
@@ -584,12 +589,13 @@
         <set-ids>country-china</set-ids>
         <picture>https://rlogistik.ru/vehicles/china-lynk-co-900-front.webp</picture>
         <picture>https://rlogistik.ru/vehicles/china-lynk-co-900-side.webp</picture>
-        <description>Lynk &amp; Co 900 — внедорожник, 2024 год, новый автомобиль под заказ из Китая. Двигатель Гибрид, мощность 544 л.с., автомат, полный привод. Ориентировочная цена под ключ от 4 500 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
+        <description>Lynk &amp; Co 900 — внедорожник, 2024 год, новый автомобиль под заказ из Китая. Двигатель 2.0 л Turbo Гибрид, мощность 544 л.с., автомат, полный привод. Ориентировочная цена под ключ от 4 500 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>
         <param name="Пробег">0</param>
+        <param name="Двигатель, литры">2.0</param>
         <param name="Двигатель, л.с.">544</param>
-        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Двигатель, тип">Турбированный</param>
         <param name="Топливо">Гибрид</param>
         <param name="Коробка передач">Автоматическая</param>
         <param name="Привод">Полный</param>
@@ -606,12 +612,13 @@
         <set-ids>country-china</set-ids>
         <picture>https://rlogistik.ru/vehicles/china-voyah-taishan-front.webp</picture>
         <picture>https://rlogistik.ru/vehicles/china-voyah-taishan-side.webp</picture>
-        <description>Voyah Taishan — внедорожник, 2024 год, новый автомобиль под заказ из Китая. Двигатель Гибрид, мощность 449 л.с., автомат, полный привод. Ориентировочная цена под ключ от 4 800 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
+        <description>Voyah Taishan — внедорожник, 2024 год, новый автомобиль под заказ из Китая. Двигатель 1.5 л Turbo Гибрид, мощность 449 л.с., автомат, полный привод. Ориентировочная цена под ключ от 4 800 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>
         <param name="Пробег">0</param>
+        <param name="Двигатель, литры">1.5</param>
         <param name="Двигатель, л.с.">449</param>
-        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Двигатель, тип">Турбированный</param>
         <param name="Топливо">Гибрид</param>
         <param name="Коробка передач">Автоматическая</param>
         <param name="Привод">Полный</param>

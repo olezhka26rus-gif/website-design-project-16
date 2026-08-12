@@ -214,13 +214,13 @@ ${
 
     const costTable = c.cost
       ? `<h2>Сколько стоит ${esc(c.fullName)} под ключ в России</h2>
-<p>Ориентировочный расчёт по методике ФТС для нового автомобиля ${esc(v.specs.year)} года мощностью ${esc(v.specs.power)}${c.cm3 ? ` и объёмом ${c.cm3} см³` : ''}${/\.$/.test(v.specs.power) ? '' : '.'}</p>
+<p>Ориентировочный расчёт по методике ФТС для нового автомобиля ${esc(v.specs.year)} года мощностью ${esc(v.specs.power)}${c.cm3 ? ` и объёмом ${c.cm3} см³` : ''}${c.best ? ` по самому выгодному маршруту — из ${esc(c.best.countryGen)}` : ''}${/\.$/.test(v.specs.power) ? '' : '.'}</p>
 <table>
-<tr><td>Стоимость автомобиля в ${esc(countryPrep[e.country] || e.countryName)}</td><td>${esc(formatRub(c.cost.price))}</td></tr>
+<tr><td>Стоимость автомобиля в ${esc(countryPrep[(c.best && c.best.country) || e.country] || e.countryName)}</td><td>${esc(formatRub(c.cost.price))}</td></tr>
 <tr><td>Таможенная пошлина</td><td>${esc(formatRub(c.cost.duty))}</td></tr>
 <tr><td>Утилизационный сбор</td><td>${esc(formatRub(c.cost.utilFee))}</td></tr>
 <tr><td>Таможенный сбор за оформление</td><td>${esc(formatRub(c.cost.clearanceFee))}</td></tr>
-<tr><td>Доставка из ${esc(gen)}</td><td>${esc(formatRub(c.cost.delivery))}</td></tr>
+<tr><td>Доставка из ${esc((c.best && c.best.countryGen) || gen)}</td><td>${esc(formatRub(c.cost.delivery))}</td></tr>
 <tr><td>Услуги Регион Логистик</td><td>${esc(formatRub(c.cost.service))}</td></tr>
 <tr><td><strong>Итого под ключ</strong></td><td><strong>${esc(formatRub(c.cost.total))}</strong></td></tr>
 </table>
@@ -256,12 +256,28 @@ ${
 <img src="${esc(abs(v.frontImage))}" alt="${esc(v.model)} — ${esc(v.bodyType)} на заказ из ${esc(gen)}" width="640" height="480">
 <p><strong>Цена под ключ: ${esc(priceLine)}</strong> (стоимость автомобиля ${esc(v.price)} + пошлина, утильсбор, доставка и услуги компании).</p>
 <h2>Характеристики ${esc(c.fullName)}</h2>
-<ul>${specList(v.specs)}</ul>
+<ul>${specList(v.specs)}${c.cm3 ? `<li>Объём двигателя: ${c.cm3} см³</li>` : ''}</ul>
 <p>Марка: ${esc(e.model.brand)}. Страна вывоза: ${esc(e.countryName)}. Тип кузова: ${esc(v.bodyType)}.</p>
 <h2>${esc(c.fullName)}: что за автомобиль</h2>
 <p>${esc(c.aboutModel)}</p>
 ${costTable}
-<h2>Доставка ${esc(c.fullName)} из ${esc(gen)}</h2>
+${
+  c.quotes.length > 1
+    ? `<h2>Откуда выгоднее везти ${esc(c.fullName)}</h2>
+<p>Один и тот же автомобиль продаётся на разных рынках. Мы считаем стоимость под ключ по каждому маршруту и предлагаем самый выгодный.</p>
+<table>
+<tr><td>Страна вывоза</td><td>Цена авто</td><td>Под ключ</td><td>Срок доставки</td></tr>
+${c.quotes
+  .map(
+    (q) =>
+      `<tr><td>${esc(q.countryName)}${q.isBest ? ' — выгоднее' : ''}</td><td>${esc(formatRub(q.carPrice))}</td><td>${esc(formatRub(q.total))}</td><td>${esc(q.weeks)}</td></tr>`
+  )
+  .join('')}
+</table>
+<p>Наличие конкретной комплектации на рынке уточняем перед выкупом.</p>`
+    : ''
+}
+<h2>Доставка ${esc(c.fullName)}${c.quotes.length > 1 ? ': откуда везём' : ` из ${esc(gen)}`}</h2>
 <p>${esc(c.aboutDelivery)}</p>
 ${faqHtml}
 <p><a href="/catalog/${e.country}">Все автомобили из ${esc(gen)}</a> · <a href="/catalog">Весь каталог автомобилей</a></p>`,

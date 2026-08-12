@@ -74,6 +74,14 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                     </span>
                   </div>
                 ))}
+                {content && content.cm3 > 0 && (
+                  <div className="flex items-center gap-2 text-muted-foreground">
+                    <Icon name="Cylinder" size={14} className="shrink-0" />
+                    <span className="truncate">
+                      Объём: <span className="text-foreground font-medium">{content.cm3} см³</span>
+                    </span>
+                  </div>
+                )}
               </div>
             </div>
 
@@ -84,8 +92,9 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                     от {formatRub(content.cost.total)}
                   </div>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Ориентировочная цена под ключ: автомобиль {selectedVariant.price}, пошлина,
-                    утильсбор, доставка и услуги компании
+                    Ориентировочная цена под ключ: автомобиль {formatRub(content.cost.price)},
+                    пошлина, утильсбор, доставка и услуги компании
+                    {content.best ? ` — по выгодному маршруту из ${content.best.countryGen}` : ''}
                   </p>
                 </>
               ) : (
@@ -129,6 +138,27 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                 >
                   Получить расчёт на {selectedVariant.model}
                 </Button>
+                {content && content.quotes.length > 1 && (
+                  <div className="mb-4 rounded-xl bg-secondary/60 p-3">
+                    <div className="text-xs font-semibold mb-1.5">Возим из нескольких стран</div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {content.quotes.map((q) => (
+                        <span
+                          key={q.country}
+                          className={`text-[11px] rounded-md px-2 py-1 ${
+                            q.isBest
+                              ? 'bg-primary/10 text-primary font-semibold'
+                              : 'bg-white text-foreground/70'
+                          }`}
+                        >
+                          {q.countryName}
+                          {q.isBest ? ' — выгоднее' : ''}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
                 {entry && (
                   <Link
                     to={`/catalog/${entry.country}/${entry.slug}`}

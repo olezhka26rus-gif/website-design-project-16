@@ -1,4 +1,5 @@
 import { CatalogEntry } from '@/data/catalogCars';
+import { sourceOptionsFor } from '@/data/sourcing';
 import {
   calcTotalCost,
   engineCm3FromSpec,
@@ -88,10 +89,26 @@ export interface CarFaqItem {
   a: string;
 }
 
+export interface SourceQuote {
+  country: string;
+  countryGen: string;
+  countryName: string;
+  carPrice: number;
+  total: number;
+  weeks: string;
+  route: string;
+  isBest: boolean;
+  isCatalog: boolean;
+}
+
 export interface CarContent {
   fullName: string;
   countryGen: string;
   cost: CostBreakdown | null;
+  /** Расчёт по каждой стране вывоза, отсортирован от самой выгодной */
+  quotes: SourceQuote[];
+  /** Самый выгодный вариант под ключ */
+  best: SourceQuote | null;
   basePrice: number;
   hp: number;
   cm3: number;
@@ -123,8 +140,41 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
   const cm3 = engineCm3FromSpec(v.specs.engine);
   const electric = isElectric(v.specs.engine);
 
-  const cost = basePrice
-    ? calcTotalCost(basePrice, 'new', cm3, hp, country as CountryCalcKey)
+  const countryLabel: Record<string, string> = {
+    china: 'Китай',
+    japan: 'Япония',
+    korea: 'Корея',
+    europe: 'Европа',
+    usa: 'США',
+    uae: 'ОАЭ',
+  };
+
+  const quotes: SourceQuote[] = basePrice
+    ? sourceOptionsFor(entry)
+        .map((opt) => {
+          const carPrice = Math.round((basePrice * opt.priceFactor) / 10000) * 10000;
+          const c = calcTotalCost(carPrice, 'new', cm3, hp, opt.country as CountryCalcKey);
+          return {
+            country: opt.country,
+            countryGen: countryGenitive[opt.country] ?? opt.country,
+            countryName: countryLabel[opt.country] ?? opt.country,
+            carPrice,
+            total: c.total,
+            weeks: deliveryWeeks[opt.country] ?? '6–10 недель',
+            route: deliveryRoute[opt.country] ?? 'морем и автовозом',
+            isBest: false,
+            isCatalog: opt.country === country,
+          };
+        })
+        .sort((a, b) => a.total - b.total)
+    : [];
+
+  if (quotes.length) quotes[0].isBest = true;
+  const best = quotes[0] ?? null;
+
+  // Основной расчёт показываем по самому выгодному маршруту
+  const cost = best
+    ? calcTotalCost(best.carPrice, 'new', cm3, hp, best.country as CountryCalcKey)
     : null;
 
   const body = bodyDescription[v.bodyType] ?? 'практичный кузов для повседневных задач';
@@ -134,7 +184,7 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
     `${fullName} ${v.specs.year} года — ${v.bodyType.toLowerCase()} с ${fuel} ` +
     `${electric || /гибрид|e-power/i.test(v.specs.engine) ? 'силовой установкой' : 'двигателем'} ` +
     `${v.specs.engine} мощностью ${v.specs.power}. ` +
-    `Привозим этот автомобиль на заказ из ${gen} под ключ: подбор, проверка, выкуп, доставка и растаможка.`;
+    `Привозим этот автомобиль на заказ под ключ: подбор, проверка, выкуп, доставка и растаможка.`;
 
   const aboutModel =
     `${fullName} — ${v.bodyType.toLowerCase()}: ${body}. Под капотом ${v.specs.power}, ` +
@@ -143,10 +193,22 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
       ? `Запас хода и расход энергии: ${v.specs.consumption}. Зарядка от бытовой сети и быстрых станций.`
       : `Расход топлива — ${v.specs.consumption}.`);
 
+  const bestQ = quotes[0];
+  const bestPrep = bestQ
+    ? countryPrepositional[bestQ.country] ?? bestQ.countryName
+    : prep;
+
   const aboutDelivery =
-    `Автомобиль выкупается ${prep === 'США' ? 'в США' : `в ${prep}`} у проверенного поставщика или на аукционе. ` +
-    `Доставка идёт ${deliveryRoute[country] ?? 'морем и автовозом'} и занимает ориентировочно ${deliveryWeeks[country] ?? '6–10 недель'} ` +
-    `с момента оплаты. Перед покупкой присылаем фото- и видеоотчёт, проверяем историю и техническое состояние.`;
+    (quotes.length > 1
+      ? `Этот автомобиль продаётся сразу на нескольких рынках, поэтому везти его можно не только из ${gen}. ` +
+        `Мы сравниваем стоимость под ключ по каждому маршруту: ${quotes
+          .map((q) => q.countryGen)
+          .join(', ')}. Сейчас выгоднее всего из ${bestQ.countryGen}. `
+      : '') +
+    `Автомобиль выкупается ${bestPrep === 'США' ? 'в США' : `в ${bestPrep}`} у проверенного поставщика или на аукционе. ` +
+    `Доставка идёт ${bestQ ? bestQ.route : deliveryRoute[country] ?? 'морем и автовозом'} и занимает ориентировочно ` +
+    `${bestQ ? bestQ.weeks : deliveryWeeks[country] ?? '6–10 недель'} с момента оплаты. ` +
+    `Перед покупкой присылаем фото- и видеоотчёт, проверяем историю и техническое состояние.`;
 
   const aboutCustoms = cost
     ? `При стоимости автомобиля ${formatRub(cost.price)} расчёт под ключ выглядит так: ` +
@@ -167,8 +229,25 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
   });
 
   faq.push({
-    q: `Сколько идёт доставка ${fullName} из ${gen}?`,
-    a: `Ориентировочно ${deliveryWeeks[country] ?? '6–10 недель'} с момента оплаты. Маршрут — ${deliveryRoute[country] ?? 'морем и автовозом'}. ` +
+    q: `Из каких стран можно привезти ${fullName}?`,
+    a:
+      quotes.length > 1
+        ? `${fullName} продаётся на нескольких рынках, поэтому мы возим её из следующих стран: ${quotes
+            .map((q) => q.countryGen)
+            .join(', ')}. Страна влияет на цену, комплектацию и срок доставки. ` +
+          `По нашему расчёту выгоднее всего из ${bestQ.countryGen} — около ${formatRub(bestQ.total)} под ключ.`
+        : `Эту модель мы возим из ${gen} — на других рынках она официально не продаётся.`,
+  });
+
+  faq.push({
+    q: `Сколько идёт доставка ${fullName}?`,
+    a: `Из ${bestQ ? bestQ.countryGen : gen} — ориентировочно ${bestQ ? bestQ.weeks : deliveryWeeks[country] ?? '6–10 недель'} с момента оплаты, маршрут ${bestQ ? bestQ.route : deliveryRoute[country] ?? 'морем и автовозом'}. ` +
+      (quotes.length > 1
+        ? `Из других стран сроки отличаются: ${quotes
+            .slice(1)
+            .map((q) => `${q.countryGen} — ${q.weeks}`)
+            .join(', ')}. `
+        : '') +
       `Сроки могут сдвигаться из-за загрузки портов и погоды.`,
   });
 
@@ -209,6 +288,8 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
     fullName,
     countryGen: gen,
     cost,
+    quotes,
+    best,
     basePrice,
     hp,
     cm3,
