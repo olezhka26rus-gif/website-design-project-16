@@ -267,12 +267,20 @@ const Calculator = ({ open, onOpenChange, presetEntry = null }: CalculatorProps)
                       <Icon name="ChevronDown" size={15} />
                     </button>
                   </PopoverTrigger>
-                  <PopoverContent className="p-0 w-[--radix-popover-trigger-width]" align="start">
-                    <Command>
-                      <CommandInput placeholder="Марка или модель..." />
-                      <CommandList>
-                        <CommandEmpty>Ничего не найдено</CommandEmpty>
-                        <CommandGroup>
+                  <PopoverContent
+                    className="p-0 w-[--radix-popover-trigger-width] overflow-hidden rounded-lg border-border shadow-lg"
+                    align="start"
+                  >
+                    <Command className="[&_[cmdk-item]]:outline-none [&_[cmdk-input]]:outline-none">
+                      <CommandInput
+                        placeholder="Марка или модель..."
+                        className="outline-none focus:outline-none focus-visible:outline-none focus:ring-0 shadow-none"
+                      />
+                      <CommandList className="max-h-64">
+                        <CommandEmpty className="py-6 text-center text-sm text-muted-foreground">
+                          Ничего не найдено
+                        </CommandEmpty>
+                        <CommandGroup className="p-1.5">
                           {catalogEntries.map((e) => (
                             <CommandItem
                               key={`${e.country}-${e.slug}`}
@@ -281,14 +289,15 @@ const Calculator = ({ open, onOpenChange, presetEntry = null }: CalculatorProps)
                                 applyCar(e);
                                 setCarPickerOpen(false);
                               }}
+                              className="cursor-pointer rounded-md px-2.5 py-2 outline-none border-0 ring-0 focus:outline-none focus-visible:outline-none focus:ring-0 data-[selected=true]:bg-secondary data-[selected=true]:text-foreground"
                             >
-                              <div className="flex items-center gap-2 min-w-0">
+                              <div className="flex items-center gap-2 min-w-0 w-full">
                                 <CountryFlag
                                   country={e.country as CountryCode}
                                   className="w-4 h-auto rounded-[2px] shrink-0"
                                 />
                                 <span className="truncate">{e.variant.model}</span>
-                                <span className="text-xs text-muted-foreground shrink-0">
+                                <span className="ml-auto text-xs text-muted-foreground shrink-0">
                                   {e.variant.specs.power}
                                 </span>
                               </div>
