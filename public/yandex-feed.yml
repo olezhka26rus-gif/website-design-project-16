@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-08-12 12:11">
+<yml_catalog date="2026-08-12 14:38">
   <shop>
     <name>Регион Логистик</name>
     <company>ООО «РегионЛогистик»</company>
@@ -1865,16 +1865,16 @@
         <param name="Состояние">Не требует ремонта</param>
         <param name="Размещено дилером">false</param>
       </offer>
-      <offer id="europe-bmw-3-">
+      <offer id="europe-bmw-3-serii">
         <name>BMW 3 серии (Седан) под заказ из Европы</name>
         <vendor>BMW</vendor>
-        <url>https://rlogistik.ru/catalog/europe/bmw-3-</url>
+        <url>https://rlogistik.ru/catalog/europe/bmw-3-serii</url>
         <price>3100000</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
-        <picture>https://rlogistik.ru/vehicles/europe-bmw-3--front.webp</picture>
-        <picture>https://rlogistik.ru/vehicles/europe-bmw-3--side.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-bmw-3-serii-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-bmw-3-serii-side.webp</picture>
         <description>BMW 3 серии — седан, 2024 год, новый автомобиль под заказ из Европы. Двигатель 2.0 л Turbo, мощность 184 л.с., автомат, задний привод. Ориентировочная цена под ключ от 3 100 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>
@@ -1911,16 +1911,16 @@
         <param name="Состояние">Не требует ремонта</param>
         <param name="Размещено дилером">false</param>
       </offer>
-      <offer id="europe-bmw-1-">
+      <offer id="europe-bmw-1-serii">
         <name>BMW 1 серии (Хэтчбек) под заказ из Европы</name>
         <vendor>BMW</vendor>
-        <url>https://rlogistik.ru/catalog/europe/bmw-1-</url>
+        <url>https://rlogistik.ru/catalog/europe/bmw-1-serii</url>
         <price>2700000</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
-        <picture>https://rlogistik.ru/vehicles/europe-bmw-1--front.webp</picture>
-        <picture>https://rlogistik.ru/vehicles/europe-bmw-1--side.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-bmw-1-serii-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-bmw-1-serii-side.webp</picture>
         <description>BMW 1 серии — хэтчбек, 2023 год, новый автомобиль под заказ из Европы. Двигатель 1.5 л Turbo, мощность 136 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 700 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2023</param>
@@ -2026,16 +2026,16 @@
         <param name="Состояние">Не требует ремонта</param>
         <param name="Размещено дилером">false</param>
       </offer>
-      <offer id="europe-mercedes-benz-a-">
+      <offer id="europe-mercedes-benz-a-klass">
         <name>Mercedes-Benz A-Класс (Хэтчбек) под заказ из Европы</name>
         <vendor>Mercedes-Benz</vendor>
-        <url>https://rlogistik.ru/catalog/europe/mercedes-benz-a-</url>
+        <url>https://rlogistik.ru/catalog/europe/mercedes-benz-a-klass</url>
         <price>2800000</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
-        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-a--front.webp</picture>
-        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-a--side.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-a-klass-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-a-klass-side.webp</picture>
         <description>Mercedes-Benz A-Класс — хэтчбек, 2023 год, новый автомобиль под заказ из Европы. Двигатель 1.3 л Turbo, мощность 163 л.с., автомат, передний привод. Ориентировочная цена под ключ от 2 800 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2023</param>
@@ -2072,16 +2072,16 @@
         <param name="Состояние">Не требует ремонта</param>
         <param name="Размещено дилером">false</param>
       </offer>
-      <offer id="europe-mercedes-benz-g-amg">
+      <offer id="europe-mercedes-benz-g-klass-amg">
         <name>Mercedes-Benz G-Класс AMG (Внедорожник) под заказ из Европы</name>
         <vendor>Mercedes-Benz</vendor>
-        <url>https://rlogistik.ru/catalog/europe/mercedes-benz-g-amg</url>
+        <url>https://rlogistik.ru/catalog/europe/mercedes-benz-g-klass-amg</url>
         <price>9800000</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
-        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-g-amg-front.webp</picture>
-        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-g-amg-side.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-g-klass-amg-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-g-klass-amg-side.webp</picture>
         <description>Mercedes-Benz G-Класс AMG — внедорожник, 2024 год, новый автомобиль под заказ из Европы. Двигатель 4.0 л Turbo V8, мощность 585 л.с., автомат, полный привод. Ориентировочная цена под ключ от 9 800 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>
@@ -2095,16 +2095,16 @@
         <param name="Состояние">Не требует ремонта</param>
         <param name="Размещено дилером">false</param>
       </offer>
-      <offer id="europe-mercedes-benz-g-">
+      <offer id="europe-mercedes-benz-g-klass">
         <name>Mercedes-Benz G-Класс (Внедорожник) под заказ из Европы</name>
         <vendor>Mercedes-Benz</vendor>
-        <url>https://rlogistik.ru/catalog/europe/mercedes-benz-g-</url>
+        <url>https://rlogistik.ru/catalog/europe/mercedes-benz-g-klass</url>
         <price>8200000</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
-        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-g--front.webp</picture>
-        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-g--side.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-g-klass-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-g-klass-side.webp</picture>
         <description>Mercedes-Benz G-Класс — внедорожник, 2024 год, новый автомобиль под заказ из Европы. Двигатель 3.0 л Turbo, мощность 367 л.с., автомат, полный привод. Ориентировочная цена под ключ от 8 200 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>
@@ -2210,16 +2210,16 @@
         <param name="Состояние">Не требует ремонта</param>
         <param name="Размещено дилером">false</param>
       </offer>
-      <offer id="europe-mercedes-benz-c-">
+      <offer id="europe-mercedes-benz-c-klass">
         <name>Mercedes-Benz C-Класс (Седан) под заказ из Европы</name>
         <vendor>Mercedes-Benz</vendor>
-        <url>https://rlogistik.ru/catalog/europe/mercedes-benz-c-</url>
+        <url>https://rlogistik.ru/catalog/europe/mercedes-benz-c-klass</url>
         <price>3300000</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
-        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-c--front.webp</picture>
-        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-c--side.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-c-klass-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-mercedes-benz-c-klass-side.webp</picture>
         <description>Mercedes-Benz C-Класс — седан, 2024 год, новый автомобиль под заказ из Европы. Двигатель 2.0 л Turbo, мощность 204 л.с., автомат, задний привод. Ориентировочная цена под ключ от 3 300 000 ₽. Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.</description>
         <param name="Конверсия">4</param>
         <param name="Год создания">2024</param>

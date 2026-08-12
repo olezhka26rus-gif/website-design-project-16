@@ -428,3 +428,33 @@ for (const route of routes) {
 }
 
 console.log(`Generated ${routes.length} static SEO pages`);
+
+/* ---- sitemap.xml: строим из тех же маршрутов, чтобы адреса не расходились ---- */
+const today = new Date().toISOString().slice(0, 10);
+
+const sitemapMeta = (path) => {
+  if (path === '/') return { changefreq: 'weekly', priority: '1.0' };
+  if (path === '/blog' || path === '/catalog') return { changefreq: 'weekly', priority: '0.8' };
+  if (path.startsWith('/blog/')) return { changefreq: 'monthly', priority: '0.6' };
+  if (path.startsWith('/catalog/brand/')) return { changefreq: 'weekly', priority: '0.7' };
+  if (path.split('/').length === 3) return { changefreq: 'weekly', priority: '0.8' };
+  return { changefreq: 'weekly', priority: '0.7' };
+};
+
+const staticPaths = ['/', '/privacy'];
+const allPaths = [...staticPaths, ...routes.map((r) => r.path)];
+const uniquePaths = Array.from(new Set(allPaths));
+
+const sitemap =
+  `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
+  uniquePaths
+    .map((path) => {
+      const { changefreq, priority } = sitemapMeta(path);
+      const loc = path === '/' ? `${SITE}/` : `${SITE}${path}`;
+      return `  <url>\n    <loc>${esc(loc)}</loc>\n    <lastmod>${today}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+    })
+    .join('\n') +
+  `\n</urlset>\n`;
+
+writeFileSync(join(PUBLIC, 'sitemap.xml'), sitemap, 'utf-8');
+console.log(`sitemap.xml: ${uniquePaths.length} адресов`);

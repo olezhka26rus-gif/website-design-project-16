@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { Link, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CountryFlag from '@/components/site/CountryFlag';
@@ -51,6 +51,11 @@ const CarDetail = () => {
   const [calcOpen, setCalcOpen] = useState(false);
 
   if (!entry) return <NotFoundSeo />;
+
+  // Устаревший адрес — уводим на актуальный, чтобы не плодить дубли
+  if (slug !== entry.slug) {
+    return <Navigate to={`/catalog/${entry.country}/${entry.slug}`} replace />;
+  }
 
   const { model, variant, countryName } = entry;
   const countryGen = countryGenitive[countryName] ?? countryName;

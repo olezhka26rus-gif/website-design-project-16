@@ -794,8 +794,8 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           model: 'BMW 3 серии',
           bodyType: 'Седан',
           price: 'от 3 100 000 ₽',
-          sideImage: `/vehicles/europe-bmw-3--side.webp`,
-          frontImage: `/vehicles/europe-bmw-3--front.webp`,
+          sideImage: `/vehicles/europe-bmw-3-serii-side.webp`,
+          frontImage: `/vehicles/europe-bmw-3-serii-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '184 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '7.0 л/100км' },
         },
         {
@@ -810,8 +810,8 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           model: 'BMW 1 серии',
           bodyType: 'Хэтчбек',
           price: 'от 2 700 000 ₽',
-          sideImage: `/vehicles/europe-bmw-1--side.webp`,
-          frontImage: `/vehicles/europe-bmw-1--front.webp`,
+          sideImage: `/vehicles/europe-bmw-1-serii-side.webp`,
+          frontImage: `/vehicles/europe-bmw-1-serii-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '136 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '6.3 л/100км' },
         },
         {
@@ -855,8 +855,8 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           model: 'Mercedes-Benz A-Класс',
           bodyType: 'Хэтчбек',
           price: 'от 2 800 000 ₽',
-          sideImage: `/vehicles/europe-mercedes-benz-a--side.webp`,
-          frontImage: `/vehicles/europe-mercedes-benz-a--front.webp`,
+          sideImage: `/vehicles/europe-mercedes-benz-a-klass-side.webp`,
+          frontImage: `/vehicles/europe-mercedes-benz-a-klass-front.webp`,
           specs: { engine: '1.3 л Turbo', power: '163 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '6.5 л/100км' },
         },
         {
@@ -871,16 +871,16 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           model: 'Mercedes-Benz G-Класс AMG',
           bodyType: 'Внедорожник',
           price: 'от 9 800 000 ₽',
-          sideImage: `/vehicles/europe-mercedes-benz-g-amg-side.webp`,
-          frontImage: `/vehicles/europe-mercedes-benz-g-amg-front.webp`,
+          sideImage: `/vehicles/europe-mercedes-benz-g-klass-amg-side.webp`,
+          frontImage: `/vehicles/europe-mercedes-benz-g-klass-amg-front.webp`,
           specs: { engine: '4.0 л Turbo V8', power: '585 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '13.9 л/100км' },
         },
         {
           model: 'Mercedes-Benz G-Класс',
           bodyType: 'Внедорожник',
           price: 'от 8 200 000 ₽',
-          sideImage: `/vehicles/europe-mercedes-benz-g--side.webp`,
-          frontImage: `/vehicles/europe-mercedes-benz-g--front.webp`,
+          sideImage: `/vehicles/europe-mercedes-benz-g-klass-side.webp`,
+          frontImage: `/vehicles/europe-mercedes-benz-g-klass-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '367 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '12.3 л/100км' },
         },
         {
@@ -919,8 +919,8 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           model: 'Mercedes-Benz C-Класс',
           bodyType: 'Седан',
           price: 'от 3 300 000 ₽',
-          sideImage: `/vehicles/europe-mercedes-benz-c--side.webp`,
-          frontImage: `/vehicles/europe-mercedes-benz-c--front.webp`,
+          sideImage: `/vehicles/europe-mercedes-benz-c-klass-side.webp`,
+          frontImage: `/vehicles/europe-mercedes-benz-c-klass-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '204 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '7.3 л/100км' },
         },
       ],
@@ -1497,13 +1497,23 @@ export interface CatalogEntry {
   searchIndex: string;
 }
 
+/** Транслитерация кириллицы — иначе «C-Класс» превращается в обрубок «c-» */
+const translitMap: Record<string, string> = {
+  а: 'a', б: 'b', в: 'v', г: 'g', д: 'd', е: 'e', ё: 'e', ж: 'zh', з: 'z',
+  и: 'i', й: 'y', к: 'k', л: 'l', м: 'm', н: 'n', о: 'o', п: 'p', р: 'r',
+  с: 's', т: 't', у: 'u', ф: 'f', х: 'h', ц: 'c', ч: 'ch', ш: 'sh', щ: 'sch',
+  ъ: '', ы: 'y', ь: '', э: 'e', ю: 'yu', я: 'ya',
+};
+
+const translit = (text: string): string =>
+  text.replace(/[а-яё]/g, (ch) => translitMap[ch] ?? ch);
+
 const toSlug = (text: string): string =>
-  text
-    .toLowerCase()
-    .trim()
+  translit(text.toLowerCase().trim())
     .replace(/[^a-z0-9\s-]/g, '')
     .replace(/\s+/g, '-')
-    .replace(/-+/g, '-');
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
 
 const buildSearchIndex = (brand: string, model: string): string => {
   const parts = [brand, model, brandRu[brand], modelRu[model], ...(brandExtraAliases[brand] ?? [])];
@@ -1523,8 +1533,27 @@ export const catalogEntries: CatalogEntry[] = (Object.keys(carsByCountry) as Cou
   )
 );
 
-export const findCatalogEntry = (country: string, slug: string): CatalogEntry | undefined =>
-  catalogEntries.find((e) => e.country === country && e.slug === slug);
+/**
+ * Старые адреса до транслитерации: кириллица вырезалась и оставался обрубок
+ * («Mercedes-Benz C-Класс» → «mercedes-benz-c-»). Держим их рабочими,
+ * чтобы ссылки из поиска и закладок не ломались.
+ */
+const legacySlugs: Record<string, string> = {
+  'bmw-3-': 'bmw-3-serii',
+  'bmw-1-': 'bmw-1-serii',
+  'mercedes-benz-a-': 'mercedes-benz-a-klass',
+  'mercedes-benz-c-': 'mercedes-benz-c-klass',
+  'mercedes-benz-g-': 'mercedes-benz-g-klass',
+  'mercedes-benz-g-amg': 'mercedes-benz-g-klass-amg',
+};
+
+/** Возвращает актуальный адрес модели, если пришёл устаревший */
+export const resolveSlug = (slug: string): string => legacySlugs[slug] ?? slug;
+
+export const findCatalogEntry = (country: string, slug: string): CatalogEntry | undefined => {
+  const target = resolveSlug(slug);
+  return catalogEntries.find((e) => e.country === country && e.slug === target);
+};
 
 export const catalogEntriesByCountry = (country: CountryKey): CatalogEntry[] =>
   catalogEntries.filter((e) => e.country === country);
