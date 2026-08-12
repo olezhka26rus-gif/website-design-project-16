@@ -165,6 +165,16 @@ const Catalog = () => {
               <div className="p-3 flex-1 flex flex-col">
                 <div className="font-semibold text-sm truncate">{e.variant.model}</div>
                 <div className="text-xs text-muted-foreground mt-0.5">{e.variant.bodyType} · {e.countryName}</div>
+                                <div className="mt-2 flex flex-wrap gap-1">
+                  <span className="inline-flex items-center gap-1 rounded-md bg-secondary px-1.5 py-0.5 text-[11px] text-foreground/70">
+                    <Icon name="Gauge" size={11} />
+                    {e.variant.specs.power}
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded-md bg-secondary px-1.5 py-0.5 text-[11px] text-foreground/70">
+                    <Icon name="Fuel" size={11} />
+                    {e.variant.specs.engine}
+                  </span>
+                </div>
                 <div className="text-sm font-bold text-primary mt-2">{e.variant.price}</div>
                 <div className="text-[11px] text-muted-foreground">цена авто без доставки</div>
               </div>

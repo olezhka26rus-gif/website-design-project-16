@@ -389,6 +389,9 @@ const CarDetail = () => {
                   </div>
                   <div className="p-3">
                     <div className="font-semibold text-sm truncate">{e.variant.model}</div>
+                    <div className="text-xs text-muted-foreground mt-0.5 truncate">
+                      {e.variant.bodyType} · {e.variant.specs.power}
+                    </div>
                     <div className="text-xs text-primary font-bold mt-1">{e.variant.price}</div>
                   </div>
                 </Link>

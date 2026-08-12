@@ -23,6 +23,15 @@ const countryTabs: { key: CountryKey; label: string }[] = [
   { key: 'uae', label: 'ОАЭ' },
 ];
 
+const pluralBody = (n: number) => {
+  const m10 = n % 10;
+  const m100 = n % 100;
+  if (m100 >= 11 && m100 <= 14) return 'кузовов';
+  if (m10 === 1) return 'кузов';
+  if (m10 >= 2 && m10 <= 4) return 'кузова';
+  return 'кузовов';
+};
+
 const Catalog = () => {
   const [active, setActive] = useState<CountryKey>('japan');
   const [selectedModel, setSelectedModel] = useState<CarModel | null>(null);
@@ -77,19 +86,19 @@ const Catalog = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 animate-fade-in">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 animate-fade-in">
           {models.map((model) => {
             const variant = model.variants[0];
             return (
               <div
                 key={model.brand}
                 onClick={() => openCar(model, variant)}
-                className="group rounded-xl border border-border overflow-hidden text-center hover-lift bg-white cursor-pointer"
+                className="group rounded-xl border border-border overflow-hidden hover-lift bg-white cursor-pointer flex flex-col"
               >
-                <div className="relative h-40 bg-secondary overflow-hidden">
+                <div className="relative h-40 bg-secondary overflow-hidden shrink-0">
                   <img
                     src={variant.sideImage}
-                    alt={variant.model}
+                    alt={`${variant.model} — ${variant.bodyType} на заказ`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
@@ -101,13 +110,32 @@ const Catalog = () => {
                   </div>
                   {model.variants.length > 1 && (
                     <span className="absolute top-2 right-2 bg-white/90 text-foreground text-[10px] font-semibold px-2 py-0.5 rounded-full">
-                      {model.variants.length} кузова
+                      {model.variants.length} {pluralBody(model.variants.length)}
                     </span>
                   )}
                 </div>
-                <div className="p-3">
-                  <div className="font-semibold text-sm truncate">{model.brand}</div>
-                  <div className="text-xs text-muted-foreground mt-1">{variant.price}</div>
+
+                <div className="p-3 flex-1 flex flex-col">
+                  <div className="font-semibold text-sm truncate">{variant.model}</div>
+                  <div className="text-xs text-muted-foreground mt-0.5 truncate">
+                    {variant.bodyType} · {variant.specs.year}
+                  </div>
+
+                  <div className="mt-2 flex flex-wrap gap-1">
+                    <span className="inline-flex items-center gap-1 rounded-md bg-secondary px-1.5 py-0.5 text-[11px] text-foreground/70">
+                      <Icon name="Gauge" size={11} />
+                      {variant.specs.power}
+                    </span>
+                    <span className="inline-flex items-center gap-1 rounded-md bg-secondary px-1.5 py-0.5 text-[11px] text-foreground/70">
+                      <Icon name="Fuel" size={11} />
+                      {variant.specs.engine}
+                    </span>
+                  </div>
+
+                  <div className="mt-auto pt-2.5">
+                    <div className="text-sm font-bold text-primary">{variant.price}</div>
+                    <div className="text-[11px] text-muted-foreground">цена авто без доставки</div>
+                  </div>
                 </div>
               </div>
             );

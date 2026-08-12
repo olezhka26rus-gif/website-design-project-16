@@ -1544,3 +1544,8 @@ export const catalogBrands: { brand: string; slug: string; entries: CatalogEntry
 })();
 
 export const findBrand = (slug: string) => catalogBrands.find((b) => b.slug === slug);
+
+/** Находит запись каталога по объекту варианта — для перехода из модалки на страницу модели */
+export const findEntryByVariant = (variant: CarVariant): CatalogEntry | undefined =>
+  catalogEntries.find((e) => e.variant === variant) ??
+  catalogEntries.find((e) => e.variant.model === variant.model);

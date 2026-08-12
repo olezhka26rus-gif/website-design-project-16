@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Dialog,
   DialogContent,
@@ -8,8 +9,10 @@ import {
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import LeadFormModal from '@/components/site/LeadFormModal';
-import { CarModel, CarVariant } from '@/data/catalogCars';
+import { CarModel, CarVariant, findEntryByVariant } from '@/data/catalogCars';
 import { trackGoal, goals } from '@/lib/analytics';
+import { buildCarContent } from '@/lib/carContent';
+import { formatRub } from '@/lib/customs';
 
 const SPEC_ROWS: { key: keyof CarVariant['specs']; label: string; icon: string }[] = [
   { key: 'engine', label: 'Двигатель', icon: 'Fuel' },
@@ -38,6 +41,9 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
   }, [carModel, initialVariant]);
 
   if (!carModel || !selectedVariant) return null;
+
+  const entry = findEntryByVariant(selectedVariant);
+  const content = entry ? buildCarContent(entry) : null;
 
   return (
     <>
@@ -72,10 +78,26 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
             </div>
 
             <div className="flex flex-col">
-              <div className="text-2xl font-display font-extrabold text-primary">{selectedVariant.price}</div>
-              <p className="text-sm text-muted-foreground mt-1">
-                Цена под ключ с учётом доставки и таможенного оформления
-              </p>
+              {content?.cost ? (
+                <>
+                  <div className="text-2xl font-display font-extrabold text-primary">
+                    от {formatRub(content.cost.total)}
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Ориентировочная цена под ключ: автомобиль {selectedVariant.price}, пошлина,
+                    утильсбор, доставка и услуги компании
+                  </p>
+                </>
+              ) : (
+                <>
+                  <div className="text-2xl font-display font-extrabold text-primary">
+                    {selectedVariant.price}
+                  </div>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Стоимость автомобиля без учёта доставки и таможенного оформления
+                  </p>
+                </>
+              )}
 
               <div className="mt-6">
                 <div className="text-sm font-semibold mb-2">Выберите кузов</div>
@@ -107,6 +129,16 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                 >
                   Получить расчёт на {selectedVariant.model}
                 </Button>
+                {entry && (
+                  <Link
+                    to={`/catalog/${entry.country}/${entry.slug}`}
+                    onClick={() => onOpenChange(false)}
+                    className="mt-3 flex items-center justify-center gap-1.5 h-11 rounded-lg border border-border text-sm font-semibold text-foreground/80 hover:border-primary hover:text-primary transition-colors"
+                  >
+                    <Icon name="FileText" size={16} />
+                    Подробнее: расчёт, сроки и вопросы
+                  </Link>
+                )}
                 <p className="flex items-center gap-1.5 text-xs text-muted-foreground mt-3">
                   <Icon name="Lock" size={13} />
                   Ваши данные защищены и не передаются третьим лицам
