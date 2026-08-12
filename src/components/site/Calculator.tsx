@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import {
   Dialog,
   DialogContent,
@@ -18,7 +18,17 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import Icon from '@/components/ui/icon';
 import CountryFlag, { CountryCode } from '@/components/site/CountryFlag';
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command';
 import { trackGoal, goals } from '@/lib/analytics';
+import { catalogEntries, CatalogEntry } from '@/data/catalogCars';
+import { buildCarContent } from '@/lib/carContent';
 import {
   calcDuty,
   calcUtilFee,
@@ -50,6 +60,8 @@ const ageBands = [
 interface CalculatorProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  /** Предзаполнить калькулятор конкретной машиной из каталога */
+  presetEntry?: CatalogEntry | null;
 }
 
 const Row = ({
@@ -87,7 +99,9 @@ const Row = ({
   </div>
 );
 
-const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
+const Calculator = ({ open, onOpenChange, presetEntry = null }: CalculatorProps) => {
+  const [carPickerOpen, setCarPickerOpen] = useState(false);
+  const [selectedCar, setSelectedCar] = useState<CatalogEntry | null>(null);
   const [country, setCountry] = useState('');
   const [age, setAge] = useState('');
   const [engineCm3, setEngineCm3] = useState('');
@@ -103,13 +117,62 @@ const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
     total: number;
   }>(null);
 
+  /** Заполняет поля характеристиками выбранного автомобиля */
+  const applyCar = (entry: CatalogEntry, targetCountry?: string) => {
+    const c = buildCarContent(entry);
+    const use = targetCountry ?? c.best?.country ?? entry.country;
+    const quote = c.quotes.find((q) => q.country === use);
+
+    setSelectedCar(entry);
+    setCountry(use);
+    setAge('new');
+    setEngineCm3(c.cm3 > 0 ? String(c.cm3) : '');
+    setPower(c.hp > 0 ? String(c.hp) : '');
+    setPrice(String(quote ? quote.carPrice : c.basePrice));
+    setResult(null);
+  };
+
+  /** Смена страны при выбранной машине пересчитывает цену для этого рынка */
+  const handleCountryChange = (value: string) => {
+    setCountry(value);
+    setResult(null);
+    if (!selectedCar) return;
+    const c = buildCarContent(selectedCar);
+    const quote = c.quotes.find((q) => q.country === value);
+    if (quote) setPrice(String(quote.carPrice));
+  };
+
+  const clearCar = () => {
+    setSelectedCar(null);
+    setResult(null);
+  };
+
+  useEffect(() => {
+    if (open && presetEntry) applyCar(presetEntry);
+  }, [open, presetEntry]);
+
+  /** Страны, где реально продаётся выбранная машина */
+  const availableCountries = useMemo(() => {
+    if (!selectedCar) return countries;
+    const allowed = new Set(buildCarContent(selectedCar).quotes.map((q) => q.country));
+    return countries.filter((c) => allowed.has(c.value));
+  }, [selectedCar]);
+
+  const isElectricCar = selectedCar
+    ? /электро/i.test(selectedCar.variant.specs.engine)
+    : false;
+
   const isValid =
-    country && age && Number(engineCm3) > 0 && Number(power) > 0 && Number(price) > 0;
+    country &&
+    age &&
+    (isElectricCar || Number(engineCm3) > 0) &&
+    Number(power) > 0 &&
+    Number(price) > 0;
 
   const handleCalculate = () => {
     if (!isValid) return;
     const priceNum = Number(price);
-    const engineNum = Number(engineCm3);
+    const engineNum = isElectricCar ? 0 : Number(engineCm3);
     const powerNum = Number(power);
     const countryData = countries.find((c) => c.value === country)!;
 
@@ -132,6 +195,7 @@ const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
 
   const handleReset = () => {
     setResult(null);
+    setSelectedCar(null);
     setCountry('');
     setAge('');
     setEngineCm3('');
@@ -160,13 +224,99 @@ const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
         {!result ? (
           <div className="space-y-4">
             <div>
-              <label className="text-sm font-medium mb-1.5 block">Страна</label>
-              <Select value={country} onValueChange={setCountry}>
+              <label className="text-sm font-medium mb-1.5 block">
+                Автомобиль из каталога
+                <span className="text-muted-foreground font-normal"> — необязательно</span>
+              </label>
+
+              {selectedCar ? (
+                <div className="flex items-center gap-3 rounded-lg border border-primary/40 bg-primary/5 p-2.5">
+                  <img
+                    src={selectedCar.variant.sideImage}
+                    alt={selectedCar.variant.model}
+                    className="w-16 h-11 object-cover rounded-md bg-secondary shrink-0"
+                  />
+                  <div className="min-w-0 flex-1">
+                    <div className="font-semibold text-sm truncate">
+                      {selectedCar.variant.model}
+                    </div>
+                    <div className="text-xs text-muted-foreground truncate">
+                      {selectedCar.variant.specs.engine} · {selectedCar.variant.specs.power}
+                    </div>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={clearCar}
+                    aria-label="Убрать автомобиль"
+                    className="text-muted-foreground hover:text-primary transition-colors shrink-0"
+                  >
+                    <Icon name="X" size={16} />
+                  </button>
+                </div>
+              ) : (
+                <Popover open={carPickerOpen} onOpenChange={setCarPickerOpen}>
+                  <PopoverTrigger asChild>
+                    <button
+                      type="button"
+                      className="w-full h-11 flex items-center justify-between gap-2 rounded-md border border-input bg-background px-3 text-sm text-muted-foreground hover:border-primary transition-colors"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Icon name="Search" size={15} />
+                        Выбрать машину — подставим характеристики
+                      </span>
+                      <Icon name="ChevronDown" size={15} />
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent className="p-0 w-[--radix-popover-trigger-width]" align="start">
+                    <Command>
+                      <CommandInput placeholder="Марка или модель..." />
+                      <CommandList>
+                        <CommandEmpty>Ничего не найдено</CommandEmpty>
+                        <CommandGroup>
+                          {catalogEntries.map((e) => (
+                            <CommandItem
+                              key={`${e.country}-${e.slug}`}
+                              value={`${e.variant.model} ${e.model.brand} ${e.searchIndex}`}
+                              onSelect={() => {
+                                applyCar(e);
+                                setCarPickerOpen(false);
+                              }}
+                            >
+                              <div className="flex items-center gap-2 min-w-0">
+                                <CountryFlag
+                                  country={e.country as CountryCode}
+                                  className="w-4 h-auto rounded-[2px] shrink-0"
+                                />
+                                <span className="truncate">{e.variant.model}</span>
+                                <span className="text-xs text-muted-foreground shrink-0">
+                                  {e.variant.specs.power}
+                                </span>
+                              </div>
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </CommandList>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+              )}
+            </div>
+
+            <div>
+              <label className="text-sm font-medium mb-1.5 block">
+                Страна покупки
+                {selectedCar && (
+                  <span className="text-muted-foreground font-normal">
+                    {' '}— доступные для этой модели
+                  </span>
+                )}
+              </label>
+              <Select value={country} onValueChange={handleCountryChange}>
                 <SelectTrigger className="h-11">
                   <SelectValue placeholder="Выберите страну" />
                 </SelectTrigger>
                 <SelectContent>
-                  {countries.map((c) => (
+                  {availableCountries.map((c) => (
                     <SelectItem key={c.value} value={c.value}>
                       <span className="flex items-center gap-2">
                         <CountryFlag country={c.value} className="w-5 h-auto rounded-[2px]" />
@@ -198,8 +348,9 @@ const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
                 <Input
                   type="number"
                   inputMode="numeric"
-                  placeholder="Например, 1998"
-                  value={engineCm3}
+                  placeholder={isElectricCar ? 'Электромобиль' : 'Например, 1998'}
+                  value={isElectricCar ? '' : engineCm3}
+                  disabled={isElectricCar}
                   onChange={(e) => setEngineCm3(e.target.value)}
                   className="h-11"
                 />

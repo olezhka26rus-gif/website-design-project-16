@@ -9,6 +9,7 @@ import {
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import LeadFormModal from '@/components/site/LeadFormModal';
+import Calculator from '@/components/site/Calculator';
 import { CarModel, CarVariant, findEntryByVariant } from '@/data/catalogCars';
 import { trackGoal, goals } from '@/lib/analytics';
 import { buildCarContent } from '@/lib/carContent';
@@ -33,6 +34,7 @@ interface CarDetailModalProps {
 const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDetailModalProps) => {
   const [selectedVariant, setSelectedVariant] = useState<CarVariant | null>(null);
   const [leadOpen, setLeadOpen] = useState(false);
+  const [calcOpen, setCalcOpen] = useState(false);
 
   useEffect(() => {
     if (carModel) {
@@ -138,6 +140,23 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                 >
                   Получить расчёт на {selectedVariant.model}
                 </Button>
+                {entry && (
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="w-full h-11 font-semibold mb-4"
+                    onClick={() => {
+                      trackGoal(goals.CTA_BUTTON_CLICK, {
+                        label: `Калькулятор (${selectedVariant.model})`,
+                      });
+                      setCalcOpen(true);
+                    }}
+                  >
+                    <Icon name="Calculator" size={16} />
+                    Рассчитать растаможку
+                  </Button>
+                )}
+
                 {content && content.quotes.length > 1 && (
                   <div className="mb-4 rounded-xl bg-secondary/60 p-3">
                     <div className="text-xs font-semibold mb-1.5">Возим из нескольких стран</div>
@@ -178,6 +197,8 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
           </div>
         </DialogContent>
       </Dialog>
+
+      <Calculator open={calcOpen} onOpenChange={setCalcOpen} presetEntry={entry ?? null} />
 
       <LeadFormModal
         open={leadOpen}

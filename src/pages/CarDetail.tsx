@@ -490,7 +490,7 @@ const CarDetail = () => {
         source={`catalog:${entry.country}/${entry.slug}`}
         defaultCar={`${variant.model} (${variant.bodyType})`}
       />
-      <Calculator open={calcOpen} onOpenChange={setCalcOpen} />
+      <Calculator open={calcOpen} onOpenChange={setCalcOpen} presetEntry={entry} />
     </div>
   );
 };
