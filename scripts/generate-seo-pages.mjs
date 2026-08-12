@@ -18,6 +18,15 @@ const esc = (s = '') =>
 
 const abs = (u = '') => (u.startsWith('http') ? u : `${SITE}${u.startsWith('/') ? '' : '/'}${u}`);
 
+const countryPrep = {
+  china: 'Китае',
+  japan: 'Японии',
+  korea: 'Корее',
+  europe: 'Европе',
+  usa: 'США',
+  uae: 'ОАЭ',
+};
+
 const countryGen = {
   china: 'Китая',
   japan: 'Японии',
@@ -34,7 +43,10 @@ async function loadData() {
   writeFileSync(
     entry,
     `export { catalogEntries, catalogBrands } from '${join(ROOT, 'src/data/catalogCars.ts').replace(/\\/g, '/')}';
-export { articles } from '${join(ROOT, 'src/data/articles.ts').replace(/\\/g, '/')}';`
+export { articles } from '${join(ROOT, 'src/data/articles.ts').replace(/\\/g, '/')}';
+export { buildCarContent } from '${join(ROOT, 'src/lib/carContent.ts').replace(/\\/g, '/')}';
+export { formatRub } from '${join(ROOT, 'src/lib/customs.ts').replace(/\\/g, '/')}';
+export { buildCollectionContent } from '${join(ROOT, 'src/lib/collectionContent.ts').replace(/\\/g, '/')}';`
   );
   const outfile = join(outdir, 'data.mjs');
   await esbuild({
@@ -83,7 +95,7 @@ function carGrid(entries) {
     .join('')}</ul>`;
 }
 
-function buildRoutes({ catalogEntries, catalogBrands, articles }) {
+function buildRoutes({ catalogEntries, catalogBrands, articles, buildCarContent, formatRub, buildCollectionContent }) {
   const routes = [];
 
   const byCountry = {};
@@ -91,6 +103,7 @@ function buildRoutes({ catalogEntries, catalogBrands, articles }) {
 
   for (const [country, list] of Object.entries(byCountry)) {
     const gen = countryGen[country] || country;
+    const ex = buildCollectionContent(list, 'country', country);
     routes.push({
       path: `/catalog/${country}`,
       title: `Автомобили из ${gen} на заказ — ${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} и цены | Регион Логистик`,
@@ -98,15 +111,42 @@ function buildRoutes({ catalogEntries, catalogBrands, articles }) {
       keywords: `авто из ${gen}, автомобили из ${gen}, купить авто из ${gen}, заказать машину из ${gen}, авто из ${gen} цена, Регион Логистик`,
       image: abs(list[0].variant.frontImage),
       ogType: 'website',
+      jsonLd: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: ex.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ],
       body: `<h1>Автомобили из ${esc(gen)} на заказ</h1>
 <p>Подбираем и привозим автомобили из ${esc(gen)} под ключ: проверка, выкуп, доставка, растаможка и постановка на учёт. В каталоге ${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} с ориентировочными ценами.</p>
 ${carGrid(list)}
+<h2>Автомобили из ${esc(gen)}: что важно знать</h2>
+<p>${esc(ex.about)}</p>
+${
+  ex.stats.minTotal
+    ? `<h2>Цены под ключ</h2>
+<table>
+<tr><td>Самый доступный вариант под ключ</td><td>${esc(formatRub(ex.stats.minTotal))}</td></tr>
+<tr><td>Это модель</td><td>${esc(ex.stats.minTotalModel)}</td></tr>
+<tr><td>Цена автомобиля без доставки, от</td><td>${esc(formatRub(ex.stats.minPrice))}</td></tr>
+<tr><td>Годы выпуска в подборке</td><td>${esc(ex.stats.years)}</td></tr>
+</table>
+<p>Цены под ключ включают пошлину, утилизационный сбор, доставку и услуги компании.</p>`
+    : ''
+}
+<h2>Частые вопросы</h2>${ex.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
 <p><a href="/catalog">Весь каталог автомобилей</a></p>`,
     });
   }
 
   for (const b of catalogBrands) {
     if (b.entries.length < 4) continue;
+    const bx = buildCollectionContent(b.entries, 'brand', b.brand);
     routes.push({
       path: `/catalog/brand/${b.slug}`,
       title: `${b.brand} на заказ из-за рубежа — ${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} и цены | Регион Логистик`,
@@ -114,9 +154,34 @@ ${carGrid(list)}
       keywords: `${b.brand}, ${b.brand} на заказ, купить ${b.brand}, ${b.brand} цена, Регион Логистик`,
       image: abs(b.entries[0].variant.frontImage),
       ogType: 'website',
+      jsonLd: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: bx.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ],
       body: `<h1>${esc(b.brand)} на заказ из-за рубежа</h1>
 <p>Привозим автомобили ${esc(b.brand)} под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. В каталоге ${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} с характеристиками и ориентировочной ценой.</p>
 ${carGrid(b.entries)}
+<h2>${esc(b.brand)}: что важно знать</h2>
+<p>${esc(bx.about)}</p>
+${
+  bx.stats.minTotal
+    ? `<h2>Цены под ключ</h2>
+<table>
+<tr><td>Самый доступный вариант под ключ</td><td>${esc(formatRub(bx.stats.minTotal))}</td></tr>
+<tr><td>Это модель</td><td>${esc(bx.stats.minTotalModel)}</td></tr>
+<tr><td>Цена автомобиля без доставки, от</td><td>${esc(formatRub(bx.stats.minPrice))}</td></tr>
+<tr><td>Годы выпуска в подборке</td><td>${esc(bx.stats.years)}</td></tr>
+</table>`
+    : ''
+}
+<h2>Частые вопросы</h2>${bx.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
 <p><a href="/catalog">Весь каталог автомобилей</a></p>`,
     });
   }
@@ -144,21 +209,62 @@ ${carGrid(b.entries)}
   for (const e of catalogEntries) {
     const v = e.variant;
     const gen = countryGen[e.country] || e.countryName;
+    const c = buildCarContent(e);
+    const priceLine = c.cost ? `от ${formatRub(c.cost.total)}` : v.price;
+
+    const costTable = c.cost
+      ? `<h2>Сколько стоит ${esc(c.fullName)} под ключ в России</h2>
+<p>Ориентировочный расчёт по методике ФТС для нового автомобиля ${esc(v.specs.year)} года мощностью ${esc(v.specs.power)}${c.cm3 ? ` и объёмом ${c.cm3} см³` : ''}${/\.$/.test(v.specs.power) ? '' : '.'}</p>
+<table>
+<tr><td>Стоимость автомобиля в ${esc(countryPrep[e.country] || e.countryName)}</td><td>${esc(formatRub(c.cost.price))}</td></tr>
+<tr><td>Таможенная пошлина</td><td>${esc(formatRub(c.cost.duty))}</td></tr>
+<tr><td>Утилизационный сбор</td><td>${esc(formatRub(c.cost.utilFee))}</td></tr>
+<tr><td>Таможенный сбор за оформление</td><td>${esc(formatRub(c.cost.clearanceFee))}</td></tr>
+<tr><td>Доставка из ${esc(gen)}</td><td>${esc(formatRub(c.cost.delivery))}</td></tr>
+<tr><td>Услуги Регион Логистик</td><td>${esc(formatRub(c.cost.service))}</td></tr>
+<tr><td><strong>Итого под ключ</strong></td><td><strong>${esc(formatRub(c.cost.total))}</strong></td></tr>
+</table>
+<p>Расчёт ориентировочный и зависит от курса валют, комплектации и города доставки.</p>`
+      : '';
+
+    const faqHtml = `<h2>Частые вопросы про ${esc(c.fullName)}</h2>${c.faq
+      .map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`)
+      .join('')}`;
+
+    const faqLd = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: c.faq.map((f) => ({
+        '@type': 'Question',
+        name: f.q,
+        acceptedAnswer: { '@type': 'Answer', text: f.a },
+      })),
+    };
+
     routes.push({
       path: `/catalog/${e.country}/${e.slug}`,
-      title: `${v.model} на заказ из ${gen} — характеристики и цена | Регион Логистик`,
-      description: `${v.model} (${v.bodyType}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}. Ориентировочная цена под ключ ${v.price}. Подбор, проверка и доставка в Россию.`,
-      keywords: `${v.model}, купить ${v.model}, ${v.model} из ${gen}, ${v.model} цена, заказать ${v.model}, Регион Логистик`,
+      title: `${v.model} на заказ из ${gen} — цена под ключ и характеристики | Регион Логистик`,
+      description: c.cost
+        ? `${v.model} (${v.bodyType}, ${v.specs.year}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}, ${v.specs.transmission}. Цена под ключ ${priceLine} с пошлиной, утильсбором и доставкой. Расчёт, сроки и ответы на частые вопросы.`
+        : `${v.model} (${v.bodyType}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}. Подбор, проверка и доставка в Россию.`,
+      keywords: `${v.model}, купить ${v.model}, ${v.model} из ${gen}, ${v.model} цена под ключ, ${v.model} растаможка, заказать ${v.model}, Регион Логистик`,
       image: abs(v.frontImage),
       ogType: 'product',
+      jsonLd: [faqLd],
       body: `<h1>${esc(v.model)} на заказ из ${esc(gen)}</h1>
-<p>${esc(v.model)} (${esc(v.bodyType)}) под заказ из ${esc(gen)}. Ориентировочная цена под ключ ${esc(v.price)}.</p>
-<img src="${esc(abs(v.frontImage))}" alt="${esc(v.model)}" width="640" height="480">
-<h2>Характеристики</h2>
+<p>${esc(c.intro)}</p>
+<img src="${esc(abs(v.frontImage))}" alt="${esc(v.model)} — ${esc(v.bodyType)} на заказ из ${esc(gen)}" width="640" height="480">
+<p><strong>Цена под ключ: ${esc(priceLine)}</strong> (стоимость автомобиля ${esc(v.price)} + пошлина, утильсбор, доставка и услуги компании).</p>
+<h2>Характеристики ${esc(c.fullName)}</h2>
 <ul>${specList(v.specs)}</ul>
-<p>Марка: ${esc(e.model.brand)}. Страна: ${esc(e.countryName)}. Тип кузова: ${esc(v.bodyType)}.</p>
-<p>Подбор, проверка, доставка и растаможка под ключ компанией Регион Логистик.</p>
-<p><a href="/catalog">Весь каталог автомобилей</a></p>`,
+<p>Марка: ${esc(e.model.brand)}. Страна вывоза: ${esc(e.countryName)}. Тип кузова: ${esc(v.bodyType)}.</p>
+<h2>${esc(c.fullName)}: что за автомобиль</h2>
+<p>${esc(c.aboutModel)}</p>
+${costTable}
+<h2>Доставка ${esc(c.fullName)} из ${esc(gen)}</h2>
+<p>${esc(c.aboutDelivery)}</p>
+${faqHtml}
+<p><a href="/catalog/${e.country}">Все автомобили из ${esc(gen)}</a> · <a href="/catalog">Весь каталог автомобилей</a></p>`,
     });
   }
 
@@ -265,7 +371,17 @@ function renderPage(template, route) {
   ];
   for (const [re, val] of metaMap) html = html.replace(re, val);
 
-  html = html.replace('</head>', `    <link rel="canonical" href="${esc(canonical)}">\n  </head>`);
+  const jsonLdTags = (route.jsonLd || [])
+    .map(
+      (obj) =>
+        `    <script type="application/ld+json">${JSON.stringify(obj).replace(/</g, '\\u003c')}</script>`
+    )
+    .join('\n');
+
+  html = html.replace(
+    '</head>',
+    `    <link rel="canonical" href="${esc(canonical)}">\n${jsonLdTags ? jsonLdTags + '\n' : ''}  </head>`
+  );
 
   html = html.replace(
     /<script type="module" src="[^"]*"><\/script>/i,

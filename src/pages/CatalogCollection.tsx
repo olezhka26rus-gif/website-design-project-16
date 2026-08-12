@@ -13,6 +13,8 @@ import {
   CatalogEntry,
 } from '@/data/catalogCars';
 import { brandRu } from '@/data/carAliases';
+import { buildCollectionContent } from '@/lib/collectionContent';
+import { formatRub } from '@/lib/customs';
 import NotFoundSeo from './NotFoundSeo';
 
 const plural = (n: number, one: string, few: string, many: string) => {
@@ -101,6 +103,12 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
 
   if (!data) return <NotFoundSeo />;
 
+  const extra = buildCollectionContent(
+    data.entries,
+    mode,
+    mode === 'country' ? (country as string) : findBrand(brand as string)!.brand
+  );
+
   const minPriceEntry = data.entries.reduce((min, e) => {
     const n = Number(e.variant.price.replace(/\D/g, ''));
     const m = Number(min.variant.price.replace(/\D/g, ''));
@@ -133,6 +141,17 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
               { '@type': 'ListItem', position: 2, name: 'Каталог', item: 'https://rlogistik.ru/catalog' },
               { '@type': 'ListItem', position: 3, name: data.h1, item: data.url },
             ],
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: extra.faq.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
           })}
         </script>
         <script type="application/ld+json">
@@ -189,14 +208,69 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
                   {e.variant.bodyType} · {e.countryName}
                 </div>
                 <div className="text-sm font-bold text-primary mt-2">{e.variant.price}</div>
+                <div className="text-[11px] text-muted-foreground">цена авто без доставки</div>
               </div>
             </Link>
           ))}
         </div>
 
+        <section className="mt-12 max-w-3xl">
+          <h2 className="font-display font-bold text-xl mb-3">{data.h1}: что важно знать</h2>
+          <p className="text-sm text-foreground/80 leading-relaxed">{extra.about}</p>
+        </section>
+
+        {extra.stats.minTotal > 0 && (
+          <section className="mt-10 max-w-3xl">
+            <h2 className="font-display font-bold text-xl mb-3">Цены под ключ</h2>
+            <div className="rounded-2xl border border-border overflow-hidden">
+              <div className="flex items-center justify-between gap-4 px-4 py-3 text-sm">
+                <span className="text-muted-foreground">Самый доступный вариант под ключ</span>
+                <span className="font-semibold whitespace-nowrap">
+                  {formatRub(extra.stats.minTotal)}
+                </span>
+              </div>
+              <div className="flex items-center justify-between gap-4 px-4 py-3 text-sm border-t border-border">
+                <span className="text-muted-foreground">Это модель</span>
+                <span className="font-semibold">{extra.stats.minTotalModel}</span>
+              </div>
+              <div className="flex items-center justify-between gap-4 px-4 py-3 text-sm border-t border-border">
+                <span className="text-muted-foreground">Цена автомобиля без доставки, от</span>
+                <span className="font-semibold whitespace-nowrap">{formatRub(extra.stats.minPrice)}</span>
+              </div>
+              <div className="flex items-center justify-between gap-4 px-4 py-3 text-sm border-t border-border">
+                <span className="text-muted-foreground">Годы выпуска в подборке</span>
+                <span className="font-semibold">{extra.stats.years}</span>
+              </div>
+            </div>
+            <p className="text-xs text-muted-foreground mt-3">
+              Цены под ключ включают пошлину, утилизационный сбор, доставку и услуги компании.
+              Расчёт ориентировочный и зависит от курса валют и комплектации.
+            </p>
+          </section>
+        )}
+
+        <section className="mt-10 max-w-3xl">
+          <h2 className="font-display font-bold text-xl mb-4">Частые вопросы</h2>
+          <div className="rounded-2xl border border-border overflow-hidden">
+            {extra.faq.map((item, i) => (
+              <details key={item.q} className={`group px-4 py-3.5 ${i > 0 ? 'border-t border-border' : ''}`}>
+                <summary className="flex items-start justify-between gap-3 cursor-pointer list-none">
+                  <h3 className="font-semibold text-sm">{item.q}</h3>
+                  <Icon
+                    name="ChevronDown"
+                    size={16}
+                    className="shrink-0 mt-0.5 text-muted-foreground transition-transform group-open:rotate-180"
+                  />
+                </summary>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-2.5">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         <div className="mt-10 text-sm text-muted-foreground max-w-3xl space-y-2">
           <p>
-            Минимальная цена в подборке — {minPriceEntry.variant.price} ({minPriceEntry.variant.model}).
+            Минимальная цена автомобиля в подборке — {minPriceEntry.variant.price} ({minPriceEntry.variant.model}), без доставки и растаможки.
             Всего: {models(data.entries.length)}. Цены ориентировочные, точную стоимость под ключ
             рассчитает менеджер.
           </p>

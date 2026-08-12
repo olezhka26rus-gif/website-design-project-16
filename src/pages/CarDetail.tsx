@@ -11,6 +11,8 @@ import { Button } from '@/components/ui/button';
 import { findCatalogEntry, catalogEntriesByCountry, CountryKey, CarVariant } from '@/data/catalogCars';
 import { brandRu, modelRu, brandExtraAliases } from '@/data/carAliases';
 import { trackGoal, goals } from '@/lib/analytics';
+import { buildCarContent, countryPrepositional } from '@/lib/carContent';
+import { formatRub, SERVICE_FEE_TOOLTIP } from '@/lib/customs';
 import NotFoundSeo from './NotFoundSeo';
 
 const countryGenitive: Record<string, string> = {
@@ -69,6 +71,7 @@ const CarDetail = () => {
     modelNameRu ? `заказать ${modelNameRu}` : undefined,
     ...brandAliasesRu,
   ].filter(Boolean);
+  const content = buildCarContent(entry);
   const otherVariants = model.variants.filter((v) => v.model !== variant.model);
   const similarModels = catalogEntriesByCountry(entry.country as CountryKey)
     .filter((e) => e.slug !== entry.slug)
@@ -80,7 +83,11 @@ const CarDetail = () => {
         <title>{variant.model} на заказ из {countryGen} — характеристики и цена | Регион Логистик</title>
         <meta
           name="description"
-          content={`${variant.model} (${variant.bodyType}) под заказ из ${countryGen}: ${variant.specs.engine}, ${variant.specs.power}. Ориентировочная цена под ключ ${variant.price}. Подбор, проверка и доставка в Россию.`}
+          content={
+            content.cost
+              ? `${variant.model} (${variant.bodyType}, ${variant.specs.year}) под заказ из ${countryGen}: ${variant.specs.engine}, ${variant.specs.power}, ${variant.specs.transmission}. Цена под ключ от ${formatRub(content.cost.total)} с пошлиной, утильсбором и доставкой. Расчёт, сроки и ответы на частые вопросы.`
+              : `${variant.model} (${variant.bodyType}) под заказ из ${countryGen}: ${variant.specs.engine}, ${variant.specs.power}. Ориентировочная цена под ключ ${variant.price}. Подбор, проверка и доставка в Россию.`
+          }
         />
         <meta
           name="keywords"
@@ -99,7 +106,7 @@ const CarDetail = () => {
         <meta property="og:title" content={`${variant.model} на заказ из ${countryGen} | Регион Логистик`} />
         <meta
           property="og:description"
-          content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${variant.price}.`}
+          content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${content.cost ? `от ${formatRub(content.cost.total)}` : variant.price}.`}
         />
         <meta property="og:image" content={absoluteImage} />
         <meta property="og:url" content={pageUrl} />
@@ -108,7 +115,7 @@ const CarDetail = () => {
         <meta name="twitter:title" content={`${variant.model} на заказ из ${countryGen} | Регион Логистик`} />
         <meta
           name="twitter:description"
-          content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${variant.price}.`}
+          content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${content.cost ? `от ${formatRub(content.cost.total)}` : variant.price}.`}
         />
         <meta name="twitter:image" content={absoluteImage} />
         <script type="application/ld+json">
@@ -121,7 +128,7 @@ const CarDetail = () => {
             brand: { '@type': 'Brand', name: model.brand },
             offers: {
               '@type': 'Offer',
-              price: variant.price.replace(/[^\d]/g, ''),
+              price: content.cost ? String(content.cost.total) : variant.price.replace(/[^\d]/g, ''),
               priceCurrency: 'RUB',
               availability: 'https://schema.org/PreOrder',
               url: pageUrl,
@@ -135,9 +142,20 @@ const CarDetail = () => {
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://rlogistik.ru/' },
               { '@type': 'ListItem', position: 2, name: 'Каталог', item: 'https://rlogistik.ru/catalog' },
-              { '@type': 'ListItem', position: 3, name: countryName, item: `https://rlogistik.ru/catalog?country=${entry.country}` },
+              { '@type': 'ListItem', position: 3, name: countryName, item: `https://rlogistik.ru/catalog/${entry.country}` },
               { '@type': 'ListItem', position: 4, name: variant.model, item: pageUrl },
             ],
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: content.faq.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
           })}
         </script>
       </Helmet>
@@ -200,16 +218,26 @@ const CarDetail = () => {
           </div>
 
           <div className="flex flex-col">
-            <div className="text-3xl font-display font-extrabold text-primary">{variant.price}</div>
-            <p className="text-sm text-muted-foreground mt-1">
-              Ориентировочная цена под ключ с учётом доставки и таможенного оформления
-            </p>
+            {content.cost ? (
+              <>
+                <div className="text-3xl font-display font-extrabold text-primary">
+                  от {formatRub(content.cost.total)}
+                </div>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Ориентировочная цена под ключ до вашего города: автомобиль {variant.price}, пошлина,
+                  утильсбор, доставка и услуги компании
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="text-3xl font-display font-extrabold text-primary">{variant.price}</div>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Стоимость автомобиля без учёта доставки и таможенного оформления
+                </p>
+              </>
+            )}
 
-            <p className="text-sm text-foreground/80 leading-relaxed mt-5">
-              {fullName} доступна для заказа из Китая, Японии, Южной Кореи, Европы, США, ОАЭ и других стран.
-              Мы подберём автомобиль под ваш бюджет и требования, проверим историю эксплуатации, техническое состояние и документы,
-              после чего организуем покупку, доставку и таможенное оформление под ключ до вашего города.
-            </p>
+            <p className="text-sm text-foreground/80 leading-relaxed mt-5">{content.intro}</p>
 
             <div className="mt-6 p-4 rounded-xl bg-secondary/60 flex items-start gap-2 text-xs text-muted-foreground">
               <Icon name="ImageOff" size={16} className="shrink-0 mt-0.5" />
@@ -247,6 +275,67 @@ const CarDetail = () => {
           </div>
         </div>
 
+        <section className="mt-14">
+          <h2 className="font-display font-bold text-xl mb-4">
+            {fullName}: что за автомобиль
+          </h2>
+          <p className="text-sm text-foreground/80 leading-relaxed max-w-3xl">{content.aboutModel}</p>
+        </section>
+
+        {content.cost && (
+          <section className="mt-14">
+            <h2 className="font-display font-bold text-xl mb-2">
+              Сколько стоит {fullName} под ключ в России
+            </h2>
+            <p className="text-sm text-muted-foreground mb-5 max-w-3xl">
+              Ориентировочный расчёт по методике ФТС для нового автомобиля {variant.specs.year} года
+              мощностью {variant.specs.power}
+              {content.cm3 ? ` и объёмом ${content.cm3} см³` : ''}. Курс и ставки могут измениться.
+            </p>
+
+            <div className="rounded-2xl border border-border overflow-hidden max-w-2xl">
+              {[
+                { label: `Стоимость автомобиля в ${countryPrepositional[entry.country] ?? countryName}`, value: content.cost.price },
+                { label: 'Таможенная пошлина', value: content.cost.duty },
+                { label: 'Утилизационный сбор', value: content.cost.utilFee },
+                { label: 'Таможенный сбор за оформление', value: content.cost.clearanceFee },
+                { label: `Доставка из ${countryGen}`, value: content.cost.delivery },
+                { label: 'Услуги Регион Логистик', value: content.cost.service, hint: SERVICE_FEE_TOOLTIP },
+              ].map((row, i) => (
+                <div
+                  key={row.label}
+                  className={`flex items-center justify-between gap-4 px-4 py-3 text-sm ${
+                    i > 0 ? 'border-t border-border' : ''
+                  }`}
+                >
+                  <span className="text-muted-foreground" title={row.hint}>
+                    {row.label}
+                  </span>
+                  <span className="font-semibold whitespace-nowrap">{formatRub(row.value)}</span>
+                </div>
+              ))}
+              <div className="flex items-center justify-between gap-4 px-4 py-4 bg-secondary/60 border-t border-border">
+                <span className="font-display font-bold">Итого под ключ</span>
+                <span className="font-display font-extrabold text-lg text-primary whitespace-nowrap">
+                  {formatRub(content.cost.total)}
+                </span>
+              </div>
+            </div>
+
+            <p className="text-xs text-muted-foreground mt-3 max-w-2xl">
+              Расчёт ориентировочный и зависит от курса валют, комплектации и города доставки.
+              Точную сумму по вашему автомобилю назовёт менеджер.
+            </p>
+          </section>
+        )}
+
+        <section className="mt-14">
+          <h2 className="font-display font-bold text-xl mb-4">
+            Доставка {fullName} из {countryGen}
+          </h2>
+          <p className="text-sm text-foreground/80 leading-relaxed max-w-3xl">{content.aboutDelivery}</p>
+        </section>
+
         <div className="mt-14 p-6 sm:p-8 rounded-2xl bg-secondary/50">
           <h2 className="font-display font-bold text-xl mb-4">
             Почему стоит заказать {fullName} через Регион Логистик
@@ -260,6 +349,30 @@ const CarDetail = () => {
             ))}
           </ul>
         </div>
+
+        <section className="mt-14">
+          <h2 className="font-display font-bold text-xl mb-4">
+            Частые вопросы про {fullName}
+          </h2>
+          <div className="rounded-2xl border border-border overflow-hidden max-w-3xl">
+            {content.faq.map((item, i) => (
+              <details
+                key={item.q}
+                className={`group px-4 py-3.5 ${i > 0 ? 'border-t border-border' : ''}`}
+              >
+                <summary className="flex items-start justify-between gap-3 cursor-pointer list-none font-semibold text-sm">
+                  <h3 className="font-semibold text-sm">{item.q}</h3>
+                  <Icon
+                    name="ChevronDown"
+                    size={16}
+                    className="shrink-0 mt-0.5 text-muted-foreground transition-transform group-open:rotate-180"
+                  />
+                </summary>
+                <p className="text-sm text-muted-foreground leading-relaxed mt-2.5">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
 
         {similarModels.length > 0 && (
           <div className="mt-14">

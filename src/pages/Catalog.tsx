@@ -166,6 +166,7 @@ const Catalog = () => {
                 <div className="font-semibold text-sm truncate">{e.variant.model}</div>
                 <div className="text-xs text-muted-foreground mt-0.5">{e.variant.bodyType} · {e.countryName}</div>
                 <div className="text-sm font-bold text-primary mt-2">{e.variant.price}</div>
+                <div className="text-[11px] text-muted-foreground">цена авто без доставки</div>
               </div>
             </Link>
           ))}

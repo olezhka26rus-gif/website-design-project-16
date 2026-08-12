@@ -19,86 +19,33 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import Icon from '@/components/ui/icon';
 import CountryFlag, { CountryCode } from '@/components/site/CountryFlag';
 import { trackGoal, goals } from '@/lib/analytics';
+import {
+  calcDuty,
+  calcUtilFee,
+  calcClearanceFee,
+  deliveryByCountry,
+  SERVICE_FEE,
+  SERVICE_FEE_TOOLTIP,
+  EUR_RATE,
+  CountryCalcKey,
+} from '@/lib/customs';
 
-/* ============================================================
-   Ставки и курс валют — обновляются вручную по мере изменений
-   законодательства РФ (ФТС, Постановления Правительства).
-   ============================================================ */
-
-// Курс ЦБ РФ, ₽ за 1 EUR
-const EUR_RATE = 90;
-
-// Пошлина для авто ДО 3 лет: % от стоимости или мин. ставка за см³ (берётся большее)
-const newCarDutyTiers = [
-  { maxEur: 8500, percent: 0.54, minPerCm3: 2.5 },
-  { maxEur: 16700, percent: 0.48, minPerCm3: 3.5 },
-  { maxEur: 42300, percent: 0.48, minPerCm3: 5.5 },
-  { maxEur: 84500, percent: 0.48, minPerCm3: 7.5 },
-  { maxEur: 169000, percent: 0.48, minPerCm3: 15 },
-  { maxEur: Infinity, percent: 0.48, minPerCm3: 20 },
-];
-
-// Пошлина для авто 3–5 лет: ставка EUR за см³ (от стоимости не зависит)
-const midCarDutyTiers = [
-  { maxCm3: 1000, ratePerCm3: 1.5 },
-  { maxCm3: 1500, ratePerCm3: 1.7 },
-  { maxCm3: 1800, ratePerCm3: 2.5 },
-  { maxCm3: 2300, ratePerCm3: 2.7 },
-  { maxCm3: 3000, ratePerCm3: 3.0 },
-  { maxCm3: Infinity, ratePerCm3: 3.6 },
-];
-
-// Пошлина для авто старше 5 лет: ставка EUR за см³ (от стоимости не зависит)
-const oldCarDutyTiers = [
-  { maxCm3: 1000, ratePerCm3: 3.0 },
-  { maxCm3: 1500, ratePerCm3: 3.2 },
-  { maxCm3: 1800, ratePerCm3: 3.5 },
-  { maxCm3: 2300, ratePerCm3: 4.8 },
-  { maxCm3: 3000, ratePerCm3: 5.0 },
-  { maxCm3: Infinity, ratePerCm3: 5.7 },
-];
-
-// Утилизационный сбор: базовая ставка и льготные фиксированные суммы (мощность ≤160 л.с.)
-const UTIL_BASE = 20000;
-const utilFlat = { new: 3400, old: 5200 };
-
-// Повышающие коэффициенты утильсбора для мощности >160 л.с.
-const utilCoefTiers = [
-  { maxPower: 200, new: 6.1, old: 9.6 },
-  { maxPower: 300, new: 15, old: 21 },
-  { maxPower: Infinity, new: 30, old: 42 },
-];
-
-// Таможенный сбор за оформление декларации (от стоимости авто, ₽)
-const clearanceFeeTiers = [
-  { maxPrice: 200000, fee: 1231 },
-  { maxPrice: 450000, fee: 2462 },
-  { maxPrice: 1200000, fee: 4924 },
-  { maxPrice: 2700000, fee: 13541 },
-  { maxPrice: 4200000, fee: 18465 },
-  { maxPrice: 5500000, fee: 21344 },
-  { maxPrice: 10000000, fee: 49240 },
-  { maxPrice: Infinity, fee: 73860 },
-];
-
-const countries: { value: CountryCode; label: string; delivery: number }[] = [
-  { value: 'china', label: 'Китай', delivery: 180000 },
-  { value: 'japan', label: 'Япония', delivery: 220000 },
-  { value: 'korea', label: 'Корея', delivery: 160000 },
-  { value: 'europe', label: 'Европа', delivery: 260000 },
-  { value: 'usa', label: 'США', delivery: 320000 },
-  { value: 'uae', label: 'ОАЭ', delivery: 150000 },
-];
+const countries: { value: CountryCode; label: string; delivery: number }[] = (
+  [
+    { value: 'china', label: 'Китай' },
+    { value: 'japan', label: 'Япония' },
+    { value: 'korea', label: 'Корея' },
+    { value: 'europe', label: 'Европа' },
+    { value: 'usa', label: 'США' },
+    { value: 'uae', label: 'ОАЭ' },
+  ] as { value: CountryCode; label: string }[]
+).map((c) => ({ ...c, delivery: deliveryByCountry[c.value as CountryCalcKey] }));
 
 const ageBands = [
   { value: 'new', label: 'До 3 лет' },
   { value: 'mid', label: '3–5 лет' },
   { value: 'old', label: 'Старше 5 лет' },
 ];
-
-const SERVICE_FEE = 250000;
-const SERVICE_FEE_TOOLTIP =
-  'Комплексное сопровождение включает: подбор автомобиля, проверку истории и состояния, участие в торгах (при необходимости), организацию выкупа, взаимодействие с иностранными партнёрами, контроль логистики, сопровождение таможенного оформления и поддержку клиента до получения автомобиля.';
 
 interface CalculatorProps {
   open: boolean;
@@ -139,34 +86,6 @@ const Row = ({
     </span>
   </div>
 );
-
-const findTier = <T extends { maxEur?: number; maxCm3?: number; maxPrice?: number; maxPower?: number }>(
-  tiers: T[],
-  value: number,
-  key: 'maxEur' | 'maxCm3' | 'maxPrice' | 'maxPower'
-): T => tiers.find((t) => value <= (t[key] as number))! ?? tiers[tiers.length - 1];
-
-const calcDuty = (priceRub: number, age: string, engineCm3: number) => {
-  if (age === 'new') {
-    const priceEur = priceRub / EUR_RATE;
-    const tier = findTier(newCarDutyTiers, priceEur, 'maxEur');
-    const byPercent = priceRub * tier.percent;
-    const byVolume = engineCm3 * tier.minPerCm3 * EUR_RATE;
-    return Math.round(Math.max(byPercent, byVolume));
-  }
-  const tiers = age === 'mid' ? midCarDutyTiers : oldCarDutyTiers;
-  const tier = findTier(tiers, engineCm3, 'maxCm3');
-  return Math.round(engineCm3 * tier.ratePerCm3 * EUR_RATE);
-};
-
-const calcUtilFee = (age: string, power: number) => {
-  const isNew = age === 'new';
-  if (power <= 160) return isNew ? utilFlat.new : utilFlat.old;
-  const tier = findTier(utilCoefTiers, power, 'maxPower');
-  return Math.round(UTIL_BASE * (isNew ? tier.new : tier.old));
-};
-
-const calcClearanceFee = (priceRub: number) => findTier(clearanceFeeTiers, priceRub, 'maxPrice').fee;
 
 const Calculator = ({ open, onOpenChange }: CalculatorProps) => {
   const [country, setCountry] = useState('');
