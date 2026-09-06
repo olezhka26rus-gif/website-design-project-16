@@ -18,14 +18,6 @@ import {
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import Icon from '@/components/ui/icon';
 import CountryFlag, { CountryCode } from '@/components/site/CountryFlag';
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/ui/command';
 import { trackGoal, goals } from '@/lib/analytics';
 import { catalogEntries, CatalogEntry } from '@/data/catalogCars';
 import { buildCarContent } from '@/lib/carContent';
@@ -100,7 +92,7 @@ const Row = ({
 );
 
 const Calculator = ({ open, onOpenChange, presetEntry = null }: CalculatorProps) => {
-  const [carPickerOpen, setCarPickerOpen] = useState(false);
+  const [carQuery, setCarQuery] = useState('');
   const [selectedCar, setSelectedCar] = useState<CatalogEntry | null>(null);
   const [country, setCountry] = useState('');
   const [age, setAge] = useState('');
@@ -144,12 +136,22 @@ const Calculator = ({ open, onOpenChange, presetEntry = null }: CalculatorProps)
 
   const clearCar = () => {
     setSelectedCar(null);
+    setCarQuery('');
     setResult(null);
   };
 
   useEffect(() => {
     if (open && presetEntry) applyCar(presetEntry);
   }, [open, presetEntry]);
+
+  /** Подбор машин по строке поиска */
+  const carResults = useMemo(() => {
+    const q = carQuery.trim().toLowerCase();
+    if (!q) return [];
+    return catalogEntries
+      .filter((e) => `${e.variant.model} ${e.model.brand} ${e.searchIndex}`.toLowerCase().includes(q))
+      .slice(0, 40);
+  }, [carQuery]);
 
   /** Страны, где реально продаётся выбранная машина */
   const availableCountries = useMemo(() => {
@@ -196,6 +198,7 @@ const Calculator = ({ open, onOpenChange, presetEntry = null }: CalculatorProps)
   const handleReset = () => {
     setResult(null);
     setSelectedCar(null);
+    setCarQuery('');
     setCountry('');
     setAge('');
     setEngineCm3('');
@@ -254,60 +257,54 @@ const Calculator = ({ open, onOpenChange, presetEntry = null }: CalculatorProps)
                   </button>
                 </div>
               ) : (
-                <Popover open={carPickerOpen} onOpenChange={setCarPickerOpen}>
-                  <PopoverTrigger asChild>
-                    <button
-                      type="button"
-                      className="w-full h-11 flex items-center justify-between gap-2 rounded-md border border-input bg-background px-3 text-sm text-muted-foreground hover:border-primary transition-colors"
-                    >
-                      <span className="flex items-center gap-2">
-                        <Icon name="Search" size={15} />
-                        Выбрать машину — подставим характеристики
-                      </span>
-                      <Icon name="ChevronDown" size={15} />
-                    </button>
-                  </PopoverTrigger>
-                  <PopoverContent
-                    className="p-0 w-[--radix-popover-trigger-width] overflow-hidden rounded-lg border-border shadow-lg"
-                    align="start"
-                  >
-                    <Command className="[&_[cmdk-item]]:outline-none [&_[cmdk-input]]:outline-none">
-                      <CommandInput
-                        placeholder="Марка или модель..."
-                        className="outline-none focus:outline-none focus-visible:outline-none focus:ring-0 shadow-none"
-                      />
-                      <CommandList className="max-h-64">
-                        <CommandEmpty className="py-6 text-center text-sm text-muted-foreground">
-                          Ничего не найдено
-                        </CommandEmpty>
-                        <CommandGroup className="p-1.5">
-                          {catalogEntries.map((e) => (
-                            <CommandItem
+                <div>
+                  <div className="relative">
+                    <Icon
+                      name="Search"
+                      size={15}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground pointer-events-none"
+                    />
+                    <Input
+                      value={carQuery}
+                      onChange={(e) => setCarQuery(e.target.value)}
+                      placeholder="Начните вводить марку или модель"
+                      className="h-11 pl-9"
+                    />
+                  </div>
+
+                  {carQuery.trim().length >= 1 && (
+                    <div className="mt-2 rounded-lg border border-border overflow-hidden">
+                      {carResults.length > 0 ? (
+                        <div className="max-h-56 overflow-y-auto overscroll-contain">
+                          {carResults.map((e) => (
+                            <button
                               key={`${e.country}-${e.slug}`}
-                              value={`${e.variant.model} ${e.model.brand} ${e.searchIndex}`}
-                              onSelect={() => {
+                              type="button"
+                              onClick={() => {
                                 applyCar(e);
-                                setCarPickerOpen(false);
+                                setCarQuery('');
                               }}
-                              className="cursor-pointer rounded-md px-2.5 py-2 outline-none border-0 ring-0 focus:outline-none focus-visible:outline-none focus:ring-0 data-[selected=true]:bg-secondary data-[selected=true]:text-foreground"
+                              className="w-full flex items-center gap-2.5 px-3 py-2.5 text-left hover:bg-secondary/60 transition-colors border-b border-border last:border-0"
                             >
-                              <div className="flex items-center gap-2 min-w-0 w-full">
-                                <CountryFlag
-                                  country={e.country as CountryCode}
-                                  className="w-4 h-auto rounded-[2px] shrink-0"
-                                />
-                                <span className="truncate">{e.variant.model}</span>
-                                <span className="ml-auto text-xs text-muted-foreground shrink-0">
-                                  {e.variant.specs.power}
-                                </span>
-                              </div>
-                            </CommandItem>
+                              <CountryFlag
+                                country={e.country as CountryCode}
+                                className="w-5 h-auto rounded-[2px] shrink-0"
+                              />
+                              <span className="text-sm truncate flex-1">{e.variant.model}</span>
+                              <span className="text-xs text-muted-foreground shrink-0">
+                                {e.variant.specs.power}
+                              </span>
+                            </button>
                           ))}
-                        </CommandGroup>
-                      </CommandList>
-                    </Command>
-                  </PopoverContent>
-                </Popover>
+                        </div>
+                      ) : (
+                        <p className="px-3 py-4 text-center text-sm text-muted-foreground">
+                          Ничего не найдено — введите данные вручную
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
               )}
             </div>
 
