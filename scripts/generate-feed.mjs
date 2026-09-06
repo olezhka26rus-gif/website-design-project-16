@@ -114,13 +114,44 @@ async function loadData() {
   return import(`file://${outfile}?t=${Date.now()}`);
 }
 
+function coverFor(entry) {
+  const rel = `/og/${entry.country}-${entry.slug}.jpg`;
+  return existsSync(join(PUBLIC, rel.slice(1))) ? `${SITE}${rel}` : null;
+}
+
 function pictureFor(entry, kind) {
   const rel = `/vehicles/${entry.country}-${entry.slug}-${kind}.webp`;
   return existsSync(join(PUBLIC, rel.slice(1))) ? `${SITE}${rel}` : null;
 }
 
+/**
+ * Описание для фида: 400-600 символов, без стоп-слов Яндекса
+ * («заказ», «новинка», «хит», «акция» и т.п.), без ссылок и контактов.
+ */
+function buildDescription(e, fullName, gen) {
+  const v = e.variant;
+  const body = v.bodyType.toLowerCase();
+  const fuel = fuelOf(v.specs.engine).toLowerCase();
+  const tr = (TRANSMISSION[v.specs.transmission] || v.specs.transmission).toLowerCase();
+  const drive = v.specs.drive.toLowerCase();
+
+  const parts = [
+    `${fullName} ${v.specs.year} года — ${body} с пробегом 0 км, поставляется из ${gen}.`,
+    `Технические характеристики: двигатель ${v.specs.engine}${
+      v.specs.engine.toLowerCase().includes(fuel) ? '' : `, ${fuel}`
+    }, мощность ${v.specs.power}, коробка передач — ${tr}, привод ${drive}.`,
+    `Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера.`,
+    `Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт.`,
+    `Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.`,
+  ];
+
+  let text = parts.join(' ');
+  // максимум по требованиям — 3000 символов
+  if (text.length > 2900) text = text.slice(0, 2900);
+  return text;
+}
+
 function buildFeed({ catalogEntries, catalogBrands }) {
-  const usedPictures = new Set();
   const sets = [];
   const offers = [];
   const setIdsByEntry = new Map();
@@ -129,7 +160,7 @@ function buildFeed({ catalogEntries, catalogBrands }) {
     if (b.entries.length < 4) continue;
     sets.push({
       id: `brand-${b.slug}`,
-      name: `${b.brand} на заказ из-за рубежа`,
+      name: `Автомобили ${b.brand}`,
       url: `${SITE}/catalog/brand/${b.slug}`,
     });
     for (const e of b.entries) {
@@ -152,7 +183,7 @@ function buildFeed({ catalogEntries, catalogBrands }) {
     const gen = countryGen[country] || country;
     sets.push({
       id: `country-${country}`,
-      name: `Автомобили из ${gen} на заказ`,
+      name: `Автомобили из ${gen}`,
       url: `${SITE}/catalog/${country}`,
     });
     for (const e of list) {
@@ -174,16 +205,16 @@ function buildFeed({ catalogEntries, catalogBrands }) {
       continue;
     }
 
+    // Первой идёт обложка 1200x630 — она заведомо больше минимума 300x400
     const pics = [];
+    const cover = coverFor(e);
+    if (cover) pics.push(cover);
     for (const kind of ['front', 'side']) {
       const p = pictureFor(e, kind);
-      if (p && !usedPictures.has(p)) {
-        usedPictures.add(p);
-        pics.push(p);
-      }
+      if (p) pics.push(p);
     }
     if (!pics.length) {
-      skipped.push(`${key} — нет уникального изображения`);
+      skipped.push(`${key} — нет изображения`);
       continue;
     }
 
@@ -200,9 +231,8 @@ function buildFeed({ catalogEntries, catalogBrands }) {
       : `${e.model.brand} ${v.model}`;
 
     const params = [];
-    params.push(['Конверсия', String(Math.max(1, Math.round(pics.length * 2)))]);
-    if (v.specs.year) params.push(['Год создания', v.specs.year]);
-    params.push(['Пробег', '0']);
+    if (v.specs.year) params.push(['Год выпуска', v.specs.year]);
+    params.push(['Пробег, км', '0']);
     const liters = litersOf(v.specs.engine);
     if (liters) params.push(['Двигатель, литры', liters]);
     const hp = hpOf(v.specs.power);
@@ -214,30 +244,25 @@ function buildFeed({ catalogEntries, catalogBrands }) {
     if (tr) params.push(['Коробка передач', tr]);
     const dr = DRIVE[v.specs.drive];
     if (dr) params.push(['Привод', dr]);
-    params.push(['Состояние', 'Не требует ремонта']);
-    params.push(['Размещено дилером', 'false']);
+    params.push(['Состояние', 'Новый']);
 
     offers.push({
       id: `${e.country}-${e.slug}`,
-      name: `${fullName} (${v.bodyType}) под заказ из ${gen}`,
+      name: `${v.bodyType} ${fullName} ${v.specs.year}`,
       vendor: e.model.brand,
       url: `${SITE}/catalog/${e.country}/${e.slug}`,
       price,
       categoryId,
       setIds,
       pics,
-      description:
-        `${fullName} — ${v.bodyType.toLowerCase()}, ${v.specs.year} год, новый автомобиль под заказ из ${gen}. ` +
-        `Двигатель ${v.specs.engine}, мощность ${v.specs.power}, ${v.specs.transmission.toLowerCase()}, ` +
-        `${v.specs.drive.toLowerCase()} привод. Ориентировочная цена под ключ ${v.price}. ` +
-        `Подбор, проверка, выкуп, доставка и таможенное оформление компанией Регион Логистик.`,
+      description: buildDescription(e, fullName, gen),
       params,
     });
   }
 
   const now = new Date();
   const pad = (n) => String(n).padStart(2, '0');
-  const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  const date = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}+03:00`;
 
   const usedCategoryIds = new Set(offers.map((o) => o.categoryId));
   const categoriesXml = CATEGORIES.filter(
@@ -265,7 +290,7 @@ function buildFeed({ catalogEntries, catalogBrands }) {
       const paramsXml = o.params
         .map(([n, val]) => `        <param name="${esc(n)}">${esc(val)}</param>`)
         .join('\n');
-      return `      <offer id="${esc(o.id)}">
+      return `      <offer id="${esc(o.id)}" available="true">
         <name>${esc(o.name)}</name>
         <vendor>${esc(o.vendor)}</vendor>
         <url>${esc(o.url)}</url>
@@ -274,6 +299,8 @@ function buildFeed({ catalogEntries, catalogBrands }) {
         <categoryId>${o.categoryId}</categoryId>
         <set-ids>${esc(o.setIds.join(','))}</set-ids>
 ${picsXml}
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
         <description>${esc(o.description)}</description>
 ${paramsXml}
       </offer>`;
@@ -289,6 +316,7 @@ ${paramsXml}
     <currencies>
       <currency id="RUR" rate="1"/>
     </currencies>
+    <delivery>true</delivery>
     <categories>
 ${categoriesXml}
     </categories>
