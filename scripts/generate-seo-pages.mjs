@@ -7,7 +7,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const PUBLIC = join(ROOT, 'public');
 const SITE = 'https://rlogistik.ru';
-const DEFAULT_IMAGE = `${SITE}/logo-mark.png`;
+const DEFAULT_IMAGE = `${SITE}/og-cover.jpg`;
+
+/** Готовая карточка-превью 1200x630 для мессенджеров и соцсетей */
+const ogCover = (entry) => `${SITE}/og/${entry.country}-${entry.slug}.jpg`;
 
 const esc = (s = '') =>
   String(s)
@@ -109,7 +112,7 @@ function buildRoutes({ catalogEntries, catalogBrands, articles, buildCarContent,
       title: `Автомобили из ${gen} на заказ — ${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} и цены | Регион Логистик`,
       description: `${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} автомобилей из ${gen} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
       keywords: `авто из ${gen}, автомобили из ${gen}, купить авто из ${gen}, заказать машину из ${gen}, авто из ${gen} цена, Регион Логистик`,
-      image: abs(list[0].variant.frontImage),
+      image: ogCover(list[0]),
       ogType: 'website',
       jsonLd: [
         {
@@ -152,7 +155,7 @@ ${
       title: `${b.brand} на заказ из-за рубежа — ${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} и цены | Регион Логистик`,
       description: `${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} ${b.brand} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
       keywords: `${b.brand}, ${b.brand} на заказ, купить ${b.brand}, ${b.brand} цена, Регион Логистик`,
-      image: abs(b.entries[0].variant.frontImage),
+      image: ogCover(b.entries[0]),
       ogType: 'website',
       jsonLd: [
         {
@@ -248,7 +251,7 @@ ${
         ? `${v.model} (${v.bodyType}, ${v.specs.year}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}, ${v.specs.transmission}. Цена под ключ ${priceLine} с пошлиной, утильсбором и доставкой. Расчёт, сроки и ответы на частые вопросы.`
         : `${v.model} (${v.bodyType}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}. Подбор, проверка и доставка в Россию.`,
       keywords: `${v.model}, купить ${v.model}, ${v.model} из ${gen}, ${v.model} цена под ключ, ${v.model} растаможка, заказать ${v.model}, Регион Логистик`,
-      image: abs(v.frontImage),
+      image: ogCover(e),
       ogType: 'product',
       jsonLd: [faqLd],
       body: `<h1>${esc(v.model)} на заказ из ${esc(gen)}</h1>
@@ -305,7 +308,7 @@ ${faqHtml}
       title: `${a.title} | Регион Логистик (Region Logistik)`,
       description: a.description,
       keywords: a.keywords || '',
-      image: abs(a.cover),
+      image: `${SITE}/og/blog-${a.slug}.jpg`,
       ogType: 'article',
       body: `<article><h1>${esc(a.title)}</h1>
 <p>${esc(a.description)}</p>
@@ -371,6 +374,18 @@ function renderPage(template, route) {
       `<meta property="og:description" content="${esc(route.description)}">`,
     ],
     [/<meta\s+property="og:image"[^>]*>/i, `<meta property="og:image" content="${esc(route.image)}">`],
+    [
+      /<meta\s+property="og:image:width"[^>]*>/i,
+      `<meta property="og:image:width" content="1200">`,
+    ],
+    [
+      /<meta\s+property="og:image:height"[^>]*>/i,
+      `<meta property="og:image:height" content="630">`,
+    ],
+    [
+      /<meta\s+property="og:image:alt"[^>]*>/i,
+      `<meta property="og:image:alt" content="${esc(route.title)}">`,
+    ],
     [/<meta\s+property="og:type"[^>]*>/i, `<meta property="og:type" content="${esc(route.ogType)}">`],
     [
       /<meta\s+name="twitter:title"[^>]*>/i,
