@@ -14,6 +14,9 @@ import Article from "./pages/Article";
 import Catalog from "./pages/Catalog";
 import CarDetail from "./pages/CarDetail";
 import CatalogCollection from "./pages/CatalogCollection";
+import MotoCatalog from "./pages/MotoCatalog";
+import MotoDetail from "./pages/MotoDetail";
+import MotoCollection from "./pages/MotoCollection";
 import Privacy from "./pages/Privacy";
 import NotFoundSeo from "./pages/NotFoundSeo";
 
@@ -37,6 +40,10 @@ const App = () => (
             <Route path="/catalog/brand/:brand" element={<CatalogCollection mode="brand" />} />
             <Route path="/catalog/:country" element={<CatalogCollection mode="country" />} />
             <Route path="/catalog/:country/:slug" element={<CarDetail />} />
+            <Route path="/moto" element={<MotoCatalog />} />
+            <Route path="/moto/brand/:brand" element={<MotoCollection mode="brand" />} />
+            <Route path="/moto/:country" element={<MotoCollection mode="country" />} />
+            <Route path="/moto/:country/:slug" element={<MotoDetail />} />
             <Route path="/privacy" element={<Privacy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFoundSeo />} />

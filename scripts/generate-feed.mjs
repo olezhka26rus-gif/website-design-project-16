@@ -51,7 +51,16 @@ const CATEGORIES = [
   [108, 'Пикап', 11],
   [109, 'Кабриолет', 11],
   [110, 'Фургон', 11],
+  [12, 'Мотоцикл', null],
 ];
+
+const MOTO_CATEGORY_ID = 12;
+
+const motoCountryGen = {
+  japan: 'Японии',
+  europe: 'Европы',
+  usa: 'США',
+};
 
 const TRANSMISSION = {
   'Автомат': 'Автоматическая',
@@ -100,7 +109,9 @@ async function loadData() {
   writeFileSync(
     entry,
     `export { catalogEntries, catalogBrands, countryNames } from '${join(ROOT, 'src/data/catalogCars.ts').replace(/\\/g, '/')}';
-export { buildCarContent } from '${join(ROOT, 'src/lib/carContent.ts').replace(/\\/g, '/')}';`
+export { buildCarContent } from '${join(ROOT, 'src/lib/carContent.ts').replace(/\\/g, '/')}';
+export { motoEntries, motoBrands } from '${join(ROOT, 'src/data/catalogMoto.ts').replace(/\\/g, '/')}';
+export { buildMotoContent } from '${join(ROOT, 'src/lib/motoContent.ts').replace(/\\/g, '/')}';`
   );
   const outfile = join(outdir, 'data.mjs');
   await esbuild({
@@ -152,7 +163,30 @@ function buildDescription(e, fullName, gen) {
   return text;
 }
 
-function buildFeed({ catalogEntries, catalogBrands, buildCarContent }) {
+/** Описание мотоцикла для фида — та же логика, что и для машин, но без утильсбора-автомобиля */
+function buildMotoDescription(e, fullName, gen) {
+  const v = e.variant;
+  const body = v.bodyType.toLowerCase();
+  const fuel = fuelOf(v.specs.engine).toLowerCase();
+  const tr = (TRANSMISSION[v.specs.transmission] || v.specs.transmission).toLowerCase();
+  const drive = v.specs.drive.toLowerCase();
+
+  const parts = [
+    `${fullName} ${v.specs.year} года — ${body} с пробегом 0 км, поставляется из ${gen}.`,
+    `Технические характеристики: двигатель ${v.specs.engine}${
+      v.specs.engine.toLowerCase().includes(fuel) ? '' : `, ${fuel}`
+    }, мощность ${v.specs.power}, коробка передач — ${tr}, привод ${drive}.`,
+    `Мотоцикл проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера.`,
+    `Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и сборов, а также постановку на учёт.`,
+    `Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.`,
+  ];
+
+  let text = parts.join(' ');
+  if (text.length > 2900) text = text.slice(0, 2900);
+  return text;
+}
+
+function buildFeed({ catalogEntries, catalogBrands, buildCarContent, motoEntries, motoBrands, buildMotoContent }) {
   const sets = [];
   const offers = [];
   const setIdsByEntry = new Map();
@@ -265,6 +299,109 @@ function buildFeed({ catalogEntries, catalogBrands, buildCarContent }) {
       setIds,
       pics,
       description: buildDescription(e, fullName, gen),
+      params,
+    });
+  }
+
+  /* ---- Мотоциклы ---- */
+  const motoSetIdsByEntry = new Map();
+
+  for (const b of motoBrands) {
+    if (b.entries.length < 2) continue;
+    sets.push({
+      id: `moto-brand-${b.slug}`,
+      name: `Мотоциклы ${b.brand}`,
+      url: `${SITE}/moto/brand/${b.slug}`,
+    });
+    for (const e of b.entries) {
+      const key = `moto/${e.country}/${e.slug}`;
+      const list = motoSetIdsByEntry.get(key) ?? [];
+      list.push(`moto-brand-${b.slug}`);
+      motoSetIdsByEntry.set(key, list);
+    }
+  }
+
+  const motoByCountry = new Map();
+  for (const e of motoEntries) {
+    const list = motoByCountry.get(e.country) ?? [];
+    list.push(e);
+    motoByCountry.set(e.country, list);
+  }
+
+  for (const [country, list] of motoByCountry) {
+    if (list.length < 4) continue;
+    const gen = motoCountryGen[country] || country;
+    sets.push({
+      id: `moto-country-${country}`,
+      name: `Мотоциклы из ${gen}`,
+      url: `${SITE}/moto/${country}`,
+    });
+    for (const e of list) {
+      const key = `moto/${e.country}/${e.slug}`;
+      const arr = motoSetIdsByEntry.get(key) ?? [];
+      arr.push(`moto-country-${country}`);
+      motoSetIdsByEntry.set(key, arr);
+    }
+  }
+
+  for (const e of motoEntries) {
+    const v = e.variant;
+    const key = `moto/${e.country}/${e.slug}`;
+    const setIds = motoSetIdsByEntry.get(key);
+    if (!setIds || !setIds.length) {
+      skipped.push(`${key} — не входит ни в один сет`);
+      continue;
+    }
+
+    const pics = [];
+    const cover = existsSync(join(PUBLIC, `og/${e.country}-${e.slug}.jpg`))
+      ? `${SITE}/og/${e.country}-${e.slug}.jpg`
+      : null;
+    if (cover) pics.push(cover);
+    for (const kind of ['front', 'side']) {
+      const rel = `/moto/${e.slug}-${kind}.webp`;
+      if (existsSync(join(PUBLIC, rel.slice(1)))) pics.push(`${SITE}${rel}`);
+    }
+    if (!pics.length) {
+      skipped.push(`${key} — нет изображения`);
+      continue;
+    }
+
+    const content = buildMotoContent(e);
+    const price = content.cost ? Math.round(content.cost.total) : priceOf(v.price);
+    if (!price) {
+      skipped.push(`${key} — не разобрана цена «${v.price}»`);
+      continue;
+    }
+
+    const gen = motoCountryGen[e.country] || e.countryName;
+    const fullName = v.model.toLowerCase().startsWith(e.model.brand.toLowerCase())
+      ? v.model
+      : `${e.model.brand} ${v.model}`;
+
+    const params = [];
+    params.push(['Конверсия', '1']);
+    if (v.specs.year) params.push(['Год выпуска', v.specs.year]);
+    params.push(['Пробег, км', '0']);
+    const liters = litersOf(v.specs.engine);
+    if (liters) params.push(['Двигатель, литры', liters]);
+    const hp = hpOf(v.specs.power);
+    if (hp) params.push(['Двигатель, л.с.', hp]);
+    params.push(['Топливо', fuelOf(v.specs.engine)]);
+    const tr = TRANSMISSION[v.specs.transmission];
+    if (tr) params.push(['Коробка передач', tr]);
+    params.push(['Состояние', 'Не требует ремонта']);
+
+    offers.push({
+      id: `moto-${e.country}-${e.slug}`,
+      name: `Мотоцикл ${fullName} ${v.specs.year}`,
+      vendor: e.model.brand,
+      url: `${SITE}/moto/${e.country}/${e.slug}`,
+      price,
+      categoryId: MOTO_CATEGORY_ID,
+      setIds,
+      pics,
+      description: buildMotoDescription(e, fullName, gen),
       params,
     });
   }

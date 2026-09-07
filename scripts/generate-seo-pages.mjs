@@ -11,6 +11,7 @@ const DEFAULT_IMAGE = `${SITE}/og-cover.jpg`;
 
 /** Готовая карточка-превью 1200x630 для мессенджеров и соцсетей */
 const ogCover = (entry) => `${SITE}/og/${entry.country}-${entry.slug}.jpg`;
+const motoOgCover = (entry) => `${SITE}/og/${entry.country}-${entry.slug}.jpg`;
 
 const esc = (s = '') =>
   String(s)
@@ -39,6 +40,18 @@ const countryGen = {
   uae: 'ОАЭ',
 };
 
+const motoCountryGen = {
+  japan: 'Японии',
+  europe: 'Европы',
+  usa: 'США',
+};
+
+const motoCountryPrep = {
+  japan: 'Японии',
+  europe: 'Европе',
+  usa: 'США',
+};
+
 async function loadData() {
   const outdir = join(ROOT, 'node_modules', '.seogen');
   mkdirSync(outdir, { recursive: true });
@@ -49,7 +62,10 @@ async function loadData() {
 export { articles } from '${join(ROOT, 'src/data/articles.ts').replace(/\\/g, '/')}';
 export { buildCarContent } from '${join(ROOT, 'src/lib/carContent.ts').replace(/\\/g, '/')}';
 export { formatRub } from '${join(ROOT, 'src/lib/customs.ts').replace(/\\/g, '/')}';
-export { buildCollectionContent } from '${join(ROOT, 'src/lib/collectionContent.ts').replace(/\\/g, '/')}';`
+export { buildCollectionContent } from '${join(ROOT, 'src/lib/collectionContent.ts').replace(/\\/g, '/')}';
+export { motoEntries, motoBrands } from '${join(ROOT, 'src/data/catalogMoto.ts').replace(/\\/g, '/')}';
+export { buildMotoContent } from '${join(ROOT, 'src/lib/motoContent.ts').replace(/\\/g, '/')}';
+export { buildMotoCollectionContent } from '${join(ROOT, 'src/lib/motoCollectionContent.ts').replace(/\\/g, '/')}';`
   );
   const outfile = join(outdir, 'data.mjs');
   await esbuild({
@@ -98,7 +114,29 @@ function carGrid(entries) {
     .join('')}</ul>`;
 }
 
-function buildRoutes({ catalogEntries, catalogBrands, articles, buildCarContent, formatRub, buildCollectionContent }) {
+function motoGrid(entries) {
+  return `<ul>${entries
+    .map(
+      (e) =>
+        `<li><a href="/moto/${e.country}/${e.slug}">${esc(e.variant.model)} (${esc(
+          e.variant.bodyType
+        )}, ${esc(e.countryName)}) — ${esc(e.variant.price)}</a></li>`
+    )
+    .join('')}</ul>`;
+}
+
+function buildRoutes({
+  catalogEntries,
+  catalogBrands,
+  articles,
+  buildCarContent,
+  formatRub,
+  buildCollectionContent,
+  motoEntries,
+  motoBrands,
+  buildMotoContent,
+  buildMotoCollectionContent,
+}) {
   const routes = [];
 
   const byCountry = {};
@@ -322,6 +360,154 @@ ${
     : ''
 }
 <p><a href="/blog">Все статьи блога</a></p></article>`,
+    });
+  }
+
+  /* ---- Мотоциклы ---- */
+  const motoByCountry = {};
+  for (const e of motoEntries) (motoByCountry[e.country] ??= []).push(e);
+
+  for (const [country, list] of Object.entries(motoByCountry)) {
+    const gen = motoCountryGen[country] || country;
+    const ex = buildMotoCollectionContent(list, 'country', country);
+    routes.push({
+      path: `/moto/${country}`,
+      title: `Мотоциклы из ${gen} на заказ — ${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} и цены | Регион Логистик`,
+      description: `${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} мотоциклов из ${gen} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
+      keywords: `мотоцикл из ${gen}, мотоциклы из ${gen}, купить мотоцикл из ${gen}, заказать мотоцикл из ${gen}, Регион Логистик`,
+      image: motoOgCover(list[0]),
+      ogType: 'website',
+      jsonLd: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: ex.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ],
+      body: `<h1>Мотоциклы из ${esc(gen)} на заказ</h1>
+<p>Подбираем и привозим мотоциклы из ${esc(gen)} под ключ: проверка, выкуп, доставка, растаможка и постановка на учёт. В каталоге ${list.length} ${plural(list.length, 'модель', 'модели', 'моделей')} с ориентировочными ценами.</p>
+${motoGrid(list)}
+<h2>Мотоциклы из ${esc(gen)}: что важно знать</h2>
+<p>${esc(ex.about)}</p>
+${
+  ex.stats.minTotal
+    ? `<h2>Цены под ключ</h2>
+<table>
+<tr><td>Самый доступный вариант под ключ</td><td>${esc(formatRub(ex.stats.minTotal))}</td></tr>
+<tr><td>Это модель</td><td>${esc(ex.stats.minTotalModel)}</td></tr>
+<tr><td>Цена мотоцикла без доставки, от</td><td>${esc(formatRub(ex.stats.minPrice))}</td></tr>
+<tr><td>Годы выпуска в подборке</td><td>${esc(ex.stats.years)}</td></tr>
+</table>`
+    : ''
+}
+<h2>Частые вопросы</h2>${ex.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
+<p><a href="/moto">Весь каталог мотоциклов</a></p>`,
+    });
+  }
+
+  for (const b of motoBrands) {
+    if (b.entries.length < 2) continue;
+    const bx = buildMotoCollectionContent(b.entries, 'brand', b.brand);
+    routes.push({
+      path: `/moto/brand/${b.slug}`,
+      title: `${b.brand} на заказ из-за рубежа — ${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} и цены | Регион Логистик`,
+      description: `${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} мотоциклов ${b.brand} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
+      keywords: `${b.brand}, ${b.brand} на заказ, купить ${b.brand}, ${b.brand} цена, Регион Логистик`,
+      image: motoOgCover(b.entries[0]),
+      ogType: 'website',
+      jsonLd: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: bx.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ],
+      body: `<h1>${esc(b.brand)} на заказ из-за рубежа</h1>
+<p>Привозим мотоциклы ${esc(b.brand)} под ключ из Японии, Европы и США. В каталоге ${b.entries.length} ${plural(b.entries.length, 'модель', 'модели', 'моделей')} с характеристиками и ориентировочной ценой.</p>
+${motoGrid(b.entries)}
+<h2>${esc(b.brand)}: что важно знать</h2>
+<p>${esc(bx.about)}</p>
+<h2>Частые вопросы</h2>${bx.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('')}
+<p><a href="/moto">Весь каталог мотоциклов</a></p>`,
+    });
+  }
+
+  routes.push({
+    path: '/moto',
+    title: 'Каталог мотоциклов на заказ из-за рубежа | Регион Логистик (Region Logistik)',
+    description: `Каталог из ${motoEntries.length} моделей мотоциклов на заказ из Японии, Европы и США — характеристики, ориентировочные цены и расчёт стоимости под ключ.`,
+    keywords:
+      'каталог мотоциклов на заказ, мотоцикл из Японии, мотоцикл из Европы, мотоцикл из США, купить мотоцикл под заказ, растаможка мотоцикла, Регион Логистик',
+    image: motoOgCover(motoEntries[0]),
+    ogType: 'website',
+    body: `<h1>Каталог мотоциклов на заказ</h1>
+<p>${motoEntries.length} моделей из Японии, Европы и США — с характеристиками и ориентировочной ценой под ключ.</p>
+${motoGrid(motoEntries)}`,
+  });
+
+  for (const e of motoEntries) {
+    const v = e.variant;
+    const gen = motoCountryGen[e.country] || e.countryName;
+    const c = buildMotoContent(e);
+    const priceLine = c.cost ? `от ${formatRub(c.cost.total)}` : v.price;
+
+    const costTable = c.cost
+      ? `<h2>Сколько стоит ${esc(c.fullName)} под ключ в России</h2>
+<p>Ориентировочный расчёт для нового мотоцикла ${esc(v.specs.year)} года${c.cm3 ? ` объёмом ${c.cm3} см³` : ''}${c.best ? ` по самому выгодному маршруту — из ${esc(c.best.countryGen)}` : ''}.</p>
+<table>
+<tr><td>Стоимость мотоцикла в ${esc(motoCountryPrep[(c.best && c.best.country) || e.country] || e.countryName)}</td><td>${esc(formatRub(c.cost.price))}</td></tr>
+<tr><td>Таможенная пошлина</td><td>${esc(formatRub(c.cost.duty))}</td></tr>
+<tr><td>Утилизационный сбор</td><td>${esc(formatRub(c.cost.utilFee))}</td></tr>
+<tr><td>Таможенный сбор за оформление</td><td>${esc(formatRub(c.cost.clearanceFee))}</td></tr>
+<tr><td>Доставка из ${esc((c.best && c.best.countryGen) || gen)}</td><td>${esc(formatRub(c.cost.delivery))}</td></tr>
+<tr><td>Услуги Регион Логистик</td><td>${esc(formatRub(c.cost.service))}</td></tr>
+<tr><td><strong>Итого под ключ</strong></td><td><strong>${esc(formatRub(c.cost.total))}</strong></td></tr>
+</table>
+<p>Расчёт ориентировочный и зависит от курса валют, комплектации и города доставки.</p>`
+      : '';
+
+    const faqHtmlMoto = c.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join('');
+
+    routes.push({
+      path: `/moto/${e.country}/${e.slug}`,
+      title: `${v.model} на заказ из ${gen} — цена под ключ и характеристики | Регион Логистик`,
+      description: c.cost
+        ? `${v.model} (${v.bodyType}, ${v.specs.year}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}, ${v.specs.transmission}. Цена под ключ ${priceLine} с пошлиной и доставкой. Расчёт, сроки и ответы на частые вопросы.`
+        : `${v.model} (${v.bodyType}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}. Подбор, проверка и доставка в Россию.`,
+      keywords: `${v.model}, купить ${v.model}, ${v.model} из ${gen}, ${v.model} цена под ключ, заказать ${v.model}, Регион Логистик`,
+      image: motoOgCover(e),
+      ogType: 'product',
+      jsonLd: [
+        {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: c.faq.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        },
+      ],
+      body: `<h1>${esc(v.model)}</h1>
+<p><strong>Цена под ключ: ${esc(priceLine)}</strong> (стоимость мотоцикла ${esc(v.price)} + пошлина, сборы, доставка и услуги компании).</p>
+<h2>Характеристики ${esc(c.fullName)}</h2>
+<ul>${specList(v.specs)}${c.cm3 ? `<li>Объём двигателя: ${c.cm3} см³</li>` : ''}</ul>
+<p>Марка: ${esc(e.model.brand)}. Страна вывоза: ${esc(e.countryName)}. Тип: ${esc(v.bodyType)}.</p>
+<h2>${esc(c.fullName)}: что за мотоцикл</h2>
+<p>${esc(c.aboutModel)}</p>
+${costTable}
+<h2>Доставка ${esc(c.fullName)}${c.quotes.length > 1 ? ': откуда везём' : ` из ${esc(gen)}`}</h2>
+<p>${esc(c.aboutDelivery)}</p>
+${faqHtmlMoto}
+<p><a href="/moto/${e.country}">Все мотоциклы из ${esc(gen)}</a> · <a href="/moto">Весь каталог мотоциклов</a></p>`,
     });
   }
 

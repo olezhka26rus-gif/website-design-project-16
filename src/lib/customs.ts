@@ -130,6 +130,89 @@ export const calcTotalCost = (
   };
 };
 
+/* ============================================================
+   Растаможка мотоциклов (товарная позиция 8711).
+   В отличие от легковых авто: пошлина считается только в евро
+   за см³ рабочего объёма (без варианта «% от стоимости»),
+   утилизационный сбор — фиксированный и в разы меньше автомобильного,
+   таможенный сбор за оформление — минимальная ставка.
+   ============================================================ */
+
+/** Ставка пошлины, €/см³, по объёму двигателя — для мотоциклов не старше 3 лет */
+const motoDutyTiersNew = [
+  { maxCm3: 500, eurPerCm3: 0.5 },
+  { maxCm3: 800, eurPerCm3: 1.0 },
+  { maxCm3: Infinity, eurPerCm3: 1.5 },
+];
+
+/** Для мотоциклов старше 3 лет ставка выше */
+const motoDutyTiersOld = [
+  { maxCm3: 500, eurPerCm3: 0.8 },
+  { maxCm3: 800, eurPerCm3: 1.5 },
+  { maxCm3: Infinity, eurPerCm3: 2.0 },
+];
+
+/** Утилизационный сбор для мотоциклов — фиксированная минимальная сумма (база 2000 ₽) */
+export const MOTO_UTIL_FEE_NEW = 2000;
+export const MOTO_UTIL_FEE_OLD = 3400;
+
+/** Таможенный сбор за оформление мотоцикла — минимальная ставка по шкале */
+export const MOTO_CLEARANCE_FEE = 1067;
+
+/** Доставка мотоцикла дешевле автомобильной — меньше объём и вес в контейнере */
+export const motoDeliveryByCountry: Record<'japan' | 'europe' | 'usa', number> = {
+  japan: 90000,
+  europe: 110000,
+  usa: 150000,
+};
+
+/** Услуги компании по мотоциклу — меньше автомобильных, но включают тот же набор работ */
+export const MOTO_SERVICE_FEE = 120000;
+
+export interface MotoCostBreakdown {
+  price: number;
+  duty: number;
+  utilFee: number;
+  clearanceFee: number;
+  delivery: number;
+  service: number;
+  total: number;
+}
+
+export const calcMotoDuty = (age: 'new' | 'old', engineCm3: number): number => {
+  const tiers = age === 'new' ? motoDutyTiersNew : motoDutyTiersOld;
+  const tier = findTier(tiers, engineCm3, 'maxCm3');
+  return Math.round(engineCm3 * tier.eurPerCm3 * EUR_RATE);
+};
+
+export const calcMotoTotalCost = (
+  priceRub: number,
+  age: 'new' | 'old',
+  engineCm3: number,
+  country: 'japan' | 'europe' | 'usa'
+): MotoCostBreakdown => {
+  const duty = calcMotoDuty(age, engineCm3);
+  const utilFee = age === 'new' ? MOTO_UTIL_FEE_NEW : MOTO_UTIL_FEE_OLD;
+  const clearanceFee = MOTO_CLEARANCE_FEE;
+  const delivery = motoDeliveryByCountry[country] ?? 100000;
+  return {
+    price: priceRub,
+    duty,
+    utilFee,
+    clearanceFee,
+    delivery,
+    service: MOTO_SERVICE_FEE,
+    total: priceRub + duty + utilFee + clearanceFee + delivery + MOTO_SERVICE_FEE,
+  };
+};
+
+/** Достаёт объём двигателя мотоцикла в см³ из строки вида «0.65 л» */
+export const motoEngineCm3FromSpec = (engine: string): number => {
+  const m = engine.match(/(\d+[.,]\d+)\s*л/);
+  if (!m) return 0;
+  return Math.round(parseFloat(m[1].replace(',', '.')) * 1000);
+};
+
 export const formatRub = (n: number) => n.toLocaleString('ru-RU') + ' ₽';
 
 /** Достаёт объём двигателя в см³ из строки вида «2.0 л Turbo». Для электро — 0 */

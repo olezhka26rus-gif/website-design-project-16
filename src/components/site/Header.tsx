@@ -15,6 +15,7 @@ const navLinks = [
   { label: 'США', href: '#catalog-usa' },
   { label: 'ОАЭ', href: '#catalog-uae' },
   { label: 'Каталог', href: '/catalog' },
+  { label: 'Мотоциклы', href: '/moto' },
   { label: 'Кейсы', href: '#cases' },
   { label: 'Отзывы', href: '#reviews' },
   { label: 'Блог', href: '/blog' },

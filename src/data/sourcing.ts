@@ -28,6 +28,9 @@ const brandOrigin: Record<string, 'cn' | 'jp' | 'kr' | 'eu' | 'us' | 'lux'> = {
   Jetta: 'cn',
   'Lynk & Co': 'cn',
   Voyah: 'cn',
+  Exeed: 'cn',
+  Omoda: 'cn',
+  Jaecoo: 'cn',
 
   Toyota: 'jp',
   Honda: 'jp',
@@ -53,6 +56,8 @@ const brandOrigin: Record<string, 'cn' | 'jp' | 'kr' | 'eu' | 'us' | 'lux'> = {
   Porsche: 'eu',
   Mini: 'eu',
   'Range Rover': 'eu',
+  'Land Rover': 'eu',
+  Volvo: 'eu',
 
   Chevrolet: 'us',
   Ford: 'us',
@@ -61,12 +66,16 @@ const brandOrigin: Record<string, 'cn' | 'jp' | 'kr' | 'eu' | 'us' | 'lux'> = {
   Ram: 'us',
   Tesla: 'us',
   Cadillac: 'us',
+  GMC: 'us',
+  Lincoln: 'us',
 
   'Rolls-Royce': 'lux',
   Bentley: 'lux',
   Ferrari: 'lux',
   Lamborghini: 'lux',
   'Mercedes-Maybach': 'lux',
+  McLaren: 'lux',
+  'Aston Martin': 'lux',
 };
 
 /**
