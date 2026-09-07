@@ -99,7 +99,8 @@ async function loadData() {
   const entry = join(outdir, 'entry.mjs');
   writeFileSync(
     entry,
-    `export { catalogEntries, catalogBrands, countryNames } from '${join(ROOT, 'src/data/catalogCars.ts').replace(/\\/g, '/')}';`
+    `export { catalogEntries, catalogBrands, countryNames } from '${join(ROOT, 'src/data/catalogCars.ts').replace(/\\/g, '/')}';
+export { buildCarContent } from '${join(ROOT, 'src/lib/carContent.ts').replace(/\\/g, '/')}';`
   );
   const outfile = join(outdir, 'data.mjs');
   await esbuild({
@@ -151,7 +152,7 @@ function buildDescription(e, fullName, gen) {
   return text;
 }
 
-function buildFeed({ catalogEntries, catalogBrands }) {
+function buildFeed({ catalogEntries, catalogBrands, buildCarContent }) {
   const sets = [];
   const offers = [];
   const setIdsByEntry = new Map();
@@ -218,7 +219,10 @@ function buildFeed({ catalogEntries, catalogBrands }) {
       continue;
     }
 
-    const price = priceOf(v.price);
+    // Цена как на сайте: итоговая стоимость под ключ (авто + пошлина + утильсбор + доставка),
+    // а не голая цена автомобиля — иначе Яндекс считает цену в фиде заниженной.
+    const content = buildCarContent(e);
+    const price = content.cost ? Math.round(content.cost.total) : priceOf(v.price);
     if (!price) {
       skipped.push(`${key} — не разобрана цена «${v.price}»`);
       continue;
@@ -231,6 +235,9 @@ function buildFeed({ catalogEntries, catalogBrands }) {
       : `${e.model.brand} ${v.model}`;
 
     const params = [];
+    // Обязательный параметр для категории "Автомобили" — произвольное число,
+    // чем больше, тем выше приоритет предложения. Без него фид не проходит проверку.
+    params.push(['Конверсия', '1']);
     if (v.specs.year) params.push(['Год выпуска', v.specs.year]);
     params.push(['Пробег, км', '0']);
     const liters = litersOf(v.specs.engine);
@@ -244,7 +251,9 @@ function buildFeed({ catalogEntries, catalogBrands }) {
     if (tr) params.push(['Коробка передач', tr]);
     const dr = DRIVE[v.specs.drive];
     if (dr) params.push(['Привод', dr]);
-    params.push(['Состояние', 'Новый']);
+    // Допустимые значения по спецификации Яндекса: "Не требует ремонта",
+    // "Нуждается в ремонте", "Не на ходу" — значения "Новый" там нет.
+    params.push(['Состояние', 'Не требует ремонта']);
 
     offers.push({
       id: `${e.country}-${e.slug}`,
