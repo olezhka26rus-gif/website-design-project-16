@@ -3,6 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Icon from '@/components/ui/icon';
+import CountryFlag from '@/components/site/CountryFlag';
 import {
   motoEntries,
   motoEntriesByCountry,
@@ -37,11 +38,7 @@ const countryNamesMap: Record<MotoCountryKey, string> = {
   usa: 'США',
 };
 
-const countryFlagEmoji: Record<MotoCountryKey, string> = {
-  japan: '🇯🇵',
-  europe: '🇪🇺',
-  usa: '🇺🇸',
-};
+
 
 interface CollectionData {
   title: string;
@@ -182,8 +179,8 @@ const MotoCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute top-2 left-2 bg-white/90 rounded-full px-1.5 py-0.5 text-xs">
-                  {countryFlagEmoji[e.country]}
+                <div className="absolute top-2 left-2 bg-white/90 rounded-full p-1">
+                  <CountryFlag country={e.country} className="w-4 h-auto rounded-[2px]" />
                 </div>
               </div>
               <div className="p-3 flex-1 flex flex-col">

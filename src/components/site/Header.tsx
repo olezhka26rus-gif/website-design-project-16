@@ -64,7 +64,7 @@ const Header = () => {
           />
         </a>
 
-        <nav className="hidden lg:flex items-center gap-5 flex-nowrap min-w-0 overflow-hidden">
+        <nav className="hidden xl:flex items-center gap-4 flex-nowrap min-w-0">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -119,7 +119,7 @@ const Header = () => {
         <button className="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-foreground/70 shrink-0" onClick={() => setSearchOpen((v) => !v)} aria-label="Поиск автомобиля">
           <Icon name="Search" size={20} />
         </button>
-        <button className="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center shrink-0" onClick={() => setOpen(!open)} aria-label="Меню">
+        <button className="xl:hidden w-10 h-10 rounded-lg flex items-center justify-center shrink-0" onClick={() => setOpen(!open)} aria-label="Меню">
           <Icon name={open ? 'X' : 'Menu'} size={24} />
         </button>
       </div>
@@ -133,7 +133,7 @@ const Header = () => {
       )}
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-white animate-fade-in">
+        <div className="xl:hidden border-t border-border bg-white animate-fade-in">
           <nav className="container py-4 flex flex-col gap-3">
             {navLinks.map((link) => (
               <a

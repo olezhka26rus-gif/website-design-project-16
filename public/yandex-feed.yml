@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-09-07T20:18:41+03:00">
+<yml_catalog date="2026-09-11T12:57:48+03:00">
   <shop>
     <name>Регион Логистик</name>
     <company>ООО «РегионЛогистик»</company>
@@ -145,10 +145,6 @@
       <set id="moto-brand-bmw">
         <name>Мотоциклы BMW</name>
         <url>https://rlogistik.ru/moto/brand/bmw</url>
-      </set>
-      <set id="moto-brand-harley-davidson">
-        <name>Мотоциклы Harley-Davidson</name>
-        <url>https://rlogistik.ru/moto/brand/harley-davidson</url>
       </set>
       <set id="moto-country-japan">
         <name>Мотоциклы из Японии</name>
@@ -6548,75 +6544,6 @@
         <param name="Пробег, км">0</param>
         <param name="Двигатель, литры">0.69</param>
         <param name="Двигатель, л.с.">74</param>
-        <param name="Топливо">Бензин</param>
-        <param name="Коробка передач">Механическая</param>
-        <param name="Состояние">Не требует ремонта</param>
-      </offer>
-      <offer id="moto-usa-harley-davidson-sportster" available="true">
-        <name>Мотоцикл Harley-Davidson Sportster 2024</name>
-        <vendor>Harley-Davidson</vendor>
-        <url>https://rlogistik.ru/moto/usa/harley-davidson-sportster</url>
-        <price>1941817</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>12</categoryId>
-        <set-ids>moto-brand-harley-davidson</set-ids>
-        <picture>https://rlogistik.ru/og/usa-harley-davidson-sportster.jpg</picture>
-        <picture>https://rlogistik.ru/moto/harley-davidson-sportster-front.webp</picture>
-        <picture>https://rlogistik.ru/moto/harley-davidson-sportster-side.webp</picture>
-        <delivery>true</delivery>
-        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
-        <description>Harley-Davidson Sportster 2024 года — круизер с пробегом 0 км, поставляется из США. Технические характеристики: двигатель 1.25 л, бензин, мощность 121 л.с., коробка передач — механическая, привод ремень. Мотоцикл проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и сборов, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
-        <param name="Конверсия">1</param>
-        <param name="Год выпуска">2024</param>
-        <param name="Пробег, км">0</param>
-        <param name="Двигатель, литры">1.25</param>
-        <param name="Двигатель, л.с.">121</param>
-        <param name="Топливо">Бензин</param>
-        <param name="Коробка передач">Механическая</param>
-        <param name="Состояние">Не требует ремонта</param>
-      </offer>
-      <offer id="moto-usa-harley-davidson-iron-883" available="true">
-        <name>Мотоцикл Harley-Davidson Iron 883 2023</name>
-        <vendor>Harley-Davidson</vendor>
-        <url>https://rlogistik.ru/moto/usa/harley-davidson-iron-883</url>
-        <price>1491867</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>12</categoryId>
-        <set-ids>moto-brand-harley-davidson</set-ids>
-        <picture>https://rlogistik.ru/og/usa-harley-davidson-iron-883.jpg</picture>
-        <picture>https://rlogistik.ru/moto/harley-davidson-iron-883-front.webp</picture>
-        <picture>https://rlogistik.ru/moto/harley-davidson-iron-883-side.webp</picture>
-        <delivery>true</delivery>
-        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
-        <description>Harley-Davidson Iron 883 2023 года — круизер с пробегом 0 км, поставляется из США. Технические характеристики: двигатель 0.88 л, бензин, мощность 50 л.с., коробка передач — механическая, привод ремень. Мотоцикл проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и сборов, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
-        <param name="Конверсия">1</param>
-        <param name="Год выпуска">2023</param>
-        <param name="Пробег, км">0</param>
-        <param name="Двигатель, литры">0.88</param>
-        <param name="Двигатель, л.с.">50</param>
-        <param name="Топливо">Бензин</param>
-        <param name="Коробка передач">Механическая</param>
-        <param name="Состояние">Не требует ремонта</param>
-      </offer>
-      <offer id="moto-usa-harley-davidson-softail" available="true">
-        <name>Мотоцикл Harley-Davidson Softail 2024</name>
-        <vendor>Harley-Davidson</vendor>
-        <url>https://rlogistik.ru/moto/usa/harley-davidson-softail</url>
-        <price>2625517</price>
-        <currencyId>RUR</currencyId>
-        <categoryId>12</categoryId>
-        <set-ids>moto-brand-harley-davidson</set-ids>
-        <picture>https://rlogistik.ru/og/usa-harley-davidson-softail.jpg</picture>
-        <picture>https://rlogistik.ru/moto/harley-davidson-softail-front.webp</picture>
-        <picture>https://rlogistik.ru/moto/harley-davidson-softail-side.webp</picture>
-        <delivery>true</delivery>
-        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
-        <description>Harley-Davidson Softail 2024 года — круизер с пробегом 0 км, поставляется из США. Технические характеристики: двигатель 1.87 л, бензин, мощность 101 л.с., коробка передач — механическая, привод ремень. Мотоцикл проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и сборов, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
-        <param name="Конверсия">1</param>
-        <param name="Год выпуска">2024</param>
-        <param name="Пробег, км">0</param>
-        <param name="Двигатель, литры">1.87</param>
-        <param name="Двигатель, л.с.">101</param>
         <param name="Топливо">Бензин</param>
         <param name="Коробка передач">Механическая</param>
         <param name="Состояние">Не требует ремонта</param>

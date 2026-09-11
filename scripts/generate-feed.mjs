@@ -307,7 +307,7 @@ function buildFeed({ catalogEntries, catalogBrands, buildCarContent, motoEntries
   const motoSetIdsByEntry = new Map();
 
   for (const b of motoBrands) {
-    if (b.entries.length < 2) continue;
+    if (b.entries.length < 4) continue;
     sets.push({
       id: `moto-brand-${b.slug}`,
       name: `Мотоциклы ${b.brand}`,

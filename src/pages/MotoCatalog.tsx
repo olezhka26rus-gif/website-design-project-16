@@ -4,13 +4,8 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Icon from '@/components/ui/icon';
+import CountryFlag from '@/components/site/CountryFlag';
 import { motoEntries, MotoCountryKey } from '@/data/catalogMoto';
-
-const countryFlagEmoji: Record<MotoCountryKey, string> = {
-  japan: '🇯🇵',
-  europe: '🇪🇺',
-  usa: '🇺🇸',
-};
 
 const countryLabel: Record<MotoCountryKey, string> = {
   japan: 'Япония',
@@ -94,7 +89,9 @@ const MotoCatalog = () => {
                   : 'bg-white text-foreground/80 border-border hover:border-primary'
               }`}
             >
-              {tab.key !== 'all' && <span className="mr-1.5">{countryFlagEmoji[tab.key]}</span>}
+              {tab.key !== 'all' && (
+                <CountryFlag country={tab.key} className="inline-block w-4 h-auto rounded-[2px] mr-1.5 align-[-1px]" />
+              )}
               {tab.label}
             </button>
           ))}
@@ -114,8 +111,8 @@ const MotoCatalog = () => {
                   className="w-full h-full object-cover"
                   loading="lazy"
                 />
-                <div className="absolute top-2 left-2 bg-white/90 rounded-full px-1.5 py-0.5 text-xs">
-                  {countryFlagEmoji[e.country]}
+                <div className="absolute top-2 left-2 bg-white/90 rounded-full p-1">
+                  <CountryFlag country={e.country} className="w-4 h-auto rounded-[2px]" />
                 </div>
               </div>
               <div className="p-3 flex-1 flex flex-col">
@@ -155,7 +152,7 @@ const MotoCatalog = () => {
                   to={`/moto/${t.key}`}
                   className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold border border-border bg-white hover:border-primary transition-colors"
                 >
-                  <span>{countryFlagEmoji[t.key as MotoCountryKey]}</span>
+                  <CountryFlag country={t.key as MotoCountryKey} className="w-4 h-auto rounded-[2px]" />
                   Мотоциклы из {countryLabel[t.key as MotoCountryKey]}
                 </Link>
               ))}

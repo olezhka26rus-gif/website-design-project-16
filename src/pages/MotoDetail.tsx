@@ -5,6 +5,7 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import LeadFormModal from '@/components/site/LeadFormModal';
 import Icon from '@/components/ui/icon';
+import CountryFlag from '@/components/site/CountryFlag';
 import { Button } from '@/components/ui/button';
 import { findMotoEntry, motoEntriesByCountry, MotoCountryKey, MotoVariant } from '@/data/catalogMoto';
 import { trackGoal, goals } from '@/lib/analytics';
@@ -18,11 +19,6 @@ const countryGenitive: Record<string, string> = {
   США: 'США',
 };
 
-const countryFlagEmoji: Record<MotoCountryKey, string> = {
-  japan: '🇯🇵',
-  europe: '🇪🇺',
-  usa: '🇺🇸',
-};
 
 const SPEC_ROWS: { key: keyof MotoVariant['specs']; label: string; icon: string }[] = [
   { key: 'engine', label: 'Двигатель', icon: 'Fuel' },
@@ -157,7 +153,7 @@ const MotoDetail = () => {
         </Link>
 
         <div className="flex items-center gap-2 mb-2 text-sm text-muted-foreground">
-          <span>{countryFlagEmoji[entry.country as MotoCountryKey]}</span>
+          <CountryFlag country={entry.country as MotoCountryKey} className="w-4 h-auto rounded-[2px]" />
           {countryName} · {variant.bodyType}
         </div>
 
@@ -345,7 +341,7 @@ const MotoDetail = () => {
                       } ${q.isBest ? 'bg-primary/5' : ''}`}
                     >
                       <span className="font-semibold flex items-center gap-1.5 col-span-2 sm:col-span-1">
-                        <span>{countryFlagEmoji[q.country as MotoCountryKey]}</span>
+                        <CountryFlag country={q.country as MotoCountryKey} className="w-4 h-auto rounded-[2px]" />
                         {q.countryName}
                         {q.isBest && (
                           <span className="text-[10px] font-bold text-primary bg-primary/10 rounded-full px-2 py-0.5">
