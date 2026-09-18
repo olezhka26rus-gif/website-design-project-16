@@ -5,6 +5,7 @@ import Icon from '@/components/ui/icon';
 import Calculator from './Calculator';
 import ContactsModal from './ContactsModal';
 import CarSearch from './CarSearch';
+import AnnouncementBanner from './AnnouncementBanner';
 import { trackGoal, trackPhoneClick, goals } from '@/lib/analytics';
 
 const navLinks = [
@@ -54,6 +55,7 @@ const Header = () => {
 
   return (
     <>
+    <AnnouncementBanner />
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-border">
       <div className="container flex items-center justify-between h-[72px]">
         <a href="/" className="flex items-center">
