@@ -66,4 +66,6 @@ export const goals = {
   CTA_BUTTON_CLICK: 'cta_button_click',
   CALCULATOR_OPEN: 'calculator_open',
   CALCULATOR_CALCULATE: 'calculator_calculate',
+  PROMO_POPUP_SHOWN: 'promo_popup_shown',
+  PROMO_POPUP_SUBMIT: 'promo_popup_submit',
 } as const;
