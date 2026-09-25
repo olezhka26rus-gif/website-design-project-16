@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import {
   Dialog,
@@ -25,26 +25,13 @@ const PromoPopup = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
-  const triggeredRef = useRef(false);
 
   useEffect(() => {
     if (location.pathname.startsWith('/admin')) return;
     if (sessionStorage.getItem(SESSION_KEY)) return;
 
-    const handleScroll = () => {
-      if (triggeredRef.current) return;
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      if (scrollable <= 0) return;
-      if (window.scrollY / scrollable >= 0.5) {
-        triggeredRef.current = true;
-        setButtonVisible(true);
-        trackGoal(goals.PROMO_POPUP_SHOWN);
-        window.removeEventListener('scroll', handleScroll);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    setButtonVisible(true);
+    trackGoal(goals.PROMO_POPUP_SHOWN);
   }, [location.pathname]);
 
   const handleDismiss = () => {

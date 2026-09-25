@@ -111,24 +111,6 @@ def handler(event: dict, context) -> dict:
             'body': ''
         }
 
-    if method == 'POST':
-        raw_body = json.loads(event.get('body', '{}'))
-        if raw_body.get('action') == 'test_sms':
-            headers = event.get('headers', {})
-            pwd = headers.get('X-Admin-Password') or headers.get('x-admin-password')
-            if pwd != os.environ.get('ADMIN_PASSWORD'):
-                return {
-                    'statusCode': 401,
-                    'headers': cors_headers(),
-                    'body': json.dumps({'error': 'Неверный пароль'})
-                }
-            ok, message = send_sms('Проверка связи. Уведомления о заявках с сайта rlogistik.ru работают.')
-            return {
-                'statusCode': 200,
-                'headers': cors_headers(),
-                'body': json.dumps({'success': ok, 'message': message})
-            }
-
     dsn = os.environ['DATABASE_URL']
     conn = psycopg2.connect(dsn)
     cur = conn.cursor()

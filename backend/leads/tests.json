@@ -20,11 +20,11 @@
       "expectedStatus": 401
     },
     {
-      "name": "Test SMS without password",
+      "name": "POST lead",
       "method": "POST",
       "path": "/",
-      "body": {"action": "test_sms"},
-      "expectedStatus": 401
+      "body": {"name": "Тест", "phone": "+79001234567", "car": "", "source": "test"},
+      "expectedStatus": 200
     }
   ]
 }

@@ -6,7 +6,6 @@ import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import func2url from '@/func2url.json';
 import LeadCard from '@/components/admin/LeadCard';
-import PhoneClicks from '@/components/admin/PhoneClicks';
 import { Lead, LeadStatus, STATUS_META, STATUS_ORDER } from '@/components/admin/leadStatus';
 
 const STORAGE_KEY = 'admin_password';
@@ -18,34 +17,7 @@ const Admin = () => {
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(false);
   const [indexing, setIndexing] = useState(false);
-  const [smsTesting, setSmsTesting] = useState(false);
   const [filter, setFilter] = useState<LeadStatus | 'all'>('all');
-  const [tab, setTab] = useState<'leads' | 'calls'>('leads');
-
-  const handleTestSms = async () => {
-    setSmsTesting(true);
-    try {
-      const res = await fetch(func2url.leads, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Admin-Password': password },
-        body: JSON.stringify({ action: 'test_sms' }),
-      });
-      const data = await res.json();
-      if (data.success) {
-        toast({ title: 'SMS отправлено', description: data.message });
-      } else {
-        toast({
-          title: 'SMS не отправилось',
-          description: data.message || data.error,
-          variant: 'destructive',
-        });
-      }
-    } catch {
-      toast({ title: 'Ошибка соединения с сервером', variant: 'destructive' });
-    } finally {
-      setSmsTesting(false);
-    }
-  };
 
   const handleReindex = async () => {
     setIndexing(true);
@@ -173,48 +145,20 @@ const Admin = () => {
       <div className="container">
         <div className="flex items-center justify-between mb-5 flex-wrap gap-3">
           <h1 className="font-display font-extrabold text-2xl">
-            {tab === 'leads' ? 'Заявки клиентов' : 'Нажатия на телефон'}
+            Заявки клиентов
           </h1>
-          {tab === 'leads' && (
-            <div className="flex items-center gap-2 flex-wrap">
-              <Button variant="outline" size="sm" onClick={handleTestSms} disabled={smsTesting}>
-                <Icon name="MessageSquare" size={16} />
-                {smsTesting ? 'Отправляем...' : 'Тестовое SMS'}
-              </Button>
-              <Button variant="outline" size="sm" onClick={handleReindex} disabled={indexing}>
-                <Icon name="Zap" size={16} />
-                {indexing ? 'Отправляем...' : 'Отправить сайт в Яндекс'}
-              </Button>
-              <Button variant="outline" size="sm" onClick={() => fetchLeads(password)} disabled={loading}>
-                <Icon name="RefreshCw" size={16} />
-                Обновить
-              </Button>
-            </div>
-          )}
+          <div className="flex items-center gap-2 flex-wrap">
+            <Button variant="outline" size="sm" onClick={handleReindex} disabled={indexing}>
+              <Icon name="Zap" size={16} />
+              {indexing ? 'Отправляем...' : 'Отправить сайт в Яндекс'}
+            </Button>
+            <Button variant="outline" size="sm" onClick={() => fetchLeads(password)} disabled={loading}>
+              <Icon name="RefreshCw" size={16} />
+              Обновить
+            </Button>
+          </div>
         </div>
 
-        <div className="flex gap-1 p-1 bg-white border border-border rounded-xl w-fit mb-5">
-          {([
-            { id: 'leads', label: 'Заявки', icon: 'Inbox' },
-            { id: 'calls', label: 'Нажатия на телефон', icon: 'PhoneOutgoing' },
-          ] as const).map((t) => (
-            <button
-              key={t.id}
-              onClick={() => setTab(t.id)}
-              className={`inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                tab === t.id ? 'bg-primary text-primary-foreground' : 'text-foreground/70 hover:bg-secondary'
-              }`}
-            >
-              <Icon name={t.icon} size={15} />
-              {t.label}
-            </button>
-          ))}
-        </div>
-
-        {tab === 'calls' && <PhoneClicks password={password} />}
-
-        {tab === 'leads' && (
-          <>
         <div className="flex flex-wrap gap-2 mb-5">
           <button
             onClick={() => setFilter('all')}
@@ -259,8 +203,6 @@ const Admin = () => {
               />
             ))}
           </div>
-        )}
-          </>
         )}
       </div>
     </div>
