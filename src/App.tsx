@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import RouteTracker from "./components/RouteTracker";
 import ScrollToTop from "./components/ScrollToTop";
+import PromoPopup from "./components/site/PromoPopup";
 import Index from "./pages/Index";
 import Admin from "./pages/Admin";
 import Blog from "./pages/Blog";
@@ -31,6 +32,7 @@ const App = () => (
         <BrowserRouter>
           <ScrollToTop />
           <RouteTracker />
+          <PromoPopup />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/admin" element={<Admin />} />
