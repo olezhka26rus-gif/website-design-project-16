@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/china/zeekr-8x">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Zeekr 8X под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 7 264 465 ₽ с учётом стоимости автомобиля 4 200 000 ₽, пошлины 2 016 000 ₽, утилизационного сбора 600 000 ₽, доставки из Китая и услуг компании. Итоговая сумма зависит от курса валют, комплектации и города доставки."}},{"@type":"Question","name":"Из каких стран можно привезти Zeekr 8X?","acceptedAnswer":{"@type":"Answer","text":"Zeekr 8X продаётся на нескольких рынках, поэтому мы возим её из следующих стран: Китая, ОАЭ. Страна влияет на цену, комплектацию и срок доставки. По нашему расчёту выгоднее всего из Китая — около 7 264 465 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка Zeekr 8X?","acceptedAnswer":{"@type":"Answer","text":"Из Китая — ориентировочно 4–6 недель с момента оплаты, маршрут автовозом через Забайкальск или морем через Владивосток. Из других стран сроки отличаются: ОАЭ — 5–8 недель. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какой утилизационный сбор на Zeekr 8X?","acceptedAnswer":{"@type":"Answer","text":"Для нового автомобиля мощностью 490 л.с. утилизационный сбор составит около 600 000 ₽. Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты."}},{"@type":"Question","name":"Как растаможить электромобиль Zeekr 8X?","acceptedAnswer":{"@type":"Answer","text":"Для электромобилей пошлина считается от стоимости, объём двигателя не учитывается. При цене 4 200 000 ₽ пошлина составит около 2 016 000 ₽, плюс утилизационный сбор 600 000 ₽."}},{"@type":"Question","name":"Можно ли заказать Zeekr 8X в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ЭПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить электронный ПТС и передаём полный комплект для регистрации в ГИБДД. Zeekr 8X ставится на учёт как обычный автомобиль."}}]}</script>

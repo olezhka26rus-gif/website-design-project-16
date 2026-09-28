@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/usa/gmc-yukon-denali">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит GMC Yukon Denali под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 12 804 240 ₽ с учётом стоимости автомобиля 7 400 000 ₽, пошлины 4 185 000 ₽, утилизационного сбора 600 000 ₽, доставки из США и услуг компании. Итоговая сумма зависит от курса валют, комплектации и города доставки."}},{"@type":"Question","name":"Из каких стран можно привезти GMC Yukon Denali?","acceptedAnswer":{"@type":"Answer","text":"GMC Yukon Denali продаётся на нескольких рынках, поэтому мы возим её из следующих стран: США, Европы. Страна влияет на цену, комплектацию и срок доставки. По нашему расчёту выгоднее всего из США — около 12 804 240 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка GMC Yukon Denali?","acceptedAnswer":{"@type":"Answer","text":"Из США — ориентировочно 8–12 недель с момента оплаты, маршрут морем через Владивосток или Новороссийск. Из других стран сроки отличаются: Европы — 6–9 недель. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какой утилизационный сбор на GMC Yukon Denali?","acceptedAnswer":{"@type":"Answer","text":"Для нового автомобиля мощностью 420 л.с. утилизационный сбор составит около 600 000 ₽. Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты."}},{"@type":"Question","name":"Какая пошлина на GMC Yukon Denali с двигателем 6.2 л V8?","acceptedAnswer":{"@type":"Answer","text":"При объёме 6200 см³ и стоимости 7 400 000 ₽ пошлина на новый автомобиль составит около 4 185 000 ₽. Для машин до 3 лет берётся большая из двух величин: процент от стоимости или ставка за кубический сантиметр."}},{"@type":"Question","name":"Можно ли заказать GMC Yukon Denali в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ЭПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить электронный ПТС и передаём полный комплект для регистрации в ГИБДД. GMC Yukon Denali ставится на учёт как обычный автомобиль."}}]}</script>

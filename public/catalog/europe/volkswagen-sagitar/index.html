@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/europe/volkswagen-sagitar">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Volkswagen Sagitar под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 3 258 941 ₽ с учётом стоимости автомобиля 1 900 000 ₽, пошлины 912 000 ₽, утилизационного сбора 3 400 ₽, доставки из Европы и услуг компании. Итоговая сумма зависит от курса валют, комплектации и города доставки."}},{"@type":"Question","name":"Из каких стран можно привезти Volkswagen Sagitar?","acceptedAnswer":{"@type":"Answer","text":"Volkswagen Sagitar продаётся на нескольких рынках, поэтому мы возим её из следующих стран: Китая, Европы, Кореи, США. Страна влияет на цену, комплектацию и срок доставки. По нашему расчёту выгоднее всего из Китая — около 3 258 941 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка Volkswagen Sagitar?","acceptedAnswer":{"@type":"Answer","text":"Из Китая — ориентировочно 4–6 недель с момента оплаты, маршрут автовозом через Забайкальск или морем через Владивосток. Из других стран сроки отличаются: Европы — 6–9 недель, Кореи — 4–7 недель, США — 8–12 недель. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какой утилизационный сбор на Volkswagen Sagitar?","acceptedAnswer":{"@type":"Answer","text":"Для нового автомобиля мощностью 150 л.с. утилизационный сбор составит около 3 400 ₽. Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты."}},{"@type":"Question","name":"Какая пошлина на Volkswagen Sagitar с двигателем 1.4 л Turbo?","acceptedAnswer":{"@type":"Answer","text":"При объёме 1400 см³ и стоимости 1 900 000 ₽ пошлина на новый автомобиль составит около 912 000 ₽. Для машин до 3 лет берётся большая из двух величин: процент от стоимости или ставка за кубический сантиметр."}},{"@type":"Question","name":"Можно ли заказать Volkswagen Sagitar в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ЭПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить электронный ПТС и передаём полный комплект для регистрации в ГИБДД. Volkswagen Sagitar ставится на учёт как обычный автомобиль."}}]}</script>

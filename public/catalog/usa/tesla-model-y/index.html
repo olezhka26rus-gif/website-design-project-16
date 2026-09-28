@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/usa/tesla-model-y">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Tesla Model Y под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 6 420 865 ₽ с учётом стоимости автомобиля 3 630 000 ₽, пошлины 1 742 400 ₽, утилизационного сбора 600 000 ₽, доставки из США и услуг компании. Итоговая сумма зависит от курса валют, комплектации и города доставки."}},{"@type":"Question","name":"Из каких стран можно привезти Tesla Model Y?","acceptedAnswer":{"@type":"Answer","text":"Tesla Model Y продаётся на нескольких рынках, поэтому мы возим её из следующих стран: Китая, США, ОАЭ, Европы. Страна влияет на цену, комплектацию и срок доставки. По нашему расчёту выгоднее всего из Китая — около 6 420 865 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка Tesla Model Y?","acceptedAnswer":{"@type":"Answer","text":"Из Китая — ориентировочно 4–6 недель с момента оплаты, маршрут автовозом через Забайкальск или морем через Владивосток. Из других стран сроки отличаются: США — 8–12 недель, ОАЭ — 5–8 недель, Европы — 6–9 недель. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какой утилизационный сбор на Tesla Model Y?","acceptedAnswer":{"@type":"Answer","text":"Для нового автомобиля мощностью 384 л.с. утилизационный сбор составит около 600 000 ₽. Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты."}},{"@type":"Question","name":"Как растаможить электромобиль Tesla Model Y?","acceptedAnswer":{"@type":"Answer","text":"Для электромобилей пошлина считается от стоимости, объём двигателя не учитывается. При цене 3 630 000 ₽ пошлина составит около 1 742 400 ₽, плюс утилизационный сбор 600 000 ₽."}},{"@type":"Question","name":"Можно ли заказать Tesla Model Y в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ЭПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить электронный ПТС и передаём полный комплект для регистрации в ГИБДД. Tesla Model Y ставится на учёт как обычный автомобиль."}}]}</script>

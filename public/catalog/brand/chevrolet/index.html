@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/brand/chevrolet">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Chevrolet под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Самый доступный вариант в подборке — Chevrolet Orlando: около 3 199 741 ₽ под ключ. Цена самого автомобиля начинается от 1 900 000 ₽, к ней добавляются пошлина, утилизационный сбор, доставка и услуги компании."}},{"@type":"Question","name":"Из каких стран можно заказать Chevrolet?","acceptedAnswer":{"@type":"Answer","text":"Мы возим Chevrolet из следующих стран: США. От страны зависят цена, комплектация и срок доставки — подскажем, откуда конкретную модель выгоднее везти."}},{"@type":"Question","name":"Chevrolet обязательно везти со своего домашнего рынка?","acceptedAnswer":{"@type":"Answer","text":"Нет. Марка автомобиля не определяет страну покупки: Chevrolet продаётся сразу на нескольких рынках. Мы считаем стоимость под ключ по каждому доступному маршруту и выбираем самый выгодный — на странице модели есть таблица сравнения по странам."}},{"@type":"Question","name":"Какие модели Chevrolet есть в наличии под заказ?","acceptedAnswer":{"@type":"Answer","text":"В подборке 5 моделей: Chevrolet Silverado, Chevrolet Tahoe, Chevrolet TrailBlazer, Chevrolet Orlando, Chevrolet Trax. Если нужной модели нет — привезём под заказ."}},{"@type":"Question","name":"Чем ваш Chevrolet отличается от машины у дилера?","acceptedAnswer":{"@type":"Answer","text":"Это тот же автомобиль, но привезённый напрямую из страны продажи, часто в комплектации, которой нет у российских дилеров, и обычно дешевле за счёт отсутствия дилерской наценки. Все таможенные платежи оплачены, документы для ГИБДД передаём полностью."}}]}</script>

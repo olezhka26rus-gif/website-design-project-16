@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/moto/japan/kawasaki-versys-650">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Kawasaki Versys 650 под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 1 221 567 ₽ с учётом стоимости мотоцикла 950 000 ₽, пошлины 58 500 ₽, утилизационного сбора 2 000 ₽, доставки из Японии и услуг компании. Итоговая сумма зависит от курса валют и комплектации."}},{"@type":"Question","name":"Из каких стран можно привезти Kawasaki Versys 650?","acceptedAnswer":{"@type":"Answer","text":"Kawasaki Versys 650 продаётся на нескольких рынках, поэтому мы возим её из следующих стран: Японии, США. По нашему расчёту выгоднее всего из Японии — около 1 221 567 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка Kawasaki Versys 650?","acceptedAnswer":{"@type":"Answer","text":"Из Японии — ориентировочно 4–7 недель с момента оплаты, маршрут морем через порт Владивостока. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какая пошлина и утилизационный сбор на Kawasaki Versys 650?","acceptedAnswer":{"@type":"Answer","text":"При объёме двигателя 650 см³ пошлина на новый мотоцикл составит около 58 500 ₽. Утилизационный сбор для мотоциклов фиксированный и небольшой — около 2 000 ₽."}},{"@type":"Question","name":"Можно ли заказать Kawasaki Versys 650 в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем мотоцикл под ваш бюджет и требования: цвет, год выпуска, пробег и комплектация. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить ПТС и передаём полный комплект для регистрации в ГИБДД. Kawasaki Versys 650 ставится на учёт как обычное мототранспортное средство."}}]}</script>

@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/china/byd-seal">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит BYD Seal под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 5 784 465 ₽ с учётом стоимости автомобиля 3 200 000 ₽, пошлины 1 536 000 ₽, утилизационного сбора 600 000 ₽, доставки из Китая и услуг компании. Итоговая сумма зависит от курса валют, комплектации и города доставки."}},{"@type":"Question","name":"Из каких стран можно привезти BYD Seal?","acceptedAnswer":{"@type":"Answer","text":"BYD Seal продаётся на нескольких рынках, поэтому мы возим её из следующих стран: Китая, ОАЭ. Страна влияет на цену, комплектацию и срок доставки. По нашему расчёту выгоднее всего из Китая — около 5 784 465 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка BYD Seal?","acceptedAnswer":{"@type":"Answer","text":"Из Китая — ориентировочно 4–6 недель с момента оплаты, маршрут автовозом через Забайкальск или морем через Владивосток. Из других стран сроки отличаются: ОАЭ — 5–8 недель. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какой утилизационный сбор на BYD Seal?","acceptedAnswer":{"@type":"Answer","text":"Для нового автомобиля мощностью 530 л.с. утилизационный сбор составит около 600 000 ₽. Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты."}},{"@type":"Question","name":"Как растаможить электромобиль BYD Seal?","acceptedAnswer":{"@type":"Answer","text":"Для электромобилей пошлина считается от стоимости, объём двигателя не учитывается. При цене 3 200 000 ₽ пошлина составит около 1 536 000 ₽, плюс утилизационный сбор 600 000 ₽."}},{"@type":"Question","name":"Можно ли заказать BYD Seal в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ЭПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить электронный ПТС и передаём полный комплект для регистрации в ГИБДД. BYD Seal ставится на учёт как обычный автомобиль."}}]}</script>

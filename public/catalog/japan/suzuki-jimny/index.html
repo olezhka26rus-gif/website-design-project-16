@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/japan/suzuki-jimny">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Suzuki Jimny под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 3 890 941 ₽ с учётом стоимости автомобиля 2 300 000 ₽, пошлины 1 104 000 ₽, утилизационного сбора 3 400 ₽, доставки из Японии и услуг компании. Итоговая сумма зависит от курса валют, комплектации и города доставки."}},{"@type":"Question","name":"Из каких стран можно привезти Suzuki Jimny?","acceptedAnswer":{"@type":"Answer","text":"Suzuki Jimny продаётся на нескольких рынках, поэтому мы возим её из следующих стран: Японии, Кореи, США. Страна влияет на цену, комплектацию и срок доставки. По нашему расчёту выгоднее всего из Японии — около 3 890 941 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка Suzuki Jimny?","acceptedAnswer":{"@type":"Answer","text":"Из Японии — ориентировочно 5–8 недель с момента оплаты, маршрут морем через порт Владивостока. Из других стран сроки отличаются: Кореи — 4–7 недель, США — 8–12 недель. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какой утилизационный сбор на Suzuki Jimny?","acceptedAnswer":{"@type":"Answer","text":"Для нового автомобиля мощностью 102 л.с. утилизационный сбор составит около 3 400 ₽. Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты."}},{"@type":"Question","name":"Какая пошлина на Suzuki Jimny с двигателем 1.5 л?","acceptedAnswer":{"@type":"Answer","text":"При объёме 1500 см³ и стоимости 2 300 000 ₽ пошлина на новый автомобиль составит около 1 104 000 ₽. Для машин до 3 лет берётся большая из двух величин: процент от стоимости или ставка за кубический сантиметр."}},{"@type":"Question","name":"Можно ли заказать Suzuki Jimny в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ЭПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить электронный ПТС и передаём полный комплект для регистрации в ГИБДД. Suzuki Jimny ставится на учёт как обычный автомобиль."}}]}</script>

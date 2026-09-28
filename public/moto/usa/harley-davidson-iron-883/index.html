@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/moto/usa/harley-davidson-iron-883">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Harley-Davidson Iron 883 под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 1 491 867 ₽ с учётом стоимости мотоцикла 1 100 000 ₽, пошлины 118 800 ₽, утилизационного сбора 2 000 ₽, доставки из США и услуг компании. Итоговая сумма зависит от курса валют и комплектации."}},{"@type":"Question","name":"Из каких стран можно привезти Harley-Davidson Iron 883?","acceptedAnswer":{"@type":"Answer","text":"Harley-Davidson Iron 883 продаётся на нескольких рынках, поэтому мы возим её из следующих стран: США, Европы. По нашему расчёту выгоднее всего из США — около 1 491 867 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка Harley-Davidson Iron 883?","acceptedAnswer":{"@type":"Answer","text":"Из США — ориентировочно 7–11 недель с момента оплаты, маршрут морем через Владивосток или Новороссийск. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какая пошлина и утилизационный сбор на Harley-Davidson Iron 883?","acceptedAnswer":{"@type":"Answer","text":"При объёме двигателя 880 см³ пошлина на новый мотоцикл составит около 118 800 ₽. Утилизационный сбор для мотоциклов фиксированный и небольшой — около 2 000 ₽."}},{"@type":"Question","name":"Можно ли заказать Harley-Davidson Iron 883 в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем мотоцикл под ваш бюджет и требования: цвет, год выпуска, пробег и комплектация. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить ПТС и передаём полный комплект для регистрации в ГИБДД. Harley-Davidson Iron 883 ставится на учёт как обычное мототранспортное средство."}}]}</script>

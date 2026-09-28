@@ -75,11 +75,25 @@
     <script>
       window.YandexRotorSettings = {
         WaiterEnabled: true,
-        IsLoaded: function() {
-          var root = document.getElementById('root');
-          return !!(root && root.children.length > 0);
-        }
+        FailOnTimeout: false,
+        IsLoaded: false
       };
+      (function () {
+        var checksLeft = 100;
+        var timer = setInterval(function () {
+          var root = document.getElementById('root');
+          if (root && root.children.length > 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+            return;
+          }
+          checksLeft -= 1;
+          if (checksLeft <= 0) {
+            window.YandexRotorSettings.IsLoaded = true;
+            clearInterval(timer);
+          }
+        }, 100);
+      })();
     </script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/usa/cadillac-ct5">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Cadillac CT5 под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 9 031 344 ₽ с учётом стоимости автомобиля 5 500 000 ₽, пошлины 2 640 000 ₽, утилизационного сбора 300 000 ₽, доставки из США и услуг компании. Итоговая сумма зависит от курса валют, комплектации и города доставки."}},{"@type":"Question","name":"Из каких стран можно привезти Cadillac CT5?","acceptedAnswer":{"@type":"Answer","text":"Cadillac CT5 продаётся на нескольких рынках, поэтому мы возим её из следующих стран: США, ОАЭ, Европы. Страна влияет на цену, комплектацию и срок доставки. По нашему расчёту выгоднее всего из США — около 9 031 344 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка Cadillac CT5?","acceptedAnswer":{"@type":"Answer","text":"Из США — ориентировочно 8–12 недель с момента оплаты, маршрут морем через Владивосток или Новороссийск. Из других стран сроки отличаются: ОАЭ — 5–8 недель, Европы — 6–9 недель. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какой утилизационный сбор на Cadillac CT5?","acceptedAnswer":{"@type":"Answer","text":"Для нового автомобиля мощностью 237 л.с. утилизационный сбор составит около 300 000 ₽. Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты."}},{"@type":"Question","name":"Какая пошлина на Cadillac CT5 с двигателем 2.0 л Turbo?","acceptedAnswer":{"@type":"Answer","text":"При объёме 2000 см³ и стоимости 5 500 000 ₽ пошлина на новый автомобиль составит около 2 640 000 ₽. Для машин до 3 лет берётся большая из двух величин: процент от стоимости или ставка за кубический сантиметр."}},{"@type":"Question","name":"Можно ли заказать Cadillac CT5 в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ЭПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить электронный ПТС и передаём полный комплект для регистрации в ГИБДД. Cadillac CT5 ставится на учёт как обычный автомобиль."}}]}</script>
