@@ -90,6 +90,34 @@
         };
       })();
     </script>
+    <script>
+      (function () {
+        var path = location.pathname.replace(/\/+$/, '');
+        if (!path || path.indexOf('/admin') === 0 || /\.[a-z0-9]+$/i.test(path)) return;
+        fetch(path + '/index.html', { cache: 'no-store' })
+          .then(function (r) { return r.ok ? r.text() : ''; })
+          .then(function (html) {
+            if (!html || html.indexOf('id="seo-prerender"') === -1) return;
+            var doc = new DOMParser().parseFromString(html, 'text/html');
+            var t = doc.querySelector('title');
+            if (!t || !t.textContent) return;
+            document.title = t.textContent;
+            [
+              'meta[name="description"]', 'meta[name="keywords"]',
+              'meta[property="og:title"]', 'meta[property="og:description"]',
+              'meta[property="og:url"]', 'meta[property="og:image"]', 'meta[property="og:type"]',
+              'meta[name="twitter:title"]', 'meta[name="twitter:description"]', 'meta[name="twitter:image"]'
+            ].forEach(function (s) {
+              var src = doc.querySelector(s);
+              if (!src) return;
+              var dst = document.head.querySelector(s);
+              if (dst) { dst.setAttribute('content', src.getAttribute('content')); }
+              else { document.head.appendChild(src.cloneNode(true)); }
+            });
+          })
+          .catch(function () {});
+      })();
+    </script>
       <script src="https://cdn.poehali.dev/intertnal/js/ve-2.0.0-rc.2.min.js" defer=""></script>
       <script src="https://cdn.poehali.dev/intertnal/js/pp-min-4.js"></script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/europe/mini-cooper">
