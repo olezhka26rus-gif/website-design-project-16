@@ -64,7 +64,6 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
 
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-    <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
     <script src="https://cdn.poehali.dev/intertnal/js/route-min.js"></script>
     <script src="https://cdn.poehali.dev/intertnal/js/telemetry-min.js"></script>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
@@ -73,28 +72,26 @@
       <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
 
     <script>
-      window.YandexRotorSettings = {
-        WaiterEnabled: true,
-        FailOnTimeout: false,
-        IsLoaded: false
-      };
       (function () {
-        var checksLeft = 100;
-        var timer = setInterval(function () {
-          var root = document.getElementById('root');
-          if (root && root.children.length > 0) {
-            window.YandexRotorSettings.IsLoaded = true;
-            clearInterval(timer);
-            return;
+        var DEFAULT_TITLE = 'Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ';
+        var startedAt = Date.now();
+        window.YandexRotorSettings = {
+          WaiterEnabled: true,
+          FailOnTimeout: false,
+          NoJsRedirectsToMain: true,
+          IsLoaded: function () {
+            var root = document.getElementById('root');
+            if (!root || root.children.length === 0) return false;
+            var path = location.pathname;
+            if (path === '/' || path === '/index.html') return true;
+            if (document.title !== DEFAULT_TITLE) return true;
+            return Date.now() - startedAt > 10000;
           }
-          checksLeft -= 1;
-          if (checksLeft <= 0) {
-            window.YandexRotorSettings.IsLoaded = true;
-            clearInterval(timer);
-          }
-        }, 100);
+        };
       })();
     </script>
+      <script src="https://cdn.poehali.dev/intertnal/js/ve-2.0.0-rc.2.min.js" defer=""></script>
+      <script src="https://cdn.poehali.dev/intertnal/js/pp-min-4.js"></script>
       <link rel="canonical" href="https://rlogistik.ru/moto/europe/bmw-r-1250-gs">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит BMW R 1250 GS под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 2 801 817 ₽ с учётом стоимости мотоцикла 2 400 000 ₽, пошлины 168 750 ₽, утилизационного сбора 2 000 ₽, доставки из Европы и услуг компании. Итоговая сумма зависит от курса валют и комплектации."}},{"@type":"Question","name":"Из каких стран можно привезти BMW R 1250 GS?","acceptedAnswer":{"@type":"Answer","text":"BMW R 1250 GS продаётся на нескольких рынках, поэтому мы возим её из следующих стран: Европы, США. По нашему расчёту выгоднее всего из Европы — около 2 801 817 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка BMW R 1250 GS?","acceptedAnswer":{"@type":"Answer","text":"Из Европы — ориентировочно 5–8 недель с момента оплаты, маршрут автовозом через Белоруссию или страны Балтии. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какая пошлина и утилизационный сбор на BMW R 1250 GS?","acceptedAnswer":{"@type":"Answer","text":"При объёме двигателя 1250 см³ пошлина на новый мотоцикл составит около 168 750 ₽. Утилизационный сбор для мотоциклов фиксированный и небольшой — около 2 000 ₽."}},{"@type":"Question","name":"Можно ли заказать BMW R 1250 GS в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем мотоцикл под ваш бюджет и требования: цвет, год выпуска, пробег и комплектация. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить ПТС и передаём полный комплект для регистрации в ГИБДД. BMW R 1250 GS ставится на учёт как обычное мототранспортное средство."}}]}</script>
   </head>

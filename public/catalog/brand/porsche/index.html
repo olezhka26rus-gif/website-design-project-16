@@ -64,7 +64,6 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
 
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-    <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
     <script src="https://cdn.poehali.dev/intertnal/js/route-min.js"></script>
     <script src="https://cdn.poehali.dev/intertnal/js/telemetry-min.js"></script>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
@@ -73,28 +72,26 @@
       <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
 
     <script>
-      window.YandexRotorSettings = {
-        WaiterEnabled: true,
-        FailOnTimeout: false,
-        IsLoaded: false
-      };
       (function () {
-        var checksLeft = 100;
-        var timer = setInterval(function () {
-          var root = document.getElementById('root');
-          if (root && root.children.length > 0) {
-            window.YandexRotorSettings.IsLoaded = true;
-            clearInterval(timer);
-            return;
+        var DEFAULT_TITLE = 'Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ';
+        var startedAt = Date.now();
+        window.YandexRotorSettings = {
+          WaiterEnabled: true,
+          FailOnTimeout: false,
+          NoJsRedirectsToMain: true,
+          IsLoaded: function () {
+            var root = document.getElementById('root');
+            if (!root || root.children.length === 0) return false;
+            var path = location.pathname;
+            if (path === '/' || path === '/index.html') return true;
+            if (document.title !== DEFAULT_TITLE) return true;
+            return Date.now() - startedAt > 10000;
           }
-          checksLeft -= 1;
-          if (checksLeft <= 0) {
-            window.YandexRotorSettings.IsLoaded = true;
-            clearInterval(timer);
-          }
-        }, 100);
+        };
       })();
     </script>
+      <script src="https://cdn.poehali.dev/intertnal/js/ve-2.0.0-rc.2.min.js" defer=""></script>
+      <script src="https://cdn.poehali.dev/intertnal/js/pp-min-4.js"></script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/brand/porsche">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Porsche под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Самый доступный вариант в подборке — Porsche Macan: около 8 823 344 ₽ под ключ. Цена самого автомобиля начинается от 5 400 000 ₽, к ней добавляются пошлина, утилизационный сбор, доставка и услуги компании."}},{"@type":"Question","name":"Из каких стран можно заказать Porsche?","acceptedAnswer":{"@type":"Answer","text":"Мы возим Porsche из следующих стран: Европа, ОАЭ. От страны зависят цена, комплектация и срок доставки — подскажем, откуда конкретную модель выгоднее везти."}},{"@type":"Question","name":"Porsche обязательно везти со своего домашнего рынка?","acceptedAnswer":{"@type":"Answer","text":"Нет. Марка автомобиля не определяет страну покупки: Porsche продаётся сразу на нескольких рынках. Мы считаем стоимость под ключ по каждому доступному маршруту и выбираем самый выгодный — на странице модели есть таблица сравнения по странам."}},{"@type":"Question","name":"Какие модели Porsche есть в наличии под заказ?","acceptedAnswer":{"@type":"Answer","text":"В подборке 4 модели: Porsche 911, Porsche Cayenne, Porsche Macan, Porsche Cayenne Turbo GT. Если нужной модели нет — привезём под заказ."}},{"@type":"Question","name":"Чем ваш Porsche отличается от машины у дилера?","acceptedAnswer":{"@type":"Answer","text":"Это тот же автомобиль, но привезённый напрямую из страны продажи, часто в комплектации, которой нет у российских дилеров, и обычно дешевле за счёт отсутствия дилерской наценки. Все таможенные платежи оплачены, документы для ГИБДД передаём полностью."}}]}</script>
   </head>

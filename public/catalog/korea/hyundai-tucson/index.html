@@ -64,7 +64,6 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
 
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-    <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
     <script src="https://cdn.poehali.dev/intertnal/js/route-min.js"></script>
     <script src="https://cdn.poehali.dev/intertnal/js/telemetry-min.js"></script>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
@@ -73,28 +72,26 @@
       <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
 
     <script>
-      window.YandexRotorSettings = {
-        WaiterEnabled: true,
-        FailOnTimeout: false,
-        IsLoaded: false
-      };
       (function () {
-        var checksLeft = 100;
-        var timer = setInterval(function () {
-          var root = document.getElementById('root');
-          if (root && root.children.length > 0) {
-            window.YandexRotorSettings.IsLoaded = true;
-            clearInterval(timer);
-            return;
+        var DEFAULT_TITLE = 'Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ';
+        var startedAt = Date.now();
+        window.YandexRotorSettings = {
+          WaiterEnabled: true,
+          FailOnTimeout: false,
+          NoJsRedirectsToMain: true,
+          IsLoaded: function () {
+            var root = document.getElementById('root');
+            if (!root || root.children.length === 0) return false;
+            var path = location.pathname;
+            if (path === '/' || path === '/index.html') return true;
+            if (document.title !== DEFAULT_TITLE) return true;
+            return Date.now() - startedAt > 10000;
           }
-          checksLeft -= 1;
-          if (checksLeft <= 0) {
-            window.YandexRotorSettings.IsLoaded = true;
-            clearInterval(timer);
-          }
-        }, 100);
+        };
       })();
     </script>
+      <script src="https://cdn.poehali.dev/intertnal/js/ve-2.0.0-rc.2.min.js" defer=""></script>
+      <script src="https://cdn.poehali.dev/intertnal/js/pp-min-4.js"></script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/korea/hyundai-tucson">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит Hyundai Tucson под ключ в России?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 3 496 941 ₽ с учётом стоимости автомобиля 2 060 000 ₽, пошлины 990 000 ₽, утилизационного сбора 3 400 ₽, доставки из Кореи и услуг компании. Итоговая сумма зависит от курса валют, комплектации и города доставки."}},{"@type":"Question","name":"Из каких стран можно привезти Hyundai Tucson?","acceptedAnswer":{"@type":"Answer","text":"Hyundai Tucson продаётся на нескольких рынках, поэтому мы возим её из следующих стран: Китая, Кореи, ОАЭ, США. Страна влияет на цену, комплектацию и срок доставки. По нашему расчёту выгоднее всего из Китая — около 3 496 941 ₽ под ключ."}},{"@type":"Question","name":"Сколько идёт доставка Hyundai Tucson?","acceptedAnswer":{"@type":"Answer","text":"Из Китая — ориентировочно 4–6 недель с момента оплаты, маршрут автовозом через Забайкальск или морем через Владивосток. Из других стран сроки отличаются: Кореи — 4–7 недель, ОАЭ — 5–8 недель, США — 8–12 недель. Сроки могут сдвигаться из-за загрузки портов и погоды."}},{"@type":"Question","name":"Какой утилизационный сбор на Hyundai Tucson?","acceptedAnswer":{"@type":"Answer","text":"Для нового автомобиля мощностью 156 л.с. утилизационный сбор составит около 3 400 ₽. Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты."}},{"@type":"Question","name":"Какая пошлина на Hyundai Tucson с двигателем 2.0 л?","acceptedAnswer":{"@type":"Answer","text":"При объёме 2000 см³ и стоимости 2 060 000 ₽ пошлина на новый автомобиль составит около 990 000 ₽. Для машин до 3 лет берётся большая из двух величин: процент от стоимости или ставка за кубический сантиметр."}},{"@type":"Question","name":"Можно ли заказать Hyundai Tucson в другой комплектации или цвете?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой."}},{"@type":"Question","name":"Будет ли ЭПТС и постановка на учёт в ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Да. Мы оформляем таможенные документы, помогаем получить электронный ПТС и передаём полный комплект для регистрации в ГИБДД. Hyundai Tucson ставится на учёт как обычный автомобиль."}}]}</script>
   </head>

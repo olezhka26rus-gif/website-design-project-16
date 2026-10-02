@@ -64,7 +64,6 @@
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
 
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
-    <script src="https://cdn.poehali.dev/intertnal/js/pp-min-2.js"></script>
     <script src="https://cdn.poehali.dev/intertnal/js/route-min.js"></script>
     <script src="https://cdn.poehali.dev/intertnal/js/telemetry-min.js"></script>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS COMMENT! -->
@@ -73,28 +72,26 @@
       <script src="https://cdn.poehali.dev/intertnal/js/inspector-min.js"></script>
 
     <script>
-      window.YandexRotorSettings = {
-        WaiterEnabled: true,
-        FailOnTimeout: false,
-        IsLoaded: false
-      };
       (function () {
-        var checksLeft = 100;
-        var timer = setInterval(function () {
-          var root = document.getElementById('root');
-          if (root && root.children.length > 0) {
-            window.YandexRotorSettings.IsLoaded = true;
-            clearInterval(timer);
-            return;
+        var DEFAULT_TITLE = 'Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ';
+        var startedAt = Date.now();
+        window.YandexRotorSettings = {
+          WaiterEnabled: true,
+          FailOnTimeout: false,
+          NoJsRedirectsToMain: true,
+          IsLoaded: function () {
+            var root = document.getElementById('root');
+            if (!root || root.children.length === 0) return false;
+            var path = location.pathname;
+            if (path === '/' || path === '/index.html') return true;
+            if (document.title !== DEFAULT_TITLE) return true;
+            return Date.now() - startedAt > 10000;
           }
-          checksLeft -= 1;
-          if (checksLeft <= 0) {
-            window.YandexRotorSettings.IsLoaded = true;
-            clearInterval(timer);
-          }
-        }, 100);
+        };
       })();
     </script>
+      <script src="https://cdn.poehali.dev/intertnal/js/ve-2.0.0-rc.2.min.js" defer=""></script>
+      <script src="https://cdn.poehali.dev/intertnal/js/pp-min-4.js"></script>
       <link rel="canonical" href="https://rlogistik.ru/catalog/korea">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Сколько стоит пригнать авто из Кореи под ключ?","acceptedAnswer":{"@type":"Answer","text":"Самый доступный вариант в подборке — Kia KX1: около 2 844 541 ₽ под ключ с учётом пошлины, утилизационного сбора, доставки и услуг компании. Стоимость самого автомобиля начинается от 1 650 000 ₽. Итог зависит от модели, комплектации и курса валют."}},{"@type":"Question","name":"Сколько идёт доставка автомобиля из Кореи?","acceptedAnswer":{"@type":"Answer","text":"Ориентировочно 4–7 недель с момента оплаты, включая выкуп, оформление документов и транспортировку. Сроки могут сдвигаться из-за загрузки портов, погоды и очередей на таможне."}},{"@type":"Question","name":"Обязательно ли везти машину именно из Кореи?","acceptedAnswer":{"@type":"Answer","text":"Нет. Одна и та же модель часто продаётся сразу на нескольких рынках, поэтому марка автомобиля не определяет страну покупки. Мы сравниваем цену под ключ по всем доступным маршрутам и предлагаем самый выгодный — иногда это Кореи, иногда другая страна. На странице каждой модели есть таблица сравнения по странам."}},{"@type":"Question","name":"Какие автомобили можно привезти из Кореи?","acceptedAnswer":{"@type":"Answer","text":"В нашей подборке 19 моделей: кроссовер, внедорожник, седан, минивэн. Марки: Kia, Hyundai, Genesis, SsangYong, Kia Sorento, Hyundai Palisade. Если нужной модели нет в списке — подберём и привезём под заказ."}},{"@type":"Question","name":"Выгодно ли везти машину из Кореи в 2026 году?","acceptedAnswer":{"@type":"Answer","text":"Выгода зависит от конкретной модели: чем больше разница между ценой в Корее и в России, тем ощутимее экономия. На итог влияют объём двигателя, мощность и возраст — от них считаются пошлина и утилизационный сбор. Перед покупкой мы считаем полную стоимость под ключ, чтобы вы сравнили её с ценой у российского дилера."}},{"@type":"Question","name":"Дадут ли гарантию и документы для ГИБДД?","acceptedAnswer":{"@type":"Answer","text":"Мы передаём полный комплект документов для регистрации: таможенную декларацию, договор и помощь в получении электронного ПТС. Автомобиль ставится на учёт в обычном порядке. Заводская гарантия зависит от марки и страны покупки — уточняем по конкретной машине."}}]}</script>
   </head>
