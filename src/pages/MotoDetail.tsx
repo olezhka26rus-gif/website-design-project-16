@@ -53,9 +53,7 @@ const MotoDetail = () => {
     ? variant.model
     : `${model.brand} ${variant.model}`;
   const pageUrl = `https://rlogistik.ru/moto/${entry.country}/${entry.slug}`;
-  const absoluteImage = variant.sideImage.startsWith('http')
-    ? variant.sideImage
-    : `https://rlogistik.ru${variant.sideImage}`;
+  const absoluteImage = `https://rlogistik.ru/og/${entry.country}-${entry.slug}.jpg`;
   const content = buildMotoContent(entry);
   const otherVariants = model.variants.filter((v) => v.model !== variant.model);
   const similarModels = motoEntriesByCountry(entry.country as MotoCountryKey)

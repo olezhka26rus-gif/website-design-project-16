@@ -127,6 +127,7 @@ const MotoCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.description} />
+        <meta name="twitter:image" content="https://rlogistik.ru/og-cover.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

@@ -41,9 +41,7 @@ const CarDetail = () => {
     ? variant.model
     : `${model.brand} ${variant.model}`;
   const pageUrl = `https://rlogistik.ru/catalog/${entry.country}/${entry.slug}`;
-  const absoluteImage = variant.sideImage.startsWith('http')
-    ? variant.sideImage
-    : `https://rlogistik.ru${variant.sideImage}`;
+  const absoluteImage = `https://rlogistik.ru/og/${entry.country}-${entry.slug}.jpg`;
   const modelNameRu = modelRu[variant.model];
   const brandNameRu = brandRu[model.brand];
   const brandAliasesRu = brandExtraAliases[model.brand] ?? [];

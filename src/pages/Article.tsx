@@ -32,13 +32,13 @@ const Article = () => {
         <meta property="og:type" content="article" />
         <meta property="og:title" content={article.title} />
         <meta property="og:description" content={article.description} />
-        <meta property="og:image" content={article.cover} />
+        <meta property="og:image" content={`https://rlogistik.ru/og/blog-${article.slug}.jpg`} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:locale" content="ru_RU" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={article.title} />
         <meta name="twitter:description" content={article.description} />
-        <meta name="twitter:image" content={article.cover} />
+        <meta name="twitter:image" content={`https://rlogistik.ru/og/blog-${article.slug}.jpg`} />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',

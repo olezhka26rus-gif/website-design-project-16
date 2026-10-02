@@ -127,11 +127,11 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
         <meta property="og:description" content={data.description} />
         <meta property="og:url" content={data.url} />
         <meta property="og:locale" content="ru_RU" />
-        <meta property="og:image" content="https://rlogistik.ru/logo-mark.png" />
+        <meta property="og:image" content="https://rlogistik.ru/og-cover.jpg" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={data.title} />
         <meta name="twitter:description" content={data.description} />
-        <meta name="twitter:image" content="https://rlogistik.ru/logo-mark.png" />
+        <meta name="twitter:image" content="https://rlogistik.ru/og-cover.jpg" />
         <script type="application/ld+json">
           {JSON.stringify({
             '@context': 'https://schema.org',
