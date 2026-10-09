@@ -36,7 +36,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Zeekr 007',
           bodyType: 'Седан',
-          price: 'от 3 100 000 ₽',
+          price: 'от 2 790 000 ₽',
           sideImage: `/vehicles/china-zeekr-007-side.webp`,
           frontImage: `/vehicles/china-zeekr-007-front.webp`,
           specs: { engine: 'Электро', power: '544 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '18.5 кВт·ч/100км' },
@@ -44,7 +44,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Zeekr 001',
           bodyType: 'Лифтбек',
-          price: 'от 3 400 000 ₽',
+          price: 'от 3 060 000 ₽',
           sideImage: `/vehicles/china-zeekr-001-side.webp`,
           frontImage: `/vehicles/china-zeekr-001-front.webp`,
           specs: { engine: 'Электро', power: '544 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '19.2 кВт·ч/100км' },
@@ -52,7 +52,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Zeekr 8X',
           bodyType: 'Кроссовер',
-          price: 'от 4 200 000 ₽',
+          price: 'от 3 780 000 ₽',
           sideImage: `/vehicles/china-zeekr-8x-side.webp`,
           frontImage: `/vehicles/china-zeekr-8x-front.webp`,
           specs: { engine: 'Электро', power: '490 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '17.5 кВт·ч/100км' },
@@ -60,7 +60,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Zeekr 9X',
           bodyType: 'Внедорожник',
-          price: 'от 5 500 000 ₽',
+          price: 'от 4 950 000 ₽',
           sideImage: `/vehicles/china-zeekr-9x-side.webp`,
           frontImage: `/vehicles/china-zeekr-9x-front.webp`,
           specs: { engine: 'Электро', power: '680 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '19.8 кВт·ч/100км' },
@@ -68,7 +68,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Zeekr X',
           bodyType: 'Кроссовер',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/china-zeekr-x-side.webp`,
           frontImage: `/vehicles/china-zeekr-x-front.webp`,
           specs: { engine: 'Электро', power: '272 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '15.7 кВт·ч/100км' },
@@ -81,7 +81,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Li Auto L9',
           bodyType: 'Внедорожник',
-          price: 'от 3 700 000 ₽',
+          price: 'от 3 330 000 ₽',
           sideImage: `/vehicles/china-li-auto-l9-side.webp`,
           frontImage: `/vehicles/china-li-auto-l9-front.webp`,
           specs: { engine: '1.5 л Turbo Гибрид', power: '449 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '1.5 л/100км' },
@@ -94,7 +94,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Chery Arrizo 8',
           bodyType: 'Седан',
-          price: 'от 2 100 000 ₽',
+          price: 'от 1 890 000 ₽',
           sideImage: `/vehicles/china-chery-arrizo-8-side.webp`,
           frontImage: `/vehicles/china-chery-arrizo-8-front.webp`,
           specs: { engine: '1.6 л Turbo', power: '197 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '7.2 л/100км' },
@@ -102,7 +102,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Chery Tiggo 7 Pro',
           bodyType: 'Кроссовер',
-          price: 'от 2 400 000 ₽',
+          price: 'от 2 160 000 ₽',
           sideImage: `/vehicles/china-chery-tiggo-7-pro-side.webp`,
           frontImage: `/vehicles/china-chery-tiggo-7-pro-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '147 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '7.8 л/100км' },
@@ -110,7 +110,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Chery Tiggo 8 Pro Max',
           bodyType: 'Внедорожник',
-          price: 'от 3 100 000 ₽',
+          price: 'от 2 790 000 ₽',
           sideImage: `/vehicles/china-chery-tiggo-8-pro-max-side.webp`,
           frontImage: `/vehicles/china-chery-tiggo-8-pro-max-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '249 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.2 л/100км' },
@@ -123,7 +123,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BYD Han',
           bodyType: 'Седан',
-          price: 'от 2 600 000 ₽',
+          price: 'от 2 340 000 ₽',
           sideImage: `/vehicles/china-byd-han-side.webp`,
           frontImage: `/vehicles/china-byd-han-front.webp`,
           specs: { engine: 'Электро', power: '517 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '16.9 кВт·ч/100км' },
@@ -131,7 +131,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BYD Song Plus',
           bodyType: 'Кроссовер',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/china-byd-song-plus-side.webp`,
           frontImage: `/vehicles/china-byd-song-plus-front.webp`,
           specs: { engine: '1.5 л Гибрид', power: '218 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '5.3 л/100км' },
@@ -139,7 +139,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BYD Qin Wagon',
           bodyType: 'Универсал',
-          price: 'от 2 300 000 ₽',
+          price: 'от 2 070 000 ₽',
           sideImage: `/vehicles/china-byd-qin-wagon-side.webp`,
           frontImage: `/vehicles/china-byd-qin-wagon-front.webp`,
           specs: { engine: '1.5 л Гибрид', power: '163 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '4.9 л/100км' },
@@ -147,7 +147,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BYD Seal',
           bodyType: 'Седан',
-          price: 'от 3 200 000 ₽',
+          price: 'от 2 880 000 ₽',
           sideImage: `/vehicles/china-byd-seal-side.webp`,
           frontImage: `/vehicles/china-byd-seal-front.webp`,
           specs: { engine: 'Электро', power: '530 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '15.9 кВт·ч/100км' },
@@ -160,7 +160,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Geely Preface',
           bodyType: 'Седан',
-          price: 'от 2 800 000 ₽',
+          price: 'от 2 520 000 ₽',
           sideImage: `/vehicles/china-geely-preface-side.webp`,
           frontImage: `/vehicles/china-geely-preface-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '177 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '7.0 л/100км' },
@@ -168,7 +168,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Geely Coolray',
           bodyType: 'Кроссовер',
-          price: 'от 2 500 000 ₽',
+          price: 'от 2 250 000 ₽',
           sideImage: `/vehicles/china-geely-coolray-side.webp`,
           frontImage: `/vehicles/china-geely-coolray-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '177 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '7.3 л/100км' },
@@ -176,7 +176,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Geely Monjaro',
           bodyType: 'Внедорожник',
-          price: 'от 3 300 000 ₽',
+          price: 'от 2 970 000 ₽',
           sideImage: `/vehicles/china-geely-monjaro-side.webp`,
           frontImage: `/vehicles/china-geely-monjaro-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '238 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '9.5 л/100км' },
@@ -184,7 +184,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Geely Galaxy Starship 7',
           bodyType: 'Кроссовер',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/china-geely-galaxy-starship-7-side.webp`,
           frontImage: `/vehicles/china-geely-galaxy-starship-7-front.webp`,
           specs: { engine: '1.5 л Гибрид', power: '204 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '4.8 л/100км' },
@@ -192,7 +192,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Geely Emgrand',
           bodyType: 'Седан',
-          price: 'от 1 650 000 ₽',
+          price: 'от 1 485 000 ₽',
           sideImage: `/vehicles/china-geely-emgrand-side.webp`,
           frontImage: `/vehicles/china-geely-emgrand-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.8 л/100км' },
@@ -205,7 +205,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Haval H6',
           bodyType: 'Внедорожник',
-          price: 'от 2 000 000 ₽',
+          price: 'от 1 800 000 ₽',
           sideImage: `/vehicles/china-haval-h6-side.webp`,
           frontImage: `/vehicles/china-haval-h6-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Полный', transmission: 'Робот', year: '2023', consumption: '8.0 л/100км' },
@@ -213,7 +213,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Haval Jolion',
           bodyType: 'Кроссовер',
-          price: 'от 1 900 000 ₽',
+          price: 'от 1 710 000 ₽',
           sideImage: `/vehicles/china-haval-jolion-side.webp`,
           frontImage: `/vehicles/china-haval-jolion-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '7.5 л/100км' },
@@ -221,7 +221,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Haval M6',
           bodyType: 'Кроссовер',
-          price: 'от 1 750 000 ₽',
+          price: 'от 1 575 000 ₽',
           sideImage: `/vehicles/china-haval-m6-side.webp`,
           frontImage: `/vehicles/china-haval-m6-front.webp`,
           specs: { engine: '1.5 л', power: '116 л.с.', drive: 'Передний', transmission: 'Механика', year: '2023', consumption: '7.0 л/100км' },
@@ -229,7 +229,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Haval Dargo',
           bodyType: 'Кроссовер',
-          price: 'от 2 700 000 ₽',
+          price: 'от 2 430 000 ₽',
           sideImage: `/vehicles/china-haval-dargo-side.webp`,
           frontImage: `/vehicles/china-haval-dargo-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '184 л.с.', drive: 'Полный', transmission: 'Робот', year: '2024', consumption: '8.6 л/100км' },
@@ -242,7 +242,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'GAC Trumpchi M6 Pro',
           bodyType: 'Минивэн',
-          price: 'от 2 400 000 ₽',
+          price: 'от 2 160 000 ₽',
           sideImage: `/vehicles/china-gac-trumpchi-m6-pro-side.webp`,
           frontImage: `/vehicles/china-gac-trumpchi-m6-pro-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '177 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '7.8 л/100км' },
@@ -255,7 +255,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'GAC S7',
           bodyType: 'Кроссовер',
-          price: 'от 2 800 000 ₽',
+          price: 'от 2 520 000 ₽',
           sideImage: `/vehicles/china-gac-s7-side.webp`,
           frontImage: `/vehicles/china-gac-s7-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '265 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.4 л/100км' },
@@ -268,7 +268,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Changan Qiyuan A06',
           bodyType: 'Седан',
-          price: 'от 2 000 000 ₽',
+          price: 'от 1 800 000 ₽',
           sideImage: `/vehicles/china-changan-qiyuan-a06-side.webp`,
           frontImage: `/vehicles/china-changan-qiyuan-a06-front.webp`,
           specs: { engine: '1.5 л Гибрид', power: '218 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '4.2 л/100км' },
@@ -276,7 +276,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Changan CS75 Plus',
           bodyType: 'Кроссовер',
-          price: 'от 2 250 000 ₽',
+          price: 'от 2 025 000 ₽',
           sideImage: `/vehicles/china-changan-cs75-plus-side.webp`,
           frontImage: `/vehicles/china-changan-cs75-plus-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '181 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '7.6 л/100км' },
@@ -289,7 +289,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Exeed TXL',
           bodyType: 'Внедорожник',
-          price: 'от 3 000 000 ₽',
+          price: 'от 2 700 000 ₽',
           sideImage: `/vehicles/china-exeed-txl-side.webp`,
           frontImage: `/vehicles/china-exeed-txl-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '254 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.0 л/100км' },
@@ -302,7 +302,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Omoda C5',
           bodyType: 'Кроссовер',
-          price: 'от 1 950 000 ₽',
+          price: 'от 1 755 000 ₽',
           sideImage: `/vehicles/china-omoda-c5-side.webp`,
           frontImage: `/vehicles/china-omoda-c5-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '147 л.с.', drive: 'Передний', transmission: 'Робот', year: '2024', consumption: '7.2 л/100км' },
@@ -315,7 +315,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Jaecoo J7',
           bodyType: 'Кроссовер',
-          price: 'от 2 350 000 ₽',
+          price: 'от 2 115 000 ₽',
           sideImage: `/vehicles/china-jaecoo-j7-side.webp`,
           frontImage: `/vehicles/china-jaecoo-j7-front.webp`,
           specs: { engine: '1.6 л Turbo', power: '186 л.с.', drive: 'Полный', transmission: 'Робот', year: '2024', consumption: '7.9 л/100км' },
@@ -328,7 +328,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Jetta VS5',
           bodyType: 'Кроссовер',
-          price: 'от 1 850 000 ₽',
+          price: 'от 1 665 000 ₽',
           sideImage: `/vehicles/china-jetta-vs5-side.webp`,
           frontImage: `/vehicles/china-jetta-vs5-front.webp`,
           specs: { engine: '1.4 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '7.1 л/100км' },
@@ -341,7 +341,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Lynk & Co 900',
           bodyType: 'Внедорожник',
-          price: 'от 4 500 000 ₽',
+          price: 'от 4 050 000 ₽',
           sideImage: `/vehicles/china-lynk-co-900-side.webp`,
           frontImage: `/vehicles/china-lynk-co-900-front.webp`,
           specs: { engine: '2.0 л Turbo Гибрид', power: '544 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '1.8 л/100км' },
@@ -354,7 +354,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Voyah Taishan',
           bodyType: 'Внедорожник',
-          price: 'от 4 800 000 ₽',
+          price: 'от 4 320 000 ₽',
           sideImage: `/vehicles/china-voyah-taishan-side.webp`,
           frontImage: `/vehicles/china-voyah-taishan-front.webp`,
           specs: { engine: '1.5 л Turbo Гибрид', power: '449 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '1.6 л/100км' },
@@ -367,7 +367,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Passat NMS',
           bodyType: 'Седан',
-          price: 'от 2 300 000 ₽',
+          price: 'от 2 070 000 ₽',
           sideImage: `/vehicles/china-volkswagen-passat-nms-side.webp`,
           frontImage: `/vehicles/china-volkswagen-passat-nms-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '186 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '8.0 л/100км' },
@@ -382,7 +382,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Camry',
           bodyType: 'Седан',
-          price: 'от 2 400 000 ₽',
+          price: 'от 2 160 000 ₽',
           sideImage: `/vehicles/japan-toyota-camry-side.webp`,
           frontImage: `/vehicles/japan-toyota-camry-front.webp`,
           specs: { engine: '2.5 л', power: '181 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '7.8 л/100км' },
@@ -390,7 +390,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota RAV4',
           bodyType: 'Кроссовер',
-          price: 'от 2 700 000 ₽',
+          price: 'от 2 430 000 ₽',
           sideImage: `/vehicles/japan-toyota-rav4-side.webp`,
           frontImage: `/vehicles/japan-toyota-rav4-front.webp`,
           specs: { engine: '2.0 л', power: '149 л.с.', drive: 'Полный', transmission: 'Вариатор', year: '2023', consumption: '7.6 л/100км' },
@@ -398,7 +398,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Corolla Touring',
           bodyType: 'Универсал',
-          price: 'от 2 200 000 ₽',
+          price: 'от 1 980 000 ₽',
           sideImage: `/vehicles/japan-toyota-corolla-touring-side.webp`,
           frontImage: `/vehicles/japan-toyota-corolla-touring-front.webp`,
           specs: { engine: '1.8 л Гибрид', power: '122 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '4.5 л/100км' },
@@ -406,7 +406,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Corolla',
           bodyType: 'Седан',
-          price: 'от 2 000 000 ₽',
+          price: 'от 1 800 000 ₽',
           sideImage: `/vehicles/japan-toyota-corolla-side.webp`,
           frontImage: `/vehicles/japan-toyota-corolla-front.webp`,
           specs: { engine: '1.8 л', power: '140 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '5.9 л/100км' },
@@ -414,7 +414,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Yaris',
           bodyType: 'Хэтчбек',
-          price: 'от 1 700 000 ₽',
+          price: 'от 1 530 000 ₽',
           sideImage: `/vehicles/japan-toyota-yaris-side.webp`,
           frontImage: `/vehicles/japan-toyota-yaris-front.webp`,
           specs: { engine: '1.5 л', power: '120 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '5.0 л/100км' },
@@ -422,7 +422,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Highlander',
           bodyType: 'Внедорожник',
-          price: 'от 3 500 000 ₽',
+          price: 'от 3 150 000 ₽',
           sideImage: `/vehicles/japan-toyota-highlander-side.webp`,
           frontImage: `/vehicles/japan-toyota-highlander-front.webp`,
           specs: { engine: '2.4 л Turbo', power: '265 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.3 л/100км' },
@@ -430,7 +430,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Probox',
           bodyType: 'Универсал',
-          price: 'от 1 400 000 ₽',
+          price: 'от 1 260 000 ₽',
           sideImage: `/vehicles/japan-toyota-probox-side.webp`,
           frontImage: `/vehicles/japan-toyota-probox-front.webp`,
           specs: { engine: '1.5 л', power: '99 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2022', consumption: '6.2 л/100км' },
@@ -438,7 +438,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Land Cruiser Prado',
           bodyType: 'Внедорожник',
-          price: 'от 5 800 000 ₽',
+          price: 'от 5 220 000 ₽',
           sideImage: `/vehicles/japan-toyota-land-cruiser-prado-side.webp`,
           frontImage: `/vehicles/japan-toyota-land-cruiser-prado-front.webp`,
           specs: { engine: '2.7 л', power: '163 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '10.5 л/100км' },
@@ -446,7 +446,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota bZ3X',
           bodyType: 'Кроссовер',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/japan-toyota-bz3x-side.webp`,
           frontImage: `/vehicles/japan-toyota-bz3x-front.webp`,
           specs: { engine: 'Электро', power: '218 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '15.0 кВт·ч/100км' },
@@ -454,7 +454,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Levin',
           bodyType: 'Седан',
-          price: 'от 2 100 000 ₽',
+          price: 'от 1 890 000 ₽',
           sideImage: `/vehicles/japan-toyota-levin-side.webp`,
           frontImage: `/vehicles/japan-toyota-levin-front.webp`,
           specs: { engine: '1.2 л Turbo', power: '116 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '5.8 л/100км' },
@@ -462,7 +462,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Hilux',
           bodyType: 'Пикап',
-          price: 'от 3 200 000 ₽',
+          price: 'от 2 880 000 ₽',
           sideImage: `/vehicles/japan-toyota-hilux-side.webp`,
           frontImage: `/vehicles/japan-toyota-hilux-front.webp`,
           specs: { engine: '2.8 л Дизель', power: '204 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '8.9 л/100км' },
@@ -470,7 +470,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Alphard',
           bodyType: 'Минивэн',
-          price: 'от 5 200 000 ₽',
+          price: 'от 4 680 000 ₽',
           sideImage: `/vehicles/japan-toyota-alphard-side.webp`,
           frontImage: `/vehicles/japan-toyota-alphard-front.webp`,
           specs: { engine: '2.5 л Гибрид', power: '243 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '6.3 л/100км' },
@@ -478,7 +478,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Land Cruiser 250',
           bodyType: 'Внедорожник',
-          price: 'от 6 500 000 ₽',
+          price: 'от 5 850 000 ₽',
           sideImage: `/vehicles/japan-toyota-land-cruiser-250-side.webp`,
           frontImage: `/vehicles/japan-toyota-land-cruiser-250-front.webp`,
           specs: { engine: '2.7 л Turbo', power: '279 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '10.0 л/100км' },
@@ -486,7 +486,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Crown',
           bodyType: 'Седан',
-          price: 'от 3 900 000 ₽',
+          price: 'от 3 510 000 ₽',
           sideImage: `/vehicles/japan-toyota-crown-side.webp`,
           frontImage: `/vehicles/japan-toyota-crown-front.webp`,
           specs: { engine: '2.5 л Гибрид', power: '236 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '5.9 л/100км' },
@@ -494,7 +494,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota GR86',
           bodyType: 'Купе',
-          price: 'от 3 300 000 ₽',
+          price: 'от 2 970 000 ₽',
           sideImage: `/vehicles/japan-toyota-gr86-side.webp`,
           frontImage: `/vehicles/japan-toyota-gr86-front.webp`,
           specs: { engine: '2.4 л', power: '234 л.с.', drive: 'Задний', transmission: 'Механика', year: '2024', consumption: '9.5 л/100км' },
@@ -507,7 +507,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Lexus ES',
           bodyType: 'Седан',
-          price: 'от 3 500 000 ₽',
+          price: 'от 3 150 000 ₽',
           sideImage: `/vehicles/japan-lexus-es-side.webp`,
           frontImage: `/vehicles/japan-lexus-es-front.webp`,
           specs: { engine: '2.5 л', power: '203 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '7.5 л/100км' },
@@ -515,7 +515,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Lexus RX',
           bodyType: 'Внедорожник',
-          price: 'от 4 100 000 ₽',
+          price: 'от 3 690 000 ₽',
           sideImage: `/vehicles/japan-lexus-rx-side.webp`,
           frontImage: `/vehicles/japan-lexus-rx-front.webp`,
           specs: { engine: '2.4 л Turbo', power: '275 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.9 л/100км' },
@@ -523,7 +523,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Lexus NX',
           bodyType: 'Кроссовер',
-          price: 'от 3 800 000 ₽',
+          price: 'от 3 420 000 ₽',
           sideImage: `/vehicles/japan-lexus-nx-side.webp`,
           frontImage: `/vehicles/japan-lexus-nx-front.webp`,
           specs: { engine: '2.4 л Turbo', power: '279 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.6 л/100км' },
@@ -531,7 +531,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Lexus LX',
           bodyType: 'Внедорожник',
-          price: 'от 8 900 000 ₽',
+          price: 'от 8 010 000 ₽',
           sideImage: `/vehicles/japan-lexus-lx-side.webp`,
           frontImage: `/vehicles/japan-lexus-lx-front.webp`,
           specs: { engine: '3.4 л Twin-Turbo', power: '415 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '13.6 л/100км' },
@@ -544,7 +544,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda Civic',
           bodyType: 'Седан',
-          price: 'от 2 200 000 ₽',
+          price: 'от 1 980 000 ₽',
           sideImage: `/vehicles/japan-honda-civic-side.webp`,
           frontImage: `/vehicles/japan-honda-civic-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '182 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '6.8 л/100км' },
@@ -552,7 +552,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda CR-V',
           bodyType: 'Кроссовер',
-          price: 'от 2 700 000 ₽',
+          price: 'от 2 430 000 ₽',
           sideImage: `/vehicles/japan-honda-cr-v-side.webp`,
           frontImage: `/vehicles/japan-honda-cr-v-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '193 л.с.', drive: 'Полный', transmission: 'Вариатор', year: '2023', consumption: '8.1 л/100км' },
@@ -560,7 +560,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda Stepwgn',
           bodyType: 'Минивэн',
-          price: 'от 2 500 000 ₽',
+          price: 'от 2 250 000 ₽',
           sideImage: `/vehicles/japan-honda-stepwgn-side.webp`,
           frontImage: `/vehicles/japan-honda-stepwgn-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '7.2 л/100км' },
@@ -568,7 +568,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda Vezel',
           bodyType: 'Кроссовер',
-          price: 'от 2 100 000 ₽',
+          price: 'от 1 890 000 ₽',
           sideImage: `/vehicles/japan-honda-vezel-side.webp`,
           frontImage: `/vehicles/japan-honda-vezel-front.webp`,
           specs: { engine: '1.5 л Гибрид', power: '107 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '4.8 л/100км' },
@@ -576,7 +576,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda Freed',
           bodyType: 'Минивэн',
-          price: 'от 1 900 000 ₽',
+          price: 'от 1 710 000 ₽',
           sideImage: `/vehicles/japan-honda-freed-side.webp`,
           frontImage: `/vehicles/japan-honda-freed-front.webp`,
           specs: { engine: '1.5 л Гибрид', power: '106 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '4.4 л/100км' },
@@ -584,7 +584,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda Fit',
           bodyType: 'Хэтчбек',
-          price: 'от 1 500 000 ₽',
+          price: 'от 1 350 000 ₽',
           sideImage: `/vehicles/japan-honda-fit-side.webp`,
           frontImage: `/vehicles/japan-honda-fit-front.webp`,
           specs: { engine: '1.3 л', power: '98 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '5.0 л/100км' },
@@ -592,7 +592,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda XR-V',
           bodyType: 'Кроссовер',
-          price: 'от 1 950 000 ₽',
+          price: 'от 1 755 000 ₽',
           sideImage: `/vehicles/japan-honda-xr-v-side.webp`,
           frontImage: `/vehicles/japan-honda-xr-v-front.webp`,
           specs: { engine: '1.5 л', power: '119 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '6.1 л/100км' },
@@ -600,7 +600,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda Crider',
           bodyType: 'Седан',
-          price: 'от 1 850 000 ₽',
+          price: 'от 1 665 000 ₽',
           sideImage: `/vehicles/japan-honda-crider-side.webp`,
           frontImage: `/vehicles/japan-honda-crider-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '182 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '6.5 л/100км' },
@@ -608,7 +608,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda Odyssey',
           bodyType: 'Минивэн',
-          price: 'от 3 400 000 ₽',
+          price: 'от 3 060 000 ₽',
           sideImage: `/vehicles/japan-honda-odyssey-side.webp`,
           frontImage: `/vehicles/japan-honda-odyssey-front.webp`,
           specs: { engine: '2.0 л Гибрид', power: '184 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '6.6 л/100км' },
@@ -616,7 +616,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Honda Accord',
           bodyType: 'Седан',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/japan-honda-accord-side.webp`,
           frontImage: `/vehicles/japan-honda-accord-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '192 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2024', consumption: '6.8 л/100км' },
@@ -629,7 +629,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Nissan Altima',
           bodyType: 'Седан',
-          price: 'от 2 100 000 ₽',
+          price: 'от 1 890 000 ₽',
           sideImage: `/vehicles/japan-nissan-altima-side.webp`,
           frontImage: `/vehicles/japan-nissan-altima-front.webp`,
           specs: { engine: '2.5 л', power: '188 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '7.5 л/100км' },
@@ -637,7 +637,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Nissan Qashqai',
           bodyType: 'Кроссовер',
-          price: 'от 2 400 000 ₽',
+          price: 'от 2 160 000 ₽',
           sideImage: `/vehicles/japan-nissan-qashqai-side.webp`,
           frontImage: `/vehicles/japan-nissan-qashqai-front.webp`,
           specs: { engine: '1.3 л Turbo', power: '158 л.с.', drive: 'Полный', transmission: 'Вариатор', year: '2023', consumption: '7.0 л/100км' },
@@ -645,7 +645,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Nissan X-Trail',
           bodyType: 'Внедорожник',
-          price: 'от 2 800 000 ₽',
+          price: 'от 2 520 000 ₽',
           sideImage: `/vehicles/japan-nissan-x-trail-side.webp`,
           frontImage: `/vehicles/japan-nissan-x-trail-front.webp`,
           specs: { engine: '1.5 л Turbo e-Power', power: '204 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '6.5 л/100км' },
@@ -653,7 +653,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Nissan Serena',
           bodyType: 'Минивэн',
-          price: 'от 2 600 000 ₽',
+          price: 'от 2 340 000 ₽',
           sideImage: `/vehicles/japan-nissan-serena-side.webp`,
           frontImage: `/vehicles/japan-nissan-serena-front.webp`,
           specs: { engine: '2.0 л e-Power', power: '150 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '5.8 л/100км' },
@@ -661,7 +661,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Nissan Note',
           bodyType: 'Хэтчбек',
-          price: 'от 1 750 000 ₽',
+          price: 'от 1 575 000 ₽',
           sideImage: `/vehicles/japan-nissan-note-side.webp`,
           frontImage: `/vehicles/japan-nissan-note-front.webp`,
           specs: { engine: '1.2 л e-Power', power: '116 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '4.0 л/100км' },
@@ -674,7 +674,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mazda 6',
           bodyType: 'Седан',
-          price: 'от 2 000 000 ₽',
+          price: 'от 1 800 000 ₽',
           sideImage: `/vehicles/japan-mazda-6-side.webp`,
           frontImage: `/vehicles/japan-mazda-6-front.webp`,
           specs: { engine: '2.5 л', power: '192 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2022', consumption: '8.1 л/100км' },
@@ -682,7 +682,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mazda 3',
           bodyType: 'Хэтчбек',
-          price: 'от 1 900 000 ₽',
+          price: 'от 1 710 000 ₽',
           sideImage: `/vehicles/japan-mazda-3-side.webp`,
           frontImage: `/vehicles/japan-mazda-3-front.webp`,
           specs: { engine: '2.0 л', power: '150 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '6.9 л/100км' },
@@ -690,7 +690,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mazda CX-5',
           bodyType: 'Кроссовер',
-          price: 'от 2 500 000 ₽',
+          price: 'от 2 250 000 ₽',
           sideImage: `/vehicles/japan-mazda-cx-5-side.webp`,
           frontImage: `/vehicles/japan-mazda-cx-5-front.webp`,
           specs: { engine: '2.5 л', power: '194 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '8.3 л/100км' },
@@ -698,7 +698,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mazda CX-30',
           bodyType: 'Кроссовер',
-          price: 'от 2 200 000 ₽',
+          price: 'от 1 980 000 ₽',
           sideImage: `/vehicles/japan-mazda-cx-30-side.webp`,
           frontImage: `/vehicles/japan-mazda-cx-30-front.webp`,
           specs: { engine: '2.0 л', power: '150 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '7.0 л/100км' },
@@ -706,7 +706,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mazda CX-50',
           bodyType: 'Кроссовер',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/japan-mazda-cx-50-side.webp`,
           frontImage: `/vehicles/japan-mazda-cx-50-front.webp`,
           specs: { engine: '2.5 л Turbo', power: '256 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.1 л/100км' },
@@ -714,7 +714,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mazda CX-60',
           bodyType: 'Внедорожник',
-          price: 'от 3 500 000 ₽',
+          price: 'от 3 150 000 ₽',
           sideImage: `/vehicles/japan-mazda-cx-60-side.webp`,
           frontImage: `/vehicles/japan-mazda-cx-60-front.webp`,
           specs: { engine: '3.3 л Дизель', power: '254 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '6.8 л/100км' },
@@ -727,7 +727,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mitsubishi Outlander',
           bodyType: 'Внедорожник',
-          price: 'от 1 900 000 ₽',
+          price: 'от 1 710 000 ₽',
           sideImage: `/vehicles/japan-mitsubishi-outlander-side.webp`,
           frontImage: `/vehicles/japan-mitsubishi-outlander-front.webp`,
           specs: { engine: '2.5 л', power: '181 л.с.', drive: 'Полный', transmission: 'Вариатор', year: '2023', consumption: '8.7 л/100км' },
@@ -735,7 +735,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mitsubishi ASX',
           bodyType: 'Кроссовер',
-          price: 'от 1 800 000 ₽',
+          price: 'от 1 620 000 ₽',
           sideImage: `/vehicles/japan-mitsubishi-asx-side.webp`,
           frontImage: `/vehicles/japan-mitsubishi-asx-front.webp`,
           specs: { engine: '2.0 л', power: '146 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2022', consumption: '7.4 л/100км' },
@@ -743,7 +743,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mitsubishi Eclipse Cross',
           bodyType: 'Кроссовер',
-          price: 'от 2 000 000 ₽',
+          price: 'от 1 800 000 ₽',
           sideImage: `/vehicles/japan-mitsubishi-eclipse-cross-side.webp`,
           frontImage: `/vehicles/japan-mitsubishi-eclipse-cross-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '163 л.с.', drive: 'Полный', transmission: 'Вариатор', year: '2023', consumption: '7.6 л/100км' },
@@ -751,7 +751,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mitsubishi Delica D:5',
           bodyType: 'Минивэн',
-          price: 'от 2 600 000 ₽',
+          price: 'от 2 340 000 ₽',
           sideImage: `/vehicles/japan-mitsubishi-delica-d5-side.webp`,
           frontImage: `/vehicles/japan-mitsubishi-delica-d5-front.webp`,
           specs: { engine: '2.2 л Дизель', power: '150 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2022', consumption: '8.5 л/100км' },
@@ -759,7 +759,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mitsubishi Xpander',
           bodyType: 'Минивэн',
-          price: 'от 2 000 000 ₽',
+          price: 'от 1 800 000 ₽',
           sideImage: `/vehicles/japan-mitsubishi-xpander-side.webp`,
           frontImage: `/vehicles/japan-mitsubishi-xpander-front.webp`,
           specs: { engine: '1.5 л', power: '105 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '6.9 л/100км' },
@@ -772,7 +772,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Subaru Forester',
           bodyType: 'Внедорожник',
-          price: 'от 2 500 000 ₽',
+          price: 'от 2 250 000 ₽',
           sideImage: `/vehicles/japan-subaru-forester-side.webp`,
           frontImage: `/vehicles/japan-subaru-forester-front.webp`,
           specs: { engine: '2.5 л', power: '182 л.с.', drive: 'Полный', transmission: 'Вариатор', year: '2023', consumption: '8.4 л/100км' },
@@ -780,7 +780,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Subaru Outback',
           bodyType: 'Универсал',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/japan-subaru-outback-side.webp`,
           frontImage: `/vehicles/japan-subaru-outback-front.webp`,
           specs: { engine: '2.5 л', power: '182 л.с.', drive: 'Полный', transmission: 'Вариатор', year: '2024', consumption: '8.6 л/100км' },
@@ -793,7 +793,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Suzuki Jimny',
           bodyType: 'Внедорожник',
-          price: 'от 2 300 000 ₽',
+          price: 'от 2 070 000 ₽',
           sideImage: `/vehicles/japan-suzuki-jimny-side.webp`,
           frontImage: `/vehicles/japan-suzuki-jimny-front.webp`,
           specs: { engine: '1.5 л', power: '102 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '6.9 л/100км' },
@@ -801,7 +801,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Suzuki Swift',
           bodyType: 'Хэтчбек',
-          price: 'от 1 500 000 ₽',
+          price: 'от 1 350 000 ₽',
           sideImage: `/vehicles/japan-suzuki-swift-side.webp`,
           frontImage: `/vehicles/japan-suzuki-swift-front.webp`,
           specs: { engine: '1.2 л', power: '83 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '4.9 л/100км' },
@@ -816,7 +816,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Kia K5',
           bodyType: 'Седан',
-          price: 'от 1 800 000 ₽',
+          price: 'от 1 620 000 ₽',
           sideImage: `/vehicles/korea-kia-k5-side.webp`,
           frontImage: `/vehicles/korea-kia-k5-front.webp`,
           specs: { engine: '1.6 л Turbo', power: '180 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '7.2 л/100км' },
@@ -824,7 +824,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Kia Sportage',
           bodyType: 'Кроссовер',
-          price: 'от 2 200 000 ₽',
+          price: 'от 1 980 000 ₽',
           sideImage: `/vehicles/korea-kia-sportage-side.webp`,
           frontImage: `/vehicles/korea-kia-sportage-front.webp`,
           specs: { engine: '2.0 л', power: '156 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '8.0 л/100км' },
@@ -832,7 +832,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Kia Seltos',
           bodyType: 'Кроссовер',
-          price: 'от 1 900 000 ₽',
+          price: 'от 1 710 000 ₽',
           sideImage: `/vehicles/korea-kia-seltos-side.webp`,
           frontImage: `/vehicles/korea-kia-seltos-front.webp`,
           specs: { engine: '2.0 л', power: '149 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '7.5 л/100км' },
@@ -840,7 +840,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Kia K3',
           bodyType: 'Седан',
-          price: 'от 1 700 000 ₽',
+          price: 'от 1 530 000 ₽',
           sideImage: `/vehicles/korea-kia-k3-side.webp`,
           frontImage: `/vehicles/korea-kia-k3-front.webp`,
           specs: { engine: '1.6 л', power: '128 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '6.5 л/100км' },
@@ -848,7 +848,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Kia KX1',
           bodyType: 'Кроссовер',
-          price: 'от 1 650 000 ₽',
+          price: 'от 1 485 000 ₽',
           sideImage: `/vehicles/korea-kia-kx1-side.webp`,
           frontImage: `/vehicles/korea-kia-kx1-front.webp`,
           specs: { engine: '1.5 л', power: '115 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '6.3 л/100км' },
@@ -856,7 +856,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Kia Carnival',
           bodyType: 'Минивэн',
-          price: 'от 2 800 000 ₽',
+          price: 'от 2 520 000 ₽',
           sideImage: `/vehicles/korea-kia-carnival-side.webp`,
           frontImage: `/vehicles/korea-kia-carnival-front.webp`,
           specs: { engine: '3.5 л', power: '277 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '11.2 л/100км' },
@@ -864,7 +864,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Kia EV6',
           bodyType: 'Кроссовер',
-          price: 'от 3 400 000 ₽',
+          price: 'от 3 060 000 ₽',
           sideImage: `/vehicles/korea-kia-ev6-side.webp`,
           frontImage: `/vehicles/korea-kia-ev6-front.webp`,
           specs: { engine: 'Электро', power: '325 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '17.2 кВт·ч/100км' },
@@ -877,7 +877,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Hyundai Sonata',
           bodyType: 'Седан',
-          price: 'от 1 700 000 ₽',
+          price: 'от 1 530 000 ₽',
           sideImage: `/vehicles/korea-hyundai-sonata-side.webp`,
           frontImage: `/vehicles/korea-hyundai-sonata-front.webp`,
           specs: { engine: '2.5 л', power: '194 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '7.6 л/100км' },
@@ -885,7 +885,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Hyundai Tucson',
           bodyType: 'Кроссовер',
-          price: 'от 2 100 000 ₽',
+          price: 'от 1 890 000 ₽',
           sideImage: `/vehicles/korea-hyundai-tucson-side.webp`,
           frontImage: `/vehicles/korea-hyundai-tucson-front.webp`,
           specs: { engine: '2.0 л', power: '156 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '8.2 л/100км' },
@@ -893,7 +893,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Hyundai Elantra',
           bodyType: 'Седан',
-          price: 'от 1 750 000 ₽',
+          price: 'от 1 575 000 ₽',
           sideImage: `/vehicles/korea-hyundai-elantra-side.webp`,
           frontImage: `/vehicles/korea-hyundai-elantra-front.webp`,
           specs: { engine: '2.0 л', power: '149 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '6.8 л/100км' },
@@ -901,7 +901,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Hyundai ix35',
           bodyType: 'Кроссовер',
-          price: 'от 1 950 000 ₽',
+          price: 'от 1 755 000 ₽',
           sideImage: `/vehicles/korea-hyundai-ix35-side.webp`,
           frontImage: `/vehicles/korea-hyundai-ix35-front.webp`,
           specs: { engine: '2.0 л', power: '150 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '8.0 л/100км' },
@@ -909,7 +909,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Hyundai Santa Fe',
           bodyType: 'Внедорожник',
-          price: 'от 2 700 000 ₽',
+          price: 'от 2 430 000 ₽',
           sideImage: `/vehicles/korea-hyundai-santa-fe-side.webp`,
           frontImage: `/vehicles/korea-hyundai-santa-fe-front.webp`,
           specs: { engine: '2.5 л Turbo', power: '281 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.6 л/100км' },
@@ -917,7 +917,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Hyundai Creta',
           bodyType: 'Кроссовер',
-          price: 'от 1 800 000 ₽',
+          price: 'от 1 620 000 ₽',
           sideImage: `/vehicles/korea-hyundai-creta-side.webp`,
           frontImage: `/vehicles/korea-hyundai-creta-front.webp`,
           specs: { engine: '1.6 л', power: '123 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '6.7 л/100км' },
@@ -930,7 +930,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Genesis G80',
           bodyType: 'Седан',
-          price: 'от 4 200 000 ₽',
+          price: 'от 3 780 000 ₽',
           sideImage: `/vehicles/korea-genesis-g80-side.webp`,
           frontImage: `/vehicles/korea-genesis-g80-front.webp`,
           specs: { engine: '2.5 л Turbo', power: '304 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.5 л/100км' },
@@ -938,7 +938,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Genesis GV80',
           bodyType: 'Внедорожник',
-          price: 'от 4 800 000 ₽',
+          price: 'от 4 320 000 ₽',
           sideImage: `/vehicles/korea-genesis-gv80-side.webp`,
           frontImage: `/vehicles/korea-genesis-gv80-front.webp`,
           specs: { engine: '3.5 л Turbo', power: '375 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.2 л/100км' },
@@ -946,7 +946,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Genesis GV70',
           bodyType: 'Внедорожник',
-          price: 'от 4 300 000 ₽',
+          price: 'от 3 870 000 ₽',
           sideImage: `/vehicles/korea-genesis-gv70-side.webp`,
           frontImage: `/vehicles/korea-genesis-gv70-front.webp`,
           specs: { engine: '2.5 л Turbo', power: '304 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.7 л/100км' },
@@ -959,7 +959,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'SsangYong Rexton',
           bodyType: 'Внедорожник',
-          price: 'от 1 900 000 ₽',
+          price: 'от 1 710 000 ₽',
           sideImage: `/vehicles/korea-ssangyong-rexton-side.webp`,
           frontImage: `/vehicles/korea-ssangyong-rexton-front.webp`,
           specs: { engine: '2.2 л Дизель', power: '202 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2022', consumption: '9.0 л/100км' },
@@ -972,7 +972,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Kia Sorento',
           bodyType: 'Внедорожник',
-          price: 'от 2 600 000 ₽',
+          price: 'от 2 340 000 ₽',
           sideImage: `/vehicles/korea-kia-sorento-side.webp`,
           frontImage: `/vehicles/korea-kia-sorento-front.webp`,
           specs: { engine: '2.5 л', power: '191 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '9.3 л/100км' },
@@ -985,7 +985,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Hyundai Palisade',
           bodyType: 'Внедорожник',
-          price: 'от 3 400 000 ₽',
+          price: 'от 3 060 000 ₽',
           sideImage: `/vehicles/korea-hyundai-palisade-side.webp`,
           frontImage: `/vehicles/korea-hyundai-palisade-front.webp`,
           specs: { engine: '3.8 л', power: '295 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '11.5 л/100км' },
@@ -1000,7 +1000,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW 5 Series',
           bodyType: 'Седан',
-          price: 'от 3 200 000 ₽',
+          price: 'от 2 880 000 ₽',
           sideImage: `/vehicles/europe-bmw-5-series-side.webp`,
           frontImage: `/vehicles/europe-bmw-5-series-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '245 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '7.8 л/100км' },
@@ -1008,7 +1008,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW 5 Series Touring',
           bodyType: 'Универсал',
-          price: 'от 3 400 000 ₽',
+          price: 'от 3 060 000 ₽',
           sideImage: `/vehicles/europe-bmw-5-series-touring-side.webp`,
           frontImage: `/vehicles/europe-bmw-5-series-touring-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '245 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.1 л/100км' },
@@ -1016,7 +1016,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW X3',
           bodyType: 'Кроссовер',
-          price: 'от 3 600 000 ₽',
+          price: 'от 3 240 000 ₽',
           sideImage: `/vehicles/europe-bmw-x3-side.webp`,
           frontImage: `/vehicles/europe-bmw-x3-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '252 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.9 л/100км' },
@@ -1024,7 +1024,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW 3 серии',
           bodyType: 'Седан',
-          price: 'от 3 100 000 ₽',
+          price: 'от 2 790 000 ₽',
           sideImage: `/vehicles/europe-bmw-3-serii-side.webp`,
           frontImage: `/vehicles/europe-bmw-3-serii-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '184 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '7.0 л/100км' },
@@ -1032,7 +1032,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW X1',
           bodyType: 'Кроссовер',
-          price: 'от 3 200 000 ₽',
+          price: 'от 2 880 000 ₽',
           sideImage: `/vehicles/europe-bmw-x1-side.webp`,
           frontImage: `/vehicles/europe-bmw-x1-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '170 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '7.8 л/100км' },
@@ -1040,7 +1040,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW 1 серии',
           bodyType: 'Хэтчбек',
-          price: 'от 2 700 000 ₽',
+          price: 'от 2 430 000 ₽',
           sideImage: `/vehicles/europe-bmw-1-serii-side.webp`,
           frontImage: `/vehicles/europe-bmw-1-serii-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '136 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '6.3 л/100км' },
@@ -1048,7 +1048,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW X5',
           bodyType: 'Внедорожник',
-          price: 'от 5 900 000 ₽',
+          price: 'от 5 310 000 ₽',
           sideImage: `/vehicles/europe-bmw-x5-side.webp`,
           frontImage: `/vehicles/europe-bmw-x5-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '340 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '10.8 л/100км' },
@@ -1056,7 +1056,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW 4 Series Gran Coupe',
           bodyType: 'Лифтбек',
-          price: 'от 3 900 000 ₽',
+          price: 'от 3 510 000 ₽',
           sideImage: `/vehicles/europe-bmw-4-series-gran-coupe-side.webp`,
           frontImage: `/vehicles/europe-bmw-4-series-gran-coupe-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '245 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '7.6 л/100км' },
@@ -1064,7 +1064,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW X6',
           bodyType: 'Внедорожник',
-          price: 'от 6 700 000 ₽',
+          price: 'от 6 030 000 ₽',
           sideImage: `/vehicles/europe-bmw-x6-side.webp`,
           frontImage: `/vehicles/europe-bmw-x6-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '340 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.0 л/100км' },
@@ -1072,7 +1072,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW i4',
           bodyType: 'Седан',
-          price: 'от 4 500 000 ₽',
+          price: 'от 4 050 000 ₽',
           sideImage: `/vehicles/europe-bmw-i4-side.webp`,
           frontImage: `/vehicles/europe-bmw-i4-front.webp`,
           specs: { engine: 'Электро', power: '340 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '17.0 кВт·ч/100км' },
@@ -1085,7 +1085,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz E-Class',
           bodyType: 'Седан',
-          price: 'от 3 600 000 ₽',
+          price: 'от 3 240 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-e-class-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-e-class-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '258 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '8.0 л/100км' },
@@ -1093,7 +1093,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz CLE Coupe',
           bodyType: 'Купе',
-          price: 'от 4 200 000 ₽',
+          price: 'от 3 780 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-cle-coupe-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-cle-coupe-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '258 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '8.2 л/100км' },
@@ -1101,7 +1101,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz GLE',
           bodyType: 'Внедорожник',
-          price: 'от 5 200 000 ₽',
+          price: 'от 4 680 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-gle-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-gle-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '367 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '10.5 л/100км' },
@@ -1109,7 +1109,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz A-Класс',
           bodyType: 'Хэтчбек',
-          price: 'от 2 800 000 ₽',
+          price: 'от 2 520 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-a-klass-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-a-klass-front.webp`,
           specs: { engine: '1.3 л Turbo', power: '163 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '6.5 л/100км' },
@@ -1117,7 +1117,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz GLB',
           bodyType: 'Кроссовер',
-          price: 'от 3 800 000 ₽',
+          price: 'от 3 420 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-glb-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-glb-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '224 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.5 л/100км' },
@@ -1125,7 +1125,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz G-Класс AMG',
           bodyType: 'Внедорожник',
-          price: 'от 9 800 000 ₽',
+          price: 'от 8 820 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-g-klass-amg-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-g-klass-amg-front.webp`,
           specs: { engine: '4.0 л Turbo V8', power: '585 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '13.9 л/100км' },
@@ -1133,7 +1133,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz G-Класс',
           bodyType: 'Внедорожник',
-          price: 'от 8 200 000 ₽',
+          price: 'от 7 380 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-g-klass-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-g-klass-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '367 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '12.3 л/100км' },
@@ -1141,7 +1141,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz CLA',
           bodyType: 'Купе',
-          price: 'от 3 300 000 ₽',
+          price: 'от 2 970 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-cla-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-cla-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '224 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '7.1 л/100км' },
@@ -1149,7 +1149,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz GLC Coupe',
           bodyType: 'Купе',
-          price: 'от 4 700 000 ₽',
+          price: 'от 4 230 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-glc-coupe-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-glc-coupe-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '258 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.2 л/100км' },
@@ -1157,7 +1157,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz GLS',
           bodyType: 'Внедорожник',
-          price: 'от 7 500 000 ₽',
+          price: 'от 6 750 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-gls-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-gls-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '381 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.6 л/100км' },
@@ -1165,7 +1165,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz GLC',
           bodyType: 'Кроссовер',
-          price: 'от 4 400 000 ₽',
+          price: 'от 3 960 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-glc-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-glc-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '258 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.9 л/100км' },
@@ -1173,7 +1173,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz C-Класс',
           bodyType: 'Седан',
-          price: 'от 3 300 000 ₽',
+          price: 'от 2 970 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-c-klass-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-c-klass-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '204 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '7.3 л/100км' },
@@ -1181,7 +1181,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz S-Class',
           bodyType: 'Седан',
-          price: 'от 8 900 000 ₽',
+          price: 'от 8 010 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-s-class-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-s-class-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '367 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.5 л/100км' },
@@ -1189,7 +1189,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz EQE',
           bodyType: 'Седан',
-          price: 'от 6 200 000 ₽',
+          price: 'от 5 580 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-eqe-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-eqe-front.webp`,
           specs: { engine: 'Электро', power: '292 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '17.7 кВт·ч/100км' },
@@ -1197,7 +1197,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Benz V-Class',
           bodyType: 'Минивэн',
-          price: 'от 6 500 000 ₽',
+          price: 'от 5 850 000 ₽',
           sideImage: `/vehicles/europe-mercedes-benz-v-class-side.webp`,
           frontImage: `/vehicles/europe-mercedes-benz-v-class-front.webp`,
           specs: { engine: '2.0 л Turbo Дизель', power: '190 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '7.9 л/100км' },
@@ -1210,7 +1210,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi A6',
           bodyType: 'Седан',
-          price: 'от 3 000 000 ₽',
+          price: 'от 2 700 000 ₽',
           sideImage: `/vehicles/europe-audi-a6-side.webp`,
           frontImage: `/vehicles/europe-audi-a6-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '245 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '7.9 л/100км' },
@@ -1218,7 +1218,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi A6 Avant',
           bodyType: 'Универсал',
-          price: 'от 3 200 000 ₽',
+          price: 'от 2 880 000 ₽',
           sideImage: `/vehicles/europe-audi-a6-avant-side.webp`,
           frontImage: `/vehicles/europe-audi-a6-avant-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '245 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '8.1 л/100км' },
@@ -1226,7 +1226,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi Q5',
           bodyType: 'Кроссовер',
-          price: 'от 3 500 000 ₽',
+          price: 'от 3 150 000 ₽',
           sideImage: `/vehicles/europe-audi-q5-side.webp`,
           frontImage: `/vehicles/europe-audi-q5-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '249 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.6 л/100км' },
@@ -1234,7 +1234,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi A3',
           bodyType: 'Хэтчбек',
-          price: 'от 2 500 000 ₽',
+          price: 'от 2 250 000 ₽',
           sideImage: `/vehicles/europe-audi-a3-side.webp`,
           frontImage: `/vehicles/europe-audi-a3-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.1 л/100км' },
@@ -1242,7 +1242,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi Q3',
           bodyType: 'Кроссовер',
-          price: 'от 3 100 000 ₽',
+          price: 'от 2 790 000 ₽',
           sideImage: `/vehicles/europe-audi-q3-side.webp`,
           frontImage: `/vehicles/europe-audi-q3-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '190 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '7.8 л/100км' },
@@ -1250,7 +1250,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi Q2',
           bodyType: 'Кроссовер',
-          price: 'от 2 700 000 ₽',
+          price: 'от 2 430 000 ₽',
           sideImage: `/vehicles/europe-audi-q2-side.webp`,
           frontImage: `/vehicles/europe-audi-q2-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.4 л/100км' },
@@ -1258,7 +1258,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi A5',
           bodyType: 'Купе',
-          price: 'от 3 600 000 ₽',
+          price: 'от 3 240 000 ₽',
           sideImage: `/vehicles/europe-audi-a5-side.webp`,
           frontImage: `/vehicles/europe-audi-a5-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '204 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '7.6 л/100км' },
@@ -1266,7 +1266,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi Q7',
           bodyType: 'Внедорожник',
-          price: 'от 6 500 000 ₽',
+          price: 'от 5 850 000 ₽',
           sideImage: `/vehicles/europe-audi-q7-side.webp`,
           frontImage: `/vehicles/europe-audi-q7-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '340 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '10.9 л/100км' },
@@ -1274,7 +1274,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Audi e-tron GT',
           bodyType: 'Седан',
-          price: 'от 7 800 000 ₽',
+          price: 'от 7 020 000 ₽',
           sideImage: `/vehicles/europe-audi-e-tron-gt-side.webp`,
           frontImage: `/vehicles/europe-audi-e-tron-gt-front.webp`,
           specs: { engine: 'Электро', power: '476 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '19.6 кВт·ч/100км' },
@@ -1287,7 +1287,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Golf',
           bodyType: 'Хэтчбек',
-          price: 'от 2 300 000 ₽',
+          price: 'от 2 070 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-golf-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-golf-front.webp`,
           specs: { engine: '1.4 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.2 л/100км' },
@@ -1295,7 +1295,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Tiguan',
           bodyType: 'Кроссовер',
-          price: 'от 2 700 000 ₽',
+          price: 'от 2 430 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-tiguan-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-tiguan-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '190 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '8.3 л/100км' },
@@ -1303,7 +1303,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Tayron',
           bodyType: 'Кроссовер',
-          price: 'от 3 000 000 ₽',
+          price: 'от 2 700 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-tayron-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-tayron-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '190 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.1 л/100км' },
@@ -1311,7 +1311,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Multivan',
           bodyType: 'Минивэн',
-          price: 'от 4 500 000 ₽',
+          price: 'от 4 050 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-multivan-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-multivan-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '204 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '8.7 л/100км' },
@@ -1319,7 +1319,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen T-Roc',
           bodyType: 'Кроссовер',
-          price: 'от 2 500 000 ₽',
+          price: 'от 2 250 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-t-roc-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-t-roc-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.9 л/100км' },
@@ -1327,7 +1327,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Lamando',
           bodyType: 'Лифтбек',
-          price: 'от 2 200 000 ₽',
+          price: 'от 1 980 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-lamando-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-lamando-front.webp`,
           specs: { engine: '1.4 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.6 л/100км' },
@@ -1335,7 +1335,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Teramont',
           bodyType: 'Внедорожник',
-          price: 'от 3 800 000 ₽',
+          price: 'от 3 420 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-teramont-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-teramont-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '220 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '9.8 л/100км' },
@@ -1343,7 +1343,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Tharu',
           bodyType: 'Кроссовер',
-          price: 'от 2 100 000 ₽',
+          price: 'от 1 890 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-tharu-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-tharu-front.webp`,
           specs: { engine: '1.4 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.8 л/100км' },
@@ -1351,7 +1351,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Passat',
           bodyType: 'Седан',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-passat-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-passat-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '190 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '7.5 л/100км' },
@@ -1359,7 +1359,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Sagitar',
           bodyType: 'Седан',
-          price: 'от 2 000 000 ₽',
+          price: 'от 1 800 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-sagitar-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-sagitar-front.webp`,
           specs: { engine: '1.4 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.3 л/100км' },
@@ -1367,7 +1367,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen T-Cross',
           bodyType: 'Кроссовер',
-          price: 'от 1 900 000 ₽',
+          price: 'от 1 710 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-t-cross-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-t-cross-front.webp`,
           specs: { engine: '1.0 л Turbo', power: '116 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '5.8 л/100км' },
@@ -1375,7 +1375,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Touran',
           bodyType: 'Минивэн',
-          price: 'от 2 600 000 ₽',
+          price: 'от 2 340 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-touran-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-touran-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.9 л/100км' },
@@ -1383,7 +1383,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Transporter',
           bodyType: 'Фургон',
-          price: 'от 3 300 000 ₽',
+          price: 'от 2 970 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-transporter-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-transporter-front.webp`,
           specs: { engine: '2.0 л Turbo Дизель', power: '150 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '8.5 л/100км' },
@@ -1391,7 +1391,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Polo',
           bodyType: 'Седан',
-          price: 'от 1 600 000 ₽',
+          price: 'от 1 440 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-polo-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-polo-front.webp`,
           specs: { engine: '1.6 л', power: '110 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '6.5 л/100км' },
@@ -1399,7 +1399,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen ID.4',
           bodyType: 'Кроссовер',
-          price: 'от 3 700 000 ₽',
+          price: 'от 3 330 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-id4-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-id4-front.webp`,
           specs: { engine: 'Электро', power: '204 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '16.3 кВт·ч/100км' },
@@ -1407,7 +1407,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volkswagen Arteon',
           bodyType: 'Лифтбек',
-          price: 'от 3 300 000 ₽',
+          price: 'от 2 970 000 ₽',
           sideImage: `/vehicles/europe-volkswagen-arteon-side.webp`,
           frontImage: `/vehicles/europe-volkswagen-arteon-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '190 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '7.7 л/100км' },
@@ -1420,7 +1420,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Skoda Octavia',
           bodyType: 'Лифтбек',
-          price: 'от 2 200 000 ₽',
+          price: 'от 1 980 000 ₽',
           sideImage: `/vehicles/europe-skoda-octavia-side.webp`,
           frontImage: `/vehicles/europe-skoda-octavia-front.webp`,
           specs: { engine: '1.4 л Turbo', power: '150 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '6.4 л/100км' },
@@ -1428,7 +1428,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Skoda Superb',
           bodyType: 'Лифтбек',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `/vehicles/europe-skoda-superb-side.webp`,
           frontImage: `/vehicles/europe-skoda-superb-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '190 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '7.9 л/100км' },
@@ -1436,7 +1436,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Skoda Kodiaq',
           bodyType: 'Внедорожник',
-          price: 'от 3 200 000 ₽',
+          price: 'от 2 880 000 ₽',
           sideImage: `/vehicles/europe-skoda-kodiaq-side.webp`,
           frontImage: `/vehicles/europe-skoda-kodiaq-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '190 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.9 л/100км' },
@@ -1444,7 +1444,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Skoda Karoq',
           bodyType: 'Кроссовер',
-          price: 'от 2 600 000 ₽',
+          price: 'от 2 340 000 ₽',
           sideImage: `/vehicles/europe-skoda-karoq-side.webp`,
           frontImage: `/vehicles/europe-skoda-karoq-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '150 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '7.4 л/100км' },
@@ -1452,7 +1452,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Skoda Kamiq',
           bodyType: 'Кроссовер',
-          price: 'от 2 100 000 ₽',
+          price: 'от 1 890 000 ₽',
           sideImage: `/vehicles/europe-skoda-kamiq-side.webp`,
           frontImage: `/vehicles/europe-skoda-kamiq-front.webp`,
           specs: { engine: '1.0 л Turbo', power: '116 л.с.', drive: 'Передний', transmission: 'Робот', year: '2023', consumption: '5.9 л/100км' },
@@ -1465,7 +1465,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mini Countryman',
           bodyType: 'Кроссовер',
-          price: 'от 3 400 000 ₽',
+          price: 'от 3 060 000 ₽',
           sideImage: `/vehicles/europe-mini-countryman-side.webp`,
           frontImage: `/vehicles/europe-mini-countryman-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '204 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '7.6 л/100км' },
@@ -1473,7 +1473,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mini Cooper',
           bodyType: 'Хэтчбек',
-          price: 'от 2 600 000 ₽',
+          price: 'от 2 340 000 ₽',
           sideImage: `/vehicles/europe-mini-cooper-side.webp`,
           frontImage: `/vehicles/europe-mini-cooper-front.webp`,
           specs: { engine: '1.5 л Turbo', power: '156 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2024', consumption: '6.1 л/100км' },
@@ -1486,7 +1486,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Porsche 911',
           bodyType: 'Купе',
-          price: 'от 6 500 000 ₽',
+          price: 'от 5 850 000 ₽',
           sideImage: `/vehicles/europe-porsche-911-side.webp`,
           frontImage: `/vehicles/europe-porsche-911-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '385 л.с.', drive: 'Задний', transmission: 'Робот', year: '2024', consumption: '10.5 л/100км' },
@@ -1494,7 +1494,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Porsche Cayenne',
           bodyType: 'Внедорожник',
-          price: 'от 7 200 000 ₽',
+          price: 'от 6 480 000 ₽',
           sideImage: `/vehicles/europe-porsche-cayenne-side.webp`,
           frontImage: `/vehicles/europe-porsche-cayenne-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '340 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.0 л/100км' },
@@ -1502,7 +1502,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Porsche Macan',
           bodyType: 'Кроссовер',
-          price: 'от 5 400 000 ₽',
+          price: 'от 4 860 000 ₽',
           sideImage: `/vehicles/europe-porsche-macan-side.webp`,
           frontImage: `/vehicles/europe-porsche-macan-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '265 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.5 л/100км' },
@@ -1515,7 +1515,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Range Rover Vogue',
           bodyType: 'Внедорожник',
-          price: 'от 5 800 000 ₽',
+          price: 'от 5 220 000 ₽',
           sideImage: `/vehicles/europe-range-rover-vogue-side.webp`,
           frontImage: `/vehicles/europe-range-rover-vogue-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '400 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.8 л/100км' },
@@ -1523,7 +1523,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Range Rover Sport',
           bodyType: 'Внедорожник',
-          price: 'от 6 900 000 ₽',
+          price: 'от 6 210 000 ₽',
           sideImage: `/vehicles/europe-range-rover-sport-side.webp`,
           frontImage: `/vehicles/europe-range-rover-sport-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '400 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.3 л/100км' },
@@ -1536,7 +1536,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Land Rover Defender',
           bodyType: 'Внедорожник',
-          price: 'от 6 200 000 ₽',
+          price: 'от 5 580 000 ₽',
           sideImage: `/vehicles/europe-land-rover-defender-side.webp`,
           frontImage: `/vehicles/europe-land-rover-defender-front.webp`,
           specs: { engine: '3.0 л Turbo', power: '400 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.5 л/100км' },
@@ -1549,7 +1549,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volvo XC60',
           bodyType: 'Внедорожник',
-          price: 'от 4 500 000 ₽',
+          price: 'от 4 050 000 ₽',
           sideImage: `/vehicles/europe-volvo-xc60-side.webp`,
           frontImage: `/vehicles/europe-volvo-xc60-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '250 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '8.5 л/100км' },
@@ -1557,7 +1557,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Volvo XC90',
           bodyType: 'Внедорожник',
-          price: 'от 5 700 000 ₽',
+          price: 'от 5 130 000 ₽',
           sideImage: `/vehicles/europe-volvo-xc90-side.webp`,
           frontImage: `/vehicles/europe-volvo-xc90-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '250 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '9.0 л/100км' },
@@ -1572,7 +1572,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Tesla Model S',
           bodyType: 'Седан',
-          price: 'от 4 000 000 ₽',
+          price: 'от 3 600 000 ₽',
           sideImage: `/vehicles/usa-tesla-model-s-side.webp`,
           frontImage: `/vehicles/usa-tesla-model-s-front.webp`,
           specs: { engine: 'Электро', power: '670 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '16.0 кВт·ч/100км' },
@@ -1580,7 +1580,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Tesla Model Y',
           bodyType: 'Кроссовер',
-          price: 'от 3 700 000 ₽',
+          price: 'от 3 330 000 ₽',
           sideImage: `/vehicles/usa-tesla-model-y-side.webp`,
           frontImage: `/vehicles/usa-tesla-model-y-front.webp`,
           specs: { engine: 'Электро', power: '384 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '15.5 кВт·ч/100км' },
@@ -1588,7 +1588,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Tesla Model 3',
           bodyType: 'Седан',
-          price: 'от 3 100 000 ₽',
+          price: 'от 2 790 000 ₽',
           sideImage: `/vehicles/usa-tesla-model-3-side.webp`,
           frontImage: `/vehicles/usa-tesla-model-3-front.webp`,
           specs: { engine: 'Электро', power: '283 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '14.9 кВт·ч/100км' },
@@ -1596,7 +1596,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Tesla Cybertruck',
           bodyType: 'Пикап',
-          price: 'от 5 800 000 ₽',
+          price: 'от 5 220 000 ₽',
           sideImage: `/vehicles/usa-tesla-cybertruck-side.webp`,
           frontImage: `/vehicles/usa-tesla-cybertruck-front.webp`,
           specs: { engine: 'Электро', power: '600 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '25.0 кВт·ч/100км' },
@@ -1609,7 +1609,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Jeep Grand Cherokee',
           bodyType: 'Внедорожник',
-          price: 'от 3 300 000 ₽',
+          price: 'от 2 970 000 ₽',
           sideImage: `${CDN}/56e22742-54d8-4d2f-95c2-2e3a2edd053b.jpg`,
           frontImage: `${CDN}/8a26d46f-f78b-4d41-bca3-aea68386269b.jpg`,
           specs: { engine: '3.6 л', power: '290 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '11.5 л/100км' },
@@ -1617,7 +1617,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Jeep Wrangler',
           bodyType: 'Внедорожник',
-          price: 'от 4 100 000 ₽',
+          price: 'от 3 690 000 ₽',
           sideImage: `/vehicles/usa-jeep-wrangler-side.webp`,
           frontImage: `/vehicles/usa-jeep-wrangler-front.webp`,
           specs: { engine: '3.6 л', power: '285 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '12.5 л/100км' },
@@ -1630,7 +1630,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'GMC Yukon Denali',
           bodyType: 'Внедорожник',
-          price: 'от 7 400 000 ₽',
+          price: 'от 6 660 000 ₽',
           sideImage: `/vehicles/usa-gmc-yukon-denali-side.webp`,
           frontImage: `/vehicles/usa-gmc-yukon-denali-front.webp`,
           specs: { engine: '6.2 л V8', power: '420 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '14.8 л/100км' },
@@ -1643,7 +1643,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Lincoln Navigator',
           bodyType: 'Внедорожник',
-          price: 'от 8 200 000 ₽',
+          price: 'от 7 380 000 ₽',
           sideImage: `/vehicles/usa-lincoln-navigator-side.webp`,
           frontImage: `/vehicles/usa-lincoln-navigator-front.webp`,
           specs: { engine: '3.5 л Twin-Turbo', power: '440 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '14.0 л/100км' },
@@ -1656,7 +1656,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Ford F-150',
           bodyType: 'Пикап',
-          price: 'от 2 900 000 ₽',
+          price: 'от 2 610 000 ₽',
           sideImage: `${CDN}/ae1260ac-f687-4d6a-9b82-48f8f1b93bff.jpg`,
           frontImage: `${CDN}/76338c05-1acb-4764-bc0f-e74f1c317320.jpg`,
           specs: { engine: '3.5 л Turbo', power: '400 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '12.5 л/100км' },
@@ -1664,7 +1664,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Ford Explorer',
           bodyType: 'Внедорожник',
-          price: 'от 3 100 000 ₽',
+          price: 'от 2 790 000 ₽',
           sideImage: `${CDN}/d7bd27c9-ed1c-469c-bd9a-8e8cc1d9aabf.jpg`,
           frontImage: `${CDN}/03035abc-3c93-475a-af14-64e21896d85a.jpg`,
           specs: { engine: '2.3 л Turbo', power: '300 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '10.8 л/100км' },
@@ -1677,7 +1677,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Cadillac CT5',
           bodyType: 'Седан',
-          price: 'от 5 500 000 ₽',
+          price: 'от 4 950 000 ₽',
           sideImage: `${CDN}/6021278a-3f23-4851-adc7-e6075228f769.jpg`,
           frontImage: `${CDN}/435815b0-0740-4ec1-8685-92e1c3476a0e.jpg`,
           specs: { engine: '2.0 л Turbo', power: '237 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '9.0 л/100км' },
@@ -1685,7 +1685,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Cadillac Escalade',
           bodyType: 'Внедорожник',
-          price: 'от 8 500 000 ₽',
+          price: 'от 7 650 000 ₽',
           sideImage: `${CDN}/99ccd943-e79c-4597-9207-04f7eb86bef6.jpg`,
           frontImage: `${CDN}/15e5b230-5169-466a-9c26-0f3dc3c6f0fa.jpg`,
           specs: { engine: '6.2 л', power: '426 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '14.5 л/100км' },
@@ -1698,7 +1698,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Chevrolet Silverado',
           bodyType: 'Пикап',
-          price: 'от 4 300 000 ₽',
+          price: 'от 3 870 000 ₽',
           sideImage: `${CDN}/3613ae43-c88d-46cd-8127-549179e811cb.jpg`,
           frontImage: `${CDN}/0f1d2b2e-c6d5-4c72-a7fb-c2be5bbf6ff1.jpg`,
           specs: { engine: '5.3 л', power: '355 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '13.2 л/100км' },
@@ -1706,7 +1706,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Chevrolet Tahoe',
           bodyType: 'Внедорожник',
-          price: 'от 5 900 000 ₽',
+          price: 'от 5 310 000 ₽',
           sideImage: `${CDN}/b064fa1c-cec4-4154-a1c9-95917a5acf2f.jpg`,
           frontImage: `${CDN}/8c4b55b7-1706-46a1-ab99-2f988b18b5ad.jpg`,
           specs: { engine: '5.3 л', power: '355 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '13.8 л/100км' },
@@ -1714,7 +1714,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Chevrolet TrailBlazer',
           bodyType: 'Внедорожник',
-          price: 'от 2 700 000 ₽',
+          price: 'от 2 430 000 ₽',
           sideImage: `/vehicles/usa-chevrolet-trailblazer-side.webp`,
           frontImage: `/vehicles/usa-chevrolet-trailblazer-front.webp`,
           specs: { engine: '2.0 л Turbo Дизель', power: '184 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '9.5 л/100км' },
@@ -1722,7 +1722,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Chevrolet Orlando',
           bodyType: 'Минивэн',
-          price: 'от 1 900 000 ₽',
+          price: 'от 1 710 000 ₽',
           sideImage: `/vehicles/usa-chevrolet-orlando-side.webp`,
           frontImage: `/vehicles/usa-chevrolet-orlando-front.webp`,
           specs: { engine: '1.8 л', power: '141 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2022', consumption: '8.2 л/100км' },
@@ -1730,7 +1730,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Chevrolet Trax',
           bodyType: 'Кроссовер',
-          price: 'от 2 200 000 ₽',
+          price: 'от 1 980 000 ₽',
           sideImage: `/vehicles/usa-chevrolet-trax-side.webp`,
           frontImage: `/vehicles/usa-chevrolet-trax-front.webp`,
           specs: { engine: '1.2 л Turbo', power: '137 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '7.0 л/100км' },
@@ -1743,7 +1743,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Ram 1500',
           bodyType: 'Пикап',
-          price: 'от 5 200 000 ₽',
+          price: 'от 4 680 000 ₽',
           sideImage: `/vehicles/usa-ram-1500-side.webp`,
           frontImage: `/vehicles/usa-ram-1500-front.webp`,
           specs: { engine: '5.7 л V8', power: '395 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '14.5 л/100км' },
@@ -1756,7 +1756,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Dodge Charger',
           bodyType: 'Седан',
-          price: 'от 3 600 000 ₽',
+          price: 'от 3 240 000 ₽',
           sideImage: `${CDN}/2b12749d-77fc-4589-9418-43824fac902f.jpg`,
           frontImage: `${CDN}/0c89b5e5-ea97-44b6-816d-9e12ddd97f12.jpg`,
           specs: { engine: '3.6 л V6', power: '292 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2022', consumption: '11.0 л/100км' },
@@ -1764,7 +1764,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Dodge Challenger',
           bodyType: 'Купе',
-          price: 'от 3 900 000 ₽',
+          price: 'от 3 510 000 ₽',
           sideImage: `${CDN}/a2aa8191-887f-4df1-9360-755ade8a060c.jpg`,
           frontImage: `${CDN}/4e03143d-f890-4854-b04f-6d2199843c0a.jpg`,
           specs: { engine: '5.7 л V8', power: '375 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2022', consumption: '13.5 л/100км' },
@@ -1779,7 +1779,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Rolls-Royce Cullinan',
           bodyType: 'Внедорожник',
-          price: 'от 42 000 000 ₽',
+          price: 'от 37 800 000 ₽',
           sideImage: `${CDN}/2a0fbe41-ded3-4853-86d0-74e9a5577c86.jpg`,
           frontImage: `${CDN}/2a0fbe41-ded3-4853-86d0-74e9a5577c86.jpg`,
           specs: { engine: '6.75 л V12 Twin-Turbo', power: '571 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '17.5 л/100км' },
@@ -1792,7 +1792,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Bentley Bentayga',
           bodyType: 'Внедорожник',
-          price: 'от 22 000 000 ₽',
+          price: 'от 19 800 000 ₽',
           sideImage: `${CDN}/57098f39-27f8-4db5-93c0-aceea7f71fd2.jpg`,
           frontImage: `${CDN}/57098f39-27f8-4db5-93c0-aceea7f71fd2.jpg`,
           specs: { engine: '4.0 л V8 Twin-Turbo', power: '550 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '13.1 л/100км' },
@@ -1805,7 +1805,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Ferrari Roma',
           bodyType: 'Купе',
-          price: 'от 28 000 000 ₽',
+          price: 'от 25 200 000 ₽',
           sideImage: `${CDN}/73d095e4-86a8-4d73-9189-1154fad688fd.jpg`,
           frontImage: `${CDN}/73d095e4-86a8-4d73-9189-1154fad688fd.jpg`,
           specs: { engine: '3.9 л V8 Twin-Turbo', power: '620 л.с.', drive: 'Задний', transmission: 'Робот', year: '2024', consumption: '11.2 л/100км' },
@@ -1818,7 +1818,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Lamborghini Urus',
           bodyType: 'Внедорожник',
-          price: 'от 31 000 000 ₽',
+          price: 'от 27 900 000 ₽',
           sideImage: `${CDN}/7abc5645-d2f4-4e57-9f90-48281777d57d.jpg`,
           frontImage: `${CDN}/7abc5645-d2f4-4e57-9f90-48281777d57d.jpg`,
           specs: { engine: '4.0 л V8 Twin-Turbo', power: '666 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '14.7 л/100км' },
@@ -1831,7 +1831,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Mercedes-Maybach S-Class',
           bodyType: 'Седан',
-          price: 'от 19 500 000 ₽',
+          price: 'от 17 550 000 ₽',
           sideImage: `${CDN}/17c356cd-4892-4ad3-be4a-a6a0ebfe49d0.jpg`,
           frontImage: `${CDN}/17c356cd-4892-4ad3-be4a-a6a0ebfe49d0.jpg`,
           specs: { engine: '4.0 л V8 Twin-Turbo', power: '496 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '11.5 л/100км' },
@@ -1844,7 +1844,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Nissan Patrol Nismo',
           bodyType: 'Внедорожник',
-          price: 'от 9 800 000 ₽',
+          price: 'от 8 820 000 ₽',
           sideImage: `${CDN}/5f94b2b3-f50d-4b8b-a7c6-1e9d68c2e72a.jpg`,
           frontImage: `${CDN}/5f94b2b3-f50d-4b8b-a7c6-1e9d68c2e72a.jpg`,
           specs: { engine: '5.6 л V8', power: '428 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '17.0 л/100км' },
@@ -1852,7 +1852,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Nissan Patrol',
           bodyType: 'Внедорожник',
-          price: 'от 6 900 000 ₽',
+          price: 'от 6 210 000 ₽',
           sideImage: `/vehicles/uae-nissan-patrol-side.webp`,
           frontImage: `/vehicles/uae-nissan-patrol-front.webp`,
           specs: { engine: '5.6 л V8', power: '400 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '16.5 л/100км' },
@@ -1865,7 +1865,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Toyota Land Cruiser 300 VXR',
           bodyType: 'Внедорожник',
-          price: 'от 11 500 000 ₽',
+          price: 'от 10 350 000 ₽',
           sideImage: `${CDN}/1234f466-1cca-4c72-b1c6-2cd0acc803ac.jpg`,
           frontImage: `${CDN}/1234f466-1cca-4c72-b1c6-2cd0acc803ac.jpg`,
           specs: { engine: '3.5 л V6 Twin-Turbo', power: '415 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '12.4 л/100км' },
@@ -1878,7 +1878,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Lexus LX600',
           bodyType: 'Внедорожник',
-          price: 'от 10 200 000 ₽',
+          price: 'от 9 180 000 ₽',
           sideImage: `/vehicles/uae-lexus-lx600-side.webp`,
           frontImage: `/vehicles/uae-lexus-lx600-front.webp`,
           specs: { engine: '3.4 л Twin-Turbo', power: '415 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '13.6 л/100км' },
@@ -1891,7 +1891,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'McLaren 720S',
           bodyType: 'Купе',
-          price: 'от 22 000 000 ₽',
+          price: 'от 19 800 000 ₽',
           sideImage: `/vehicles/uae-mclaren-720s-side.webp`,
           frontImage: `/vehicles/uae-mclaren-720s-front.webp`,
           specs: { engine: '4.0 л V8 Twin-Turbo', power: '720 л.с.', drive: 'Задний', transmission: 'Робот', year: '2024', consumption: '15.4 л/100км' },
@@ -1904,7 +1904,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Aston Martin DBX',
           bodyType: 'Внедорожник',
-          price: 'от 19 500 000 ₽',
+          price: 'от 17 550 000 ₽',
           sideImage: `/vehicles/uae-aston-martin-dbx-side.webp`,
           frontImage: `/vehicles/uae-aston-martin-dbx-front.webp`,
           specs: { engine: '4.0 л V8 Twin-Turbo', power: '550 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '14.5 л/100км' },
@@ -1917,7 +1917,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Cadillac Escalade',
           bodyType: 'Внедорожник',
-          price: 'от 13 200 000 ₽',
+          price: 'от 11 880 000 ₽',
           sideImage: `${CDN}/49eb9a77-554f-42ab-a3e4-45033173f396.jpg`,
           frontImage: `${CDN}/49eb9a77-554f-42ab-a3e4-45033173f396.jpg`,
           specs: { engine: '6.2 л V8', power: '426 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '15.8 л/100км' },
@@ -1930,7 +1930,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW 7 Series',
           bodyType: 'Седан',
-          price: 'от 14 800 000 ₽',
+          price: 'от 13 320 000 ₽',
           sideImage: `${CDN}/54f5afb8-8327-4793-b8ec-25306d1967ab.jpg`,
           frontImage: `${CDN}/54f5afb8-8327-4793-b8ec-25306d1967ab.jpg`,
           specs: { engine: '3.0 л Turbo', power: '381 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '9.0 л/100км' },
@@ -1943,7 +1943,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'Porsche Cayenne Turbo GT',
           bodyType: 'Внедорожник',
-          price: 'от 17 900 000 ₽',
+          price: 'от 16 110 000 ₽',
           sideImage: `${CDN}/c0dd95d9-8452-4cb8-b02e-5a9e4bfa759f.jpg`,
           frontImage: `${CDN}/c0dd95d9-8452-4cb8-b02e-5a9e4bfa759f.jpg`,
           specs: { engine: '4.0 л V8 Twin-Turbo', power: '640 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '13.4 л/100км' },

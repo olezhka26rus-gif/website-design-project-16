@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-09-11T21:52:16+03:00">
+<yml_catalog date="2026-10-09T13:49:37+03:00">
   <shop>
     <name>Регион Логистик</name>
     <company>ООО «РегионЛогистик»</company>
@@ -160,7 +160,7 @@
         <name>Седан Zeekr 007 2024</name>
         <vendor>Zeekr</vendor>
         <url>https://rlogistik.ru/catalog/china/zeekr-007</url>
-        <price>5636465</price>
+        <price>5177665</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-zeekr,country-china</set-ids>
@@ -183,7 +183,7 @@
         <name>Лифтбек Zeekr 001 2024</name>
         <vendor>Zeekr</vendor>
         <url>https://rlogistik.ru/catalog/china/zeekr-001</url>
-        <price>6080465</price>
+        <price>5577265</price>
         <currencyId>RUR</currencyId>
         <categoryId>104</categoryId>
         <set-ids>brand-zeekr,country-china</set-ids>
@@ -206,7 +206,7 @@
         <name>Кроссовер Zeekr 8X 2024</name>
         <vendor>Zeekr</vendor>
         <url>https://rlogistik.ru/catalog/china/zeekr-8x</url>
-        <price>7264465</price>
+        <price>6642865</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-zeekr,country-china</set-ids>
@@ -229,7 +229,7 @@
         <name>Внедорожник Zeekr 9X 2024</name>
         <vendor>Zeekr</vendor>
         <url>https://rlogistik.ru/catalog/china/zeekr-9x</url>
-        <price>9191344</price>
+        <price>8377344</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-zeekr,country-china</set-ids>
@@ -252,7 +252,7 @@
         <name>Кроссовер Zeekr X 2024</name>
         <vendor>Zeekr</vendor>
         <url>https://rlogistik.ru/catalog/china/zeekr-x</url>
-        <price>5040465</price>
+        <price>4606341</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-zeekr,country-china</set-ids>
@@ -275,7 +275,7 @@
         <name>Внедорожник Li Auto L9 2024</name>
         <vendor>Li Auto</vendor>
         <url>https://rlogistik.ru/catalog/china/li-auto-l9</url>
-        <price>6524465</price>
+        <price>5976865</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -300,7 +300,7 @@
         <name>Седан Chery Arrizo 8 2023</name>
         <vendor>Chery</vendor>
         <url>https://rlogistik.ru/catalog/china/chery-arrizo-8</url>
-        <price>3673541</price>
+        <price>3362741</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>country-china</set-ids>
@@ -325,7 +325,7 @@
         <name>Кроссовер Chery Tiggo 7 Pro 2023</name>
         <vendor>Chery</vendor>
         <url>https://rlogistik.ru/catalog/china/chery-tiggo-7-pro</url>
-        <price>3998941</price>
+        <price>3643741</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -350,7 +350,7 @@
         <name>Внедорожник Chery Tiggo 8 Pro Max 2024</name>
         <vendor>Chery</vendor>
         <url>https://rlogistik.ru/catalog/china/chery-tiggo-8-pro-max</url>
-        <price>5336465</price>
+        <price>4877665</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -375,7 +375,7 @@
         <name>Седан BYD Han 2024</name>
         <vendor>BYD</vendor>
         <url>https://rlogistik.ru/catalog/china/byd-han</url>
-        <price>4891541</price>
+        <price>4506741</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-byd,country-china</set-ids>
@@ -398,7 +398,7 @@
         <name>Кроссовер BYD Song Plus 2023</name>
         <vendor>BYD</vendor>
         <url>https://rlogistik.ru/catalog/china/byd-song-plus</url>
-        <price>5040465</price>
+        <price>4606341</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-byd,country-china</set-ids>
@@ -423,7 +423,7 @@
         <name>Универсал BYD Qin Wagon 2023</name>
         <vendor>BYD</vendor>
         <url>https://rlogistik.ru/catalog/china/byd-qin-wagon</url>
-        <price>3969541</price>
+        <price>3629141</price>
         <currencyId>RUR</currencyId>
         <categoryId>105</categoryId>
         <set-ids>brand-byd,country-china</set-ids>
@@ -448,7 +448,7 @@
         <name>Седан BYD Seal 2024</name>
         <vendor>BYD</vendor>
         <url>https://rlogistik.ru/catalog/china/byd-seal</url>
-        <price>5784465</price>
+        <price>5310865</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-byd,country-china</set-ids>
@@ -471,7 +471,7 @@
         <name>Седан Geely Preface 2023</name>
         <vendor>Geely</vendor>
         <url>https://rlogistik.ru/catalog/china/geely-preface</url>
-        <price>4714465</price>
+        <price>4295141</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-geely,country-china</set-ids>
@@ -496,7 +496,7 @@
         <name>Кроссовер Geely Coolray 2023</name>
         <vendor>Geely</vendor>
         <url>https://rlogistik.ru/catalog/china/geely-coolray</url>
-        <price>4265541</price>
+        <price>3895541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-geely,country-china</set-ids>
@@ -521,7 +521,7 @@
         <name>Внедорожник Geely Monjaro 2023</name>
         <vendor>Geely</vendor>
         <url>https://rlogistik.ru/catalog/china/geely-monjaro</url>
-        <price>5632465</price>
+        <price>5144065</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-geely,country-china</set-ids>
@@ -546,7 +546,7 @@
         <name>Кроссовер Geely Galaxy Starship 7 2024</name>
         <vendor>Geely</vendor>
         <url>https://rlogistik.ru/catalog/china/geely-galaxy-starship-7</url>
-        <price>5040465</price>
+        <price>4606341</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-geely,country-china</set-ids>
@@ -571,7 +571,7 @@
         <name>Седан Geely Emgrand 2023</name>
         <vendor>Geely</vendor>
         <url>https://rlogistik.ru/catalog/china/geely-emgrand</url>
-        <price>2888941</price>
+        <price>2652141</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-geely,country-china</set-ids>
@@ -596,7 +596,7 @@
         <name>Внедорожник Haval H6 2023</name>
         <vendor>Haval</vendor>
         <url>https://rlogistik.ru/catalog/china/haval-h6</url>
-        <price>3406941</price>
+        <price>3110941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-haval,country-china</set-ids>
@@ -621,7 +621,7 @@
         <name>Кроссовер Haval Jolion 2023</name>
         <vendor>Haval</vendor>
         <url>https://rlogistik.ru/catalog/china/haval-jolion</url>
-        <price>3258941</price>
+        <price>2977741</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-haval,country-china</set-ids>
@@ -646,7 +646,7 @@
         <name>Кроссовер Haval M6 2023</name>
         <vendor>Haval</vendor>
         <url>https://rlogistik.ru/catalog/china/haval-m6</url>
-        <price>3036941</price>
+        <price>2785341</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-haval,country-china</set-ids>
@@ -671,7 +671,7 @@
         <name>Кроссовер Haval Dargo 2024</name>
         <vendor>Haval</vendor>
         <url>https://rlogistik.ru/catalog/china/haval-dargo</url>
-        <price>4561541</price>
+        <price>4161941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-haval,country-china</set-ids>
@@ -696,7 +696,7 @@
         <name>Минивэн GAC Trumpchi M6 Pro 2023</name>
         <vendor>GAC Trumpchi</vendor>
         <url>https://rlogistik.ru/catalog/china/gac-trumpchi-m6-pro</url>
-        <price>4117541</price>
+        <price>3762341</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>country-china</set-ids>
@@ -721,7 +721,7 @@
         <name>Кроссовер GAC S7 2024</name>
         <vendor>GAC</vendor>
         <url>https://rlogistik.ru/catalog/china/gac-s7</url>
-        <price>4892465</price>
+        <price>4473141</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -746,7 +746,7 @@
         <name>Седан Changan Qiyuan A06 2024</name>
         <vendor>Changan</vendor>
         <url>https://rlogistik.ru/catalog/china/changan-qiyuan-a06</url>
-        <price>3703541</price>
+        <price>3407541</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>country-china</set-ids>
@@ -771,7 +771,7 @@
         <name>Кроссовер Changan CS75 Plus 2024</name>
         <vendor>Changan</vendor>
         <url>https://rlogistik.ru/catalog/china/changan-cs75-plus</url>
-        <price>3895541</price>
+        <price>3569941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -796,7 +796,7 @@
         <name>Внедорожник Exeed TXL 2024</name>
         <vendor>Exeed</vendor>
         <url>https://rlogistik.ru/catalog/china/exeed-txl</url>
-        <price>5188465</price>
+        <price>4739541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -821,7 +821,7 @@
         <name>Кроссовер Omoda C5 2024</name>
         <vendor>Omoda</vendor>
         <url>https://rlogistik.ru/catalog/china/omoda-c5</url>
-        <price>3332941</price>
+        <price>3051741</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -846,7 +846,7 @@
         <name>Кроссовер Jaecoo J7 2024</name>
         <vendor>Jaecoo</vendor>
         <url>https://rlogistik.ru/catalog/china/jaecoo-j7</url>
-        <price>4043541</price>
+        <price>3703141</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -871,7 +871,7 @@
         <name>Кроссовер Jetta VS5 2023</name>
         <vendor>Jetta</vendor>
         <url>https://rlogistik.ru/catalog/china/jetta-vs5</url>
-        <price>3184941</price>
+        <price>2918541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -896,7 +896,7 @@
         <name>Внедорожник Lynk &amp; Co 900 2024</name>
         <vendor>Lynk &amp; Co</vendor>
         <url>https://rlogistik.ru/catalog/china/lynk-co-900</url>
-        <price>7711344</price>
+        <price>7042465</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -921,7 +921,7 @@
         <name>Внедорожник Voyah Taishan 2024</name>
         <vendor>Voyah</vendor>
         <url>https://rlogistik.ru/catalog/china/voyah-taishan</url>
-        <price>8155344</price>
+        <price>7444944</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-china</set-ids>
@@ -946,7 +946,7 @@
         <name>Седан Volkswagen Passat NMS 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/china/volkswagen-passat-nms</url>
-        <price>3969541</price>
+        <price>3629141</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-volkswagen,country-china</set-ids>
@@ -971,7 +971,7 @@
         <name>Седан Toyota Camry 2023</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-camry</url>
-        <price>4103041</price>
+        <price>3873041</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -996,7 +996,7 @@
         <name>Кроссовер Toyota RAV4 2023</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-rav4</url>
-        <price>4280141</price>
+        <price>3895341</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1021,7 +1021,7 @@
         <name>Универсал Toyota Corolla Touring 2023</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-corolla-touring</url>
-        <price>3569741</price>
+        <price>3258941</price>
         <currencyId>RUR</currencyId>
         <categoryId>105</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1046,7 +1046,7 @@
         <name>Седан Toyota Corolla 2023</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-corolla</url>
-        <price>3288541</price>
+        <price>3067941</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1071,7 +1071,7 @@
         <name>Хэтчбек Toyota Yaris 2023</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-yaris</url>
-        <price>2859341</price>
+        <price>2622541</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1096,7 +1096,7 @@
         <name>Внедорожник Toyota Highlander 2024</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-highlander</url>
-        <price>5721265</price>
+        <price>5218065</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1121,7 +1121,7 @@
         <name>Универсал Toyota Probox 2022</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-probox</url>
-        <price>2430141</price>
+        <price>2237741</price>
         <currencyId>RUR</currencyId>
         <categoryId>105</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1146,7 +1146,7 @@
         <name>Внедорожник Toyota Land Cruiser Prado 2024</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-land-cruiser-prado</url>
-        <price>8844840</price>
+        <price>7988144</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1171,7 +1171,7 @@
         <name>Кроссовер Toyota bZ3X 2024</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-bz3x</url>
-        <price>4862865</price>
+        <price>4458341</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1194,7 +1194,7 @@
         <name>Седан Toyota Levin 2023</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-levin</url>
-        <price>3436541</price>
+        <price>3125741</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1219,7 +1219,7 @@
         <name>Пикап Toyota Hilux 2023</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-hilux</url>
-        <price>5292065</price>
+        <price>4894465</price>
         <currencyId>RUR</currencyId>
         <categoryId>108</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1244,7 +1244,7 @@
         <name>Минивэн Toyota Alphard 2024</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-alphard</url>
-        <price>8136544</price>
+        <price>7396544</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1269,7 +1269,7 @@
         <name>Внедорожник Toyota Land Cruiser 250 2024</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-land-cruiser-250</url>
-        <price>10014440</price>
+        <price>9096840</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1294,7 +1294,7 @@
         <name>Седан Toyota Crown 2024</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-crown</url>
-        <price>6283665</price>
+        <price>5736065</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1319,7 +1319,7 @@
         <name>Купе Toyota GR86 2024</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/japan/toyota-gr86</url>
-        <price>5440065</price>
+        <price>4966465</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>brand-toyota,country-japan</set-ids>
@@ -1344,7 +1344,7 @@
         <name>Седан Lexus ES 2024</name>
         <vendor>Lexus</vendor>
         <url>https://rlogistik.ru/catalog/japan/lexus-es</url>
-        <price>5968465</price>
+        <price>5450465</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-lexus,country-japan</set-ids>
@@ -1369,7 +1369,7 @@
         <name>Внедорожник Lexus RX 2024</name>
         <vendor>Lexus</vendor>
         <url>https://rlogistik.ru/catalog/japan/lexus-rx</url>
-        <price>6856465</price>
+        <price>6249665</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-lexus,country-japan</set-ids>
@@ -1394,7 +1394,7 @@
         <name>Кроссовер Lexus NX 2024</name>
         <vendor>Lexus</vendor>
         <url>https://rlogistik.ru/catalog/japan/lexus-nx</url>
-        <price>6412465</price>
+        <price>5850065</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-lexus,country-japan</set-ids>
@@ -1419,7 +1419,7 @@
         <name>Внедорожник Lexus LX 2024</name>
         <vendor>Lexus</vendor>
         <url>https://rlogistik.ru/catalog/japan/lexus-lx</url>
-        <price>14609240</price>
+        <price>13719240</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-lexus,country-japan</set-ids>
@@ -1444,7 +1444,7 @@
         <name>Седан Honda Civic 2023</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-civic</url>
-        <price>3688341</price>
+        <price>3377541</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1469,7 +1469,7 @@
         <name>Кроссовер Honda CR-V 2023</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-cr-v</url>
-        <price>4398741</price>
+        <price>4013941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1494,7 +1494,7 @@
         <name>Минивэн Honda Stepwgn 2023</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-stepwgn</url>
-        <price>3998941</price>
+        <price>3643741</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1519,7 +1519,7 @@
         <name>Кроссовер Honda Vezel 2023</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-vezel</url>
-        <price>3436541</price>
+        <price>3125741</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1544,7 +1544,7 @@
         <name>Минивэн Honda Freed 2023</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-freed</url>
-        <price>3140541</price>
+        <price>2874141</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1569,7 +1569,7 @@
         <name>Хэтчбек Honda Fit 2023</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-fit</url>
-        <price>2578141</price>
+        <price>2370941</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1594,7 +1594,7 @@
         <name>Кроссовер Honda XR-V 2023</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-xr-v</url>
-        <price>3214541</price>
+        <price>2933341</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1619,7 +1619,7 @@
         <name>Седан Honda Crider 2023</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-crider</url>
-        <price>3199941</price>
+        <price>2933541</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1644,7 +1644,7 @@
         <name>Минивэн Honda Odyssey 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-odyssey</url>
-        <price>5395265</price>
+        <price>4921665</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1669,7 +1669,7 @@
         <name>Седан Honda Accord 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/catalog/japan/honda-accord</url>
-        <price>4684865</price>
+        <price>4280341</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-honda,country-japan</set-ids>
@@ -1694,7 +1694,7 @@
         <name>Седан Nissan Altima 2023</name>
         <vendor>Nissan</vendor>
         <url>https://rlogistik.ru/catalog/japan/nissan-altima</url>
-        <price>3823041</price>
+        <price>3613041</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-nissan,country-japan</set-ids>
@@ -1719,7 +1719,7 @@
         <name>Кроссовер Nissan Qashqai 2023</name>
         <vendor>Nissan</vendor>
         <url>https://rlogistik.ru/catalog/japan/nissan-qashqai</url>
-        <price>3850941</price>
+        <price>3510541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-nissan,country-japan</set-ids>
@@ -1744,7 +1744,7 @@
         <name>Внедорожник Nissan X-Trail 2023</name>
         <vendor>Nissan</vendor>
         <url>https://rlogistik.ru/catalog/japan/nissan-x-trail</url>
-        <price>4724741</price>
+        <price>4325141</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-nissan,country-japan</set-ids>
@@ -1769,7 +1769,7 @@
         <name>Минивэн Nissan Serena 2024</name>
         <vendor>Nissan</vendor>
         <url>https://rlogistik.ru/catalog/japan/nissan-serena</url>
-        <price>4146941</price>
+        <price>3776941</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-nissan,country-japan</set-ids>
@@ -1794,7 +1794,7 @@
         <name>Хэтчбек Nissan Note 2023</name>
         <vendor>Nissan</vendor>
         <url>https://rlogistik.ru/catalog/japan/nissan-note</url>
-        <price>2933341</price>
+        <price>2681741</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-nissan,country-japan</set-ids>
@@ -1819,7 +1819,7 @@
         <name>Седан Mazda 6 2022</name>
         <vendor>Mazda</vendor>
         <url>https://rlogistik.ru/catalog/japan/mazda-6</url>
-        <price>3723041</price>
+        <price>3533041</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-mazda,country-japan</set-ids>
@@ -1844,7 +1844,7 @@
         <name>Хэтчбек Mazda 3 2023</name>
         <vendor>Mazda</vendor>
         <url>https://rlogistik.ru/catalog/japan/mazda-3</url>
-        <price>3256941</price>
+        <price>3076941</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-mazda,country-japan</set-ids>
@@ -1869,7 +1869,7 @@
         <name>Кроссовер Mazda CX-5 2023</name>
         <vendor>Mazda</vendor>
         <url>https://rlogistik.ru/catalog/japan/mazda-cx-5</url>
-        <price>4203041</price>
+        <price>3963041</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mazda,country-japan</set-ids>
@@ -1894,7 +1894,7 @@
         <name>Кроссовер Mazda CX-30 2023</name>
         <vendor>Mazda</vendor>
         <url>https://rlogistik.ru/catalog/japan/mazda-cx-30</url>
-        <price>3569741</price>
+        <price>3336941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mazda,country-japan</set-ids>
@@ -1919,7 +1919,7 @@
         <name>Кроссовер Mazda CX-50 2024</name>
         <vendor>Mazda</vendor>
         <url>https://rlogistik.ru/catalog/japan/mazda-cx-50</url>
-        <price>4862865</price>
+        <price>4491041</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mazda,country-japan</set-ids>
@@ -1944,7 +1944,7 @@
         <name>Внедорожник Mazda CX-60 2024</name>
         <vendor>Mazda</vendor>
         <url>https://rlogistik.ru/catalog/japan/mazda-cx-60</url>
-        <price>5741965</price>
+        <price>5401965</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mazda,country-japan</set-ids>
@@ -1969,7 +1969,7 @@
         <name>Внедорожник Mitsubishi Outlander 2023</name>
         <vendor>Mitsubishi</vendor>
         <url>https://rlogistik.ru/catalog/japan/mitsubishi-outlander</url>
-        <price>3743041</price>
+        <price>3553041</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mitsubishi,country-japan</set-ids>
@@ -1994,7 +1994,7 @@
         <name>Кроссовер Mitsubishi ASX 2022</name>
         <vendor>Mitsubishi</vendor>
         <url>https://rlogistik.ru/catalog/japan/mitsubishi-asx</url>
-        <price>3276941</price>
+        <price>3096941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mitsubishi,country-japan</set-ids>
@@ -2019,7 +2019,7 @@
         <name>Кроссовер Mitsubishi Eclipse Cross 2023</name>
         <vendor>Mitsubishi</vendor>
         <url>https://rlogistik.ru/catalog/japan/mitsubishi-eclipse-cross</url>
-        <price>3565541</price>
+        <price>3269541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mitsubishi,country-japan</set-ids>
@@ -2044,7 +2044,7 @@
         <name>Минивэн Mitsubishi Delica D:5 2022</name>
         <vendor>Mitsubishi</vendor>
         <url>https://rlogistik.ru/catalog/japan/mitsubishi-delica-d5</url>
-        <price>4334941</price>
+        <price>3950141</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-mitsubishi,country-japan</set-ids>
@@ -2069,7 +2069,7 @@
         <name>Минивэн Mitsubishi Xpander 2023</name>
         <vendor>Mitsubishi</vendor>
         <url>https://rlogistik.ru/catalog/japan/mitsubishi-xpander</url>
-        <price>3446941</price>
+        <price>3150941</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-mitsubishi,country-japan</set-ids>
@@ -2094,7 +2094,7 @@
         <name>Внедорожник Subaru Forester 2023</name>
         <vendor>Subaru</vendor>
         <url>https://rlogistik.ru/catalog/japan/subaru-forester</url>
-        <price>4343041</price>
+        <price>4093041</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-japan</set-ids>
@@ -2119,7 +2119,7 @@
         <name>Универсал Subaru Outback 2024</name>
         <vendor>Subaru</vendor>
         <url>https://rlogistik.ru/catalog/japan/subaru-outback</url>
-        <price>4902465</price>
+        <price>4468341</price>
         <currencyId>RUR</currencyId>
         <categoryId>105</categoryId>
         <set-ids>country-japan</set-ids>
@@ -2144,7 +2144,7 @@
         <name>Внедорожник Suzuki Jimny 2023</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/catalog/japan/suzuki-jimny</url>
-        <price>3890941</price>
+        <price>3550541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-japan</set-ids>
@@ -2169,7 +2169,7 @@
         <name>Хэтчбек Suzuki Swift 2023</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/catalog/japan/suzuki-swift</url>
-        <price>2706941</price>
+        <price>2484941</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>country-japan</set-ids>
@@ -2194,7 +2194,7 @@
         <name>Седан Kia K5 2023</name>
         <vendor>Kia</vendor>
         <url>https://rlogistik.ru/catalog/korea/kia-k5</url>
-        <price>3170341</price>
+        <price>2947541</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-kia,country-korea</set-ids>
@@ -2219,7 +2219,7 @@
         <name>Кроссовер Kia Sportage 2023</name>
         <vendor>Kia</vendor>
         <url>https://rlogistik.ru/catalog/korea/kia-sportage</url>
-        <price>3643741</price>
+        <price>3376941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-kia,country-korea</set-ids>
@@ -2244,7 +2244,7 @@
         <name>Кроссовер Kia Seltos 2023</name>
         <vendor>Kia</vendor>
         <url>https://rlogistik.ru/catalog/korea/kia-seltos</url>
-        <price>3296941</price>
+        <price>3116941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-kia,country-korea</set-ids>
@@ -2269,7 +2269,7 @@
         <name>Седан Kia K3 2023</name>
         <vendor>Kia</vendor>
         <url>https://rlogistik.ru/catalog/korea/kia-k3</url>
-        <price>2918541</price>
+        <price>2666941</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-kia,country-korea</set-ids>
@@ -2294,7 +2294,7 @@
         <name>Кроссовер Kia KX1 2023</name>
         <vendor>Kia</vendor>
         <url>https://rlogistik.ru/catalog/korea/kia-kx1</url>
-        <price>2844541</price>
+        <price>2607741</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-kia,country-korea</set-ids>
@@ -2319,7 +2319,7 @@
         <name>Минивэн Kia Carnival 2024</name>
         <vendor>Kia</vendor>
         <url>https://rlogistik.ru/catalog/korea/kia-carnival</url>
-        <price>5220965</price>
+        <price>4946041</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-kia,country-korea</set-ids>
@@ -2344,7 +2344,7 @@
         <name>Кроссовер Kia EV6 2024</name>
         <vendor>Kia</vendor>
         <url>https://rlogistik.ru/catalog/korea/kia-ev6</url>
-        <price>5976865</price>
+        <price>5488465</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-kia,country-korea</set-ids>
@@ -2367,7 +2367,7 @@
         <name>Седан Hyundai Sonata 2023</name>
         <vendor>Hyundai</vendor>
         <url>https://rlogistik.ru/catalog/korea/hyundai-sonata</url>
-        <price>3473041</price>
+        <price>2853041</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-hyundai,country-korea</set-ids>
@@ -2392,7 +2392,7 @@
         <name>Кроссовер Hyundai Tucson 2023</name>
         <vendor>Hyundai</vendor>
         <url>https://rlogistik.ru/catalog/korea/hyundai-tucson</url>
-        <price>3496941</price>
+        <price>3286941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-hyundai,country-korea</set-ids>
@@ -2417,7 +2417,7 @@
         <name>Седан Hyundai Elantra 2023</name>
         <vendor>Hyundai</vendor>
         <url>https://rlogistik.ru/catalog/korea/hyundai-elantra</url>
-        <price>3156941</price>
+        <price>2976941</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-hyundai,country-korea</set-ids>
@@ -2442,7 +2442,7 @@
         <name>Кроссовер Hyundai ix35 2023</name>
         <vendor>Hyundai</vendor>
         <url>https://rlogistik.ru/catalog/korea/hyundai-ix35</url>
-        <price>3346941</price>
+        <price>3156941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-hyundai,country-korea</set-ids>
@@ -2467,7 +2467,7 @@
         <name>Внедорожник Hyundai Santa Fe 2024</name>
         <vendor>Hyundai</vendor>
         <url>https://rlogistik.ru/catalog/korea/hyundai-santa-fe</url>
-        <price>4665541</price>
+        <price>4361041</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-hyundai,country-korea</set-ids>
@@ -2492,7 +2492,7 @@
         <name>Кроссовер Hyundai Creta 2023</name>
         <vendor>Hyundai</vendor>
         <url>https://rlogistik.ru/catalog/korea/hyundai-creta</url>
-        <price>3051741</price>
+        <price>2828941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-hyundai,country-korea</set-ids>
@@ -2517,7 +2517,7 @@
         <name>Седан Genesis G80 2024</name>
         <vendor>Genesis</vendor>
         <url>https://rlogistik.ru/catalog/korea/genesis-g80</url>
-        <price>7244465</price>
+        <price>6622865</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>country-korea</set-ids>
@@ -2542,7 +2542,7 @@
         <name>Внедорожник Genesis GV80 2024</name>
         <vendor>Genesis</vendor>
         <url>https://rlogistik.ru/catalog/korea/genesis-gv80</url>
-        <price>8193844</price>
+        <price>7713844</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-korea</set-ids>
@@ -2567,7 +2567,7 @@
         <name>Внедорожник Genesis GV70 2024</name>
         <vendor>Genesis</vendor>
         <url>https://rlogistik.ru/catalog/korea/genesis-gv70</url>
-        <price>7395344</price>
+        <price>6756065</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-korea</set-ids>
@@ -2592,7 +2592,7 @@
         <name>Внедорожник SsangYong Rexton 2022</name>
         <vendor>SsangYong</vendor>
         <url>https://rlogistik.ru/catalog/korea/ssangyong-rexton</url>
-        <price>3712541</price>
+        <price>3522541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-korea</set-ids>
@@ -2617,7 +2617,7 @@
         <name>Внедорожник Kia Sorento 2023</name>
         <vendor>Kia Sorento</vendor>
         <url>https://rlogistik.ru/catalog/korea/kia-sorento</url>
-        <price>4393541</price>
+        <price>4123041</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-korea</set-ids>
@@ -2642,7 +2642,7 @@
         <name>Внедорожник Hyundai Palisade 2023</name>
         <vendor>Hyundai Palisade</vendor>
         <url>https://rlogistik.ru/catalog/korea/hyundai-palisade</url>
-        <price>6009465</price>
+        <price>5669465</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-korea</set-ids>
@@ -2667,7 +2667,7 @@
         <name>Седан BMW 5 Series 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-5-series</url>
-        <price>5247665</price>
+        <price>4803665</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2692,7 +2692,7 @@
         <name>Универсал BMW 5 Series Touring 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-5-series-touring</url>
-        <price>5528865</price>
+        <price>5055265</price>
         <currencyId>RUR</currencyId>
         <categoryId>105</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2717,7 +2717,7 @@
         <name>Кроссовер BMW X3 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-x3</url>
-        <price>5810065</price>
+        <price>5306865</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2742,7 +2742,7 @@
         <name>Седан BMW 3 серии 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-3-serii</url>
-        <price>4936465</price>
+        <price>4487541</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2767,7 +2767,7 @@
         <name>Кроссовер BMW X1 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-x1</url>
-        <price>5069665</price>
+        <price>4625665</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2792,7 +2792,7 @@
         <name>Хэтчбек BMW 1 серии 2023</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-1-serii</url>
-        <price>4250541</price>
+        <price>3865741</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2817,7 +2817,7 @@
         <name>Внедорожник BMW X5 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-x5</url>
-        <price>9382040</price>
+        <price>8510544</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2842,7 +2842,7 @@
         <name>Лифтбек BMW 4 Series Gran Coupe 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-4-series-gran-coupe</url>
-        <price>6239265</price>
+        <price>5676865</price>
         <currencyId>RUR</currencyId>
         <categoryId>104</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2867,7 +2867,7 @@
         <name>Внедорожник BMW X6 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-x6</url>
-        <price>10506840</price>
+        <price>9559640</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2892,7 +2892,7 @@
         <name>Седан BMW i4 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-i4</url>
-        <price>7385744</price>
+        <price>6746465</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>
@@ -2915,7 +2915,7 @@
         <name>Седан Mercedes-Benz E-Class 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-e-class</url>
-        <price>5810065</price>
+        <price>5306865</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -2940,7 +2940,7 @@
         <name>Купе Mercedes-Benz CLE Coupe 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-cle-coupe</url>
-        <price>6653665</price>
+        <price>6061665</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -2965,7 +2965,7 @@
         <name>Внедорожник Mercedes-Benz GLE 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-gle</url>
-        <price>8362544</price>
+        <price>7637344</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -2990,7 +2990,7 @@
         <name>Хэтчбек Mercedes-Benz A-Класс 2023</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-a-klass</url>
-        <price>4502341</price>
+        <price>4102741</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3015,7 +3015,7 @@
         <name>Кроссовер Mercedes-Benz GLB 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-glb</url>
-        <price>6091265</price>
+        <price>5558465</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3040,7 +3040,7 @@
         <name>Внедорожник Mercedes-Benz G-Класс AMG 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-g-klass-amg</url>
-        <price>15789240</price>
+        <price>14859240</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3065,7 +3065,7 @@
         <name>Внедорожник Mercedes-Benz G-Класс 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-g-klass</url>
-        <price>12919240</price>
+        <price>11454040</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3090,7 +3090,7 @@
         <name>Купе Mercedes-Benz CLA 2023</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-cla</url>
-        <price>5395665</price>
+        <price>4922065</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3115,7 +3115,7 @@
         <name>Купе Mercedes-Benz GLC Coupe 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-glc-coupe</url>
-        <price>7366944</price>
+        <price>6698065</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3140,7 +3140,7 @@
         <name>Внедорожник Mercedes-Benz GLS 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-gls</url>
-        <price>11631640</price>
+        <price>10566040</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3165,7 +3165,7 @@
         <name>Кроссовер Mercedes-Benz GLC 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-glc</url>
-        <price>6934865</price>
+        <price>6313265</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3190,7 +3190,7 @@
         <name>Седан Mercedes-Benz C-Класс 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-c-klass</url>
-        <price>5395665</price>
+        <price>4922065</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3215,7 +3215,7 @@
         <name>Седан Mercedes-Benz S-Class 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-s-class</url>
-        <price>13600040</price>
+        <price>12739240</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3240,7 +3240,7 @@
         <name>Седан Mercedes-Benz EQE 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-eqe</url>
-        <price>9496440</price>
+        <price>8595344</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3263,7 +3263,7 @@
         <name>Минивэн Mercedes-Benz V-Class 2024</name>
         <vendor>Mercedes-Benz</vendor>
         <url>https://rlogistik.ru/catalog/europe/mercedes-benz-v-class</url>
-        <price>9747640</price>
+        <price>8830040</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-mercedes-benz,country-europe</set-ids>
@@ -3288,7 +3288,7 @@
         <name>Седан Audi A6 2023</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-a6</url>
-        <price>4966465</price>
+        <price>4547141</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3313,7 +3313,7 @@
         <name>Универсал Audi A6 Avant 2023</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-a6-avant</url>
-        <price>5247665</price>
+        <price>4803665</price>
         <currencyId>RUR</currencyId>
         <categoryId>105</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3338,7 +3338,7 @@
         <name>Кроссовер Audi Q5 2024</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-q5</url>
-        <price>5676865</price>
+        <price>5173665</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3363,7 +3363,7 @@
         <name>Хэтчбек Audi A3 2023</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-a3</url>
-        <price>3969341</price>
+        <price>3614141</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3388,7 +3388,7 @@
         <name>Кроссовер Audi Q3 2023</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-q3</url>
-        <price>4936465</price>
+        <price>4487541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3413,7 +3413,7 @@
         <name>Кроссовер Audi Q2 2023</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-q2</url>
-        <price>4250541</price>
+        <price>3865741</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3438,7 +3438,7 @@
         <name>Купе Audi A5 2024</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-a5</url>
-        <price>5810065</price>
+        <price>5306865</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3463,7 +3463,7 @@
         <name>Внедорожник Audi Q7 2024</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-q7</url>
-        <price>10225640</price>
+        <price>9308040</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3488,7 +3488,7 @@
         <name>Седан Audi e-tron GT 2024</name>
         <vendor>Audi</vendor>
         <url>https://rlogistik.ru/catalog/europe/audi-e-tron-gt</url>
-        <price>12046040</price>
+        <price>10950840</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
@@ -3511,7 +3511,7 @@
         <name>Хэтчбек Volkswagen Golf 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-golf</url>
-        <price>3688141</price>
+        <price>3362541</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3536,7 +3536,7 @@
         <name>Кроссовер Volkswagen Tiguan 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-tiguan</url>
-        <price>4369141</price>
+        <price>3984341</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3561,7 +3561,7 @@
         <name>Кроссовер Volkswagen Tayron 2024</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-tayron</url>
-        <price>4788465</price>
+        <price>4369141</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3586,7 +3586,7 @@
         <name>Минивэн Volkswagen Multivan 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-multivan</url>
-        <price>7085744</price>
+        <price>6446465</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3611,7 +3611,7 @@
         <name>Кроссовер Volkswagen T-Roc 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-t-roc</url>
-        <price>3969341</price>
+        <price>3614141</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3636,7 +3636,7 @@
         <name>Лифтбек Volkswagen Lamando 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-lamando</url>
-        <price>3540141</price>
+        <price>3229341</price>
         <currencyId>RUR</currencyId>
         <categoryId>104</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3661,7 +3661,7 @@
         <name>Внедорожник Volkswagen Teramont 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-teramont</url>
-        <price>6091265</price>
+        <price>5558465</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3686,7 +3686,7 @@
         <name>Кроссовер Volkswagen Tharu 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-tharu</url>
-        <price>3406941</price>
+        <price>3110941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3711,7 +3711,7 @@
         <name>Седан Volkswagen Passat 2024</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-passat</url>
-        <price>4655265</price>
+        <price>4235941</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3736,7 +3736,7 @@
         <name>Седан Volkswagen Sagitar 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-sagitar</url>
-        <price>3258941</price>
+        <price>2977741</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3761,7 +3761,7 @@
         <name>Кроссовер Volkswagen T-Cross 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-t-cross</url>
-        <price>3125741</price>
+        <price>2844541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3786,7 +3786,7 @@
         <name>Минивэн Volkswagen Touran 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-touran</url>
-        <price>4102541</price>
+        <price>3732541</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3811,7 +3811,7 @@
         <name>Фургон Volkswagen Transporter 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-transporter</url>
-        <price>5099065</price>
+        <price>4625465</price>
         <currencyId>RUR</currencyId>
         <categoryId>110</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3836,7 +3836,7 @@
         <name>Седан Volkswagen Polo 2023</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-polo</url>
-        <price>2758941</price>
+        <price>2474541</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3861,7 +3861,7 @@
         <name>Кроссовер Volkswagen ID.4 2024</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-id4</url>
-        <price>5958065</price>
+        <price>5425265</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3884,7 +3884,7 @@
         <name>Лифтбек Volkswagen Arteon 2024</name>
         <vendor>Volkswagen</vendor>
         <url>https://rlogistik.ru/catalog/europe/volkswagen-arteon</url>
-        <price>5217665</price>
+        <price>4744065</price>
         <currencyId>RUR</currencyId>
         <categoryId>104</categoryId>
         <set-ids>brand-volkswagen,country-europe</set-ids>
@@ -3909,7 +3909,7 @@
         <name>Лифтбек Skoda Octavia 2023</name>
         <vendor>Skoda</vendor>
         <url>https://rlogistik.ru/catalog/europe/skoda-octavia</url>
-        <price>3540141</price>
+        <price>3229341</price>
         <currencyId>RUR</currencyId>
         <categoryId>104</categoryId>
         <set-ids>brand-skoda,country-europe</set-ids>
@@ -3934,7 +3934,7 @@
         <name>Лифтбек Skoda Superb 2024</name>
         <vendor>Skoda</vendor>
         <url>https://rlogistik.ru/catalog/europe/skoda-superb</url>
-        <price>4655265</price>
+        <price>4235941</price>
         <currencyId>RUR</currencyId>
         <categoryId>104</categoryId>
         <set-ids>brand-skoda,country-europe</set-ids>
@@ -3959,7 +3959,7 @@
         <name>Внедорожник Skoda Kodiaq 2024</name>
         <vendor>Skoda</vendor>
         <url>https://rlogistik.ru/catalog/europe/skoda-kodiaq</url>
-        <price>5069665</price>
+        <price>4625665</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-skoda,country-europe</set-ids>
@@ -3984,7 +3984,7 @@
         <name>Кроссовер Skoda Karoq 2023</name>
         <vendor>Skoda</vendor>
         <url>https://rlogistik.ru/catalog/europe/skoda-karoq</url>
-        <price>4102541</price>
+        <price>3732541</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-skoda,country-europe</set-ids>
@@ -4009,7 +4009,7 @@
         <name>Кроссовер Skoda Kamiq 2023</name>
         <vendor>Skoda</vendor>
         <url>https://rlogistik.ru/catalog/europe/skoda-kamiq</url>
-        <price>3406941</price>
+        <price>3110941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-skoda,country-europe</set-ids>
@@ -4034,7 +4034,7 @@
         <name>Кроссовер Mini Countryman 2024</name>
         <vendor>Mini</vendor>
         <url>https://rlogistik.ru/catalog/europe/mini-countryman</url>
-        <price>5860465</price>
+        <price>5357265</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-europe</set-ids>
@@ -4059,7 +4059,7 @@
         <name>Хэтчбек Mini Cooper 2024</name>
         <vendor>Mini</vendor>
         <url>https://rlogistik.ru/catalog/europe/mini-cooper</url>
-        <price>4374941</price>
+        <price>3990141</price>
         <currencyId>RUR</currencyId>
         <categoryId>103</categoryId>
         <set-ids>country-europe</set-ids>
@@ -4084,7 +4084,7 @@
         <name>Купе Porsche 911 2024</name>
         <vendor>Porsche</vendor>
         <url>https://rlogistik.ru/catalog/europe/porsche-911</url>
-        <price>10779240</price>
+        <price>9817240</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>brand-porsche,country-europe</set-ids>
@@ -4109,7 +4109,7 @@
         <name>Внедорожник Porsche Cayenne 2024</name>
         <vendor>Porsche</vendor>
         <url>https://rlogistik.ru/catalog/europe/porsche-cayenne</url>
-        <price>11815240</price>
+        <price>10749640</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-porsche,country-europe</set-ids>
@@ -4134,7 +4134,7 @@
         <name>Кроссовер Porsche Macan 2024</name>
         <vendor>Porsche</vendor>
         <url>https://rlogistik.ru/catalog/europe/porsche-macan</url>
-        <price>8823344</price>
+        <price>8024144</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-porsche,country-europe</set-ids>
@@ -4159,7 +4159,7 @@
         <name>Внедорожник Range Rover Vogue 2024</name>
         <vendor>Range Rover</vendor>
         <url>https://rlogistik.ru/catalog/europe/range-rover-vogue</url>
-        <price>9743240</price>
+        <price>8856944</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-europe</set-ids>
@@ -4184,7 +4184,7 @@
         <name>Внедорожник Range Rover Sport 2024</name>
         <vendor>Range Rover</vendor>
         <url>https://rlogistik.ru/catalog/europe/range-rover-sport</url>
-        <price>11371240</price>
+        <price>10350040</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-europe</set-ids>
@@ -4209,7 +4209,7 @@
         <name>Внедорожник Land Rover Defender 2024</name>
         <vendor>Land Rover</vendor>
         <url>https://rlogistik.ru/catalog/europe/land-rover-defender</url>
-        <price>10335240</price>
+        <price>9417640</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-europe</set-ids>
@@ -4234,7 +4234,7 @@
         <name>Внедорожник Volvo XC60 2024</name>
         <vendor>Volvo</vendor>
         <url>https://rlogistik.ru/catalog/europe/volvo-xc60</url>
-        <price>7491344</price>
+        <price>6822465</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-europe</set-ids>
@@ -4259,7 +4259,7 @@
         <name>Внедорожник Volvo XC90 2024</name>
         <vendor>Volvo</vendor>
         <url>https://rlogistik.ru/catalog/europe/volvo-xc90</url>
-        <price>9295240</price>
+        <price>8423744</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-europe</set-ids>
@@ -4284,7 +4284,7 @@
         <name>Седан Tesla Model S 2024</name>
         <vendor>Tesla</vendor>
         <url>https://rlogistik.ru/catalog/usa/tesla-model-s</url>
-        <price>6850065</price>
+        <price>6272865</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-tesla,country-usa</set-ids>
@@ -4307,7 +4307,7 @@
         <name>Кроссовер Tesla Model Y 2024</name>
         <vendor>Tesla</vendor>
         <url>https://rlogistik.ru/catalog/usa/tesla-model-y</url>
-        <price>6420865</price>
+        <price>5873265</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-tesla,country-usa</set-ids>
@@ -4330,7 +4330,7 @@
         <name>Седан Tesla Model 3 2024</name>
         <vendor>Tesla</vendor>
         <url>https://rlogistik.ru/catalog/usa/tesla-model-3</url>
-        <price>5247665</price>
+        <price>4788865</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-tesla,country-usa</set-ids>
@@ -4353,7 +4353,7 @@
         <name>Пикап Tesla Cybertruck 2024</name>
         <vendor>Tesla</vendor>
         <url>https://rlogistik.ru/catalog/usa/tesla-cybertruck</url>
-        <price>9485640</price>
+        <price>8628944</price>
         <currencyId>RUR</currencyId>
         <categoryId>108</categoryId>
         <set-ids>brand-tesla,country-usa</set-ids>
@@ -4376,7 +4376,7 @@
         <name>Внедорожник Jeep Grand Cherokee 2023</name>
         <vendor>Jeep</vendor>
         <url>https://rlogistik.ru/catalog/usa/jeep-grand-cherokee</url>
-        <price>5970465</price>
+        <price>5620465</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4401,7 +4401,7 @@
         <name>Внедорожник Jeep Wrangler 2024</name>
         <vendor>Jeep</vendor>
         <url>https://rlogistik.ru/catalog/usa/jeep-wrangler</url>
-        <price>7418465</price>
+        <price>6360465</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4426,7 +4426,7 @@
         <name>Внедорожник GMC Yukon Denali 2024</name>
         <vendor>GMC</vendor>
         <url>https://rlogistik.ru/catalog/usa/gmc-yukon-denali</url>
-        <price>12804240</price>
+        <price>12064240</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4451,7 +4451,7 @@
         <name>Внедорожник Lincoln Navigator 2024</name>
         <vendor>Lincoln</vendor>
         <url>https://rlogistik.ru/catalog/usa/lincoln-navigator</url>
-        <price>14144240</price>
+        <price>12141640</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4476,7 +4476,7 @@
         <name>Пикап Ford F-150 2023</name>
         <vendor>Ford</vendor>
         <url>https://rlogistik.ru/catalog/usa/ford-f-150</url>
-        <price>5620965</price>
+        <price>5336041</price>
         <currencyId>RUR</currencyId>
         <categoryId>108</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4501,7 +4501,7 @@
         <name>Внедорожник Ford Explorer 2023</name>
         <vendor>Ford</vendor>
         <url>https://rlogistik.ru/catalog/usa/ford-explorer</url>
-        <price>5247665</price>
+        <price>4788865</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4526,7 +4526,7 @@
         <name>Седан Cadillac CT5 2024</name>
         <vendor>Cadillac</vendor>
         <url>https://rlogistik.ru/catalog/usa/cadillac-ct5</url>
-        <price>9031344</price>
+        <price>8217344</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4551,7 +4551,7 @@
         <name>Внедорожник Cadillac Escalade 2024</name>
         <vendor>Cadillac</vendor>
         <url>https://rlogistik.ru/catalog/usa/cadillac-escalade</url>
-        <price>18089240</price>
+        <price>17239240</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4576,7 +4576,7 @@
         <name>Пикап Chevrolet Silverado 2023</name>
         <vendor>Chevrolet</vendor>
         <url>https://rlogistik.ru/catalog/usa/chevrolet-silverado</url>
-        <price>8838844</price>
+        <price>7461965</price>
         <currencyId>RUR</currencyId>
         <categoryId>108</categoryId>
         <set-ids>brand-chevrolet,country-usa</set-ids>
@@ -4601,7 +4601,7 @@
         <name>Внедорожник Chevrolet Tahoe 2023</name>
         <vendor>Chevrolet</vendor>
         <url>https://rlogistik.ru/catalog/usa/chevrolet-tahoe</url>
-        <price>10436740</price>
+        <price>9828844</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-chevrolet,country-usa</set-ids>
@@ -4626,7 +4626,7 @@
         <name>Внедорожник Chevrolet TrailBlazer 2023</name>
         <vendor>Chevrolet</vendor>
         <url>https://rlogistik.ru/catalog/usa/chevrolet-trailblazer</url>
-        <price>4487541</price>
+        <price>4087941</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-chevrolet,country-usa</set-ids>
@@ -4651,7 +4651,7 @@
         <name>Минивэн Chevrolet Orlando 2022</name>
         <vendor>Chevrolet</vendor>
         <url>https://rlogistik.ru/catalog/usa/chevrolet-orlando</url>
-        <price>3199741</price>
+        <price>3017941</price>
         <currencyId>RUR</currencyId>
         <categoryId>106</categoryId>
         <set-ids>brand-chevrolet,country-usa</set-ids>
@@ -4676,7 +4676,7 @@
         <name>Кроссовер Chevrolet Trax 2023</name>
         <vendor>Chevrolet</vendor>
         <url>https://rlogistik.ru/catalog/usa/chevrolet-trax</url>
-        <price>3643741</price>
+        <price>3318141</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-chevrolet,country-usa</set-ids>
@@ -4701,7 +4701,7 @@
         <name>Пикап Ram 1500 2023</name>
         <vendor>Ram</vendor>
         <url>https://rlogistik.ru/catalog/usa/ram-1500</url>
-        <price>10238844</price>
+        <price>9718844</price>
         <currencyId>RUR</currencyId>
         <categoryId>108</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4726,7 +4726,7 @@
         <name>Седан Dodge Charger 2022</name>
         <vendor>Dodge</vendor>
         <url>https://rlogistik.ru/catalog/usa/dodge-charger</url>
-        <price>6270465</price>
+        <price>5900465</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4751,7 +4751,7 @@
         <name>Купе Dodge Challenger 2022</name>
         <vendor>Dodge</vendor>
         <url>https://rlogistik.ru/catalog/usa/dodge-challenger</url>
-        <price>8935965</price>
+        <price>7519965</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>country-usa</set-ids>
@@ -4776,7 +4776,7 @@
         <name>Внедорожник Rolls-Royce Cullinan 2024</name>
         <vendor>Rolls-Royce</vendor>
         <url>https://rlogistik.ru/catalog/uae/rolls-royce-cullinan</url>
-        <price>63233860</price>
+        <price>57017860</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-uae</set-ids>
@@ -4801,7 +4801,7 @@
         <name>Внедорожник Bentley Bentayga 2024</name>
         <vendor>Bentley</vendor>
         <url>https://rlogistik.ru/catalog/uae/bentley-bentayga</url>
-        <price>33633860</price>
+        <price>30377860</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-uae</set-ids>
@@ -4826,7 +4826,7 @@
         <name>Купе Ferrari Roma 2024</name>
         <vendor>Ferrari</vendor>
         <url>https://rlogistik.ru/catalog/uae/ferrari-roma</url>
-        <price>42513860</price>
+        <price>38369860</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>country-uae</set-ids>
@@ -4851,7 +4851,7 @@
         <name>Внедорожник Lamborghini Urus 2024</name>
         <vendor>Lamborghini</vendor>
         <url>https://rlogistik.ru/catalog/uae/lamborghini-urus</url>
-        <price>46953860</price>
+        <price>42365860</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-uae</set-ids>
@@ -4876,7 +4876,7 @@
         <name>Седан Mercedes-Maybach S-Class 2024</name>
         <vendor>Mercedes-Maybach</vendor>
         <url>https://rlogistik.ru/catalog/uae/mercedes-maybach-s-class</url>
-        <price>29933860</price>
+        <price>27047860</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>country-uae</set-ids>
@@ -4901,7 +4901,7 @@
         <name>Внедорожник Nissan Patrol Nismo 2024</name>
         <vendor>Nissan</vendor>
         <url>https://rlogistik.ru/catalog/uae/nissan-patrol-nismo</url>
-        <price>17429240</price>
+        <price>16549240</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-nissan,country-uae</set-ids>
@@ -4926,7 +4926,7 @@
         <name>Внедорожник Nissan Patrol 2024</name>
         <vendor>Nissan</vendor>
         <url>https://rlogistik.ru/catalog/uae/nissan-patrol</url>
-        <price>11049240</price>
+        <price>10429240</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-nissan,country-uae</set-ids>
@@ -4951,7 +4951,7 @@
         <name>Внедорожник Toyota Land Cruiser 300 VXR 2024</name>
         <vendor>Toyota</vendor>
         <url>https://rlogistik.ru/catalog/uae/toyota-land-cruiser-300-vxr</url>
-        <price>16377460</price>
+        <price>15094240</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-toyota,country-uae</set-ids>
@@ -4976,7 +4976,7 @@
         <name>Внедорожник Lexus LX600 2024</name>
         <vendor>Lexus</vendor>
         <url>https://rlogistik.ru/catalog/uae/lexus-lx600</url>
-        <price>15239240</price>
+        <price>14289240</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-lexus,country-uae</set-ids>
@@ -5001,7 +5001,7 @@
         <name>Купе McLaren 720S 2024</name>
         <vendor>McLaren</vendor>
         <url>https://rlogistik.ru/catalog/uae/mclaren-720s</url>
-        <price>33633860</price>
+        <price>30377860</price>
         <currencyId>RUR</currencyId>
         <categoryId>107</categoryId>
         <set-ids>country-uae</set-ids>
@@ -5026,7 +5026,7 @@
         <name>Внедорожник Aston Martin DBX 2024</name>
         <vendor>Aston Martin</vendor>
         <url>https://rlogistik.ru/catalog/uae/aston-martin-dbx</url>
-        <price>29933860</price>
+        <price>27047860</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-uae</set-ids>
@@ -5051,7 +5051,7 @@
         <name>Внедорожник Cadillac Escalade 2024</name>
         <vendor>Cadillac</vendor>
         <url>https://rlogistik.ru/catalog/uae/cadillac-escalade</url>
-        <price>22183860</price>
+        <price>20923860</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>country-uae</set-ids>
@@ -5076,7 +5076,7 @@
         <name>Седан BMW 7 Series 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/uae/bmw-7-series</url>
-        <price>21305860</price>
+        <price>19293060</price>
         <currencyId>RUR</currencyId>
         <categoryId>102</categoryId>
         <set-ids>brand-bmw,country-uae</set-ids>
@@ -5101,7 +5101,7 @@
         <name>Внедорожник Porsche Cayenne Turbo GT 2024</name>
         <vendor>Porsche</vendor>
         <url>https://rlogistik.ru/catalog/uae/porsche-cayenne-turbo-gt</url>
-        <price>26906260</price>
+        <price>24331060</price>
         <currencyId>RUR</currencyId>
         <categoryId>101</categoryId>
         <set-ids>brand-porsche,country-uae</set-ids>
@@ -5126,7 +5126,7 @@
         <name>Мотоцикл Honda CB500 Hornet 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cb500-hornet</url>
-        <price>885567</price>
+        <price>825567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5149,7 +5149,7 @@
         <name>Мотоцикл Honda CB650R 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cb650r</url>
-        <price>1221567</price>
+        <price>1131567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5172,7 +5172,7 @@
         <name>Мотоцикл Honda CB750 Hornet 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cb750-hornet</url>
-        <price>1331467</price>
+        <price>1231467</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5195,7 +5195,7 @@
         <name>Мотоцикл Honda CB1000 Hornet 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cb1000-hornet</url>
-        <price>1798067</price>
+        <price>1658067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5218,7 +5218,7 @@
         <name>Мотоцикл Honda CB1000F 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cb1000f</url>
-        <price>1898067</price>
+        <price>1748067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5241,7 +5241,7 @@
         <name>Мотоцикл Honda CBR500R 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cbr500r</url>
-        <price>914217</price>
+        <price>844217</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5264,7 +5264,7 @@
         <name>Мотоцикл Honda CBR600RR 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cbr600rr</url>
-        <price>1667067</price>
+        <price>1527067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5287,7 +5287,7 @@
         <name>Мотоцикл Honda CBR650R 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cbr650r</url>
-        <price>1271567</price>
+        <price>1171567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5310,7 +5310,7 @@
         <name>Мотоцикл Honda CBR1000RR-R Fireblade 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-cbr1000rr-r-fireblade</url>
-        <price>2748067</price>
+        <price>2508067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5333,7 +5333,7 @@
         <name>Мотоцикл Honda NT1100 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-nt1100</url>
-        <price>1858867</price>
+        <price>1708867</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5356,7 +5356,7 @@
         <name>Мотоцикл Honda Gold Wing 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-gold-wing</url>
-        <price>3860117</price>
+        <price>3520117</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5379,7 +5379,7 @@
         <name>Мотоцикл Honda Rebel 500 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-rebel-500</url>
-        <price>934217</price>
+        <price>864217</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5402,7 +5402,7 @@
         <name>Мотоцикл Honda Rebel 1100 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-rebel-1100</url>
-        <price>1608867</price>
+        <price>1488867</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5425,7 +5425,7 @@
         <name>Мотоцикл Honda CRF1100L Africa Twin 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-crf1100l-africa-twin</url>
-        <price>2258867</price>
+        <price>2068867</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5448,7 +5448,7 @@
         <name>Мотоцикл Honda PCX 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-pcx</url>
-        <price>598647</price>
+        <price>558647</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5471,7 +5471,7 @@
         <name>Мотоцикл Honda Forza 350 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-forza-350</url>
-        <price>827917</price>
+        <price>767917</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5494,7 +5494,7 @@
         <name>Мотоцикл Honda Forza 750 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-forza-750</url>
-        <price>1230567</price>
+        <price>1140567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5517,7 +5517,7 @@
         <name>Мотоцикл Honda ADV160 2024</name>
         <vendor>Honda</vendor>
         <url>https://rlogistik.ru/moto/japan/honda-adv160</url>
-        <price>640087</price>
+        <price>600087</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-honda,moto-country-japan</set-ids>
@@ -5540,7 +5540,7 @@
         <name>Мотоцикл Yamaha XJ6 2023</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-xj6</url>
-        <price>817067</price>
+        <price>767067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5563,7 +5563,7 @@
         <name>Мотоцикл Yamaha FZ6 2023</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-fz6</url>
-        <price>867067</price>
+        <price>807067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5586,7 +5586,7 @@
         <name>Мотоцикл Yamaha FZ1 2023</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-fz1</url>
-        <price>1248067</price>
+        <price>1158067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5609,7 +5609,7 @@
         <name>Мотоцикл Yamaha MT-07 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-mt-07</url>
-        <price>1125167</price>
+        <price>1045167</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5632,7 +5632,7 @@
         <name>Мотоцикл Yamaha MT-09 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-mt-09</url>
-        <price>1533217</price>
+        <price>1413217</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5655,7 +5655,7 @@
         <name>Мотоцикл Yamaha MT-10 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-mt-10</url>
-        <price>2098067</price>
+        <price>1928067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5678,7 +5678,7 @@
         <name>Мотоцикл Yamaha YZF-R3 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-yzf-r3</url>
-        <price>927467</price>
+        <price>857467</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5701,7 +5701,7 @@
         <name>Мотоцикл Yamaha YZF-R6 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-yzf-r6</url>
-        <price>1817067</price>
+        <price>1667067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5724,7 +5724,7 @@
         <name>Мотоцикл Yamaha YZF-R1 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-yzf-r1</url>
-        <price>2648067</price>
+        <price>2418067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5747,7 +5747,7 @@
         <name>Мотоцикл Yamaha Tracer 7 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-tracer-7</url>
-        <price>1275167</price>
+        <price>1175167</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5770,7 +5770,7 @@
         <name>Мотоцикл Yamaha Tracer 9 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-tracer-9</url>
-        <price>1833217</price>
+        <price>1683217</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5793,7 +5793,7 @@
         <name>Мотоцикл Yamaha FJR1300 2023</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-fjr1300</url>
-        <price>2188567</price>
+        <price>2008567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5816,7 +5816,7 @@
         <name>Мотоцикл Yamaha XT1200Z Super Tenere 2023</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-xt1200z-super-tenere</url>
-        <price>2075067</price>
+        <price>1905067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5839,7 +5839,7 @@
         <name>Мотоцикл Yamaha Bolt 2023</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-bolt</url>
-        <price>1189967</price>
+        <price>1109967</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5862,7 +5862,7 @@
         <name>Мотоцикл Yamaha Tenere 700 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-tenere-700</url>
-        <price>1375167</price>
+        <price>1265167</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5885,7 +5885,7 @@
         <name>Мотоцикл Yamaha NMAX 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-nmax</url>
-        <price>620042</price>
+        <price>580042</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5908,7 +5908,7 @@
         <name>Мотоцикл Yamaha XMAX 300 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-xmax-300</url>
-        <price>876117</price>
+        <price>816117</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5931,7 +5931,7 @@
         <name>Мотоцикл Yamaha TMAX 2024</name>
         <vendor>Yamaha</vendor>
         <url>https://rlogistik.ru/moto/japan/yamaha-tmax</url>
-        <price>1613467</price>
+        <price>1483467</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-yamaha,moto-country-japan</set-ids>
@@ -5954,7 +5954,7 @@
         <name>Мотоцикл Suzuki GSX-S750 2023</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-gsx-s750</url>
-        <price>1230567</price>
+        <price>1140567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -5977,7 +5977,7 @@
         <name>Мотоцикл Suzuki GSX-S1000 2024</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-gsx-s1000</url>
-        <price>1648067</price>
+        <price>1518067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6000,7 +6000,7 @@
         <name>Мотоцикл Suzuki GSX-R600 2023</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-gsx-r600</url>
-        <price>1517067</price>
+        <price>1397067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6023,7 +6023,7 @@
         <name>Мотоцикл Suzuki GSX-R750 2023</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-gsx-r750</url>
-        <price>1630567</price>
+        <price>1500567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6046,7 +6046,7 @@
         <name>Мотоцикл Suzuki GSX-R1000 2024</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-gsx-r1000</url>
-        <price>2298067</price>
+        <price>2108067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6069,7 +6069,7 @@
         <name>Мотоцикл Suzuki V-Strom 650 2024</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-v-strom-650</url>
-        <price>1221567</price>
+        <price>1131567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6092,7 +6092,7 @@
         <name>Мотоцикл Suzuki V-Strom 1050 2024</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-v-strom-1050</url>
-        <price>1953467</price>
+        <price>1793467</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6115,7 +6115,7 @@
         <name>Мотоцикл Suzuki Boulevard 2023</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-boulevard</url>
-        <price>1953367</price>
+        <price>1803367</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6138,7 +6138,7 @@
         <name>Мотоцикл Suzuki Burgman 400 2024</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-burgman-400</url>
-        <price>881067</price>
+        <price>821067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6161,7 +6161,7 @@
         <name>Мотоцикл Suzuki Burgman 650 2024</name>
         <vendor>Suzuki</vendor>
         <url>https://rlogistik.ru/moto/japan/suzuki-burgman-650</url>
-        <price>1370667</price>
+        <price>1260667</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-suzuki,moto-country-japan</set-ids>
@@ -6184,7 +6184,7 @@
         <name>Мотоцикл Kawasaki Ninja 400 2024</name>
         <vendor>Kawasaki</vendor>
         <url>https://rlogistik.ru/moto/japan/kawasaki-ninja-400</url>
-        <price>831067</price>
+        <price>771067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-kawasaki,moto-country-japan</set-ids>
@@ -6207,7 +6207,7 @@
         <name>Мотоцикл Kawasaki Ninja 650 2024</name>
         <vendor>Kawasaki</vendor>
         <url>https://rlogistik.ru/moto/japan/kawasaki-ninja-650</url>
-        <price>1121567</price>
+        <price>1041567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-kawasaki,moto-country-japan</set-ids>
@@ -6230,7 +6230,7 @@
         <name>Мотоцикл Kawasaki Ninja ZX-6R 2024</name>
         <vendor>Kawasaki</vendor>
         <url>https://rlogistik.ru/moto/japan/kawasaki-ninja-zx-6r</url>
-        <price>1770667</price>
+        <price>1620667</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-kawasaki,moto-country-japan</set-ids>
@@ -6253,7 +6253,7 @@
         <name>Мотоцикл Kawasaki Ninja ZX-10R 2024</name>
         <vendor>Kawasaki</vendor>
         <url>https://rlogistik.ru/moto/japan/kawasaki-ninja-zx-10r</url>
-        <price>2548067</price>
+        <price>2328067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-kawasaki,moto-country-japan</set-ids>
@@ -6276,7 +6276,7 @@
         <name>Мотоцикл Kawasaki Versys 650 2024</name>
         <vendor>Kawasaki</vendor>
         <url>https://rlogistik.ru/moto/japan/kawasaki-versys-650</url>
-        <price>1221567</price>
+        <price>1131567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-kawasaki,moto-country-japan</set-ids>
@@ -6299,7 +6299,7 @@
         <name>Мотоцикл Kawasaki Versys 1000 2024</name>
         <vendor>Kawasaki</vendor>
         <url>https://rlogistik.ru/moto/japan/kawasaki-versys-1000</url>
-        <price>2003467</price>
+        <price>1843467</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-kawasaki,moto-country-japan</set-ids>
@@ -6322,7 +6322,7 @@
         <name>Мотоцикл Kawasaki Vulcan S 2023</name>
         <vendor>Kawasaki</vendor>
         <url>https://rlogistik.ru/moto/japan/kawasaki-vulcan-s</url>
-        <price>1071567</price>
+        <price>991567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-kawasaki,moto-country-japan</set-ids>
@@ -6345,7 +6345,7 @@
         <name>Мотоцикл Kawasaki KLR650 2023</name>
         <vendor>Kawasaki</vendor>
         <url>https://rlogistik.ru/moto/japan/kawasaki-klr650</url>
-        <price>1021567</price>
+        <price>951567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-kawasaki,moto-country-japan</set-ids>
@@ -6368,7 +6368,7 @@
         <name>Мотоцикл Ducati Monster 2024</name>
         <vendor>Ducati</vendor>
         <url>https://rlogistik.ru/moto/europe/ducati-monster</url>
-        <price>1659967</price>
+        <price>1529967</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-country-europe</set-ids>
@@ -6391,7 +6391,7 @@
         <name>Мотоцикл BMW R 1250 GS 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/moto/europe/bmw-r-1250-gs</url>
-        <price>2801817</price>
+        <price>2561817</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-bmw,moto-country-europe</set-ids>
@@ -6414,7 +6414,7 @@
         <name>Мотоцикл BMW R 1300 GS 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/moto/europe/bmw-r-1300-gs</url>
-        <price>3108567</price>
+        <price>2838567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-bmw,moto-country-europe</set-ids>
@@ -6437,7 +6437,7 @@
         <name>Мотоцикл BMW R 18 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/moto/europe/bmw-r-18</url>
-        <price>2776067</price>
+        <price>2546067</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-bmw,moto-country-europe</set-ids>
@@ -6460,7 +6460,7 @@
         <name>Мотоцикл BMW C 400 GT 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/moto/europe/bmw-c-400-gt</url>
-        <price>1148817</price>
+        <price>1058817</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-bmw,moto-country-europe</set-ids>
@@ -6483,7 +6483,7 @@
         <name>Мотоцикл BMW C 650 GT 2024</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/moto/europe/bmw-c-650-gt</url>
-        <price>1691567</price>
+        <price>1551567</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-brand-bmw,moto-country-europe</set-ids>
@@ -6506,7 +6506,7 @@
         <name>Мотоцикл KTM 690 Enduro R 2024</name>
         <vendor>KTM</vendor>
         <url>https://rlogistik.ru/moto/europe/ktm-690-enduro-r</url>
-        <price>1445167</price>
+        <price>1335167</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-country-europe</set-ids>
@@ -6529,7 +6529,7 @@
         <name>Мотоцикл Husqvarna 701 Enduro 2024</name>
         <vendor>Husqvarna</vendor>
         <url>https://rlogistik.ru/moto/europe/husqvarna-701-enduro</url>
-        <price>1495167</price>
+        <price>1375167</price>
         <currencyId>RUR</currencyId>
         <categoryId>12</categoryId>
         <set-ids>moto-country-europe</set-ids>
