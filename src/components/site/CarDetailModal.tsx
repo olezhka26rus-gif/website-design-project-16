@@ -110,7 +110,19 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                 </>
               )}
 
-              <div className="mt-6">
+              {entry && (
+                <Link
+                  to={`/catalog/${entry.country}/${entry.slug}`}
+                  onClick={() => onOpenChange(false)}
+                  className="mt-4 flex items-center justify-center gap-2 h-11 rounded-lg border border-primary/40 bg-primary/10 text-sm font-semibold text-primary hover:bg-primary hover:text-primary-foreground transition-colors"
+                >
+                  <Icon name="FileText" size={16} />
+                  Подробнее: расчёт, сроки и вопросы
+                  <Icon name="ArrowRight" size={16} />
+                </Link>
+              )}
+
+              <div className="mt-5">
                 <div className="text-sm font-semibold mb-2">Выберите кузов</div>
                 <div className="flex flex-wrap gap-2">
                   {carModel.variants.map((variant) => (
@@ -178,16 +190,6 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                   </div>
                 )}
 
-                {entry && (
-                  <Link
-                    to={`/catalog/${entry.country}/${entry.slug}`}
-                    onClick={() => onOpenChange(false)}
-                    className="mt-3 flex items-center justify-center gap-1.5 h-11 rounded-lg border border-border text-sm font-semibold text-foreground/80 hover:border-primary hover:text-primary transition-colors"
-                  >
-                    <Icon name="FileText" size={16} />
-                    Подробнее: расчёт, сроки и вопросы
-                  </Link>
-                )}
                 <p className="flex items-center gap-1.5 text-xs text-muted-foreground mt-3">
                   <Icon name="Lock" size={13} />
                   Ваши данные защищены и не передаются третьим лицам
