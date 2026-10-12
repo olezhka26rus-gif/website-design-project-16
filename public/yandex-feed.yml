@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-10-12T17:49:18+03:00">
+<yml_catalog date="2026-10-12T17:55:20+03:00">
   <shop>
     <name>Регион Логистик</name>
     <company>ООО «РегионЛогистик»</company>
@@ -2867,7 +2867,7 @@
         <name>Лифтбек BMW 4 Series Gran Coupe 2022 2022</name>
         <vendor>BMW</vendor>
         <url>https://rlogistik.ru/catalog/europe/bmw-4-series-gran-coupe-2022</url>
-        <price>4936865</price>
+        <price>4635941</price>
         <currencyId>RUR</currencyId>
         <categoryId>104</categoryId>
         <set-ids>brand-bmw,country-europe</set-ids>

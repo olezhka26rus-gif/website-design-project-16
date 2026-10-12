@@ -1064,7 +1064,7 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
         {
           model: 'BMW 4 Series Gran Coupe 2022',
           bodyType: 'Лифтбек',
-          price: 'от 2 980 000 ₽',
+          price: 'от 2 764 000 ₽',
           sideImage: `/vehicles/europe-bmw-4-series-gran-coupe-side.webp`,
           frontImage: `/vehicles/europe-bmw-4-series-gran-coupe-front.webp`,
           specs: { engine: '2.0 л Turbo', power: '245 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2022', consumption: '7.6 л/100км' },
