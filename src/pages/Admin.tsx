@@ -6,6 +6,7 @@ import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import func2url from '@/func2url.json';
 import LeadCard from '@/components/admin/LeadCard';
+import GoalsBlock from '@/components/admin/GoalsBlock';
 import { Lead, LeadStatus, STATUS_META, STATUS_ORDER } from '@/components/admin/leadStatus';
 
 const STORAGE_KEY = 'admin_password';
@@ -204,6 +205,8 @@ const Admin = () => {
             ))}
           </div>
         )}
+
+        <GoalsBlock />
       </div>
     </div>
   );

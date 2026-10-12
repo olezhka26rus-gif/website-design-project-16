@@ -246,6 +246,7 @@ export const modelRu: Record<string, string> = {
   'Hyundai Creta': 'Хендай Крета',
   'Genesis GV70': 'Дженесис ДжиВи70',
   'BMW 4 Series Gran Coupe': 'БМВ 4 серии Гран Купе',
+  'BMW 4 Series Gran Coupe 2022': 'БМВ 4 серии Гран Купе 2022',
   'BMW X6': 'БМВ Х6',
   'BMW i4': 'БМВ i4',
   'Mercedes-Benz S-Class': 'Мерседес S-Класс',
