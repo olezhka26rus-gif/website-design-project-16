@@ -161,7 +161,7 @@ const MotoDetail = () => {
 
         <div className="grid sm:grid-cols-2 gap-8">
           <div>
-            <div className="rounded-2xl overflow-hidden bg-secondary h-64 sm:h-72">
+            <div className="rounded-2xl overflow-hidden bg-secondary aspect-[5/4]">
               <img
                 src={variant.sideImage}
                 alt={variant.model}

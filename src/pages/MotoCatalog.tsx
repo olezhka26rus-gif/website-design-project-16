@@ -104,7 +104,7 @@ const MotoCatalog = () => {
               to={`/moto/${e.country}/${e.slug}`}
               className="group rounded-xl border border-border overflow-hidden hover-lift bg-white flex flex-col"
             >
-              <div className="relative h-36 bg-secondary overflow-hidden">
+              <div className="relative aspect-[5/4] bg-secondary overflow-hidden">
                 <img
                   src={e.variant.sideImage}
                   alt={e.variant.model}
