@@ -642,7 +642,7 @@ const sitemapMeta = (path) => {
   return { changefreq: 'weekly', priority: '0.7' };
 };
 
-const staticPaths = ['/', '/privacy'];
+const staticPaths = ['/'];
 const allPaths = [...staticPaths, ...routes.map((r) => r.path)];
 const uniquePaths = Array.from(new Set(allPaths));
 
