@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-10-12T17:55:20+03:00">
+<yml_catalog date="2026-10-17T16:30:03+03:00">
   <shop>
     <name>Регион Логистик</name>
     <company>ООО «РегионЛогистик»</company>
@@ -3476,6 +3476,29 @@
         <param name="Пробег, км">0</param>
         <param name="Двигатель, литры">2.0</param>
         <param name="Двигатель, л.с.">204</param>
+        <param name="Двигатель, тип">Турбированный</param>
+        <param name="Топливо">Бензин</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Полный</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
+      <offer id="europe-audi-rs6-avant" available="true">
+        <name>Универсал Audi RS6 Avant 2024</name>
+        <vendor>Audi</vendor>
+        <url>https://rlogistik.ru/catalog/europe/audi-rs6-avant</url>
+        <price>15459240</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>105</categoryId>
+        <set-ids>brand-audi,country-europe</set-ids>
+        <picture>https://rlogistik.ru/og/europe-audi-rs6-avant.jpg</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Audi RS6 Avant 2024 года — универсал с пробегом 0 км, поставляется из Европы. Технические характеристики: двигатель 4.0 л V8 Twin-Turbo, бензин, мощность 600 л.с., коробка передач — автоматическая, привод полный. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2024</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">4.0</param>
+        <param name="Двигатель, л.с.">600</param>
         <param name="Двигатель, тип">Турбированный</param>
         <param name="Топливо">Бензин</param>
         <param name="Коробка передач">Автоматическая</param>

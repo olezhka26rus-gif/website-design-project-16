@@ -171,6 +171,7 @@ export const modelRu: Record<string, string> = {
   'Mercedes-Maybach S-Class': 'Мерседес-Майбах S-Класс',
   'Audi A6': 'Ауди А6',
   'Audi A6 Avant': 'Ауди А6 Авант',
+  'Audi RS6 Avant': 'Ауди РС6 Авант',
   'Audi Q5': 'Ауди Q5',
   'Audi A3': 'Ауди А3',
   'Audi Q3': 'Ауди Q3',
