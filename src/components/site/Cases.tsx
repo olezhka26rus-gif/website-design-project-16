@@ -13,6 +13,18 @@ const cases: {
   image: string;
 }[] = [
   {
+    name: 'Volkswagen Tharu XR 2025',
+    spec: '1.4T DSG, пробег 5 000 км',
+    countryCode: 'china',
+    countryName: 'Китай',
+    priceAbroad: '1 450 000 ₽',
+    priceRu: '2 790 000 ₽',
+    ourPrice: '2 050 000 ₽',
+    save: '740 000 ₽',
+    days: '30 дней',
+    image: '/vehicles/europe-volkswagen-tharu-side.webp',
+  },
+  {
     name: 'BYD Song Max 2021',
     spec: '1.5T CVT',
     countryCode: 'china',
