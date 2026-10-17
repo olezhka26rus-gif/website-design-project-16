@@ -1275,8 +1275,8 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           model: 'Audi RS6 Avant',
           bodyType: 'Универсал',
           price: 'от 9 450 000 ₽',
-          sideImage: `${CDN}/7a4a118a-dc31-4760-be42-05a7d3fb6c9c.jpg`,
-          frontImage: `${CDN}/680f0aa8-c1ea-4df3-9917-0e627d93042f.jpg`,
+          sideImage: `/vehicles/europe-audi-rs6-avant-side.webp`,
+          frontImage: `/vehicles/europe-audi-rs6-avant-front.webp`,
           specs: { engine: '4.0 л V8 Twin-Turbo', power: '600 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '12.5 л/100км' },
         },
         {
