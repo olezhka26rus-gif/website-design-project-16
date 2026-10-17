@@ -66,6 +66,8 @@ const marketPriceFactor: Record<CountryKey, number> = {
 const brandMarkets: Record<string, CountryKey[]> = {
   Zeekr: ['china'],
   'Li Auto': ['china'],
+  Tank: ['china'],
+  Xiaomi: ['china'],
   Chery: ['china'],
   BYD: ['china'],
   Geely: ['china'],

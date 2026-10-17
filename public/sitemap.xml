@@ -49,13 +49,13 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://rlogistik.ru/catalog/brand/volkswagen</loc>
+    <loc>https://rlogistik.ru/catalog/brand/toyota</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://rlogistik.ru/catalog/brand/toyota</loc>
+    <loc>https://rlogistik.ru/catalog/brand/volkswagen</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -206,6 +206,12 @@
   </url>
   <url>
     <loc>https://rlogistik.ru/catalog/china/li-auto-l9</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rlogistik.ru/catalog/china/li-auto-l6</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -373,6 +379,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rlogistik.ru/catalog/china/tank-300</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rlogistik.ru/catalog/china/xiaomi-su7</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rlogistik.ru/catalog/japan/toyota-camry</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -458,6 +476,12 @@
   </url>
   <url>
     <loc>https://rlogistik.ru/catalog/japan/toyota-gr86</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rlogistik.ru/catalog/japan/toyota-harrier</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -577,6 +601,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rlogistik.ru/catalog/japan/nissan-sylphy</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rlogistik.ru/catalog/japan/mazda-6</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -608,6 +638,12 @@
   </url>
   <url>
     <loc>https://rlogistik.ru/catalog/japan/mazda-cx-60</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rlogistik.ru/catalog/japan/mazda-cx-8</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -709,6 +745,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rlogistik.ru/catalog/korea/kia-k8</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rlogistik.ru/catalog/korea/hyundai-sonata</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -740,6 +782,12 @@
   </url>
   <url>
     <loc>https://rlogistik.ru/catalog/korea/hyundai-creta</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rlogistik.ru/catalog/korea/hyundai-staria</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -1243,6 +1291,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://rlogistik.ru/catalog/usa/ford-mustang</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://rlogistik.ru/catalog/usa/cadillac-ct5</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -1346,6 +1400,12 @@
   </url>
   <url>
     <loc>https://rlogistik.ru/catalog/uae/toyota-land-cruiser-300-vxr</loc>
+    <lastmod>2026-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rlogistik.ru/catalog/uae/toyota-tundra</loc>
     <lastmod>2026-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>

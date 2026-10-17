@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<yml_catalog date="2026-10-17T16:30:03+03:00">
+<yml_catalog date="2026-10-17T16:52:45+03:00">
   <shop>
     <name>Регион Логистик</name>
     <company>ООО «РегионЛогистик»</company>
@@ -22,13 +22,13 @@
       <category id="12">Мотоцикл</category>
     </categories>
     <sets>
-      <set id="brand-volkswagen">
-        <name>Автомобили Volkswagen</name>
-        <url>https://rlogistik.ru/catalog/brand/volkswagen</url>
-      </set>
       <set id="brand-toyota">
         <name>Автомобили Toyota</name>
         <url>https://rlogistik.ru/catalog/brand/toyota</url>
+      </set>
+      <set id="brand-volkswagen">
+        <name>Автомобили Volkswagen</name>
+        <url>https://rlogistik.ru/catalog/brand/volkswagen</url>
       </set>
       <set id="brand-mercedes-benz">
         <name>Автомобили Mercedes-Benz</name>
@@ -290,6 +290,31 @@
         <param name="Пробег, км">0</param>
         <param name="Двигатель, литры">1.5</param>
         <param name="Двигатель, л.с.">449</param>
+        <param name="Двигатель, тип">Турбированный</param>
+        <param name="Топливо">Гибрид</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Полный</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
+      <offer id="china-li-auto-l6" available="true">
+        <name>Кроссовер Li Auto L6 2024</name>
+        <vendor>Li Auto</vendor>
+        <url>https://rlogistik.ru/catalog/china/li-auto-l6</url>
+        <price>4773141</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>101</categoryId>
+        <set-ids>country-china</set-ids>
+        <picture>https://rlogistik.ru/og/china-li-auto-l6.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/china-li-auto-l6-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/china-li-auto-l6-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Li Auto L6 2024 года — кроссовер с пробегом 0 км, поставляется из Китая. Технические характеристики: двигатель 1.5 л Turbo Гибрид, мощность 408 л.с., коробка передач — автоматическая, привод полный. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2024</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">1.5</param>
+        <param name="Двигатель, л.с.">408</param>
         <param name="Двигатель, тип">Турбированный</param>
         <param name="Топливо">Гибрид</param>
         <param name="Коробка передач">Автоматическая</param>
@@ -967,6 +992,54 @@
         <param name="Привод">Передний</param>
         <param name="Состояние">Не требует ремонта</param>
       </offer>
+      <offer id="china-tank-300" available="true">
+        <name>Внедорожник Tank 300 2023</name>
+        <vendor>Tank</vendor>
+        <url>https://rlogistik.ru/catalog/china/tank-300</url>
+        <price>4473141</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>101</categoryId>
+        <set-ids>country-china</set-ids>
+        <picture>https://rlogistik.ru/og/china-tank-300.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/china-tank-300-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/china-tank-300-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Tank 300 2023 года — внедорожник с пробегом 0 км, поставляется из Китая. Технические характеристики: двигатель 2.0 л Turbo, бензин, мощность 227 л.с., коробка передач — автоматическая, привод полный. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2023</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">2.0</param>
+        <param name="Двигатель, л.с.">227</param>
+        <param name="Двигатель, тип">Турбированный</param>
+        <param name="Топливо">Бензин</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Полный</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
+      <offer id="china-xiaomi-su7" available="true">
+        <name>Седан Xiaomi SU7 2024</name>
+        <vendor>Xiaomi</vendor>
+        <url>https://rlogistik.ru/catalog/china/xiaomi-su7</url>
+        <price>4339941</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>102</categoryId>
+        <set-ids>country-china</set-ids>
+        <picture>https://rlogistik.ru/og/china-xiaomi-su7.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/china-xiaomi-su7-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/china-xiaomi-su7-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Xiaomi SU7 2024 года — седан с пробегом 0 км, поставляется из Китая. Технические характеристики: двигатель Электро, мощность 299 л.с., коробка передач — автоматическая, привод задний. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2024</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, л.с.">299</param>
+        <param name="Топливо">Электро</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Задний</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
       <offer id="japan-toyota-camry" available="true">
         <name>Седан Toyota Camry 2023</name>
         <vendor>Toyota</vendor>
@@ -1338,6 +1411,31 @@
         <param name="Топливо">Бензин</param>
         <param name="Коробка передач">Механическая</param>
         <param name="Привод">Задний</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
+      <offer id="japan-toyota-harrier" available="true">
+        <name>Кроссовер Toyota Harrier 2023</name>
+        <vendor>Toyota</vendor>
+        <url>https://rlogistik.ru/catalog/japan/toyota-harrier</url>
+        <price>4655265</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>101</categoryId>
+        <set-ids>brand-toyota,country-japan</set-ids>
+        <picture>https://rlogistik.ru/og/japan-toyota-harrier.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/japan-toyota-harrier-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/japan-toyota-harrier-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Toyota Harrier 2023 года — кроссовер с пробегом 0 км, поставляется из Японии. Технические характеристики: двигатель 2.0 л, бензин, мощность 171 л.с., коробка передач — вариатор, привод полный. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2023</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">2.0</param>
+        <param name="Двигатель, л.с.">171</param>
+        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Топливо">Бензин</param>
+        <param name="Коробка передач">Вариатор</param>
+        <param name="Привод">Полный</param>
         <param name="Состояние">Не требует ремонта</param>
       </offer>
       <offer id="japan-lexus-es" available="true">
@@ -1815,6 +1913,31 @@
         <param name="Привод">Передний</param>
         <param name="Состояние">Не требует ремонта</param>
       </offer>
+      <offer id="japan-nissan-sylphy" available="true">
+        <name>Седан Nissan Sylphy 2023</name>
+        <vendor>Nissan</vendor>
+        <url>https://rlogistik.ru/catalog/japan/nissan-sylphy</url>
+        <price>2237741</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>102</categoryId>
+        <set-ids>brand-nissan,country-japan</set-ids>
+        <picture>https://rlogistik.ru/og/japan-nissan-sylphy.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/japan-nissan-sylphy-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/japan-nissan-sylphy-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Nissan Sylphy 2023 года — седан с пробегом 0 км, поставляется из Японии. Технические характеристики: двигатель 1.6 л, бензин, мощность 122 л.с., коробка передач — вариатор, привод передний. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2023</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">1.6</param>
+        <param name="Двигатель, л.с.">122</param>
+        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Топливо">Бензин</param>
+        <param name="Коробка передач">Вариатор</param>
+        <param name="Привод">Передний</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
       <offer id="japan-mazda-6" available="true">
         <name>Седан Mazda 6 2022</name>
         <vendor>Mazda</vendor>
@@ -1961,6 +2084,31 @@
         <param name="Двигатель, л.с.">254</param>
         <param name="Двигатель, тип">Атмосферный</param>
         <param name="Топливо">Дизель</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Полный</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
+      <offer id="japan-mazda-cx-8" available="true">
+        <name>Кроссовер Mazda CX-8 2023</name>
+        <vendor>Mazda</vendor>
+        <url>https://rlogistik.ru/catalog/japan/mazda-cx-8</url>
+        <price>4398741</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>101</categoryId>
+        <set-ids>brand-mazda,country-japan</set-ids>
+        <picture>https://rlogistik.ru/og/japan-mazda-cx-8.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/japan-mazda-cx-8-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/japan-mazda-cx-8-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Mazda CX-8 2023 года — кроссовер с пробегом 0 км, поставляется из Японии. Технические характеристики: двигатель 2.5 л, бензин, мощность 190 л.с., коробка передач — автоматическая, привод полный. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2023</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">2.5</param>
+        <param name="Двигатель, л.с.">190</param>
+        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Топливо">Бензин</param>
         <param name="Коробка передач">Автоматическая</param>
         <param name="Привод">Полный</param>
         <param name="Состояние">Не требует ремонта</param>
@@ -2363,6 +2511,31 @@
         <param name="Привод">Полный</param>
         <param name="Состояние">Не требует ремонта</param>
       </offer>
+      <offer id="korea-kia-k8" available="true">
+        <name>Седан Kia K8 2023</name>
+        <vendor>Kia</vendor>
+        <url>https://rlogistik.ru/catalog/korea/kia-k8</url>
+        <price>4093041</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>102</categoryId>
+        <set-ids>brand-kia,country-korea</set-ids>
+        <picture>https://rlogistik.ru/og/korea-kia-k8.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/korea-kia-k8-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/korea-kia-k8-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Kia K8 2023 года — седан с пробегом 0 км, поставляется из Кореи. Технические характеристики: двигатель 2.5 л, бензин, мощность 198 л.с., коробка передач — автоматическая, привод передний. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2023</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">2.5</param>
+        <param name="Двигатель, л.с.">198</param>
+        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Топливо">Бензин</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Передний</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
       <offer id="korea-hyundai-sonata" available="true">
         <name>Седан Hyundai Sonata 2023</name>
         <vendor>Hyundai</vendor>
@@ -2509,6 +2682,31 @@
         <param name="Двигатель, л.с.">123</param>
         <param name="Двигатель, тип">Атмосферный</param>
         <param name="Топливо">Бензин</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Передний</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
+      <offer id="korea-hyundai-staria" available="true">
+        <name>Минивэн Hyundai Staria 2023</name>
+        <vendor>Hyundai</vendor>
+        <url>https://rlogistik.ru/catalog/korea/hyundai-staria</url>
+        <price>4487541</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>106</categoryId>
+        <set-ids>brand-hyundai,country-korea</set-ids>
+        <picture>https://rlogistik.ru/og/korea-hyundai-staria.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/korea-hyundai-staria-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/korea-hyundai-staria-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Hyundai Staria 2023 года — минивэн с пробегом 0 км, поставляется из Кореи. Технические характеристики: двигатель 2.2 л Дизель, мощность 177 л.с., коробка передач — автоматическая, привод передний. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2023</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">2.2</param>
+        <param name="Двигатель, л.с.">177</param>
+        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Топливо">Дизель</param>
         <param name="Коробка передач">Автоматическая</param>
         <param name="Привод">Передний</param>
         <param name="Состояние">Не требует ремонта</param>
@@ -3491,6 +3689,8 @@
         <categoryId>105</categoryId>
         <set-ids>brand-audi,country-europe</set-ids>
         <picture>https://rlogistik.ru/og/europe-audi-rs6-avant.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-audi-rs6-avant-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/europe-audi-rs6-avant-side.webp</picture>
         <delivery>true</delivery>
         <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
         <description>Audi RS6 Avant 2024 года — универсал с пробегом 0 км, поставляется из Европы. Технические характеристики: двигатель 4.0 л V8 Twin-Turbo, бензин, мощность 600 л.с., коробка передач — автоматическая, привод полный. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
@@ -4568,6 +4768,31 @@
         <param name="Привод">Полный</param>
         <param name="Состояние">Не требует ремонта</param>
       </offer>
+      <offer id="usa-ford-mustang" available="true">
+        <name>Купе Ford Mustang 2023</name>
+        <vendor>Ford</vendor>
+        <url>https://rlogistik.ru/catalog/usa/ford-mustang</url>
+        <price>6873465</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>107</categoryId>
+        <set-ids>country-usa</set-ids>
+        <picture>https://rlogistik.ru/og/usa-ford-mustang.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/usa-ford-mustang-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/usa-ford-mustang-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Ford Mustang 2023 года — купе с пробегом 0 км, поставляется из США. Технические характеристики: двигатель 5.0 л V8, бензин, мощность 450 л.с., коробка передач — автоматическая, привод задний. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2023</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">5.0</param>
+        <param name="Двигатель, л.с.">450</param>
+        <param name="Двигатель, тип">Атмосферный</param>
+        <param name="Топливо">Бензин</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Задний</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
       <offer id="usa-cadillac-ct5" available="true">
         <name>Седан Cadillac CT5 2024</name>
         <vendor>Cadillac</vendor>
@@ -5012,6 +5237,31 @@
         <param name="Пробег, км">0</param>
         <param name="Двигатель, литры">3.5</param>
         <param name="Двигатель, л.с.">415</param>
+        <param name="Двигатель, тип">Турбированный</param>
+        <param name="Топливо">Бензин</param>
+        <param name="Коробка передач">Автоматическая</param>
+        <param name="Привод">Полный</param>
+        <param name="Состояние">Не требует ремонта</param>
+      </offer>
+      <offer id="uae-toyota-tundra" available="true">
+        <name>Пикап Toyota Tundra 2023</name>
+        <vendor>Toyota</vendor>
+        <url>https://rlogistik.ru/catalog/uae/toyota-tundra</url>
+        <price>5610965</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>108</categoryId>
+        <set-ids>brand-toyota,country-uae</set-ids>
+        <picture>https://rlogistik.ru/og/uae-toyota-tundra.jpg</picture>
+        <picture>https://rlogistik.ru/vehicles/uae-toyota-tundra-front.webp</picture>
+        <picture>https://rlogistik.ru/vehicles/uae-toyota-tundra-side.webp</picture>
+        <delivery>true</delivery>
+        <sales_notes>Поставка под индивидуальную заявку, срок 30-60 дней</sales_notes>
+        <description>Toyota Tundra 2023 года — пикап с пробегом 0 км, поставляется из ОАЭ. Технические характеристики: двигатель 3.5 л Turbo, бензин, мощность 389 л.с., коробка передач — автоматическая, привод полный. Автомобиль проходит проверку технического состояния и юридической чистоты перед покупкой на аукционе или у дилера. Компания Регион Логистик берёт на себя подбор, выкуп, транспортировку до России, таможенное оформление, уплату пошлины и утилизационного сбора, а также постановку на учёт. Итоговая стоимость под ключ рассчитывается индивидуально и зависит от курса валюты и комплектации.</description>
+        <param name="Конверсия">1</param>
+        <param name="Год выпуска">2023</param>
+        <param name="Пробег, км">0</param>
+        <param name="Двигатель, литры">3.5</param>
+        <param name="Двигатель, л.с.">389</param>
         <param name="Двигатель, тип">Турбированный</param>
         <param name="Топливо">Бензин</param>
         <param name="Коробка передач">Автоматическая</param>

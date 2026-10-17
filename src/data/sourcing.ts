@@ -22,6 +22,8 @@ const brandOrigin: Record<string, 'cn' | 'jp' | 'kr' | 'eu' | 'us' | 'lux'> = {
   Haval: 'cn',
   Chery: 'cn',
   'Li Auto': 'cn',
+  Tank: 'cn',
+  Xiaomi: 'cn',
   'GAC Trumpchi': 'cn',
   GAC: 'cn',
   Changan: 'cn',

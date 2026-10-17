@@ -86,6 +86,14 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           frontImage: `/vehicles/china-li-auto-l9-front.webp`,
           specs: { engine: '1.5 л Turbo Гибрид', power: '449 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '1.5 л/100км' },
         },
+        {
+          model: 'Li Auto L6',
+          bodyType: 'Кроссовер',
+          price: 'от 2 520 000 ₽',
+          sideImage: `/vehicles/china-li-auto-l6-side.webp`,
+          frontImage: `/vehicles/china-li-auto-l6-front.webp`,
+          specs: { engine: '1.5 л Turbo Гибрид', power: '408 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '1.6 л/100км' },
+        },
       ],
     },
     {
@@ -373,7 +381,33 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           specs: { engine: '2.0 л Turbo', power: '186 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '8.0 л/100км' },
         },
       ],
+    },    {
+      brand: 'Tank',
+      variants: [
+        {
+          model: 'Tank 300',
+          bodyType: 'Внедорожник',
+          price: 'от 2 520 000 ₽',
+          sideImage: `/vehicles/china-tank-300-side.webp`,
+          frontImage: `/vehicles/china-tank-300-front.webp`,
+          specs: { engine: '2.0 л Turbo', power: '227 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '10.5 л/100км' },
+        },
+      ],
     },
+    {
+      brand: 'Xiaomi',
+      variants: [
+        {
+          model: 'Xiaomi SU7',
+          bodyType: 'Седан',
+          price: 'от 2 430 000 ₽',
+          sideImage: `/vehicles/china-xiaomi-su7-side.webp`,
+          frontImage: `/vehicles/china-xiaomi-su7-front.webp`,
+          specs: { engine: 'Электро', power: '299 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2024', consumption: '14.5 кВт·ч/100км' },
+        },
+      ],
+    },
+
   ],
   japan: [
     {
@@ -498,6 +532,14 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           sideImage: `/vehicles/japan-toyota-gr86-side.webp`,
           frontImage: `/vehicles/japan-toyota-gr86-front.webp`,
           specs: { engine: '2.4 л', power: '234 л.с.', drive: 'Задний', transmission: 'Механика', year: '2024', consumption: '9.5 л/100км' },
+        },
+        {
+          model: 'Toyota Harrier',
+          bodyType: 'Кроссовер',
+          price: 'от 2 880 000 ₽',
+          sideImage: `/vehicles/japan-toyota-harrier-side.webp`,
+          frontImage: `/vehicles/japan-toyota-harrier-front.webp`,
+          specs: { engine: '2.0 л', power: '171 л.с.', drive: 'Полный', transmission: 'Вариатор', year: '2023', consumption: '7.0 л/100км' },
         },
       ],
     },
@@ -666,6 +708,14 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           frontImage: `/vehicles/japan-nissan-note-front.webp`,
           specs: { engine: '1.2 л e-Power', power: '116 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '4.0 л/100км' },
         },
+        {
+          model: 'Nissan Sylphy',
+          bodyType: 'Седан',
+          price: 'от 1 260 000 ₽',
+          sideImage: `/vehicles/japan-nissan-sylphy-side.webp`,
+          frontImage: `/vehicles/japan-nissan-sylphy-front.webp`,
+          specs: { engine: '1.6 л', power: '122 л.с.', drive: 'Передний', transmission: 'Вариатор', year: '2023', consumption: '6.4 л/100км' },
+        },
       ],
     },
     {
@@ -718,6 +768,14 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           sideImage: `/vehicles/japan-mazda-cx-60-side.webp`,
           frontImage: `/vehicles/japan-mazda-cx-60-front.webp`,
           specs: { engine: '3.3 л Дизель', power: '254 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '6.8 л/100км' },
+        },
+        {
+          model: 'Mazda CX-8',
+          bodyType: 'Кроссовер',
+          price: 'от 2 700 000 ₽',
+          sideImage: `/vehicles/japan-mazda-cx-8-side.webp`,
+          frontImage: `/vehicles/japan-mazda-cx-8-front.webp`,
+          specs: { engine: '2.5 л', power: '190 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '8.4 л/100км' },
         },
       ],
     },
@@ -869,6 +927,14 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           frontImage: `/vehicles/korea-kia-ev6-front.webp`,
           specs: { engine: 'Электро', power: '325 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '17.2 кВт·ч/100км' },
         },
+        {
+          model: 'Kia K8',
+          bodyType: 'Седан',
+          price: 'от 2 340 000 ₽',
+          sideImage: `/vehicles/korea-kia-k8-side.webp`,
+          frontImage: `/vehicles/korea-kia-k8-front.webp`,
+          specs: { engine: '2.5 л', power: '198 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '9.0 л/100км' },
+        },
       ],
     },
     {
@@ -921,6 +987,14 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           sideImage: `/vehicles/korea-hyundai-creta-side.webp`,
           frontImage: `/vehicles/korea-hyundai-creta-front.webp`,
           specs: { engine: '1.6 л', power: '123 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '6.7 л/100км' },
+        },
+        {
+          model: 'Hyundai Staria',
+          bodyType: 'Минивэн',
+          price: 'от 2 700 000 ₽',
+          sideImage: `/vehicles/korea-hyundai-staria-side.webp`,
+          frontImage: `/vehicles/korea-hyundai-staria-front.webp`,
+          specs: { engine: '2.2 л Дизель', power: '177 л.с.', drive: 'Передний', transmission: 'Автомат', year: '2023', consumption: '8.5 л/100км' },
         },
       ],
     },
@@ -1685,6 +1759,14 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           frontImage: `${CDN}/03035abc-3c93-475a-af14-64e21896d85a.jpg`,
           specs: { engine: '2.3 л Turbo', power: '300 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '10.8 л/100км' },
         },
+        {
+          model: 'Ford Mustang',
+          bodyType: 'Купе',
+          price: 'от 3 420 000 ₽',
+          sideImage: `/vehicles/usa-ford-mustang-side.webp`,
+          frontImage: `/vehicles/usa-ford-mustang-front.webp`,
+          specs: { engine: '5.0 л V8', power: '450 л.с.', drive: 'Задний', transmission: 'Автомат', year: '2023', consumption: '13.5 л/100км' },
+        },
       ],
     },
     {
@@ -1885,6 +1967,14 @@ export const carsByCountry: Record<CountryKey, CarModel[]> = {
           sideImage: `${CDN}/1234f466-1cca-4c72-b1c6-2cd0acc803ac.jpg`,
           frontImage: `${CDN}/1234f466-1cca-4c72-b1c6-2cd0acc803ac.jpg`,
           specs: { engine: '3.5 л V6 Twin-Turbo', power: '415 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2024', consumption: '12.4 л/100км' },
+        },
+        {
+          model: 'Toyota Tundra',
+          bodyType: 'Пикап',
+          price: 'от 3 150 000 ₽',
+          sideImage: `/vehicles/uae-toyota-tundra-side.webp`,
+          frontImage: `/vehicles/uae-toyota-tundra-front.webp`,
+          specs: { engine: '3.5 л Turbo', power: '389 л.с.', drive: 'Полный', transmission: 'Автомат', year: '2023', consumption: '13.8 л/100км' },
         },
       ],
     },
