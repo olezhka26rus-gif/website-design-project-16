@@ -36,7 +36,7 @@ const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
         <div className="p-6 sm:p-8 bg-background">
           <div className="space-y-3">
             <a
-              href="tel:+79106926276"
+              href="tel:+79288209812"
               onClick={() => trackPhoneClick('contacts_modal')}
               className="flex items-center gap-3 rounded-xl bg-white border border-border p-4 hover-lift"
             >
@@ -44,7 +44,7 @@ const ContactsModal = ({ open, onOpenChange }: ContactsModalProps) => {
                 <Icon name="Phone" size={20} className="text-primary" />
               </div>
               <div>
-                <div className="font-display font-bold">+7 (910) 692-62-76</div>
+                <div className="font-display font-bold">+7 (928) 820-98-12</div>
                 <div className="text-xs text-muted-foreground">Пн-Пт 9:00 – 18:00</div>
               </div>
             </a>

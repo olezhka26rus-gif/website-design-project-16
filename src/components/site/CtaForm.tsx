@@ -63,11 +63,11 @@ const CtaForm = () => {
           </p>
           <div className="flex flex-wrap gap-6 mt-8">
             <a
-              href="tel:+79106926276"
+              href="tel:+79288209812"
               onClick={() => trackPhoneClick('cta')}
               className="flex items-center gap-2 font-semibold"
             >
-              <Icon name="Phone" size={18} /> +7 (910) 692-62-76
+              <Icon name="Phone" size={18} /> +7 (928) 820-98-12
             </a>
             <a
               href="https://vk.com/region_logistik"

@@ -90,11 +90,11 @@ const NotFoundSeo = () => {
                 Блог о доставке авто
               </Link>
               <a
-                href="tel:+79106926276"
+                href="tel:+79288209812"
                 className="inline-flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
               >
                 <Icon name="Phone" size={15} />
-                +7 (910) 692-62-76
+                +7 (928) 820-98-12
               </a>
             </div>
           </div>

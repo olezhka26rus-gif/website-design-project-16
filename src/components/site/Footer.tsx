@@ -46,11 +46,11 @@ const Footer = () => {
         <div>
           <h4 className="text-white font-display font-bold mb-4">Контакты</h4>
           <a
-            href="tel:+79106926276"
+            href="tel:+79288209812"
             onClick={() => trackPhoneClick('footer')}
             className="block text-white font-display font-bold text-lg mb-1"
           >
-            +7 (910) 692-62-76
+            +7 (928) 820-98-12
           </a>
           <p className="text-sm mb-4">Пн-Пт 9:00 – 18:00</p>
           <div className="flex gap-3">
