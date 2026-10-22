@@ -91,11 +91,11 @@ const Header = () => {
           </button>
           <div className="text-right leading-tight shrink-0">
             <a
-              href="tel:+79106926276"
+              href="tel:+79288209812"
               onClick={() => trackPhoneClick('header')}
               className="font-display font-bold text-base whitespace-nowrap"
             >
-              +7 (910) 692-62-76
+              +7 (928) 820-98-12
             </a>
             <div className="text-[11px] text-muted-foreground whitespace-nowrap">Пн-Пт 9:00 – 18:00</div>
           </div>
@@ -111,7 +111,7 @@ const Header = () => {
         </div>
 
         <a
-          href="tel:+79106926276"
+          href="tel:+79288209812"
           onClick={() => trackPhoneClick('header_mobile')}
           aria-label="Позвонить"
           className="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-primary bg-primary/10 shrink-0"
