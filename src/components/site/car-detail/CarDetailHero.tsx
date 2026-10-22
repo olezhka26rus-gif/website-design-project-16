@@ -106,7 +106,7 @@ const CarDetailHero = ({
           {content.cost ? (
             <>
               <div className="text-3xl font-display font-extrabold text-primary">
-                от {formatRub(content.cost.total)}
+                ≈ {formatRub(content.cost.total)}
               </div>
               <p className="text-sm text-muted-foreground mt-1">
                 Ориентировочная цена под ключ до вашего города: автомобиль{' '}

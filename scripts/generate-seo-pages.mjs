@@ -251,7 +251,7 @@ ${
     const v = e.variant;
     const gen = countryGen[e.country] || e.countryName;
     const c = buildCarContent(e);
-    const priceLine = c.cost ? `от ${formatRub(c.cost.total)}` : v.price;
+    const priceLine = c.cost ? formatRub(c.cost.total) : v.price;
 
     const costTable = c.cost
       ? `<h2>Сколько стоит ${esc(c.fullName)} под ключ в России</h2>
@@ -286,7 +286,7 @@ ${
       path: `/catalog/${e.country}/${e.slug}`,
       title: `${v.model} на заказ из ${gen} — цена под ключ и характеристики | Регион Логистик`,
       description: c.cost
-        ? `${v.model} (${v.bodyType}, ${v.specs.year}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}, ${v.specs.transmission}. Цена под ключ ${priceLine} с пошлиной, утильсбором и доставкой. Расчёт, сроки и ответы на частые вопросы.`
+        ? `${v.model} (${v.bodyType}, ${v.specs.year}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}, ${v.specs.transmission}. Ориентировочная цена под ключ ${priceLine} с пошлиной, утильсбором и доставкой. Расчёт, сроки и ответы на частые вопросы.`
         : `${v.model} (${v.bodyType}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}. Подбор, проверка и доставка в Россию.`,
       keywords: `${v.model}, купить ${v.model}, ${v.model} из ${gen}, ${v.model} цена под ключ, ${v.model} растаможка, заказать ${v.model}, Регион Логистик`,
       image: ogCover(e),
@@ -295,7 +295,7 @@ ${
       body: `<h1>${esc(v.model)} на заказ из ${esc(gen)}</h1>
 <p>${esc(c.intro)}</p>
 <img src="${esc(abs(v.frontImage))}" alt="${esc(v.model)} — ${esc(v.bodyType)} на заказ из ${esc(gen)}" width="640" height="480">
-<p><strong>Цена под ключ: ${esc(priceLine)}</strong> (стоимость автомобиля ${esc(v.price)} + пошлина, утильсбор, доставка и услуги компании).</p>
+<p><strong>Ориентировочная цена под ключ: ${esc(priceLine)}</strong> (стоимость автомобиля ${esc(v.price)} + пошлина, утильсбор, доставка и услуги компании).</p>
 <h2>Характеристики ${esc(c.fullName)}</h2>
 <ul>${specList(v.specs)}${c.cm3 ? `<li>Объём двигателя: ${c.cm3} см³</li>` : ''}</ul>
 <p>Марка: ${esc(e.model.brand)}. Страна вывоза: ${esc(e.countryName)}. Тип кузова: ${esc(v.bodyType)}.</p>
@@ -457,7 +457,7 @@ ${motoGrid(motoEntries)}`,
     const v = e.variant;
     const gen = motoCountryGen[e.country] || e.countryName;
     const c = buildMotoContent(e);
-    const priceLine = c.cost ? `от ${formatRub(c.cost.total)}` : v.price;
+    const priceLine = c.cost ? formatRub(c.cost.total) : v.price;
 
     const costTable = c.cost
       ? `<h2>Сколько стоит ${esc(c.fullName)} под ключ в России</h2>
@@ -480,7 +480,7 @@ ${motoGrid(motoEntries)}`,
       path: `/moto/${e.country}/${e.slug}`,
       title: `${v.model} на заказ из ${gen} — цена под ключ и характеристики | Регион Логистик`,
       description: c.cost
-        ? `${v.model} (${v.bodyType}, ${v.specs.year}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}, ${v.specs.transmission}. Цена под ключ ${priceLine} с пошлиной и доставкой. Расчёт, сроки и ответы на частые вопросы.`
+        ? `${v.model} (${v.bodyType}, ${v.specs.year}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}, ${v.specs.transmission}. Ориентировочная цена под ключ ${priceLine} с пошлиной и доставкой. Расчёт, сроки и ответы на частые вопросы.`
         : `${v.model} (${v.bodyType}) под заказ из ${gen}: ${v.specs.engine}, ${v.specs.power}. Подбор, проверка и доставка в Россию.`,
       keywords: `${v.model}, купить ${v.model}, ${v.model} из ${gen}, ${v.model} цена под ключ, заказать ${v.model}, Регион Логистик`,
       image: motoOgCover(e),
@@ -497,7 +497,7 @@ ${motoGrid(motoEntries)}`,
         },
       ],
       body: `<h1>${esc(v.model)}</h1>
-<p><strong>Цена под ключ: ${esc(priceLine)}</strong> (стоимость мотоцикла ${esc(v.price)} + пошлина, сборы, доставка и услуги компании).</p>
+<p><strong>Ориентировочная цена под ключ: ${esc(priceLine)}</strong> (стоимость мотоцикла ${esc(v.price)} + пошлина, сборы, доставка и услуги компании).</p>
 <h2>Характеристики ${esc(c.fullName)}</h2>
 <ul>${specList(v.specs)}${c.cm3 ? `<li>Объём двигателя: ${c.cm3} см³</li>` : ''}</ul>
 <p>Марка: ${esc(e.model.brand)}. Страна вывоза: ${esc(e.countryName)}. Тип: ${esc(v.bodyType)}.</p>

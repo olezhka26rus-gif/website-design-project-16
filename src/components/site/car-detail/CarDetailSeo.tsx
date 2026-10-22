@@ -33,7 +33,7 @@ const CarDetailSeo = ({
         name="description"
         content={
           content.cost
-            ? `${variant.model} (${variant.bodyType}, ${variant.specs.year}) под заказ из ${countryGen}: ${variant.specs.engine}, ${variant.specs.power}, ${variant.specs.transmission}. Цена под ключ от ${formatRub(content.cost.total)} с пошлиной, утильсбором и доставкой. Расчёт, сроки и ответы на частые вопросы.`
+            ? `${variant.model} (${variant.bodyType}, ${variant.specs.year}) под заказ из ${countryGen}: ${variant.specs.engine}, ${variant.specs.power}, ${variant.specs.transmission}. Ориентировочная цена под ключ ${formatRub(content.cost.total)} с пошлиной, утильсбором и доставкой. Расчёт, сроки и ответы на частые вопросы.`
             : `${variant.model} (${variant.bodyType}) под заказ из ${countryGen}: ${variant.specs.engine}, ${variant.specs.power}. Ориентировочная цена под ключ ${variant.price}. Подбор, проверка и доставка в Россию.`
         }
       />
@@ -54,7 +54,7 @@ const CarDetailSeo = ({
       <meta property="og:title" content={`${variant.model} на заказ из ${countryGen} | Регион Логистик`} />
       <meta
         property="og:description"
-        content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${content.cost ? `от ${formatRub(content.cost.total)}` : variant.price}.`}
+        content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Ориентировочная цена под ключ ${content.cost ? formatRub(content.cost.total) : variant.price}.`}
       />
       <meta property="og:image" content={absoluteImage} />
       <meta property="og:url" content={pageUrl} />
@@ -63,7 +63,7 @@ const CarDetailSeo = ({
       <meta name="twitter:title" content={`${variant.model} на заказ из ${countryGen} | Регион Логистик`} />
       <meta
         name="twitter:description"
-        content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Цена под ключ ${content.cost ? `от ${formatRub(content.cost.total)}` : variant.price}.`}
+        content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Ориентировочная цена под ключ ${content.cost ? formatRub(content.cost.total) : variant.price}.`}
       />
       <meta name="twitter:image" content={absoluteImage} />
       <script type="application/ld+json">
