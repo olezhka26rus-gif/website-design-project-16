@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { CatalogEntry, CountryKey, CarModel, CarVariant } from '@/data/catalogCars';
 import { CarContent } from '@/lib/carContent';
 import { formatRub } from '@/lib/customs';
+import { buildCarHeading } from '@/lib/carSeo';
 import { trackGoal, goals } from '@/lib/analytics';
 
 export const SPEC_ROWS: { key: keyof CarVariant['specs']; label: string; icon: string }[] = [
@@ -37,6 +38,7 @@ const CarDetailHero = ({
   onLeadOpen,
   onCalcOpen,
 }: CarDetailHeroProps) => {
+  const heading = buildCarHeading(entry, content);
   return (
     <>
       <Link to="/catalog" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-primary mb-6 transition-colors">
@@ -49,9 +51,12 @@ const CarDetailHero = ({
         {countryName} · {variant.bodyType}
       </div>
 
-      <h1 className="font-display font-extrabold text-2xl sm:text-4xl mb-6 leading-tight">
-        {variant.model}
+      <h1 className="font-display font-extrabold text-2xl sm:text-4xl mb-2 leading-tight">
+        {heading.h1}
       </h1>
+      {heading.subtitle && (
+        <p className="text-muted-foreground mb-6 max-w-3xl">{heading.subtitle}</p>
+      )}
 
       <div className="grid sm:grid-cols-2 gap-8">
         <div>

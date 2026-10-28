@@ -1,4 +1,4 @@
-import type { CatalogEntry } from '@/data/catalogCars';
+import { catalogEntries, type CatalogEntry } from '@/data/catalogCars';
 import type { CarContent } from '@/lib/carContent';
 import { modelRu } from '@/data/carAliases';
 import { countryGenitive } from '@/lib/carContent';
@@ -28,6 +28,34 @@ export interface CarSeo {
   title: string;
   description: string;
 }
+
+export interface CarHeading {
+  h1: string;
+  subtitle: string;
+}
+
+/**
+ * H1 страницы автомобиля: тот же ключ, что в title («модель + под ключ + выгодная страна»),
+ * но без цены и в форме «Купить …», чтобы не дублировать title слово в слово.
+ */
+export const buildCarHeading = (entry: CatalogEntry, content: CarContent): CarHeading => {
+  const model = entry.variant.model;
+  const best = content.best;
+  const catalogGen = countryGenitive[entry.country] ?? entry.countryName;
+  if (!best) return { h1: `Купить ${model} под ключ из ${catalogGen}`, subtitle: '' };
+
+  const second = content.quotes[1];
+  const sameModelElsewhere = catalogEntries.some(
+    (e) => e.variant.model === model && e.country !== entry.country,
+  );
+  const h1 = sameModelElsewhere
+    ? `Купить ${model} под ключ из ${best.countryGen} — версия рынка ${catalogGen}`
+    : `Купить ${model} под ключ из ${best.countryGen}`;
+  const subtitle = second
+    ? `Выгоднее всего везти из ${best.countryGen} — от ${formatShort(best.total)}, из ${second.countryGen} — от ${formatShort(second.total)}. Сравнили ${content.quotes.length} ${content.quotes.length < 5 ? 'страны' : 'стран'} вывоза.`
+    : `Цена под ключ из ${best.countryGen} — от ${formatShort(best.total)} с растаможкой и доставкой.`;
+  return { h1, subtitle };
+};
 
 /**
  * Заголовок и описание страницы автомобиля под коммерческие запросы
