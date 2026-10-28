@@ -3,6 +3,7 @@ import { Link } from "@/lib/router-compat";
 import CountryFlag from '@/components/site/CountryFlag';
 import CarDetailModal from '@/components/site/CarDetailModal';
 import Icon from '@/components/ui/icon';
+import CarCardPrice from '@/components/site/CarCardPrice';
 import { carsByCountry, CountryKey, CarModel, CarVariant } from '@/data/catalogCars';
 
 const hashToCountry: Record<string, CountryKey> = {
@@ -133,8 +134,7 @@ const Catalog = () => {
                   </div>
 
                   <div className="mt-auto pt-2.5">
-                    <div className="text-sm font-bold text-primary">{variant.price}</div>
-                    <div className="text-[11px] text-muted-foreground">цена авто без доставки</div>
+                    <CarCardPrice variant={variant} />
                   </div>
                 </div>
               </div>

@@ -1,13 +1,11 @@
 import { CatalogEntry } from '@/data/catalogCars';
-import { sourceOptionsFor } from '@/data/sourcing';
+import { pricesByCountry, defaultConfig, customsAge } from '@/lib/carPricing';
 import {
-  calcTotalCost,
   engineCm3FromSpec,
   powerFromSpec,
   priceFromSpec,
   formatRub,
   CostBreakdown,
-  CountryCalcKey,
 } from '@/lib/customs';
 
 export const countryGenitive: Record<string, string> = {
@@ -149,33 +147,22 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
     uae: 'ОАЭ',
   };
 
-  const quotes: SourceQuote[] = basePrice
-    ? sourceOptionsFor(entry)
-        .map((opt) => {
-          const carPrice = Math.round((basePrice * opt.priceFactor) / 10000) * 10000;
-          const c = calcTotalCost(carPrice, 'new', cm3, hp, opt.country as CountryCalcKey);
-          return {
-            country: opt.country,
-            countryGen: countryGenitive[opt.country] ?? opt.country,
-            countryName: countryLabel[opt.country] ?? opt.country,
-            carPrice,
-            total: c.total,
-            weeks: deliveryWeeks[opt.country] ?? '6–10 недель',
-            route: deliveryRoute[opt.country] ?? 'морем и автовозом',
-            isBest: false,
-            isCatalog: opt.country === country,
-          };
-        })
-        .sort((a, b) => a.total - b.total)
-    : [];
+  const quotes: SourceQuote[] = pricesByCountry(entry, defaultConfig(entry)).map((p, i) => ({
+    country: p.country,
+    countryGen: countryGenitive[p.country] ?? p.country,
+    countryName: countryLabel[p.country] ?? p.country,
+    carPrice: p.carPrice,
+    total: p.cost.total,
+    weeks: deliveryWeeks[p.country] ?? '6–10 недель',
+    route: deliveryRoute[p.country] ?? 'морем и автовозом',
+    isBest: i === 0,
+    isCatalog: p.country === country,
+  }));
 
-  if (quotes.length) quotes[0].isBest = true;
   const best = quotes[0] ?? null;
 
   // Основной расчёт показываем по самому выгодному маршруту
-  const cost = best
-    ? calcTotalCost(best.carPrice, 'new', cm3, hp, best.country as CountryCalcKey)
-    : null;
+  const cost = pricesByCountry(entry, defaultConfig(entry))[0]?.cost ?? null;
 
   const body = bodyDescription[v.bodyType] ?? 'практичный кузов для повседневных задач';
   const fuel = fuelInstrumental(v.specs.engine);
@@ -254,7 +241,7 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
   faq.push({
     q: `Какой утилизационный сбор на ${fullName}?`,
     a: cost
-      ? `Для нового автомобиля мощностью ${v.specs.power} утилизационный сбор составит около ${formatRub(cost.utilFee)}. ` +
+      ? `Для автомобиля ${v.specs.year} года мощностью ${v.specs.power} утилизационный сбор составит около ${formatRub(cost.utilFee)}. ` +
         `Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты.`
       : `Ставка зависит от мощности двигателя и возраста автомобиля.`,
   });
@@ -267,8 +254,10 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
       ? electric
         ? `Для электромобилей пошлина считается от стоимости, объём двигателя не учитывается. ` +
           `При цене ${formatRub(cost.price)} пошлина составит около ${formatRub(cost.duty)}, плюс утилизационный сбор ${formatRub(cost.utilFee)}.`
-        : `При объёме ${cm3} см³ и стоимости ${formatRub(cost.price)} пошлина на новый автомобиль составит около ${formatRub(cost.duty)}. ` +
-          `Для машин до 3 лет берётся большая из двух величин: процент от стоимости или ставка за кубический сантиметр.`
+        : `При объёме ${cm3} см³ и стоимости ${formatRub(cost.price)} пошлина на автомобиль ${v.specs.year} года составит около ${formatRub(cost.duty)}. ` +
+          (customsAge(Number(v.specs.year)) === 'new'
+            ? `Для машин до 3 лет берётся большая из двух величин: процент от стоимости или ставка за кубический сантиметр.`
+            : `Для машин старше 3 лет пошлина считается только от объёма двигателя, поэтому она заметно ниже, чем у новых.`)
       : `Пошлина зависит от объёма двигателя, стоимости и возраста автомобиля.`,
   });
 

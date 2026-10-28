@@ -94,7 +94,7 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
                     ≈ {formatRub(content.cost.total)}
                   </div>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Ориентировочная цена под ключ: автомобиль {formatRub(content.cost.price)},
+                    Ориентировочная цена под ключ за {selectedVariant.specs.year} год, базовая комплектация, пробег от 20 тыс. км: автомобиль {formatRub(content.cost.price)},
                     пошлина, утильсбор, доставка и услуги компании
                     {content.best ? ` — по выгодному маршруту из ${content.best.countryGen}` : ''}
                   </p>

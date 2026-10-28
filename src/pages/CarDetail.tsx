@@ -7,6 +7,7 @@ import Calculator from '@/components/site/Calculator';
 import CarDetailSeo from '@/components/site/car-detail/CarDetailSeo';
 import CarDetailHero from '@/components/site/car-detail/CarDetailHero';
 import CarDetailCostSection from '@/components/site/car-detail/CarDetailCostSection';
+import CarPriceTable from '@/components/site/car-detail/CarPriceTable';
 import CarDetailFaqAndSimilar from '@/components/site/car-detail/CarDetailFaqAndSimilar';
 import { findCatalogEntry, catalogEntriesByCountry, CountryKey } from '@/data/catalogCars';
 import { brandRu, modelRu, brandExtraAliases } from '@/data/carAliases';
@@ -85,6 +86,8 @@ const CarDetail = () => {
           onLeadOpen={() => setLeadOpen(true)}
           onCalcOpen={() => setCalcOpen(true)}
         />
+
+        <CarPriceTable entry={entry} fullName={fullName} />
 
         <CarDetailCostSection
           entry={entry}

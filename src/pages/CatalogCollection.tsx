@@ -4,6 +4,7 @@ import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CountryFlag from '@/components/site/CountryFlag';
 import Icon from '@/components/ui/icon';
+import CarCardPrice from '@/components/site/CarCardPrice';
 import {
   catalogEntries,
   catalogEntriesByCountry,
@@ -217,8 +218,7 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
                     {e.variant.specs.engine}
                   </span>
                 </div>
-                <div className="text-sm font-bold text-primary mt-2">{e.variant.price}</div>
-                <div className="text-[11px] text-muted-foreground">цена авто без доставки</div>
+                <CarCardPrice variant={e.variant} className="mt-2" />
               </div>
             </Link>
           ))}

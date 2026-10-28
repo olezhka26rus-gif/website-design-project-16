@@ -1,5 +1,6 @@
 import { Link } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
+import CarCardPrice from '@/components/site/CarCardPrice';
 import { CatalogEntry } from '@/data/catalogCars';
 import { CarContent } from '@/lib/carContent';
 
@@ -69,7 +70,7 @@ const CarDetailFaqAndSimilar = ({
                   <div className="text-xs text-muted-foreground mt-0.5 truncate">
                     {e.variant.bodyType} · {e.variant.specs.power}
                   </div>
-                  <div className="text-xs text-primary font-bold mt-1">{e.variant.price}</div>
+                  <CarCardPrice variant={e.variant} className="mt-1" />
                 </div>
               </Link>
             ))}

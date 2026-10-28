@@ -47,7 +47,7 @@ const CarDetailCostSection = ({
             Сколько стоит {fullName} под ключ в России
           </h2>
           <p className="text-sm text-muted-foreground mb-5 max-w-3xl">
-            Ориентировочный расчёт по методике ФТС для нового автомобиля {variant.specs.year} года
+            Ориентировочный расчёт по методике ФТС для автомобиля {variant.specs.year} года в базовой комплектации с пробегом от 20 тыс. км,
             мощностью {variant.specs.power}
             {content.cm3 ? ` и объёмом ${content.cm3} см³` : ''}
             {content.best ? ` по самому выгодному маршруту — из ${content.best.countryGen}` : ''}. Курс и

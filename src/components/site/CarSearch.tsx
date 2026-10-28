@@ -1,6 +1,7 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
 import { useNavigate } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
+import CarCardPrice from '@/components/site/CarCardPrice';
 import CountryFlag from '@/components/site/CountryFlag';
 import LeadFormModal from '@/components/site/LeadFormModal';
 import { catalogEntries } from '@/data/catalogCars';
@@ -103,7 +104,7 @@ const CarSearch = ({ variant = 'page', placeholder = 'Найти автомоб�
                     <div className="text-xs text-muted-foreground">{e.variant.bodyType} · {e.countryName}</div>
                   </div>
                   <CountryFlag country={e.country} className="w-5 h-auto rounded-[2px] shrink-0" />
-                  <div className="text-xs font-bold text-primary shrink-0">{e.variant.price}</div>
+                  <CarCardPrice variant={e.variant} compact />
                 </button>
               ))}
             </div>
