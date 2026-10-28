@@ -1,7 +1,7 @@
 import { CatalogEntry } from '@/data/catalogCars';
 import { carEngines, EngineOption } from '@/data/carEngines';
 import { sourceOptionsFor } from '@/data/sourcing';
-import { koreaMarketPrices, MARKET_YEAR_CURVE } from '@/data/marketPrices';
+import { marketPrices, MARKET_YEAR_CURVE } from '@/data/marketPrices';
 import {
   calcTotalCost,
   CostBreakdown,
@@ -51,7 +51,7 @@ const yearCurve = (year: number) =>
   MARKET_YEAR_CURVE[Math.max(MIN_YEAR, Math.min(PRICE_YEAR, year))] ?? 1;
 
 /** Есть ли у модели реальные цены рынка */
-export const hasMarketData = (entry: CatalogEntry) => Boolean(koreaMarketPrices[entry.variant.model]);
+export const hasMarketData = (entry: CatalogEntry) => Boolean(marketPrices[entry.variant.model]);
 
 /** Каждые 10 тыс. км сверх 20 тыс. снижают цену на 1,5% */
 const mileageFactor = (km: number) => Math.max(0.8, 1 - 0.0015 * (km - 20));
@@ -112,17 +112,17 @@ export const pricesByCountry = (entry: CatalogEntry, config: PriceConfig): Count
   const baseHp = powerFromSpec(entry.variant.specs.power) || engine.hp;
   const catalogYear = Number(entry.variant.specs.year) || PRICE_YEAR;
 
-  const market = koreaMarketPrices[entry.variant.model];
+  const market = marketPrices[entry.variant.model];
   const options = sourceOptionsFor(entry);
   let marketPrice: number;
 
   if (market) {
-    // Цена из реальных объявлений Кореи переводится в цену основного рынка каталога
-    const koreaFactor = options.find((o) => o.country === 'korea')?.priceFactor ?? 1;
+    // Реальная цена площадки переводится в цену основного рынка каталога
+    const sourceFactor = options.find((o) => o.country === market.src)?.priceFactor ?? 1;
     const engineFactor = Math.min(1.4, Math.max(0.85, Math.pow(engine.hp / baseHp, 0.2)));
     const trimPrice = config.trim === 'max' ? market.hi : market.lo;
     marketPrice =
-      (trimPrice / koreaFactor) * yearCurve(config.year) * engineFactor * mileageFactor(config.mileage);
+      (trimPrice / sourceFactor) * yearCurve(config.year) * engineFactor * mileageFactor(config.mileage);
   } else {
     const engineFactor = Math.min(1.8, Math.max(0.8, Math.pow(engine.hp / baseHp, 0.35)));
     const ageFactor = yearCurve(config.year) / yearCurve(catalogYear);

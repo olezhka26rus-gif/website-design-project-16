@@ -12,7 +12,7 @@ import {
   Mileage,
 } from '@/lib/carPricing';
 import { countryGenitive } from '@/lib/carContent';
-import { koreaMarketPrices, MARKET_DATE, MARKET_SOURCE } from '@/data/marketPrices';
+import { marketPrices, MARKET_DATE, MARKET_SOURCE_NAMES } from '@/data/marketPrices';
 
 interface CarPriceTableProps {
   entry: CatalogEntry;
@@ -122,9 +122,13 @@ const CarPriceTable = ({ entry, fullName }: CarPriceTableProps) => {
 
       <p className="text-xs text-muted-foreground mt-3 max-w-3xl">
         {hasMarketData(entry)
-          ? `Цены автомобилей рассчитаны по реальным объявлениям ${MARKET_SOURCE}: проанализировано ${
-              koreaMarketPrices[entry.variant.model].n
-            } предложений ${fullName} 2020–2026 годов, данные на ${MARKET_DATE}, пересчёт по курсу ЦБ. `
+          ? (() => {
+              const m = marketPrices[entry.variant.model];
+              const src = MARKET_SOURCE_NAMES[m.src];
+              return m.n > 0
+                ? `Цены автомобилей рассчитаны по реальным объявлениям ${src}: проанализировано ${m.n} предложений ${fullName} 2020–2026 годов, данные на ${MARKET_DATE}, пересчёт по курсу ЦБ. `
+                : `Цены автомобилей рассчитаны от официальных цен дилеров ${src} на ${MARKET_DATE} с учётом удешевления по годам и пересчётом по курсу ЦБ. `;
+            })()
           : 'Цены ориентировочные: рассчитаны по рыночной стоимости с учётом года, двигателя, комплектации и пробега. '}
         Для машин от 3 до 5 лет пошлина считается по объёму двигателя и обычно ниже, чем для новых.
         Точную сумму по конкретному автомобилю назовёт менеджер после подбора.
