@@ -1,5 +1,6 @@
 import { CatalogEntry } from '@/data/catalogCars';
-import { pricesByCountry, defaultConfig, customsAge } from '@/lib/carPricing';
+import { pricesByCountry, defaultConfig, cheapestConfig, customsAge, enginesFor, PriceConfig } from '@/lib/carPricing';
+import { buildCarEquipment, CarEquipment } from '@/lib/carEquipment';
 import {
   engineCm3FromSpec,
   powerFromSpec,
@@ -110,6 +111,11 @@ export interface CarContent {
   basePrice: number;
   hp: number;
   cm3: number;
+  /** Вариант, по которому посчитана минимальная цена */
+  minConfig: PriceConfig;
+  minYear: number;
+  minEngine: string;
+  equipment: CarEquipment;
   intro: string;
   aboutModel: string;
   aboutDelivery: string;
@@ -147,7 +153,18 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
     uae: 'ОАЭ',
   };
 
-  const quotes: SourceQuote[] = pricesByCountry(entry, defaultConfig(entry)).map((p, i) => ({
+  // Все цены на странице считаем по самому доступному варианту
+  const minConfig = cheapestConfig(entry) ?? defaultConfig(entry);
+  const minEngineVariant = enginesFor(entry)[minConfig.engine];
+  const minEngine = minEngineVariant
+    ? `${minEngineVariant.label}, ${minEngineVariant.hp} л.с.`
+    : `${v.specs.engine}, ${v.specs.power}`;
+  const minHp = minEngineVariant?.hp ?? hp;
+  const minCm3 = minEngineVariant?.cm3 ?? cm3;
+  const byCountry = pricesByCountry(entry, minConfig);
+  const variantLabel = `автомобиль ${minConfig.year} года, базовая комплектация, двигатель ${minEngine}, пробег до ${minConfig.mileage} тыс. км`;
+
+  const quotes: SourceQuote[] = byCountry.map((p, i) => ({
     country: p.country,
     countryGen: countryGenitive[p.country] ?? p.country,
     countryName: countryLabel[p.country] ?? p.country,
@@ -162,7 +179,9 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
   const best = quotes[0] ?? null;
 
   // Основной расчёт показываем по самому выгодному маршруту
-  const cost = pricesByCountry(entry, defaultConfig(entry))[0]?.cost ?? null;
+  const cost = byCountry[0]?.cost ?? null;
+  const bestGen = best?.countryGen ?? gen;
+  const equipment = buildCarEquipment(entry);
 
   const body = bodyDescription[v.bodyType] ?? 'практичный кузов для повседневных задач';
   const fuel = fuelInstrumental(v.specs.engine);
@@ -178,7 +197,10 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
     `${powerComment(hp)}. Коробка — ${v.specs.transmission.toLowerCase()}, ${driveComment(v.specs.drive)}. ` +
     (electric
       ? `Запас хода и расход энергии: ${v.specs.consumption}. Зарядка от бытовой сети и быстрых станций.`
-      : `Расход топлива — ${v.specs.consumption}.`);
+      : `Расход топлива — ${v.specs.consumption}.`) +
+    ` Модель выпускается в нескольких комплектациях: базовая уже закрывает повседневные задачи, ` +
+    `а полная добавляет комфорт и системы помощи водителю. Ниже — что входит в каждую из них, ` +
+    `а также сильные и слабые стороны ${fullName}, которые стоит учесть перед покупкой.`;
 
   const bestQ = quotes[0];
   const bestPrep = bestQ
@@ -198,21 +220,41 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
     `Перед покупкой присылаем фото- и видеоотчёт, проверяем историю и техническое состояние.`;
 
   const aboutCustoms = cost
-    ? `При стоимости автомобиля ${formatRub(cost.price)} расчёт под ключ выглядит так: ` +
+    ? `Для самого доступного варианта (${variantLabel.replace(/^автомобиль /, '')}) при стоимости автомобиля ${formatRub(cost.price)} расчёт под ключ выглядит так: ` +
       `таможенная пошлина ${formatRub(cost.duty)}, утилизационный сбор ${formatRub(cost.utilFee)}, ` +
-      `таможенный сбор за оформление ${formatRub(cost.clearanceFee)}, доставка из ${gen} ${formatRub(cost.delivery)} ` +
+      `таможенный сбор за оформление ${formatRub(cost.clearanceFee)}, доставка из ${bestGen} ${formatRub(cost.delivery)} ` +
       `и услуги компании ${formatRub(cost.service)}. Итого ориентировочно ${formatRub(cost.total)} до вашего города.`
     : `Точную стоимость под ключ с пошлиной, утильсбором и доставкой рассчитает менеджер.`;
 
+  const minAge = customsAge(minConfig.year);
   const faq: CarFaqItem[] = [];
 
   faq.push({
     q: `Сколько стоит ${fullName} под ключ в России?`,
     a: cost
-      ? `Ориентировочно ${formatRub(cost.total)} с учётом стоимости автомобиля ${formatRub(cost.price)}, ` +
-        `пошлины ${formatRub(cost.duty)}, утилизационного сбора ${formatRub(cost.utilFee)}, доставки из ${gen} и услуг компании. ` +
-        `Итоговая сумма зависит от курса валют, комплектации и города доставки.`
-      : `Стоимость зависит от комплектации, курса валют и города доставки — расчёт делает менеджер.`,
+      ? `Минимально — около ${formatRub(cost.total)} под ключ: это ${variantLabel}, доставка из ${bestGen}. ` +
+        `В сумму входят стоимость автомобиля ${formatRub(cost.price)}, пошлина ${formatRub(cost.duty)}, ` +
+        `утилизационный сбор ${formatRub(cost.utilFee)}, доставка и услуги компании. ` +
+        `Более свежие машины и полные комплектации дороже — цены по годам смотрите в таблице выше.`
+      : `Стоимость зависит от года, комплектации, курса валют и города доставки — расчёт делает менеджер.`,
+  });
+
+  faq.push({
+    q: `Что входит в базовую и полную комплектацию ${fullName}?`,
+    a: `В базовой: ${equipment.base.slice(0, 4).join(', ')}. ` +
+      `В полной дополнительно: ${equipment.full.slice(0, 4).join(', ')}. ` +
+      `Точный набор опций зависит от года и рынка — перед покупкой присылаем полный список по конкретной машине.`,
+  });
+
+  faq.push({
+    q: `Какой год ${fullName} выгоднее везти?`,
+    a: cost
+      ? minAge === 'mid'
+        ? `Самыми выгодными по итоговой цене обычно получаются машины ${minConfig.year} года — им от 3 до 5 лет, и пошлина считается только по объёму двигателя. ` +
+          `Автомобили младше 3 лет растаможиваются по стоимости, поэтому заметно дороже под ключ.`
+        : `Для ${fullName} минимальная итоговая цена получается у машин ${minConfig.year} года. ` +
+          `Машины от 3 до 5 лет обычно растаможиваются дешевле новых — сравните варианты в таблице цен по годам.`
+      : `Выгоднее всего обычно машины от 3 до 5 лет — для них пошлина ниже, чем для новых.`,
   });
 
   faq.push({
@@ -222,7 +264,7 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
         ? `${fullName} продаётся на нескольких рынках, поэтому мы возим её из следующих стран: ${quotes
             .map((q) => q.countryGen)
             .join(', ')}. Страна влияет на цену, комплектацию и срок доставки. ` +
-          `По нашему расчёту выгоднее всего из ${bestQ.countryGen} — около ${formatRub(bestQ.total)} под ключ.`
+          `Для самого доступного варианта выгоднее всего из ${bestQ.countryGen} — около ${formatRub(bestQ.total)} под ключ.`
         : `Эту модель мы возим из ${gen} — на других рынках она официально не продаётся.`,
   });
 
@@ -241,7 +283,7 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
   faq.push({
     q: `Какой утилизационный сбор на ${fullName}?`,
     a: cost
-      ? `Для автомобиля ${v.specs.year} года мощностью ${v.specs.power} утилизационный сбор составит около ${formatRub(cost.utilFee)}. ` +
+      ? `Для автомобиля ${minConfig.year} года мощностью ${minHp} л.с. утилизационный сбор составит около ${formatRub(cost.utilFee)}. ` +
         `Ставка зависит от мощности и возраста: до 160 л.с. действует льготная сумма, выше — повышающие коэффициенты.`
       : `Ставка зависит от мощности двигателя и возраста автомобиля.`,
   });
@@ -249,21 +291,26 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
   faq.push({
     q: electric
       ? `Как растаможить электромобиль ${fullName}?`
-      : `Какая пошлина на ${fullName} с двигателем ${v.specs.engine}?`,
+      : `Какая пошлина на ${fullName}?`,
     a: cost
-      ? electric
+      ? electric || !minCm3
         ? `Для электромобилей пошлина считается от стоимости, объём двигателя не учитывается. ` +
           `При цене ${formatRub(cost.price)} пошлина составит около ${formatRub(cost.duty)}, плюс утилизационный сбор ${formatRub(cost.utilFee)}.`
-        : `При объёме ${cm3} см³ и стоимости ${formatRub(cost.price)} пошлина на автомобиль ${v.specs.year} года составит около ${formatRub(cost.duty)}. ` +
-          (customsAge(Number(v.specs.year)) === 'new'
+        : `Для машины ${minConfig.year} года с объёмом ${minCm3} см³ и стоимостью ${formatRub(cost.price)} пошлина составит около ${formatRub(cost.duty)}. ` +
+          (minAge === 'new'
             ? `Для машин до 3 лет берётся большая из двух величин: процент от стоимости или ставка за кубический сантиметр.`
             : `Для машин старше 3 лет пошлина считается только от объёма двигателя, поэтому она заметно ниже, чем у новых.`)
       : `Пошлина зависит от объёма двигателя, стоимости и возраста автомобиля.`,
   });
 
   faq.push({
+    q: `Какие плюсы и минусы у ${fullName}?`,
+    a: `Плюсы: ${equipment.pros.slice(0, 3).join(', ')}. Минусы: ${equipment.cons.slice(0, 3).join(', ')}.`,
+  });
+
+  faq.push({
     q: `Можно ли заказать ${fullName} в другой комплектации или цвете?`,
-    a: `Да. Мы подбираем автомобиль под ваш бюджет и требования: комплектация, цвет кузова и салона, пакеты опций. ` +
+    a: `Да. Мы подбираем автомобиль под ваш бюджет и требования: год, комплектация, цвет кузова и салона, пакеты опций. ` +
       `Достаточно назвать пожелания — подберём подходящие варианты с фото и ценой.`,
   });
 
@@ -282,6 +329,10 @@ export const buildCarContent = (entry: CatalogEntry): CarContent => {
     basePrice,
     hp,
     cm3,
+    minConfig,
+    minYear: minConfig.year,
+    minEngine,
+    equipment,
     intro: tidy(intro),
     aboutModel: tidy(aboutModel),
     aboutDelivery: tidy(aboutDelivery),

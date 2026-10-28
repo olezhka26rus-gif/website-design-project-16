@@ -39,6 +39,63 @@ const CarDetailCostSection = ({
           {fullName}: что за автомобиль
         </h2>
         <p className="text-sm text-foreground/80 leading-relaxed max-w-3xl">{content.aboutModel}</p>
+
+        <div className="grid sm:grid-cols-2 gap-4 mt-6 max-w-3xl">
+          {[
+            { title: 'Базовая комплектация', icon: 'Package', items: content.equipment.base },
+            { title: 'Полная комплектация', icon: 'Sparkles', items: content.equipment.full },
+          ].map((b) => (
+            <div key={b.title} className="rounded-2xl border border-border p-5">
+              <div className="flex items-center gap-2 font-display font-bold mb-3">
+                <Icon name={b.icon} size={18} className="text-primary" />
+                {b.title}
+              </div>
+              <ul className="space-y-2">
+                {b.items.map((item) => (
+                  <li key={item} className="flex items-start gap-2 text-sm text-foreground/80">
+                    <Icon name="Check" size={15} className="text-primary shrink-0 mt-0.5" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid sm:grid-cols-2 gap-4 mt-4 max-w-3xl">
+          <div className="rounded-2xl bg-emerald-50 p-5">
+            <div className="flex items-center gap-2 font-display font-bold mb-3 text-emerald-800">
+              <Icon name="ThumbsUp" size={18} />
+              Достоинства
+            </div>
+            <ul className="space-y-2">
+              {content.equipment.pros.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-emerald-950/80">
+                  <Icon name="Plus" size={15} className="text-emerald-700 shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="rounded-2xl bg-amber-50 p-5">
+            <div className="flex items-center gap-2 font-display font-bold mb-3 text-amber-900">
+              <Icon name="ThumbsDown" size={18} />
+              Недостатки
+            </div>
+            <ul className="space-y-2">
+              {content.equipment.cons.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-amber-950/80">
+                  <Icon name="Minus" size={15} className="text-amber-700 shrink-0 mt-0.5" />
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <p className="text-xs text-muted-foreground mt-3 max-w-3xl">
+          Состав комплектаций зависит от года выпуска и рынка. Полный список опций по конкретному
+          автомобилю пришлём перед покупкой.
+        </p>
       </section>
 
       {content.cost && (
@@ -47,10 +104,10 @@ const CarDetailCostSection = ({
             Сколько стоит {fullName} под ключ в России
           </h2>
           <p className="text-sm text-muted-foreground mb-5 max-w-3xl">
-            Ориентировочный расчёт по методике ФТС для автомобиля {variant.specs.year} года в базовой комплектации с пробегом от 20 тыс. км,
-            мощностью {variant.specs.power}
-            {content.cm3 ? ` и объёмом ${content.cm3} см³` : ''}
-            {content.best ? ` по самому выгодному маршруту — из ${content.best.countryGen}` : ''}. Курс и
+            Расчёт для самого доступного варианта: {content.minYear} год, базовая комплектация,
+            двигатель {content.minEngine}, пробег до {content.minConfig.mileage} тыс. км
+            {content.best ? `, доставка по самому выгодному маршруту — из ${content.best.countryGen}` : ''}.
+            Свежие машины и полные комплектации дороже — смотрите таблицу цен по годам. Курс и
             ставки могут измениться.
           </p>
 
@@ -102,8 +159,9 @@ const CarDetailCostSection = ({
                 Откуда выгоднее везти {fullName}
               </h3>
               <p className="text-sm text-muted-foreground mb-4 max-w-3xl">
-                Один и тот же автомобиль продаётся на разных рынках. Мы считаем стоимость под ключ
-                по каждому маршруту и предлагаем самый выгодный.
+                Один и тот же автомобиль продаётся на разных рынках. Сравнили стоимость под ключ по
+                каждому маршруту для самого доступного варианта — {content.minYear} год, базовая
+                комплектация.
               </p>
 
               <div className="rounded-2xl border border-border overflow-hidden max-w-3xl">

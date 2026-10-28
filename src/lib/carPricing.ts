@@ -167,12 +167,17 @@ const allConfigs = (entry: CatalogEntry, mileage: Mileage): PriceConfig[] => {
 };
 
 /** Самый доступный вариант: базовая комплектация, пробег около 100 тыс. км */
-export const cheapestPrice = (entry: CatalogEntry): PriceResult | null =>
-  allConfigs(entry, 100).reduce<PriceResult | null>((min, cfg) => {
+export const cheapestConfig = (entry: CatalogEntry): PriceConfig | null =>
+  allConfigs(entry, 100).reduce<{ cfg: PriceConfig; total: number } | null>((min, cfg) => {
     if (cfg.trim === 'max') return min;
     const r = priceCar(entry, cfg);
-    return r && (!min || r.cost.total < min.cost.total) ? r : min;
-  }, null);
+    return r && (!min || r.cost.total < min.total) ? { cfg, total: r.cost.total } : min;
+  }, null)?.cfg ?? null;
+
+export const cheapestPrice = (entry: CatalogEntry): PriceResult | null => {
+  const cfg = cheapestConfig(entry);
+  return cfg ? priceCar(entry, cfg) : null;
+};
 
 /** Самый дорогой вариант: свежий год, топовая комплектация, малый пробег */
 export const topPrice = (entry: CatalogEntry): PriceResult | null =>

@@ -91,10 +91,10 @@ const CarDetailModal = ({ carModel, initialVariant, open, onOpenChange }: CarDet
               {content?.cost ? (
                 <>
                   <div className="text-2xl font-display font-extrabold text-primary">
-                    ≈ {formatRub(content.cost.total)}
+                    от {formatRub(content.cost.total)}
                   </div>
                   <p className="text-sm text-muted-foreground mt-1">
-                    Ориентировочная цена под ключ за {selectedVariant.specs.year} год, базовая комплектация, пробег от 20 тыс. км: автомобиль {formatRub(content.cost.price)},
+                    Минимальная ориентировочная цена под ключ: {content.minYear} год, базовая комплектация. Автомобиль {formatRub(content.cost.price)},
                     пошлина, утильсбор, доставка и услуги компании
                     {content.best ? ` — по выгодному маршруту из ${content.best.countryGen}` : ''}
                   </p>

@@ -106,10 +106,10 @@ const CarDetailHero = ({
           {content.cost ? (
             <>
               <div className="text-3xl font-display font-extrabold text-primary">
-                ≈ {formatRub(content.cost.total)}
+                от {formatRub(content.cost.total)}
               </div>
               <p className="text-sm text-muted-foreground mt-1">
-                Ориентировочная цена под ключ до вашего города за {variant.specs.year} год в базовой комплектации с пробегом от 20 тыс. км: автомобиль{' '}
+                Минимальная ориентировочная цена под ключ до вашего города: {content.minYear} год, базовая комплектация, двигатель {content.minEngine}. Автомобиль{' '}
                 {formatRub(content.cost.price)}, пошлина, утильсбор, доставка и услуги компании
                 {content.best ? ` — по выгодному маршруту из ${content.best.countryGen}` : ''}
               </p>

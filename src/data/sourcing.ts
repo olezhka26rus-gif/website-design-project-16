@@ -15,7 +15,7 @@ export interface SourceOption {
 }
 
 /** Группы марок по «домашнему» рынку */
-const brandOrigin: Record<string, 'cn' | 'jp' | 'kr' | 'eu' | 'us' | 'lux'> = {
+export const brandOrigin: Record<string, 'cn' | 'jp' | 'kr' | 'eu' | 'us' | 'lux'> = {
   Zeekr: 'cn',
   Geely: 'cn',
   BYD: 'cn',
