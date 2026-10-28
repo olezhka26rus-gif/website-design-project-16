@@ -2,6 +2,11 @@ import { Helmet } from '@/lib/helmet';
 import { CatalogEntry, CarModel, CarVariant } from '@/data/catalogCars';
 import { CarContent } from '@/lib/carContent';
 import { formatRub } from '@/lib/customs';
+
+const formatShort = (rub: number): string =>
+  rub >= 1_000_000
+    ? `${String(Number((rub / 1_000_000).toFixed(2))).replace('.', ',')} млн ₽`
+    : `${Math.round(rub / 1000)} тыс. ₽`;
 import { modelRu } from '@/data/carAliases';
 
 interface CarDetailSeoProps {
@@ -28,20 +33,43 @@ const CarDetailSeo = ({
   ruKeywordParts,
 }: CarDetailSeoProps) => {
   const ruName = modelRu[variant.model];
-  const priceFrom = content.cost ? `от ${formatRub(content.cost.total)}` : variant.price;
-  const titleFull = `${variant.model}${ruName ? ` (${ruName})` : ''} из ${countryGen} под ключ — цена ${priceFrom}`;
-  const seoTitle = titleFull.length <= 75 ? titleFull : `${variant.model} из ${countryGen} под ключ — цена ${priceFrom}`;
+  const quotes = content.quotes;
+  const best = content.best;
+  const bestGen = best?.countryGen ?? countryGen;
+  const priceFrom = best ? `от ${formatRub(best.total)}` : variant.price;
+  const many = quotes.length > 1;
+  const nameFull = `${variant.model}${ruName ? ` (${ruName})` : ''}`;
+  const countriesWord = `${quotes.length} ${quotes.length < 5 ? 'страны' : 'стран'}`;
+  const titleTail = many ? ` — сравнили ${countriesWord}` : '';
+  const titleCandidates = best
+    ? [
+        `${nameFull} под ключ из ${bestGen} от ${formatShort(best.total)}${titleTail}`,
+        `${variant.model} под ключ из ${bestGen} от ${formatShort(best.total)}${titleTail}`,
+        `${variant.model} из ${bestGen} от ${formatShort(best.total)}${titleTail}`,
+        `${variant.model} под ключ из ${bestGen} — цена ${priceFrom}`,
+      ]
+    : [`${nameFull} из ${countryGen} под ключ — цена ${variant.price}`];
+  const seoTitle = titleCandidates.find((t) => t.length <= 75) ?? titleCandidates[titleCandidates.length - 1];
   const bodyLower = variant.bodyType.toLowerCase();
   const engineLower = /^электро/i.test(variant.specs.engine) ? 'электро' : variant.specs.engine;
   const specs = `${bodyLower}, ${engineLower}, ${variant.specs.power.replace(/\.$/, '')}`;
-  const bestGen = content.best?.countryGen;
-  const route = bestGen && bestGen !== countryGen ? `, выгоднее всего везти из ${bestGen}` : '';
-  const descFull = `Купить ${variant.model} ${content.minYear}–2026 г. под заказ: ${specs}. Цена под ключ ${priceFrom} с пошлиной и доставкой${route}. Срок ${content.best?.weeks ?? '4–8 недель'}.`;
-  const seoDescription = content.cost
-    ? descFull.length <= 165
-      ? descFull
-      : `Купить ${variant.model} ${content.minYear}–2026 г. под заказ: ${specs}. Цена под ключ ${priceFrom}${route}.`
-    : `Купить ${variant.model} из ${countryGen}: ${specs}. Подбор, проверка и доставка в Россию под ключ.`;
+  const compare = quotes.map((q) => `${q.countryName} — от ${formatShort(q.total)}`).join(', ');
+  const compareShort = quotes.map((q) => `${q.countryName} ${formatShort(q.total)}`).join(', ');
+  const descCandidates = best
+    ? many
+      ? [
+          `Откуда выгоднее везти ${variant.model}: ${compare}. Цена под ключ с пошлиной и доставкой, срок из ${bestGen} ${best.weeks}.`,
+          `Откуда выгоднее везти ${variant.model}: ${compare}. Цены под ключ с пошлиной и доставкой.`,
+          `Откуда выгоднее везти ${variant.model} под ключ: ${compareShort}. С пошлиной и доставкой.`,
+          `${variant.model} под ключ: ${compareShort}`,
+          `${variant.model} под ключ дешевле всего из ${bestGen} — от ${formatShort(best.total)}. Сравнили ${countriesWord} вывоза.`,
+        ]
+      : [
+          `Купить ${variant.model} ${content.minYear}–2026 г. из ${bestGen}: ${specs}. Цена под ключ ${priceFrom} с пошлиной и доставкой, срок ${best.weeks}.`,
+          `Купить ${variant.model} из ${bestGen}: ${specs}. Цена под ключ ${priceFrom} с пошлиной и доставкой.`,
+        ]
+    : [`Купить ${variant.model} из ${countryGen}: ${specs}. Подбор, проверка и доставка в Россию под ключ.`];
+  const seoDescription = descCandidates.find((d) => d.length <= 170) ?? descCandidates[descCandidates.length - 1];
   return (
     <Helmet>
       <title>{seoTitle}</title>
