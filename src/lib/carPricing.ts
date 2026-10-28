@@ -1,6 +1,7 @@
 import { CatalogEntry } from '@/data/catalogCars';
 import { carEngines, EngineOption } from '@/data/carEngines';
 import { sourceOptionsFor } from '@/data/sourcing';
+import { koreaMarketPrices, MARKET_YEAR_CURVE } from '@/data/marketPrices';
 import {
   calcTotalCost,
   CostBreakdown,
@@ -45,12 +46,15 @@ export interface PriceResult {
   ageLabel: string;
 }
 
-/** Остаточная стоимость по возрасту (0 — новый автомобиль) */
-const residual = [1, 0.88, 0.79, 0.71, 0.64, 0.58, 0.53, 0.49];
-const residualFor = (age: number) => residual[Math.max(0, Math.min(age, residual.length - 1))];
+/** Реальное удешевление по годам (по объявлениям Encar) */
+const yearCurve = (year: number) =>
+  MARKET_YEAR_CURVE[Math.max(MIN_YEAR, Math.min(PRICE_YEAR, year))] ?? 1;
+
+/** Есть ли у модели реальные цены рынка */
+export const hasMarketData = (entry: CatalogEntry) => Boolean(koreaMarketPrices[entry.variant.model]);
 
 /** Каждые 10 тыс. км сверх 20 тыс. снижают цену на 1,5% */
-const mileageFactor = (km: number) => 1 - 0.0015 * (km - 20);
+const mileageFactor = (km: number) => Math.max(0.8, 1 - 0.0015 * (km - 20));
 
 const TRIM_MAX_FACTOR = 1.25;
 
@@ -108,16 +112,28 @@ export const pricesByCountry = (entry: CatalogEntry, config: PriceConfig): Count
   const baseHp = powerFromSpec(entry.variant.specs.power) || engine.hp;
   const catalogYear = Number(entry.variant.specs.year) || PRICE_YEAR;
 
-  const engineFactor = Math.min(1.8, Math.max(0.8, Math.pow(engine.hp / baseHp, 0.35)));
-  const ageFactor = residualFor(PRICE_YEAR - config.year) / residualFor(PRICE_YEAR - catalogYear);
-  const trimFactor = config.trim === 'max' ? TRIM_MAX_FACTOR : 1;
-  const marketPrice =
-    base * engineFactor * ageFactor * trimFactor * mileageFactor(config.mileage);
+  const market = koreaMarketPrices[entry.variant.model];
+  const options = sourceOptionsFor(entry);
+  let marketPrice: number;
+
+  if (market) {
+    // Цена из реальных объявлений Кореи переводится в цену основного рынка каталога
+    const koreaFactor = options.find((o) => o.country === 'korea')?.priceFactor ?? 1;
+    const engineFactor = Math.min(1.4, Math.max(0.85, Math.pow(engine.hp / baseHp, 0.2)));
+    const trimPrice = config.trim === 'max' ? market.hi : market.lo;
+    marketPrice =
+      (trimPrice / koreaFactor) * yearCurve(config.year) * engineFactor * mileageFactor(config.mileage);
+  } else {
+    const engineFactor = Math.min(1.8, Math.max(0.8, Math.pow(engine.hp / baseHp, 0.35)));
+    const ageFactor = yearCurve(config.year) / yearCurve(catalogYear);
+    const trimFactor = config.trim === 'max' ? TRIM_MAX_FACTOR : 1;
+    marketPrice = base * engineFactor * ageFactor * trimFactor * mileageFactor(config.mileage);
+  }
 
   // Электромобили: пошлина считается от стоимости независимо от возраста
   const age = engine.cm3 > 0 ? customsAge(config.year) : 'new';
 
-  return sourceOptionsFor(entry)
+  return options
     .map((opt) => {
       const carPrice = roundPrice(marketPrice * opt.priceFactor);
       const cost = calcTotalCost(carPrice, age, engine.cm3, engine.hp, opt.country as CountryCalcKey);
