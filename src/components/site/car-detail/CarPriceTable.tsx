@@ -8,11 +8,9 @@ import {
   customsAgeLabel,
   defaultEngineIndex,
   MILEAGE_OPTIONS,
-  hasMarketData,
   Mileage,
 } from '@/lib/carPricing';
 import { countryGenitive } from '@/lib/carContent';
-import { marketPrices, MARKET_DATE, MARKET_SOURCE_NAMES } from '@/data/marketPrices';
 
 interface CarPriceTableProps {
   entry: CatalogEntry;
@@ -121,16 +119,8 @@ const CarPriceTable = ({ entry, fullName }: CarPriceTableProps) => {
       </div>
 
       <p className="text-xs text-muted-foreground mt-3 max-w-3xl">
-        {hasMarketData(entry)
-          ? (() => {
-              const m = marketPrices[entry.variant.model];
-              const src = MARKET_SOURCE_NAMES[m.src];
-              return m.n > 0
-                ? `Цены основаны на ${m.n} реальных объявлениях о продаже ${fullName} на ${src} (данные на ${MARKET_DATE}). `
-                : `Цены основаны на актуальных ценах дилеров на ${src} (данные на ${MARKET_DATE}). `;
-            })()
-          : 'Цены основаны на средней рыночной стоимости модели за рубежом. '}
-        Мы учли год выпуска, двигатель, комплектацию и пробег, а валюту перевели в рубли по курсу ЦБ.
+        Цены ориентировочные и основаны на рыночной стоимости {fullName} за рубежом. Мы учли год
+        выпуска, двигатель, комплектацию и пробег, а валюту перевели в рубли по курсу ЦБ.
         Машины от 3 до 5 лет обычно выходят выгоднее: пошлина на них ниже, чем на новые.
         Точную сумму по выбранному автомобилю менеджер назовёт после подбора.
       </p>
