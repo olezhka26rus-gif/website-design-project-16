@@ -1,6 +1,7 @@
 import { CatalogEntry } from '@/data/catalogCars';
 import { brandOrigin } from '@/data/sourcing';
 import { powerFromSpec, priceFromSpec } from '@/lib/customs';
+import { carDetails } from '@/data/carDetails';
 
 /* ============================================================
    Комплектации, достоинства и недостатки автомобиля.
@@ -163,6 +164,8 @@ const consFor = (entry: CatalogEntry, seg: Segment, pt: Powertrain, hp: number):
 
 export const buildCarEquipment = (entry: CatalogEntry): CarEquipment => {
   const v = entry.variant;
+  const own = carDetails[v.model];
+  if (own) return own;
   const seg = segmentOf(priceFromSpec(v.price));
   const pt = powertrainOf(v.specs.engine);
   const hp = powerFromSpec(v.specs.power);
