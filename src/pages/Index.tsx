@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from '@/lib/helmet';
 import Header from '@/components/site/Header';
 import Hero from '@/components/site/Hero';
 import Catalog from '@/components/site/Catalog';

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "@/lib/router-compat";
 
 /** Прокручивает страницу наверх при переходе на новый маршрут SPA (кроме навигации по якорям) */
 const ScrollToTop = () => {

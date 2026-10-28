@@ -1,5 +1,5 @@
 import { useState, useMemo, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import CountryFlag from '@/components/site/CountryFlag';
 import LeadFormModal from '@/components/site/LeadFormModal';

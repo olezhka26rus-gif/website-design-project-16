@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from '@/lib/helmet';
 import { CatalogEntry, CarModel, CarVariant } from '@/data/catalogCars';
 import { CarContent } from '@/lib/carContent';
 import { formatRub } from '@/lib/customs';
@@ -28,7 +28,7 @@ const CarDetailSeo = ({
 }: CarDetailSeoProps) => {
   return (
     <Helmet>
-      <title>{variant.model} на заказ из {countryGen} — характеристики и цена | Регион Логистик</title>
+      <title>{`${variant.model} на заказ из ${countryGen} — характеристики и цена | Регион Логистик`}</title>
       <meta
         name="description"
         content={

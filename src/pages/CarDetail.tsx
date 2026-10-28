@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { Navigate, useParams } from "@/lib/router-compat";
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import LeadFormModal from '@/components/site/LeadFormModal';

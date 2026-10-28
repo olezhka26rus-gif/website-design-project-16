@@ -1,5 +1,5 @@
-import { Helmet } from 'react-helmet-async';
-import { Link, useParams } from 'react-router-dom';
+import { Helmet } from '@/lib/helmet';
+import { Link, useParams } from "@/lib/router-compat";
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import CountryFlag from '@/components/site/CountryFlag';

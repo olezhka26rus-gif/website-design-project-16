@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Helmet } from '@/lib/helmet';
+import { Link } from "@/lib/router-compat";
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import Icon from '@/components/ui/icon';

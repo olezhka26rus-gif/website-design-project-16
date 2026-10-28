@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "@/lib/router-compat";
 import Icon from '@/components/ui/icon';
 import VkIcon from '@/components/icons/VkIcon';
 import { trackGoal, trackPhoneClick, goals } from '@/lib/analytics';

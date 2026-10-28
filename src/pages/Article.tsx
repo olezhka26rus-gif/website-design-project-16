@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link, useParams } from 'react-router-dom';
+import { Helmet } from '@/lib/helmet';
+import { Link, useParams } from "@/lib/router-compat";
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import LeadFormModal from '@/components/site/LeadFormModal';
@@ -25,7 +25,7 @@ const Article = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>{article.title} | Регион Логистик (Region Logistik)</title>
+        <title>{`${article.title} | Регион Логистик (Region Logistik)`}</title>
         <meta name="description" content={article.description} />
         {article.keywords && <meta name="keywords" content={article.keywords} />}
         <link rel="canonical" href={pageUrl} />

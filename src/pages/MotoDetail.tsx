@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Helmet } from '@/lib/helmet';
+import { Link, Navigate, useParams } from "@/lib/router-compat";
 import Header from '@/components/site/Header';
 import Footer from '@/components/site/Footer';
 import LeadFormModal from '@/components/site/LeadFormModal';
@@ -63,7 +63,7 @@ const MotoDetail = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>{variant.model} на заказ из {countryGen} — характеристики и цена | Регион Логистик</title>
+        <title>{`${variant.model} на заказ из ${countryGen} — характеристики и цена | Регион Логистик`}</title>
         <meta
           name="description"
           content={
