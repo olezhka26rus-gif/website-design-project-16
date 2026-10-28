@@ -11,7 +11,11 @@ import PromoPopup from "@/components/site/PromoPopup";
 import NotFoundSeo from "@/pages/NotFoundSeo";
 import appCss from "@/index.css?url";
 
-// Заголовок, описание и og-теги задаёт каждая страница сама (через <title>/<meta> в разметке).
+const TITLE = "Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ";
+const DESCRIPTION = "Регион Логистик — подбор, проверка и доставка авто под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. Более 500 авто. Расчёт цены за 15 минут.";
+const OG_IMAGE = "https://rlogistik.ru/og-cover.jpg";
+const FAVICON = "/favicon.svg";
+
 const ORG_JSON_LD = {
     "@context": "https://schema.org",
     "@type": "AutomotiveBusiness",
@@ -35,7 +39,7 @@ const ORG_JSON_LD = {
 };
 
 const ROTOR_SCRIPT = `(function () {
-  var DEFAULT_TITLE = 'Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ';
+  var DEFAULT_TITLE = ${JSON.stringify(TITLE)};
   var startedAt = Date.now();
   window.YandexRotorSettings = {
     WaiterEnabled: true,
@@ -65,14 +69,14 @@ export const Route = createRootRoute({
         meta: [
             {charSet: "utf-8"},
             {name: "viewport", content: "width=device-width, initial-scale=1.0"},
-            {title: "Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ"},
-            {name: "description", content: "Регион Логистик — подбор, проверка и доставка авто под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. Более 500 авто. Расчёт цены за 15 минут."},
+            {title: TITLE},
+            {name: "description", content: DESCRIPTION},
             {property: "og:type", content: "website"},
             {property: "og:site_name", content: "Регион Логистик"},
             {property: "og:locale", content: "ru_RU"},
-            {property: "og:title", content: "Регион Логистик (Region Logistik) — авто из-за рубежа под ключ"},
-            {property: "og:description", content: "Подбор, проверка и доставка автомобилей под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. Более 500 доставленных авто."},
-            {property: "og:image", content: "https://rlogistik.ru/og-cover.jpg"},
+            {property: "og:title", content: TITLE},
+            {property: "og:description", content: DESCRIPTION},
+            {property: "og:image", content: OG_IMAGE},
             {property: "og:image:width", content: "1200"},
             {property: "og:image:height", content: "630"},
             {name: "twitter:card", content: "summary_large_image"},
@@ -90,7 +94,7 @@ export const Route = createRootRoute({
                 href: "https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Golos+Text:wght@400;500;600;700&display=swap",
             },
             {rel: "icon", href: "/favicon.ico", sizes: "any"},
-            {rel: "icon", type: "image/svg+xml", href: "/favicon.svg"},
+            {rel: "icon", type: "image/svg+xml", href: FAVICON},
             {rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png"},
             {rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png"},
             {rel: "icon", type: "image/png", sizes: "120x120", href: "/favicon-120x120.png"},
