@@ -12,8 +12,7 @@ import NotFoundSeo from "@/pages/NotFoundSeo";
 import appCss from "@/index.css?url";
 
 const TITLE = "Регион Логистик (Region Logistik) — авто из Китая, Японии, Кореи, Европы, США и ОАЭ под ключ";
-const DESCRIPTION = "Регион Логистик — подбор, проверка и доставка авто под ключ из Китая, Японии, Кореи, Европы, США и ОАЭ. Более 500 авто. Расчёт цены за 15 минут.";
-const OG_IMAGE = "https://rlogistik.ru/og-cover.jpg";
+// Заголовок, описание и og-теги задаёт каждая страница сама — здесь их нет, чтобы не было дублей.
 const FAVICON = "/favicon.svg";
 
 const ORG_JSON_LD = {
@@ -69,17 +68,7 @@ export const Route = createRootRoute({
         meta: [
             {charSet: "utf-8"},
             {name: "viewport", content: "width=device-width, initial-scale=1.0"},
-            {title: TITLE},
-            {name: "description", content: DESCRIPTION},
-            {property: "og:type", content: "website"},
             {property: "og:site_name", content: "Регион Логистик"},
-            {property: "og:locale", content: "ru_RU"},
-            {property: "og:title", content: TITLE},
-            {property: "og:description", content: DESCRIPTION},
-            {property: "og:image", content: OG_IMAGE},
-            {property: "og:image:width", content: "1200"},
-            {property: "og:image:height", content: "630"},
-            {name: "twitter:card", content: "summary_large_image"},
             {name: "author", content: "Регион Логистик (ООО «РегионЛогистик»)"},
             {name: "theme-color", content: "#ffffff"},
             {name: "apple-mobile-web-app-status-bar-style", content: "default"},

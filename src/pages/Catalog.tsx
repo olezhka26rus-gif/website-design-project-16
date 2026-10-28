@@ -50,7 +50,7 @@ const Catalog = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Каталог автомобилей на заказ из-за рубежа | Регион Логистик (Region Logistik)</title>
+        <title>Каталог авто из-за рубежа под ключ — цены и характеристики | Регион Логистик</title>
         <meta
           name="description"
           content={`Каталог из ${catalogEntries.length}+ моделей автомобилей на заказ из Китая, Японии, Кореи, Европы, США и ОАЭ — характеристики, ориентировочные цены и расчёт стоимости под ключ.`}

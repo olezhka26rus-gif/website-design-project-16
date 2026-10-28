@@ -25,7 +25,7 @@ const Article = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>{`${article.title} | Регион Логистик (Region Logistik)`}</title>
+        <title>{article.title.length > 60 ? article.title : `${article.title} | Регион Логистик`}</title>
         <meta name="description" content={article.description} />
         {article.keywords && <meta name="keywords" content={article.keywords} />}
         <link rel="canonical" href={pageUrl} />

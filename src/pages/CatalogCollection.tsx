@@ -58,9 +58,9 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
     const entries = catalogEntriesByCountry(key);
     const gen = countryGenitive[key] ?? countryNames[key];
     data = {
-      title: `Автомобили из ${gen} на заказ — ${models(entries.length)} и цены | Регион Логистик`,
+      title: `Авто из ${gen} под ключ — ${models(entries.length)} с ценами | Регион Логистик`,
       h1: `Автомобили из ${gen} на заказ`,
-      description: `${models(entries.length)} автомобилей из ${gen} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
+      description: `Каталог авто из ${gen}: ${models(entries.length)} с ценами под ключ, характеристиками и сроками доставки. Подбор, проверка, растаможка и доставка в любой город России.`,
       keywords: [
         `авто из ${gen}`,
         `автомобили из ${gen}`,
@@ -81,9 +81,9 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
       const ru = brandRu[found.brand];
       const nameWithRu = ru ? `${found.brand} (${ru})` : found.brand;
       data = {
-        title: `${found.brand} на заказ из-за рубежа — ${models(found.entries.length)} и цены | Регион Логистик`,
+        title: `${found.brand}${ru ? ` (${ru})` : ''} из-за рубежа под ключ — ${models(found.entries.length)} с ценами`,
         h1: `${found.brand} на заказ из-за рубежа`,
-        description: `${models(found.entries.length)} ${nameWithRu} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
+        description: `Купить ${nameWithRu} из-за рубежа: ${models(found.entries.length)} с ценами под ключ и характеристиками. Сравним страны вывоза, проверим и привезём в Россию.`,
         keywords: [
           found.brand,
           `${found.brand} на заказ`,

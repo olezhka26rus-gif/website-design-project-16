@@ -33,7 +33,7 @@ const MotoCatalog = () => {
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Каталог мотоциклов на заказ из-за рубежа | Регион Логистик (Region Logistik)</title>
+        <title>Каталог мотоциклов из-за рубежа под ключ — цены | Регион Логистик</title>
         <meta
           name="description"
           content={`Каталог из ${motoEntries.length} моделей мотоциклов на заказ из Японии, Европы и США — характеристики, ориентировочные цены и расчёт стоимости под ключ.`}

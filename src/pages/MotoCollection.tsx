@@ -60,9 +60,9 @@ const MotoCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
     const entries = motoEntriesByCountry(key);
     const gen = countryGenitive[key] ?? countryNamesMap[key];
     data = {
-      title: `Мотоциклы из ${gen} на заказ — ${models(entries.length)} и цены | Регион Логистик`,
+      title: `Мотоциклы из ${gen} под ключ — ${models(entries.length)} с ценами | Регион Логистик`,
       h1: `Мотоциклы из ${gen} на заказ`,
-      description: `${models(entries.length)} мотоциклов из ${gen} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
+      description: `Каталог мотоциклов из ${gen}: ${models(entries.length)} с ценами под ключ и характеристиками. Подбор, проверка, растаможка и доставка в любой город России.`,
       keywords: [
         `мотоцикл из ${gen}`,
         `мотоциклы из ${gen}`,
@@ -80,9 +80,9 @@ const MotoCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
     const found = findMotoBrand(brand);
     if (found) {
       data = {
-        title: `${found.brand} на заказ из-за рубежа — ${models(found.entries.length)} и цены | Регион Логистик`,
+        title: `Мотоциклы ${found.brand} из-за рубежа под ключ — ${models(found.entries.length)} с ценами`,
         h1: `${found.brand} на заказ из-за рубежа`,
-        description: `${models(found.entries.length)} мотоциклов ${found.brand} под заказ: характеристики, ориентировочные цены под ключ, подбор и доставка в Россию компанией Регион Логистик.`,
+        description: `Купить мотоцикл ${found.brand} из-за рубежа: ${models(found.entries.length)} с ценами под ключ и характеристиками. Проверим, растаможим и привезём в Россию.`,
         keywords: [
           found.brand,
           `${found.brand} на заказ`,

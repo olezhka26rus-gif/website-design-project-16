@@ -59,19 +59,15 @@ const MotoDetail = () => {
   const similarModels = motoEntriesByCountry(entry.country as MotoCountryKey)
     .filter((e) => e.slug !== entry.slug)
     .slice(0, 4);
+  const priceFrom = content.cost ? `от ${formatRub(content.cost.total)}` : variant.price;
+  const seoTitle = `Мотоцикл ${variant.model} из ${countryGen} под ключ — цена ${priceFrom}`;
+  const seoDescription = `Купить ${variant.model} из ${content.best?.countryGen ?? countryGen}: ${variant.bodyType.toLowerCase()}, ${variant.specs.engine}, ${variant.specs.power}, ${variant.specs.year} г. Цена под ключ ${priceFrom} с растаможкой и доставкой.`;
 
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>{`${variant.model} на заказ из ${countryGen} — характеристики и цена | Регион Логистик`}</title>
-        <meta
-          name="description"
-          content={
-            content.cost
-              ? `${variant.model} (${variant.bodyType}, ${variant.specs.year}) под заказ из ${countryGen}: ${variant.specs.engine}, ${variant.specs.power}, ${variant.specs.transmission}. Ориентировочная цена под ключ ${formatRub(content.cost.total)} с пошлиной и доставкой. Расчёт, сроки и ответы на частые вопросы.`
-              : `${variant.model} (${variant.bodyType}) под заказ из ${countryGen}: ${variant.specs.engine}, ${variant.specs.power}. Ориентировочная цена под ключ ${variant.price}. Подбор, проверка и доставка в Россию.`
-          }
-        />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
         <meta
           name="keywords"
           content={[
@@ -85,19 +81,19 @@ const MotoDetail = () => {
         />
         <link rel="canonical" href={pageUrl} />
         <meta property="og:type" content="product" />
-        <meta property="og:title" content={`${variant.model} на заказ из ${countryGen} | Регион Логистик`} />
+        <meta property="og:title" content={seoTitle} />
         <meta
           property="og:description"
-          content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Ориентировочная цена под ключ ${content.cost ? formatRub(content.cost.total) : variant.price}.`}
+          content={seoDescription}
         />
         <meta property="og:image" content={absoluteImage} />
         <meta property="og:url" content={pageUrl} />
         <meta property="og:locale" content="ru_RU" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${variant.model} на заказ из ${countryGen} | Регион Логистик`} />
+        <meta name="twitter:title" content={seoTitle} />
         <meta
           name="twitter:description"
-          content={`${variant.bodyType}, ${variant.specs.engine}, ${variant.specs.power}. Ориентировочная цена под ключ ${content.cost ? formatRub(content.cost.total) : variant.price}.`}
+          content={seoDescription}
         />
         <meta name="twitter:image" content={absoluteImage} />
         <script type="application/ld+json">
