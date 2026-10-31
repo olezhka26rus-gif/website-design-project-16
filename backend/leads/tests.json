@@ -16,15 +16,39 @@
       "name": "PATCH without password",
       "method": "PATCH",
       "path": "/",
-      "body": {"id": 1, "status": "called"},
+      "body": {
+        "id": 1,
+        "status": "called"
+      },
       "expectedStatus": 401
     },
     {
       "name": "POST lead",
       "method": "POST",
       "path": "/",
-      "body": {"name": "Тест", "phone": "+79001234567", "car": "", "source": "test"},
+      "body": {
+        "name": "Тест",
+        "phone": "+79001234567",
+        "car": "",
+        "source": "test"
+      },
       "expectedStatus": 200
+    },
+    {
+      "name": "POST lead with long source",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест",
+        "phone": "+79001234567",
+        "car": "Mercedes-Benz G-Класс AMG",
+        "source": "catalog:europe/mercedes-benz-g-klass-amg-dlinnyy-adres-stranicy"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
     }
   ]
 }

@@ -116,11 +116,20 @@ def handler(event: dict, context) -> dict:
     cur = conn.cursor()
 
     if method == 'POST':
-        body = json.loads(event.get('body', '{}'))
-        name = body.get('name', '').strip()
-        phone = body.get('phone', '').strip()
-        car = body.get('car', '').strip()
-        source = body.get('source', 'form')
+        body = json.loads(event.get('body') or '{}')
+        name = str(body.get('name') or '').strip()[:500]
+        phone = str(body.get('phone') or '').strip()[:100]
+        car = str(body.get('car') or '').strip()[:500]
+        source = str(body.get('source') or 'form').strip()[:500]
+
+        if not phone:
+            cur.close()
+            conn.close()
+            return {
+                'statusCode': 400,
+                'headers': cors_headers(),
+                'body': json.dumps({'error': 'Не указан телефон'})
+            }
 
         cur.execute(
             "INSERT INTO leads (name, phone, car, source) VALUES (%s, %s, %s, %s) RETURNING id",

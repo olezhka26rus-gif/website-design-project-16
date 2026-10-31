@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
-import func2url from '@/func2url.json';
+import { sendLead } from '@/lib/leads';
 import { trackGoal, goals } from '@/lib/analytics';
 
 interface LeadFormModalProps {
@@ -44,11 +44,8 @@ const LeadFormModal = ({ open, onOpenChange, source = 'blog', defaultCar = '' }:
 
     setLoading(true);
     try {
-      await fetch(func2url.leads, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source }),
-      });
+      const ok = await sendLead({ ...form, source });
+      if (!ok) throw new Error('lead not saved');
       setSent(true);
       trackGoal(goals.LEAD_FORM_SUBMIT, { source });
       toast({

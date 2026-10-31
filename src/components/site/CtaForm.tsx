@@ -6,7 +6,7 @@ import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import Calculator from './Calculator';
 import VkIcon from '@/components/icons/VkIcon';
-import func2url from '@/func2url.json';
+import { sendLead } from '@/lib/leads';
 import { trackGoal, trackPhoneClick, goals } from '@/lib/analytics';
 
 const CtaForm = () => {
@@ -28,11 +28,8 @@ const CtaForm = () => {
 
     setLoading(true);
     try {
-      await fetch(func2url.leads, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, source: 'form' }),
-      });
+      const ok = await sendLead({ ...form, source: 'form' });
+      if (!ok) throw new Error('lead not saved');
       trackGoal(goals.CTA_FORM_SUBMIT);
       toast({
         title: 'Заявка отправлена!',

@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
-import func2url from '@/func2url.json';
+import { sendLead } from '@/lib/leads';
 import { trackGoal, goals } from '@/lib/analytics';
 
 const SESSION_KEY = 'promo_popup_dismissed';
@@ -48,11 +48,8 @@ const PromoPopup = () => {
     setError('');
     setLoading(true);
     try {
-      await fetch(func2url.leads, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: 'Консультация с сайта', phone, car: '', source: 'promo_popup' }),
-      });
+      const ok = await sendLead({ name: 'Консультация с сайта', phone, source: 'promo_popup' });
+      if (!ok) throw new Error('lead not saved');
       setSent(true);
       sessionStorage.setItem(SESSION_KEY, '1');
       trackGoal(goals.PROMO_POPUP_SUBMIT);
