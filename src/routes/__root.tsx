@@ -8,6 +8,7 @@ import {HMR_CLIENT} from "@/platform/dev-hmr";
 import RouteTracker from "@/components/RouteTracker";
 import ScrollToTop from "@/components/ScrollToTop";
 import PromoPopup from "@/components/site/PromoPopup";
+import PendingLeadsSync from "@/components/PendingLeadsSync";
 import NotFoundSeo from "@/pages/NotFoundSeo";
 import appCss from "@/index.css?url";
 
@@ -113,6 +114,7 @@ function RootComponent() {
                 <ScrollToTop/>
                 <RouteTracker/>
                 <PromoPopup/>
+                <PendingLeadsSync/>
                 <Outlet/>
             </TooltipProvider>
         </RootDocument>

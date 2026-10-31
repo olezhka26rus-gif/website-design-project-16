@@ -48,19 +48,26 @@ const PromoPopup = () => {
     setError('');
     setLoading(true);
     try {
-      const ok = await sendLead({ name: 'Консультация с сайта', phone, source: 'promo_popup' });
-      if (!ok) throw new Error('lead not saved');
+      const result = await sendLead({ name: 'Консультация с сайта', phone, source: 'promo_popup' }, { name: goals.PROMO_POPUP_SUBMIT });
+      if (result === 'rejected') throw new Error('lead rejected');
       setSent(true);
       sessionStorage.setItem(SESSION_KEY, '1');
-      trackGoal(goals.PROMO_POPUP_SUBMIT);
-      toast({
-        title: 'Заявка отправлена!',
-        description: 'Перезвоним вам в течение 15 минут.',
-      });
+      if (result === 'sent') {
+        toast({
+          title: 'Заявка отправлена!',
+          description: 'Перезвоним вам в течение 15 минут.',
+        });
+      }
+      if (result === 'queued') {
+        toast({
+          title: 'Заявка сохранена',
+          description: 'Связь нестабильна — заявка уйдёт автоматически, как только появится интернет. Можно также позвонить нам.',
+        });
+      }
     } catch {
       toast({
         title: 'Ошибка отправки',
-        description: 'Попробуйте позвонить нам напрямую.',
+        description: 'Проверьте номер телефона или позвоните нам напрямую.',
         variant: 'destructive',
       });
     } finally {

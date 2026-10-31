@@ -49,6 +49,34 @@
         "success": true
       },
       "bodyMatcher": "partial"
+    },
+    {
+      "name": "POST lead idempotent",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест",
+        "phone": "+79001234567",
+        "car": "",
+        "source": "test",
+        "client_id": "test-idempotency-key"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "POST lead without phone",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "name": "Тест",
+        "phone": "",
+        "source": "test"
+      },
+      "expectedStatus": 400
     }
   ]
 }

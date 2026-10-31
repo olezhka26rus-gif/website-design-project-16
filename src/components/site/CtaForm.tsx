@@ -28,19 +28,26 @@ const CtaForm = () => {
 
     setLoading(true);
     try {
-      const ok = await sendLead({ ...form, source: 'form' });
-      if (!ok) throw new Error('lead not saved');
-      trackGoal(goals.CTA_FORM_SUBMIT);
-      toast({
-        title: 'Заявка отправлена!',
-        description: 'Свяжемся с вами в течение 15 минут.',
-      });
+      const result = await sendLead({ ...form, source: 'form' }, { name: goals.CTA_FORM_SUBMIT });
+      if (result === 'rejected') throw new Error('lead rejected');
+      if (result === 'sent') {
+        toast({
+          title: 'Заявка отправлена!',
+          description: 'Свяжемся с вами в течение 15 минут.',
+        });
+      }
+      if (result === 'queued') {
+        toast({
+          title: 'Заявка сохранена',
+          description: 'Связь нестабильна — заявка уйдёт автоматически, как только появится интернет. Можно также позвонить нам.',
+        });
+      }
       setForm({ name: '', phone: '', car: '' });
       setConsent(false);
     } catch {
       toast({
         title: 'Ошибка отправки',
-        description: 'Попробуйте позвонить нам напрямую.',
+        description: 'Проверьте номер телефона или позвоните нам напрямую.',
         variant: 'destructive',
       });
     } finally {

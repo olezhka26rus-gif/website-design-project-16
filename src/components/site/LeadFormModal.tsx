@@ -12,7 +12,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import { sendLead } from '@/lib/leads';
-import { trackGoal, goals } from '@/lib/analytics';
+import { goals } from '@/lib/analytics';
 
 interface LeadFormModalProps {
   open: boolean;
@@ -44,18 +44,25 @@ const LeadFormModal = ({ open, onOpenChange, source = 'blog', defaultCar = '' }:
 
     setLoading(true);
     try {
-      const ok = await sendLead({ ...form, source });
-      if (!ok) throw new Error('lead not saved');
+      const result = await sendLead({ ...form, source }, { name: goals.LEAD_FORM_SUBMIT, params: { source } });
+      if (result === 'rejected') throw new Error('lead rejected');
       setSent(true);
-      trackGoal(goals.LEAD_FORM_SUBMIT, { source });
-      toast({
-        title: 'Заявка отправлена!',
-        description: 'Свяжемся с вами в течение 15 минут.',
-      });
+      if (result === 'sent') {
+        toast({
+          title: 'Заявка отправлена!',
+          description: 'Свяжемся с вами в течение 15 минут.',
+        });
+      }
+      if (result === 'queued') {
+        toast({
+          title: 'Заявка сохранена',
+          description: 'Связь нестабильна — заявка уйдёт автоматически, как только появится интернет. Можно также позвонить нам.',
+        });
+      }
     } catch {
       toast({
         title: 'Ошибка отправки',
-        description: 'Попробуйте позвонить нам напрямую.',
+        description: 'Проверьте номер телефона или позвоните нам напрямую.',
         variant: 'destructive',
       });
     } finally {

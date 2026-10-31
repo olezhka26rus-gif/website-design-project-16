@@ -1,3 +1,4 @@
+import base64
 import json
 import os
 import smtplib
@@ -28,7 +29,7 @@ def send_sms(text: str) -> tuple:
             'json': 1,
         })
         req = urllib.request.Request(f'https://sms.ru/sms/send?{params}')
-        with urllib.request.urlopen(req, timeout=10) as resp:
+        with urllib.request.urlopen(req, timeout=3) as resp:
             data = json.loads(resp.read().decode('utf-8'))
 
         print(f'SMS DEBUG: status={data.get("status")} code={data.get("status_code")}')
@@ -77,7 +78,7 @@ def send_email_notification(name: str, phone: str, car: str, source: str) -> Non
         msg['From'] = login
         msg['To'] = NOTIFY_EMAIL
 
-        with smtplib.SMTP_SSL('smtp.mail.ru', 465, timeout=15) as server:
+        with smtplib.SMTP_SSL('smtp.mail.ru', 465, timeout=4) as server:
             server.login(login, password)
             server.sendmail(login, [NOTIFY_EMAIL], msg.as_string())
         print(f'EMAIL DEBUG: notification sent to {NOTIFY_EMAIL}')
@@ -116,7 +117,16 @@ def handler(event: dict, context) -> dict:
     cur = conn.cursor()
 
     if method == 'POST':
-        body = json.loads(event.get('body') or '{}')
+        raw = event.get('body') or '{}'
+        if event.get('isBase64Encoded'):
+            raw = base64.b64decode(raw).decode('utf-8', 'ignore')
+        try:
+            body = json.loads(raw)
+        except (ValueError, TypeError):
+            body = {}
+        if not isinstance(body, dict):
+            body = {}
+        client_id = str(body.get('client_id') or '').strip()[:64] or None
         name = str(body.get('name') or '').strip()[:500]
         phone = str(body.get('phone') or '').strip()[:100]
         car = str(body.get('car') or '').strip()[:500]
@@ -132,13 +142,26 @@ def handler(event: dict, context) -> dict:
             }
 
         cur.execute(
-            "INSERT INTO leads (name, phone, car, source) VALUES (%s, %s, %s, %s) RETURNING id",
-            (name, phone, car, source)
+            "INSERT INTO leads (name, phone, car, source, client_id) VALUES (%s, %s, %s, %s, %s) "
+            "ON CONFLICT (client_id) DO NOTHING RETURNING id",
+            (name or 'Без имени', phone, car, source, client_id)
         )
-        new_id = cur.fetchone()[0]
+        row = cur.fetchone()
+        duplicate = row is None
+        if duplicate:
+            cur.execute("SELECT id FROM leads WHERE client_id = %s", (client_id,))
+            row = cur.fetchone()
+        new_id = row[0]
         conn.commit()
         cur.close()
         conn.close()
+
+        if duplicate:
+            return {
+                'statusCode': 200,
+                'headers': cors_headers(),
+                'body': json.dumps({'success': True, 'id': new_id, 'duplicate': True})
+            }
 
         send_email_notification(name, phone, car, source)
         send_sms_notification(name, phone, car)
