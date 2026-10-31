@@ -15,6 +15,7 @@ import {
 } from '@/data/catalogCars';
 import { brandRu } from '@/data/carAliases';
 import { buildCollectionContent } from '@/lib/collectionContent';
+import { buildCountrySeo, buildBrandSeo } from '@/lib/collectionSeo';
 import { formatRub } from '@/lib/customs';
 import NotFoundSeo from './NotFoundSeo';
 
@@ -41,6 +42,8 @@ const countryGenitive: Record<string, string> = {
 interface CollectionData {
   title: string;
   h1: string;
+  label: string;
+  subtitle: string;
   description: string;
   keywords: string;
   url: string;
@@ -57,10 +60,13 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
     const key = country as CountryKey;
     const entries = catalogEntriesByCountry(key);
     const gen = countryGenitive[key] ?? countryNames[key];
+    const seo = buildCountrySeo(key, entries);
     data = {
-      title: `Авто из ${gen} под ключ — ${models(entries.length)} с ценами | Регион Логистик`,
-      h1: `Автомобили из ${gen} на заказ`,
-      description: `Каталог авто из ${gen}: ${models(entries.length)} с ценами под ключ, характеристиками и сроками доставки. Подбор, проверка, растаможка и доставка в любой город России.`,
+      title: seo.title,
+      h1: seo.h1,
+      label: seo.label,
+      subtitle: seo.subtitle,
+      description: seo.description,
       keywords: [
         `авто из ${gen}`,
         `автомобили из ${gen}`,
@@ -80,10 +86,13 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
     if (found) {
       const ru = brandRu[found.brand];
       const nameWithRu = ru ? `${found.brand} (${ru})` : found.brand;
+      const seo = buildBrandSeo(found.brand, found.entries);
       data = {
-        title: `${found.brand}${ru ? ` (${ru})` : ''} из-за рубежа под ключ — ${models(found.entries.length)} с ценами`,
-        h1: `${found.brand} на заказ из-за рубежа`,
-        description: `Купить ${nameWithRu} из-за рубежа: ${models(found.entries.length)} с ценами под ключ и характеристиками. Сравним страны вывоза, проверим и привезём в Россию.`,
+        title: seo.title,
+        h1: seo.h1,
+        label: seo.label,
+        subtitle: seo.subtitle,
+        description: seo.description,
         keywords: [
           found.brand,
           `${found.brand} на заказ`,
@@ -140,7 +149,7 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
             itemListElement: [
               { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://rlogistik.ru/' },
               { '@type': 'ListItem', position: 2, name: 'Каталог', item: 'https://rlogistik.ru/catalog' },
-              { '@type': 'ListItem', position: 3, name: data.h1, item: data.url },
+              { '@type': 'ListItem', position: 3, name: data.label, item: data.url },
             ],
           })}
         </script>
@@ -179,11 +188,12 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
           <span className="mx-1.5">/</span>
           <Link to="/catalog" className="hover:text-primary">Каталог</Link>
           <span className="mx-1.5">/</span>
-          <span className="text-foreground">{data.h1}</span>
+          <span className="text-foreground">{data.label}</span>
         </nav>
 
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl mb-3">{data.h1}</h1>
-        <p className="text-muted-foreground mb-8 max-w-2xl">{data.intro}</p>
+        <p className="text-foreground/80 mb-2 max-w-3xl">{data.subtitle}</p>
+        <p className="text-muted-foreground mb-8 max-w-3xl text-sm">{data.intro}</p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {data.entries.map((e) => (
@@ -225,7 +235,7 @@ const CatalogCollection = ({ mode }: { mode: 'country' | 'brand' }) => {
         </div>
 
         <section className="mt-12 max-w-3xl">
-          <h2 className="font-display font-bold text-xl mb-3">{data.h1}: что важно знать</h2>
+          <h2 className="font-display font-bold text-xl mb-3">{data.label}: что важно знать</h2>
           <p className="text-sm text-foreground/80 leading-relaxed">{extra.about}</p>
         </section>
 
